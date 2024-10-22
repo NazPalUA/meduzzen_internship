@@ -3,7 +3,10 @@ import { Container, Typography } from "@mui/material"
 
 export default function About() {
 	return (
-		<Container maxWidth="sm" style={{ textAlign: "center", marginTop: "50px" }}>
+		<Container
+			maxWidth="sm"
+			style={{ textAlign: "center", paddingTop: "50px" }}
+		>
 			<Typography variant="h4" component="h1" gutterBottom>
 				{ABOUT_PAGE_TEXT.TITLE}
 			</Typography>
