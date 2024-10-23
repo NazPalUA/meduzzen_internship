@@ -1,0 +1,14 @@
+# Ignore node modules and logs
+node_modules
+
+# Ignore local development files
+.git
+.gitignore
+Dockerfile
+.dockerignore
+
+# Ignore environment files
+.env*
+
+# Ignore build output
+.next
