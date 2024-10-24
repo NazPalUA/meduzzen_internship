@@ -20,7 +20,7 @@ export default function UserProfile({ params }: { params: Params }) {
 
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h1" gutterBottom>
+			<Typography variant="h4" component="h2" gutterBottom>
 				{PROFILE_PAGE_TEXT.TITLE} {userId}
 			</Typography>
 			<Typography variant="body1">

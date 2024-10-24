@@ -19,7 +19,7 @@ const mockCompanies = [
 export default function Companies() {
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h1" gutterBottom>
+			<Typography variant="h4" component="h2" gutterBottom>
 				{COMPANIES_PAGE_TEXT.TITLE}
 			</Typography>
 			<CompaniesList companies={mockCompanies} />

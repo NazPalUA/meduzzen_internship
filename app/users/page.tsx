@@ -19,7 +19,7 @@ const mockUsers = [
 export default function Users() {
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h1" gutterBottom>
+			<Typography variant="h4" component="h2" gutterBottom>
 				{USERS_PAGE_TEXT.TITLE}
 			</Typography>
 			<Typography variant="body1">{USERS_PAGE_TEXT.DESCRIPTION}</Typography>

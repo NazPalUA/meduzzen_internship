@@ -20,7 +20,7 @@ export default function CompanyProfile({ params }: { params: Params }) {
 
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h1" gutterBottom>
+			<Typography variant="h4" component="h2" gutterBottom>
 				{COMPANY_PROFILE_PAGE_TEXT.TITLE}: {name}
 			</Typography>
 			<Typography variant="body1">
