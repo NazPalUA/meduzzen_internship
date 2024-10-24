@@ -13,10 +13,10 @@ export function Footer() {
 			}}
 		>
 			<Container maxWidth="sm" className={styles.container}>
-				<p>
+				<div>
 					© {new Date().getFullYear()} {FOOTER_TEXT.COPYRIGHT}
-				</p>
-				<p>
+				</div>
+				<div>
 					<Link href="#" color="inherit" underline="hover">
 						{FOOTER_TEXT.PRIVACY_POLICY_LINK_LABEL}
 					</Link>
@@ -24,7 +24,7 @@ export function Footer() {
 					<Link href="#" color="inherit" underline="hover">
 						{FOOTER_TEXT.TERMS_OF_SERVICE_LINK_LABEL}
 					</Link>
-				</p>
+				</div>
 			</Container>
 		</Box>
 	)
