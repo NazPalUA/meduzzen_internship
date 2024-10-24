@@ -12,11 +12,11 @@ export function Footer() {
 				color: "white",
 			}}
 		>
-			<Container maxWidth="sm">
-				<Typography variant="body1" className={styles.typographyBody1}>
+			<Container maxWidth="sm" className={styles.container}>
+				<Typography variant="body1">
 					© {new Date().getFullYear()} {FOOTER_TEXT.COPYRIGHT}
 				</Typography>
-				<Typography variant="body2" className={styles.typographyBody2}>
+				<Typography variant="body2">
 					<Link href="#" color="inherit" underline="hover">
 						{FOOTER_TEXT.PRIVACY_POLICY_LINK_LABEL}
 					</Link>

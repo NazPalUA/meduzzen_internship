@@ -3,11 +3,10 @@
 	margin-top: auto;
 }
 
-.typographyBody1,
-.typographyBody2 {
+.container {
 	text-align: center;
-}
 
-.typographyBody2 {
-	margin-top: 1rem;
+	> :first-child {
+		margin-bottom: 1rem;
+	}
 }
