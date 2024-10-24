@@ -1,7 +1,6 @@
 import { USERS_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
 import { UsersList } from "@/src/widgets/UsersList"
-import { Typography } from "@mui/material"
 
 const mockUsers = [
 	{ id: "1", name: "John Doe", email: "john@example.com" },
@@ -19,10 +18,8 @@ const mockUsers = [
 export default function Users() {
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h2" gutterBottom>
-				{USERS_PAGE_TEXT.TITLE}
-			</Typography>
-			<Typography variant="body1">{USERS_PAGE_TEXT.DESCRIPTION}</Typography>
+			<h2>{USERS_PAGE_TEXT.TITLE}</h2>
+			<p>{USERS_PAGE_TEXT.DESCRIPTION}</p>
 			<UsersList users={mockUsers} />
 		</PageContainer>
 	)

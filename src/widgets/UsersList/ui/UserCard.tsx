@@ -1,5 +1,5 @@
 import { type UserEntity } from "@/src/entities/user"
-import { Avatar, Card, CardContent, Typography } from "@mui/material"
+import { Avatar, Card, CardContent } from "@mui/material"
 import styles from "./UserCard.module.scss"
 
 export function UserCard({ user }: { user: UserEntity }) {
@@ -10,10 +10,8 @@ export function UserCard({ user }: { user: UserEntity }) {
 				<div className={styles.container}>
 					<Avatar>{name[0]}</Avatar>
 					<div className={styles.details}>
-						<Typography variant="h6">{name}</Typography>
-						<Typography variant="body2" color="textSecondary">
-							{email}
-						</Typography>
+						<strong>{name}</strong>
+						<p color="textSecondary">{email}</p>
 					</div>
 				</div>
 			</CardContent>

@@ -1,7 +1,6 @@
 import { COMPANIES_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
 import { CompaniesList } from "@/src/widgets/CompaniesList"
-import { Typography } from "@mui/material"
 
 const mockCompanies = [
 	{ id: "a", name: "Company A", description: "Description A" },
@@ -19,9 +18,7 @@ const mockCompanies = [
 export default function Companies() {
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h2" gutterBottom>
-				{COMPANIES_PAGE_TEXT.TITLE}
-			</Typography>
+			<strong>{COMPANIES_PAGE_TEXT.TITLE}</strong>
 			<CompaniesList companies={mockCompanies} />
 		</PageContainer>
 	)

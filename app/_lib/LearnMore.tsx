@@ -4,7 +4,7 @@
 
 import { HOME_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { Modal } from "@/src/shared/ui/Modal"
-import { Button, Typography } from "@mui/material"
+import { Button } from "@mui/material"
 import { useState } from "react"
 
 export default function LearnMore() {
@@ -18,7 +18,7 @@ export default function LearnMore() {
 				{HOME_PAGE_TEXT.LEARN_MORE_BUTTON}
 			</Button>
 			<Modal open={modalOpen} onClose={handleClose} title="Learn More">
-				<Typography>Your content goes here.</Typography>
+				<p>Your content goes here.</p>
 			</Modal>
 		</>
 	)

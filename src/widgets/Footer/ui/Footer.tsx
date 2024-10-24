@@ -1,5 +1,5 @@
 import { FOOTER_TEXT } from "@/src/shared/constants/texts"
-import { Box, Container, Link, Typography } from "@mui/material"
+import { Box, Container, Link } from "@mui/material"
 import styles from "./Footer.module.scss"
 
 export function Footer() {
@@ -13,10 +13,10 @@ export function Footer() {
 			}}
 		>
 			<Container maxWidth="sm" className={styles.container}>
-				<Typography variant="body1">
+				<p>
 					© {new Date().getFullYear()} {FOOTER_TEXT.COPYRIGHT}
-				</Typography>
-				<Typography variant="body2">
+				</p>
+				<p>
 					<Link href="#" color="inherit" underline="hover">
 						{FOOTER_TEXT.PRIVACY_POLICY_LINK_LABEL}
 					</Link>
@@ -24,7 +24,7 @@ export function Footer() {
 					<Link href="#" color="inherit" underline="hover">
 						{FOOTER_TEXT.TERMS_OF_SERVICE_LINK_LABEL}
 					</Link>
-				</Typography>
+				</p>
 			</Container>
 		</Box>
 	)

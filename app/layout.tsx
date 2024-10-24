@@ -2,7 +2,7 @@ import "@/src/shared/styles/globals.css"
 import theme from "@/src/shared/styles/theme"
 import { Footer } from "@/src/widgets/Footer"
 import { Header } from "@/src/widgets/Header"
-import { Box, CssBaseline, StyledEngineProvider } from "@mui/material"
+import { CssBaseline, StyledEngineProvider } from "@mui/material"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import { ThemeProvider } from "@mui/material/styles"
 import type { Metadata } from "next"
@@ -33,13 +33,11 @@ export default function RootLayout({
 					<AppRouterCacheProvider>
 						<StyledEngineProvider injectFirst>
 							<CssBaseline />
-							<Box className={styles.root}>
+							<div className={styles.root}>
 								<Header />
-								<Box component="main" className={styles.main}>
-									{children}
-								</Box>
+								<main className={styles.main}>{children}</main>
 								<Footer />
-							</Box>
+							</div>
 						</StyledEngineProvider>
 					</AppRouterCacheProvider>
 				</ThemeProvider>

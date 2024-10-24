@@ -1,15 +1,14 @@
 import { HEADER_TEXT } from "@/src/shared/constants/texts"
-import { AppBar, Box, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Toolbar } from "@mui/material"
 import { links } from "../lib/links"
+import styles from "./Header.module.scss"
 import { NavItem } from "./NavItem"
 
 export function Header() {
 	return (
 		<AppBar position="static" component="header">
 			<Toolbar>
-				<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-					{HEADER_TEXT.TITLE}
-				</Typography>
+				<div className={styles.title}>{HEADER_TEXT.TITLE}</div>
 				<Box>
 					{links.map(({ href, label }) => (
 						<NavItem key={href} href={href} label={label} />

@@ -1,14 +1,11 @@
 import { ABOUT_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
-import { Typography } from "@mui/material"
 
 export default function About() {
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h2" gutterBottom>
-				{ABOUT_PAGE_TEXT.TITLE}
-			</Typography>
-			<Typography variant="body1">{ABOUT_PAGE_TEXT.DESCRIPTION}</Typography>
+			<h2>{ABOUT_PAGE_TEXT.TITLE}</h2>
+			<p>{ABOUT_PAGE_TEXT.DESCRIPTION}</p>
 		</PageContainer>
 	)
 }

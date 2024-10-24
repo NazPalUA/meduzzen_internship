@@ -1,12 +1,7 @@
 "use client"
 
-import {
-	Box,
-	Button,
-	Modal as MuiModal,
-	Typography,
-	useTheme,
-} from "@mui/material"
+import { Box, Button, Modal as MuiModal, useTheme } from "@mui/material"
+import styles from "./Modal.module.scss"
 
 const style = {
 	position: "absolute",
@@ -40,26 +35,21 @@ export function Modal({ open, onClose, title, children }: Props) {
 			aria-describedby="modal-description"
 		>
 			<Box sx={style} role="dialog" aria-modal="true">
-				<Typography
+				<strong
 					id="modal-title"
-					variant="h6"
-					component="h2"
 					tabIndex={-1}
-					sx={{ color: theme.palette.text.primary, fontWeight: "bold" }}
+					color={theme.palette.text.primary}
 				>
 					{title}
-				</Typography>
-				<Typography
-					id="modal-description"
-					sx={{ mt: 2, color: theme.palette.text.secondary }}
-				>
+				</strong>
+				<div id="modal-description" className={styles.content}>
 					{children}
-				</Typography>
+				</div>
 				<Button
 					onClick={onClose}
 					variant="contained"
 					color="primary"
-					sx={{ mt: 2 }}
+					className={styles.closeButton}
 				>
 					Close
 				</Button>

@@ -1,6 +1,5 @@
 import { PROFILE_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
-import { Typography } from "@mui/material"
 
 type Params = {
 	userId: string
@@ -20,15 +19,15 @@ export default function UserProfile({ params }: { params: Params }) {
 
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h2" gutterBottom>
+			<h2>
 				{PROFILE_PAGE_TEXT.TITLE} {userId}
-			</Typography>
-			<Typography variant="body1">
+			</h2>
+			<p>
 				{PROFILE_PAGE_TEXT.EMAIL}: {email}
-			</Typography>
-			<Typography variant="body1">
+			</p>
+			<p>
 				{PROFILE_PAGE_TEXT.ABOUT}: {about}
-			</Typography>
+			</p>
 		</PageContainer>
 	)
 }

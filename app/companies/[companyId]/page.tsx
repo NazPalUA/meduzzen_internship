@@ -1,6 +1,5 @@
 import { COMPANY_PROFILE_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
-import { Typography } from "@mui/material"
 
 type Params = {
 	companyId: string
@@ -20,12 +19,12 @@ export default function CompanyProfile({ params }: { params: Params }) {
 
 	return (
 		<PageContainer>
-			<Typography variant="h4" component="h2" gutterBottom>
+			<h2>
 				{COMPANY_PROFILE_PAGE_TEXT.TITLE}: {name}
-			</Typography>
-			<Typography variant="body1">
+			</h2>
+			<p>
 				{COMPANY_PROFILE_PAGE_TEXT.DESCRIPTION}: {description}
-			</Typography>
+			</p>
 		</PageContainer>
 	)
 }
