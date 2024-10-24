@@ -17,12 +17,9 @@ export default function LearnMore() {
 			<Button variant="contained" color="primary" onClick={handleOpen}>
 				{HOME_PAGE_TEXT.LEARN_MORE_BUTTON}
 			</Button>
-			<Modal
-				open={modalOpen}
-				onClose={handleClose}
-				title="Learn More"
-				content={<Typography>Your content goes here.</Typography>}
-			/>
+			<Modal open={modalOpen} onClose={handleClose} title="Learn More">
+				<Typography>Your content goes here.</Typography>
+			</Modal>
 		</>
 	)
 }

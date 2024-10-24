@@ -26,10 +26,10 @@ type Props = {
 	open: boolean
 	onClose: () => void
 	title: string
-	content: React.ReactNode
+	children: React.ReactNode
 }
 
-export function Modal({ open, onClose, title, content }: Props) {
+export function Modal({ open, onClose, title, children }: Props) {
 	const theme = useTheme()
 
 	return (
@@ -53,7 +53,7 @@ export function Modal({ open, onClose, title, content }: Props) {
 					id="modal-description"
 					sx={{ mt: 2, color: theme.palette.text.secondary }}
 				>
-					{content}
+					{children}
 				</Typography>
 				<Button
 					onClick={onClose}
