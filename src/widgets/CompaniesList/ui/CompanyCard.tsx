@@ -8,7 +8,7 @@ export function CompanyCard({ company }: { company: CompanyEntity }) {
 		<Card elevation={3} className={styles.card}>
 			<CardContent>
 				<strong className={styles.title}>{name}</strong>
-				<p color="textSecondary">{description}</p>
+				<p>{description}</p>
 			</CardContent>
 		</Card>
 	)

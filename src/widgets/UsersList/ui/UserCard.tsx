@@ -11,7 +11,7 @@ export function UserCard({ user }: { user: UserEntity }) {
 					<Avatar>{name[0]}</Avatar>
 					<div className={styles.details}>
 						<strong>{name}</strong>
-						<div color="textSecondary">{email}</div>
+						<div>{email}</div>
 					</div>
 				</div>
 			</CardContent>

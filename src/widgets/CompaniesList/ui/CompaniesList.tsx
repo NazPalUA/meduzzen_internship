@@ -9,7 +9,7 @@ export function CompaniesList({ companies }: { companies: CompanyEntity[] }) {
 		<Grid container spacing={2} justifyContent="center">
 			{companies.map(company => (
 				<Grid key={company.id} display="flex" justifyContent="center">
-					<Link href={`${Routes.COMPANIES}/${company.id}`} passHref>
+					<Link href={`${Routes.COMPANIES}/${company.id}`}>
 						<CompanyCard company={company} />
 					</Link>
 				</Grid>
