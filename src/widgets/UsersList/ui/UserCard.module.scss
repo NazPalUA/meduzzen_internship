@@ -1,0 +1,13 @@
+.card {
+	cursor: pointer;
+}
+
+.stack {
+	direction: row;
+	gap: 1rem;
+	align-items: center;
+}
+
+.stackInner {
+	align-items: flex-start;
+}

@@ -7,6 +7,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import { ThemeProvider } from "@mui/material/styles"
 import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
+import styles from "./layout.module.scss"
 
 const roboto = Roboto({
 	weight: ["300", "400", "500", "700"],
@@ -31,15 +32,9 @@ export default function RootLayout({
 				<ThemeProvider theme={theme}>
 					<AppRouterCacheProvider>
 						<CssBaseline />
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "column",
-								minHeight: "100vh",
-							}}
-						>
+						<Box className={styles.root}>
 							<Header />
-							<Box component="main" sx={{ flexGrow: 1, py: 3 }}>
+							<Box component="main" className={styles.main}>
 								{children}
 							</Box>
 							<Footer />

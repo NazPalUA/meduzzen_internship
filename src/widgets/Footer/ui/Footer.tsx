@@ -1,23 +1,22 @@
 import { FOOTER_TEXT } from "@/src/shared/constants/texts"
 import { Box, Container, Link, Typography } from "@mui/material"
+import styles from "./Footer.module.scss"
 
 export function Footer() {
 	return (
 		<Box
 			component="footer"
+			className={styles.footer}
 			sx={{
-				py: 3,
-				px: 2,
-				mt: "auto",
 				backgroundColor: "primary.main",
 				color: "white",
 			}}
 		>
 			<Container maxWidth="sm">
-				<Typography variant="body1" align="center">
+				<Typography variant="body1" className={styles.typographyBody1}>
 					© {new Date().getFullYear()} {FOOTER_TEXT.COPYRIGHT}
 				</Typography>
-				<Typography variant="body2" align="center" sx={{ mt: 1 }}>
+				<Typography variant="body2" className={styles.typographyBody2}>
 					<Link href="#" color="inherit" underline="hover">
 						{FOOTER_TEXT.PRIVACY_POLICY_LINK_LABEL}
 					</Link>
