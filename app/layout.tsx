@@ -2,7 +2,7 @@ import "@/src/shared/styles/globals.css"
 import theme from "@/src/shared/styles/theme"
 import { Footer } from "@/src/widgets/Footer"
 import { Header } from "@/src/widgets/Header"
-import { Box } from "@mui/material"
+import { Box, CssBaseline } from "@mui/material"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import { ThemeProvider } from "@mui/material/styles"
 import type { Metadata } from "next"
@@ -30,6 +30,7 @@ export default function RootLayout({
 			<body className={roboto.variable}>
 				<ThemeProvider theme={theme}>
 					<AppRouterCacheProvider>
+						<CssBaseline />
 						<Box
 							sx={{
 								display: "flex",
