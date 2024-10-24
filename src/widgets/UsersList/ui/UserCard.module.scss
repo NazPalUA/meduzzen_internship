@@ -1,5 +1,9 @@
 .card {
-	cursor: pointer;
+	transition: transform 0.2s !important;
+
+	&:hover {
+		transform: scale(1.05);
+	}
 }
 
 .stack {

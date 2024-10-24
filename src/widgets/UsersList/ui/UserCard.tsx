@@ -5,14 +5,7 @@ import styles from "./UserCard.module.scss"
 export function UserCard({ user }: { user: UserEntity }) {
 	const { name, email } = user
 	return (
-		<Card
-			elevation={3}
-			className={styles.card}
-			sx={{
-				transition: "transform 0.2s",
-				"&:hover": { transform: "scale(1.05)" },
-			}}
-		>
+		<Card elevation={3} className={styles.card}>
 			<CardContent>
 				<Stack className={styles.stack}>
 					<Avatar>{name[0]}</Avatar>
