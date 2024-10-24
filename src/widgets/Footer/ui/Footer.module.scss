@@ -1,6 +1,14 @@
 .footer {
 	padding: 1rem;
 	margin-top: auto;
+	background-color: var(--mui-palette-primary-main);
+	color: var(--mui-palette-primary-contrastText);
+}
+
+.link {
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .container {
