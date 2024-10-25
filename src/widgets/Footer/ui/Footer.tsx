@@ -1,11 +1,11 @@
 import { FOOTER_TEXT } from "@/src/shared/constants/texts"
-import { Box, Container } from "@mui/material"
+import { Container } from "@mui/material"
 import Link from "next/link"
 import styles from "./Footer.module.scss"
 
 export function Footer() {
 	return (
-		<Box component="footer" className={styles.footer}>
+		<footer className={styles.footer}>
 			<Container maxWidth="sm" className={styles.container}>
 				<div>
 					© {new Date().getFullYear()} {FOOTER_TEXT.COPYRIGHT}
@@ -20,6 +20,6 @@ export function Footer() {
 					</Link>
 				</div>
 			</Container>
-		</Box>
+		</footer>
 	)
 }
