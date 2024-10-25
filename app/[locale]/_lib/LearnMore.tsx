@@ -18,8 +18,8 @@ export default function LearnMore() {
 			<Button variant="contained" onClick={handleOpen}>
 				{t("learnMoreButton")}
 			</Button>
-			<Modal open={modalOpen} onClose={handleClose} title="Learn More">
-				<p>Your content goes here.</p>
+			<Modal open={modalOpen} onClose={handleClose} title={t("learnMoreTitle")}>
+				<p>{t("learnMoreDescription")}</p>
 			</Modal>
 		</>
 	)
