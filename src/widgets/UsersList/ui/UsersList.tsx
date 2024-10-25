@@ -1,6 +1,6 @@
 import { type UserEntity } from "@/src/entities/user"
 import { Routes } from "@/src/shared/constants/routes"
-import { Link } from "@/src/shared/i18n/routing"
+import { Link } from "@/src/shared/i18n/navigation"
 import Grid from "@mui/material/Grid2"
 import { UserCard } from "./UserCard"
 

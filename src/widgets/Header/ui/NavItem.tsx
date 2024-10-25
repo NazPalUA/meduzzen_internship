@@ -1,4 +1,4 @@
-import { Link } from "@/src/shared/i18n/routing"
+import { Link } from "@/src/shared/i18n/navigation"
 import { Button } from "@mui/material"
 
 type Props = {

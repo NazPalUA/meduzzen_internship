@@ -1,6 +1,7 @@
 "use client"
 
-import { Locale, usePathname, useRouter } from "@/src/shared/i18n/routing"
+import { usePathname, useRouter } from "@/src/shared/i18n/navigation"
+import { Locale } from "@/src/shared/i18n/routing"
 import { Select, SelectChangeEvent } from "@mui/material"
 import clsx from "clsx"
 import { useParams } from "next/navigation"
