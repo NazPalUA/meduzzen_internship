@@ -1,4 +1,13 @@
 {
+	"LocaleLayout": {
+		"title": "Meduzzen Intership",
+		"description": "Meduzzen Internship Project"
+	},
+
+	"NotFoundPage": {
+		"description": "The page you are looking for does not exist."
+	},
+
 	"HomePage": {
 		"title": "Meduzzen Intership",
 		"welcomeMessage": "Welcome to our project!",

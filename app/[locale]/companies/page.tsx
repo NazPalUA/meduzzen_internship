@@ -1,6 +1,7 @@
 import { PageContainer } from "@shared/ui/PageContainer"
 import { CompaniesList } from "@widgets/CompaniesList"
 import { useTranslations } from "next-intl"
+import { setRequestLocale } from "next-intl/server"
 
 const mockCompanies = [
 	{ id: "a", name: "Company A", description: "Description A" },
@@ -15,7 +16,14 @@ const mockCompanies = [
 	{ id: "j", name: "Company J", description: "Description J" },
 ]
 
-export default function Companies() {
+type Props = {
+	params: { locale: string }
+}
+
+export default function Companies({ params: { locale } }: Props) {
+	// Enable static rendering
+	setRequestLocale(locale)
+
 	const t = useTranslations("CompaniesPage")
 	return (
 		<PageContainer>

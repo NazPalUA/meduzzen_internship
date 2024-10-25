@@ -1,7 +1,15 @@
 import { PageContainer } from "@shared/ui/PageContainer"
 import { useTranslations } from "next-intl"
+import { setRequestLocale } from "next-intl/server"
 
-export default function About() {
+type Props = {
+	params: { locale: string }
+}
+
+export default function About({ params: { locale } }: Props) {
+	// Enable static rendering
+	setRequestLocale(locale)
+
 	const t = useTranslations("AboutPage")
 	return (
 		<PageContainer>

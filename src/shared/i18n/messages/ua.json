@@ -1,4 +1,13 @@
 {
+	"LocaleLayout": {
+		"title": "Стажування Meduzzen",
+		"description": "Проект стажування Meduzzen"
+	},
+
+	"NotFoundPage": {
+		"description": "Сторінка, яку ви шукаєте, не існує."
+	},
+
 	"HomePage": {
 		"title": "Стажування Meduzzen",
 		"welcomeMessage": "Ласкаво просимо до нашого проекту!",
