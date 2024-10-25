@@ -1,5 +1,5 @@
-import { routing } from "@/src/shared/i18n/routing"
 import { MenuItem } from "@mui/material"
+import { routing } from "@shared/i18n/routing"
 import { useLocale, useTranslations } from "next-intl"
 import { LocaleSwitcherSelect } from "./LocaleSwitcherSelect"
 import styles from "./LocaleSwitcherSelect.module.scss"

@@ -7,12 +7,12 @@
 			"error",
 			{
 				"name": "next/link",
-				"message": "Plesae import from @/shared/i18n/navigation instead.",
+				"message": "Plesae import from @navigation instead.",
 				"importNames": ["default"]
 			},
 			{
 				"name": "next/navigation",
-				"message": "Plesae import from @/shared/i18n/navigation instead.",
+				"message": "Plesae import from @navigation instead.",
 				"importNames": [
 					"redirect",
 					"permanent Redirect",

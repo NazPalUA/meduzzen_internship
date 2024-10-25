@@ -1,5 +1,5 @@
-import { PageContainer } from "@/src/shared/ui/PageContainer"
-import { CompaniesList } from "@/src/widgets/CompaniesList"
+import { PageContainer } from "@shared/ui/PageContainer"
+import { CompaniesList } from "@widgets/CompaniesList"
 import { useTranslations } from "next-intl"
 
 const mockCompanies = [

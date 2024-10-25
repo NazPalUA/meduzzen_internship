@@ -1,8 +1,8 @@
 "use client"
 
-import { usePathname, useRouter } from "@/src/shared/i18n/navigation"
-import { Locale } from "@/src/shared/i18n/routing"
 import { Select, SelectChangeEvent } from "@mui/material"
+import { usePathname, useRouter } from "@navigation"
+import { Locale } from "@shared/i18n/routing"
 import clsx from "clsx"
 import { useParams } from "next/navigation"
 import { ReactNode, useTransition } from "react"

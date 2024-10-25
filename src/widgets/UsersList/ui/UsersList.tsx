@@ -1,7 +1,7 @@
-import { type UserEntity } from "@/src/entities/user"
-import { Routes } from "@/src/shared/constants/routes"
-import { Link } from "@/src/shared/i18n/navigation"
+import { type UserEntity } from "@entities/user"
 import Grid from "@mui/material/Grid2"
+import { Link } from "@navigation"
+import { Routes } from "@routes"
 import { UserCard } from "./UserCard"
 
 export function UsersList({ users }: { users: UserEntity[] }) {

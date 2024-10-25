@@ -1,4 +1,4 @@
-import { PageContainer } from "@/src/shared/ui/PageContainer"
+import { PageContainer } from "@shared/ui/PageContainer"
 import { useTranslations } from "next-intl"
 
 type Params = {

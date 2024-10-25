@@ -2,8 +2,8 @@
 
 "use client"
 
-import { Modal } from "@/src/shared/ui/Modal"
 import { Button } from "@mui/material"
+import { Modal } from "@shared/ui/Modal"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
 

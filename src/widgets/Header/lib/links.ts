@@ -1,4 +1,4 @@
-import { Routes } from "@/src/shared/constants/routes"
+import { Routes } from "@routes"
 import { useTranslations } from "next-intl"
 
 export const useLinks = () => {

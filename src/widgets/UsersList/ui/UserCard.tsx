@@ -1,4 +1,4 @@
-import { type UserEntity } from "@/src/entities/user"
+import { type UserEntity } from "@entities/user"
 import { Avatar, Card, CardContent } from "@mui/material"
 import styles from "./UserCard.module.scss"
 

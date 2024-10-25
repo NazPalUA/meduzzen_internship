@@ -1,5 +1,5 @@
-import { Link } from "@/src/shared/i18n/navigation"
 import { Button } from "@mui/material"
+import { Link } from "@navigation"
 
 type Props = {
 	href: string
