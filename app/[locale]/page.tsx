@@ -1,12 +1,13 @@
-import { HOME_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
+import { useTranslations } from "next-intl"
 import LearnMore from "./_lib/LearnMore"
 
 export default function Home() {
+	const t = useTranslations("HomePage")
 	return (
 		<PageContainer>
-			<h1>{HOME_PAGE_TEXT.TITLE}</h1>
-			<p>{HOME_PAGE_TEXT.WELCOME_MESSAGE}</p>
+			<h1>{t("title")}</h1>
+			<p>{t("welcomeMessage")}</p>
 			<LearnMore />
 		</PageContainer>
 	)

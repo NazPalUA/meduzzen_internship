@@ -1,5 +1,5 @@
-import { PROFILE_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
+import { useTranslations } from "next-intl"
 
 type Params = {
 	userId: string
@@ -16,17 +16,17 @@ export default function UserProfile({ params }: { params: Params }) {
 	const { userId } = params
 
 	const { email, about } = getUserData(userId)
-
+	const t = useTranslations("ProfilePage")
 	return (
 		<PageContainer>
 			<h2>
-				{PROFILE_PAGE_TEXT.TITLE} {userId}
+				{t("title")} {userId}
 			</h2>
 			<p>
-				{PROFILE_PAGE_TEXT.EMAIL}: {email}
+				{t("email")}: {email}
 			</p>
 			<p>
-				{PROFILE_PAGE_TEXT.ABOUT}: {about}
+				{t("about")}: {about}
 			</p>
 		</PageContainer>
 	)

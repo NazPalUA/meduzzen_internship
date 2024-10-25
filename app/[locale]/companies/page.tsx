@@ -1,6 +1,6 @@
-import { COMPANIES_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
 import { CompaniesList } from "@/src/widgets/CompaniesList"
+import { useTranslations } from "next-intl"
 
 const mockCompanies = [
 	{ id: "a", name: "Company A", description: "Description A" },
@@ -16,9 +16,10 @@ const mockCompanies = [
 ]
 
 export default function Companies() {
+	const t = useTranslations("CompaniesPage")
 	return (
 		<PageContainer>
-			<strong>{COMPANIES_PAGE_TEXT.TITLE}</strong>
+			<strong>{t("title")}</strong>
 			<CompaniesList companies={mockCompanies} />
 		</PageContainer>
 	)

@@ -1,6 +1,6 @@
-import { USERS_PAGE_TEXT } from "@/src/shared/constants/texts"
 import { PageContainer } from "@/src/shared/ui/PageContainer"
 import { UsersList } from "@/src/widgets/UsersList"
+import { useTranslations } from "next-intl"
 
 const mockUsers = [
 	{ id: "1", name: "John Doe", email: "john@example.com" },
@@ -16,10 +16,11 @@ const mockUsers = [
 ]
 
 export default function Users() {
+	const t = useTranslations("UsersPage")
 	return (
 		<PageContainer>
-			<h2>{USERS_PAGE_TEXT.TITLE}</h2>
-			<p>{USERS_PAGE_TEXT.DESCRIPTION}</p>
+			<h2>{t("title")}</h2>
+			<p>{t("description")}</p>
 			<UsersList users={mockUsers} />
 		</PageContainer>
 	)

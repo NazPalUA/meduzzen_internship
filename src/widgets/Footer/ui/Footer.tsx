@@ -1,22 +1,23 @@
-import { FOOTER_TEXT } from "@/src/shared/constants/texts"
+import { Link } from "@/src/shared/i18n/routing"
 import { Container } from "@mui/material"
-import Link from "next/link"
+import { useTranslations } from "next-intl"
 import styles from "./Footer.module.scss"
 
 export function Footer() {
+	const t = useTranslations("Footer")
 	return (
 		<footer className={styles.footer}>
 			<Container maxWidth="sm" className={styles.container}>
 				<div>
-					© {new Date().getFullYear()} {FOOTER_TEXT.COPYRIGHT}
+					© {new Date().getFullYear()} {t("copyright")}
 				</div>
 				<div>
 					<Link href="#" className={styles.link}>
-						{FOOTER_TEXT.PRIVACY_POLICY_LINK_LABEL}
+						{t("privacyPolicyLinkLabel")}
 					</Link>
 					{" | "}
 					<Link href="#" className={styles.link}>
-						{FOOTER_TEXT.TERMS_OF_SERVICE_LINK_LABEL}
+						{t("termsOfServiceLinkLabel")}
 					</Link>
 				</div>
 			</Container>
