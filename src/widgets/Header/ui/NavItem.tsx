@@ -1,5 +1,5 @@
 import { Button } from "@mui/material"
-import Link from "next/link"
+import { Link } from "@navigation"
 
 type Props = {
 	href: string
@@ -8,8 +8,8 @@ type Props = {
 
 export function NavItem({ href, label }: Props) {
 	return (
-		<Button color="inherit" component={Link} href={href}>
-			{label}
-		</Button>
+		<Link href={href}>
+			<Button color="inherit">{label}</Button>
+		</Link>
 	)
 }

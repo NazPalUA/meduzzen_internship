@@ -1,0 +1,70 @@
+{
+	"LocaleLayout": {
+		"title": "Стажування Meduzzen",
+		"description": "Проект стажування Meduzzen"
+	},
+
+	"NotFoundPage": {
+		"description": "Сторінка, яку ви шукаєте, не існує."
+	},
+
+	"HomePage": {
+		"title": "Стажування Meduzzen",
+		"welcomeMessage": "Ласкаво просимо до нашого проекту!",
+		"learnMoreButton": "Дізнатися більше",
+		"learnMoreTitle": "Дізнатися більше",
+		"learnMoreDescription": "Ваш контент буде тут"
+	},
+
+	"AboutPage": {
+		"title": "Про цей проект",
+		"description": "Цей проект є частиною програми стажування Meduzzen."
+	},
+
+	"UsersPage": {
+		"title": "Наша спільнота",
+		"description": "Познайомтеся з талановитими людьми в нашій мережі."
+	},
+
+	"CompaniesPage": {
+		"title": "Компанії-партнери",
+		"description": "Відкрийте для себе інноваційні компанії, з якими ми співпрацюємо."
+	},
+
+	"ProfilePage": {
+		"title": "Профіль",
+		"email": "Електронна пошта",
+		"about": "Про себе"
+	},
+
+	"CompanyProfilePage": {
+		"title": "Профіль компанії",
+		"description": "Опис"
+	},
+
+	"Navigation": {
+		"home": "Головна",
+		"about": "Про нас",
+		"users": "Користувачі",
+		"companies": "Компанії"
+	},
+
+	"Header": {
+		"title": "Стажування Meduzzen"
+	},
+
+	"Footer": {
+		"copyright": "Проект стажування Meduzzen",
+		"privacyPolicyLinkLabel": "Політика конфіденційності",
+		"termsOfServiceLinkLabel": "Умови використання"
+	},
+
+	"LocaleSwitcher": {
+		"label": "Змінити мову",
+		"locale": "{locale, select, ua {Українська} en {Англійська} other {Unknown}}"
+	},
+
+	"Modal": {
+		"closeButton": "Закрити"
+	}
+}

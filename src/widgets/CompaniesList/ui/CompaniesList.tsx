@@ -1,7 +1,7 @@
-import { type CompanyEntity } from "@/src/entities/company"
-import { Routes } from "@/src/shared/constants/routes"
+import { type CompanyEntity } from "@entities/company"
 import Grid from "@mui/material/Grid2"
-import Link from "next/link"
+import { Link } from "@navigation"
+import { Routes } from "@routes"
 import { CompanyCard } from "./CompanyCard"
 
 export function CompaniesList({ companies }: { companies: CompanyEntity[] }) {

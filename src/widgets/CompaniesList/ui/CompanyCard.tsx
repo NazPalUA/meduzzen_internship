@@ -1,4 +1,4 @@
-import { type CompanyEntity } from "@/src/entities/company"
+import { type CompanyEntity } from "@entities/company"
 import { Card, CardContent } from "@mui/material"
 import styles from "./CompanyCard.module.scss"
 

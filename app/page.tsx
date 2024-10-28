@@ -1,13 +1,7 @@
-import { HOME_PAGE_TEXT } from "@/src/shared/constants/texts"
-import { PageContainer } from "@/src/shared/ui/PageContainer"
-import LearnMore from "./_lib/LearnMore"
+// eslint-disable-next-line no-restricted-imports
+import { redirect } from "next/navigation"
 
-export default function Home() {
-	return (
-		<PageContainer>
-			<h1>{HOME_PAGE_TEXT.TITLE}</h1>
-			<p>{HOME_PAGE_TEXT.WELCOME_MESSAGE}</p>
-			<LearnMore />
-		</PageContainer>
-	)
+// This page only renders when the app is built statically (output: 'export')
+export default function RootPage() {
+	redirect("/en")
 }

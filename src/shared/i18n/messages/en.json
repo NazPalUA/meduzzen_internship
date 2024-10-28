@@ -1,0 +1,70 @@
+{
+	"LocaleLayout": {
+		"title": "Meduzzen Intership",
+		"description": "Meduzzen Internship Project"
+	},
+
+	"NotFoundPage": {
+		"description": "The page you are looking for does not exist."
+	},
+
+	"HomePage": {
+		"title": "Meduzzen Intership",
+		"welcomeMessage": "Welcome to our project!",
+		"learnMoreButton": "Learn More",
+		"learnMoreTitle": "Learn More",
+		"learnMoreDescription": "Your content goes here"
+	},
+
+	"AboutPage": {
+		"title": "About This Project",
+		"description": "This project is part of the Meduzzen internship program."
+	},
+
+	"UsersPage": {
+		"title": "Our Community",
+		"description": "Meet the talented individuals in our network."
+	},
+
+	"CompaniesPage": {
+		"title": "Partner Companies",
+		"description": "Discover the innovative companies we work with."
+	},
+
+	"ProfilePage": {
+		"title": "Profile",
+		"email": "Email",
+		"about": "About"
+	},
+
+	"CompanyProfilePage": {
+		"title": "Company Profile",
+		"description": "Description"
+	},
+
+	"Navigation": {
+		"home": "Home",
+		"about": "About",
+		"users": "Users",
+		"companies": "Companies"
+	},
+
+	"Header": {
+		"title": "Meduzzen Internship"
+	},
+
+	"Footer": {
+		"copyright": "Meduzzen Internship Project",
+		"privacyPolicyLinkLabel": "Privacy Policy",
+		"termsOfServiceLinkLabel": "Terms of Service"
+	},
+
+	"LocaleSwitcher": {
+		"label": "Change language",
+		"locale": "{locale, select, ua {Ukrainian} en {English} other {Unknown}}"
+	},
+
+	"Modal": {
+		"closeButton": "Close"
+	}
+}

@@ -1,4 +1,5 @@
 import { Button, Modal as MuiModal } from "@mui/material"
+import { useTranslations } from "next-intl"
 import styles from "./Modal.module.scss"
 
 type Props = {
@@ -9,6 +10,7 @@ type Props = {
 }
 
 export function Modal({ open, onClose, title, children }: Props) {
+	const t = useTranslations("Modal")
 	return (
 		<MuiModal
 			open={open}
@@ -27,7 +29,7 @@ export function Modal({ open, onClose, title, children }: Props) {
 					color="primary"
 					className={styles.closeButton}
 				>
-					Close
+					{t("closeButton")}
 				</Button>
 			</div>
 		</MuiModal>

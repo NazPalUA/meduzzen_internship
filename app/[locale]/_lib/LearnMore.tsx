@@ -2,23 +2,24 @@
 
 "use client"
 
-import { HOME_PAGE_TEXT } from "@/src/shared/constants/texts"
-import { Modal } from "@/src/shared/ui/Modal"
 import { Button } from "@mui/material"
+import { Modal } from "@shared/ui/Modal"
+import { useTranslations } from "next-intl"
 import { useState } from "react"
 
 export default function LearnMore() {
 	const [modalOpen, setModalOpen] = useState(false)
+	const t = useTranslations("HomePage")
 
 	const handleOpen = () => setModalOpen(true)
 	const handleClose = () => setModalOpen(false)
 	return (
 		<>
 			<Button variant="contained" onClick={handleOpen}>
-				{HOME_PAGE_TEXT.LEARN_MORE_BUTTON}
+				{t("learnMoreButton")}
 			</Button>
-			<Modal open={modalOpen} onClose={handleClose} title="Learn More">
-				<p>Your content goes here.</p>
+			<Modal open={modalOpen} onClose={handleClose} title={t("learnMoreTitle")}>
+				<p>{t("learnMoreDescription")}</p>
 			</Modal>
 		</>
 	)

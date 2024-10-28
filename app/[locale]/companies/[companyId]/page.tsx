@@ -1,5 +1,5 @@
-import { COMPANY_PROFILE_PAGE_TEXT } from "@/src/shared/constants/texts"
-import { PageContainer } from "@/src/shared/ui/PageContainer"
+import { PageContainer } from "@shared/ui/PageContainer"
+import { useTranslations } from "next-intl"
 
 type Params = {
 	companyId: string
@@ -16,14 +16,15 @@ export default function CompanyProfile({ params }: { params: Params }) {
 	const { companyId } = params
 
 	const { name, description } = getCompanyData(companyId)
+	const t = useTranslations("CompanyProfilePage")
 
 	return (
 		<PageContainer>
 			<h2>
-				{COMPANY_PROFILE_PAGE_TEXT.TITLE}: {name}
+				{t("title")}: {name}
 			</h2>
 			<p>
-				{COMPANY_PROFILE_PAGE_TEXT.DESCRIPTION}: {description}
+				{t("description")}: {description}
 			</p>
 		</PageContainer>
 	)
