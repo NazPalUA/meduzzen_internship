@@ -12,9 +12,7 @@ import styles from "./TestComponent.module.scss"
 export function TestComponentBetta() {
   const dispatch = useAppDispatch()
 
-  // Get value using the typed hook
   const testValueB = useAppSelector(selectTestValueB)
-  // Get value using the untyped hook
   const { testValueA } = useSelector((state: RootState) => state.test)
 
   const [inputValue, setInputValue] = useState("")
