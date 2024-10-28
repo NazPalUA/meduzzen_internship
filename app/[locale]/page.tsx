@@ -1,3 +1,4 @@
+import { ApiHealthCheck } from "@/src/features/api-health-check"
 import { TestStore } from "@features/test-store"
 import { PageContainer } from "@shared/ui/PageContainer"
 import { useTranslations } from "next-intl"
@@ -11,6 +12,7 @@ export default function Home() {
 			<p>{t("welcomeMessage")}</p>
 			<LearnMore />
 			<TestStore />
+			<ApiHealthCheck />
 		</PageContainer>
 	)
 }
