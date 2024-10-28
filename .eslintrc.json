@@ -1,25 +1,23 @@
 {
-	"extends": ["next/core-web-vitals", "next/typescript"],
-	"rules": {
-		"@typescript-eslint/no-explicit-any": "off", // Disable the rule that disallows 'any'
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off", // Disable the rule that disallows 'any'
 
-		"no-restricted-imports": [
-			"error",
-			{
-				"name": "next/link",
-				"message": "Plesae import from @navigation instead.",
-				"importNames": ["default"]
-			},
-			{
-				"name": "next/navigation",
-				"message": "Plesae import from @navigation instead.",
-				"importNames": [
-					"redirect",
-					"permanent Redirect",
-					"useRouter",
-					"usePathname"
-				]
-			}
-		]
-	}
+    "no-restricted-imports": [
+      "error",
+      {
+        "name": "next/link",
+        "message": "Please import from @navigation instead.",
+        "importNames": ["default"]
+      },
+      {
+        "name": "next/navigation",
+        "message": "Please import from @navigation instead.",
+        "importNames": ["redirect", "permanent Redirect", "useRouter", "usePathname"]
+      }
+    ],
+    "no-console": "warn",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "prefer-const": "error"
+  }
 }

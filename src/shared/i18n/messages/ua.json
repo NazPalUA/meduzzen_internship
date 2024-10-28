@@ -1,78 +1,78 @@
 {
-	"LocaleLayout": {
-		"title": "Стажування Meduzzen",
-		"description": "Проект стажування Meduzzen"
-	},
+  "LocaleLayout": {
+    "title": "Стажування Meduzzen",
+    "description": "Проект стажування Meduzzen"
+  },
 
-	"NotFoundPage": {
-		"description": "Сторінка, яку ви шукаєте, не існує."
-	},
+  "NotFoundPage": {
+    "description": "Сторінка, яку ви шукаєте, не існує."
+  },
 
-	"HomePage": {
-		"title": "Стажування Meduzzen",
-		"welcomeMessage": "Ласкаво просимо до нашого проекту!",
-		"learnMoreButton": "Дізнатися більше",
-		"learnMoreTitle": "Дізнатися більше",
-		"learnMoreDescription": "Ваш контент буде тут"
-	},
+  "HomePage": {
+    "title": "Стажування Meduzzen",
+    "welcomeMessage": "Ласкаво просимо до нашого проекту!",
+    "learnMoreButton": "Дізнатися більше",
+    "learnMoreTitle": "Дізнатися більше",
+    "learnMoreDescription": "Ваш контент буде тут"
+  },
 
-	"AboutPage": {
-		"title": "Про цей проект",
-		"description": "Цей проект є частиною програми стажування Meduzzen."
-	},
+  "AboutPage": {
+    "title": "Про цей проект",
+    "description": "Цей проект є частиною програми стажування Meduzzen."
+  },
 
-	"UsersPage": {
-		"title": "Наша спільнота",
-		"description": "Познайомтеся з талановитими людьми в нашій мережі."
-	},
+  "UsersPage": {
+    "title": "Наша спільнота",
+    "description": "Познайомтеся з талановитими людьми в нашій мережі."
+  },
 
-	"CompaniesPage": {
-		"title": "Компанії-партнери",
-		"description": "Відкрийте для себе інноваційні компанії, з якими ми співпрацюємо."
-	},
+  "CompaniesPage": {
+    "title": "Компанії-партнери",
+    "description": "Відкрийте для себе інноваційні компанії, з якими ми співпрацюємо."
+  },
 
-	"ProfilePage": {
-		"title": "Профіль",
-		"email": "Електронна пошта",
-		"about": "Про себе"
-	},
+  "ProfilePage": {
+    "title": "Профіль",
+    "email": "Електронна пошта",
+    "about": "Про себе"
+  },
 
-	"CompanyProfilePage": {
-		"title": "Профіль компанії",
-		"description": "Опис"
-	},
+  "CompanyProfilePage": {
+    "title": "Профіль компанії",
+    "description": "Опис"
+  },
 
-	"Navigation": {
-		"home": "Головна",
-		"about": "Про нас",
-		"users": "Користувачі",
-		"companies": "Компанії"
-	},
+  "Navigation": {
+    "home": "Головна",
+    "about": "Про нас",
+    "users": "Користувачі",
+    "companies": "Компанії"
+  },
 
-	"Header": {
-		"title": "Стажування Meduzzen"
-	},
+  "Header": {
+    "title": "Стажування Meduzzen"
+  },
 
-	"Footer": {
-		"copyright": "Проект стажування Meduzzen",
-		"privacyPolicyLinkLabel": "Політика конфіденційності",
-		"termsOfServiceLinkLabel": "Умови використання"
-	},
+  "Footer": {
+    "copyright": "Проект стажування Meduzzen",
+    "privacyPolicyLinkLabel": "Політика конфіденційності",
+    "termsOfServiceLinkLabel": "Умови використання"
+  },
 
-	"LocaleSwitcher": {
-		"label": "Змінити мову",
-		"locale": "{locale, select, ua {Українська} en {Англійська} other {Unknown}}"
-	},
+  "LocaleSwitcher": {
+    "label": "Змінити мову",
+    "locale": "{locale, select, ua {Українська} en {Англійська} other {Unknown}}"
+  },
 
-	"Modal": {
-		"closeButton": "Закрити"
-	},
+  "Modal": {
+    "closeButton": "Закрити"
+  },
 
-	"TestStore": {
-		"title": "Компонент",
-		"inputLabel": "Нове значення",
-		"updateButton": "Оновити",
-		"resetButton": "Скинути",
-		"resetAllButton": "Скинути всі"
-	}
+  "TestStore": {
+    "title": "Компонент",
+    "inputLabel": "Нове значення",
+    "updateButton": "Оновити",
+    "resetButton": "Скинути",
+    "resetAllButton": "Скинути всі"
+  }
 }
