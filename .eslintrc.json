@@ -18,6 +18,7 @@
     ],
     "no-console": "warn",
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "ignoreEnums": true,
     "prefer-const": "error"
   }
 }
