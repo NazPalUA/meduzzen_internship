@@ -66,5 +66,13 @@
 
 	"Modal": {
 		"closeButton": "Закрити"
+	},
+
+	"TestStore": {
+		"title": "Компонент",
+		"inputLabel": "Нове значення",
+		"updateButton": "Оновити",
+		"resetButton": "Скинути",
+		"resetAllButton": "Скинути всі"
 	}
 }

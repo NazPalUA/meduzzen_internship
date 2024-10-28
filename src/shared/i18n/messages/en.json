@@ -66,5 +66,13 @@
 
 	"Modal": {
 		"closeButton": "Close"
+	},
+
+	"TestStore": {
+		"title": "Test Component",
+		"inputLabel": "New Test Value",
+		"updateButton": "Update test value",
+		"resetButton": "Reset value",
+		"resetAllButton": "Reset all values"
 	}
 }
