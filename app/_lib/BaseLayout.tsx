@@ -1,6 +1,7 @@
 import { CssBaseline, StyledEngineProvider } from "@mui/material"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import { ThemeProvider } from "@mui/material/styles"
+import { StoreProvider } from "@shared/store"
 import "@shared/styles/globals.css"
 import theme from "@shared/styles/theme"
 import { NextIntlClientProvider } from "next-intl"
@@ -31,7 +32,7 @@ export async function BaseLayout({ children, locale }: Props) {
 						<AppRouterCacheProvider>
 							<StyledEngineProvider injectFirst>
 								<CssBaseline />
-								{children}
+								<StoreProvider>{children}</StoreProvider>
 							</StyledEngineProvider>
 						</AppRouterCacheProvider>
 					</ThemeProvider>
