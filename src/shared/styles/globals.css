@@ -79,7 +79,7 @@ small {
 	line-height: 1.25rem;
 }
 
-.sr-only {
+.screen-reader-text {
 	position: absolute;
 	width: 1px;
 	height: 1px;
