@@ -2,12 +2,12 @@ import { Routes } from "@routes"
 import { useTranslations } from "next-intl"
 
 export const useLinks = () => {
-	const t = useTranslations("Navigation")
+  const t = useTranslations("Navigation")
 
-	return [
-		{ href: Routes.HOME, label: t("home") },
-		{ href: Routes.USERS, label: t("users") },
-		{ href: Routes.COMPANIES, label: t("companies") },
-		{ href: Routes.ABOUT, label: t("about") },
-	]
+  return [
+    { href: Routes.HOME, label: t("home") },
+    { href: Routes.USERS, label: t("users") },
+    { href: Routes.COMPANIES, label: t("companies") },
+    { href: Routes.ABOUT, label: t("about") },
+  ]
 }

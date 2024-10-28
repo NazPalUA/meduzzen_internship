@@ -4,7 +4,7 @@ const withNextIntl = createNextIntlPlugin("./src/shared/i18n/request.ts")
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	output: "standalone",
+  output: "standalone",
 }
 
 export default withNextIntl(nextConfig)

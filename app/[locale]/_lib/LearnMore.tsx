@@ -8,19 +8,19 @@ import { useTranslations } from "next-intl"
 import { useState } from "react"
 
 export default function LearnMore() {
-	const [modalOpen, setModalOpen] = useState(false)
-	const t = useTranslations("HomePage")
+  const [modalOpen, setModalOpen] = useState(false)
+  const t = useTranslations("HomePage")
 
-	const handleOpen = () => setModalOpen(true)
-	const handleClose = () => setModalOpen(false)
-	return (
-		<>
-			<Button variant="contained" onClick={handleOpen}>
-				{t("learnMoreButton")}
-			</Button>
-			<Modal open={modalOpen} onClose={handleClose} title={t("learnMoreTitle")}>
-				<p>{t("learnMoreDescription")}</p>
-			</Modal>
-		</>
-	)
+  const handleOpen = () => setModalOpen(true)
+  const handleClose = () => setModalOpen(false)
+  return (
+    <>
+      <Button variant="contained" onClick={handleOpen}>
+        {t("learnMoreButton")}
+      </Button>
+      <Modal open={modalOpen} onClose={handleClose} title={t("learnMoreTitle")}>
+        <p>{t("learnMoreDescription")}</p>
+      </Modal>
+    </>
+  )
 }

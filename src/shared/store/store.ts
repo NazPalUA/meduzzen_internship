@@ -7,13 +7,13 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit"
 // must be centrally registered here in the shared layer.
 
 const rootReducer = combineSlices({
-	test: testSliceReducer,
+  test: testSliceReducer,
 })
 
 export const makeStore = () => {
-	return configureStore({
-		reducer: rootReducer,
-	})
+  return configureStore({
+    reducer: rootReducer,
+  })
 }
 
 export type RootState = ReturnType<typeof rootReducer>

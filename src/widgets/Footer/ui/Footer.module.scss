@@ -1,19 +1,19 @@
 .footer {
-	padding: 1rem;
-	background-color: var(--mui-palette-primary-main);
-	color: var(--mui-palette-primary-contrastText);
+  padding: 1rem;
+  background-color: var(--mui-palette-primary-main);
+  color: var(--mui-palette-primary-contrastText);
 }
 
 .link {
-	&:hover {
-		text-decoration: underline;
-	}
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .container {
-	text-align: center;
+  text-align: center;
 
-	> :first-child {
-		margin-bottom: 1rem;
-	}
+  > :first-child {
+    margin-bottom: 1rem;
+  }
 }

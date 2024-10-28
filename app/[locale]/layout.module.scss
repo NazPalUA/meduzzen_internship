@@ -1,12 +1,12 @@
 .root {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	background: var(--mui-palette-background-default);
-	color: var(--mui-palette-text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--mui-palette-background-default);
+  color: var(--mui-palette-text-primary);
 }
 
 .main {
-	flex-grow: 1;
-	padding: 1rem 0;
+  flex-grow: 1;
+  padding: 1rem 0;
 }
