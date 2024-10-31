@@ -1,4 +1,4 @@
-import { CssBaseline, StyledEngineProvider } from "@mui/material"
+import { CssBaseline } from "@mui/material"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import { ThemeProvider } from "@mui/material/styles"
 import { StoreProvider } from "@shared/store"
@@ -28,14 +28,12 @@ export async function BaseLayout({ children, locale }: Props) {
     <html lang={locale}>
       <body className={roboto.variable}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider theme={theme}>
-            <AppRouterCacheProvider>
-              <StyledEngineProvider injectFirst>
-                <CssBaseline />
-                <StoreProvider>{children}</StoreProvider>
-              </StyledEngineProvider>
-            </AppRouterCacheProvider>
-          </ThemeProvider>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <StoreProvider>{children}</StoreProvider>
+            </ThemeProvider>
+          </AppRouterCacheProvider>
         </NextIntlClientProvider>
       </body>
     </html>
