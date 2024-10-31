@@ -1,7 +1,7 @@
 "use client"
 
-import { healthApi } from "@shared/api/health"
 import { useCallback, useState } from "react"
+import { healthApi } from "../api/health"
 
 export const useHealthCheck = () => {
   const [isLoading, setIsLoading] = useState(false)
