@@ -1,9 +1,13 @@
+import { sessionApiSlice } from "@/src/entities/session/store/sessionApiSlice"
+import { userApiSlice } from "@/src/entities/user/store/userApiSlice"
 import { testSliceReducer } from "@features/test-store"
 import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
 
 const rootReducer = combineSlices({
   test: testSliceReducer,
+  [sessionApiSlice.reducerPath]: sessionApiSlice.reducer,
+  [userApiSlice.reducerPath]: userApiSlice.reducer,
 })
 
 export const makeStore = () => {
@@ -11,6 +15,8 @@ export const makeStore = () => {
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) => {
       return getDefaultMiddleware()
+        .concat(sessionApiSlice.middleware)
+        .concat(userApiSlice.middleware)
     },
   })
 }
