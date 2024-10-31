@@ -1,6 +1,6 @@
+import { axiosInstance } from "@shared/api/axios"
+import { API_ENDPOINTS } from "@shared/api/endpoints"
 import { AxiosResponse } from "axios"
-import axiosInstance from "./axios"
-import { API_ENDPOINTS } from "./endpoints"
 
 export const healthApi = {
   /**
