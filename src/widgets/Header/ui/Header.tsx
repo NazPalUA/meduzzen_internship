@@ -1,6 +1,7 @@
 import { AppBar, Toolbar } from "@mui/material"
 import { useTranslations } from "next-intl"
 import { useLinks } from "../lib/links"
+import { Auth } from "./Auth"
 import styles from "./Header.module.scss"
 import { LocaleSwitcher } from "./LocaleSwitcher"
 import { NavItem } from "./NavItem"
@@ -16,6 +17,7 @@ export function Header() {
           {links.map(({ href, label }) => (
             <NavItem key={href} href={href} label={label} />
           ))}
+          <Auth />
           <LocaleSwitcher />
         </div>
       </Toolbar>
