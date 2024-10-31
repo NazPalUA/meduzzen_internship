@@ -1,1 +1,2 @@
-export * from "./model/types"
+export * from "./model"
+export * from "./store/userApiSlice"
