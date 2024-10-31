@@ -39,13 +39,18 @@ export const sessionApiSlice = createApi({
       invalidatesTags: ["Session"],
     }),
 
-    logout: build.mutation<void, void>({
+    logout: build.mutation<{ success: boolean }, void>({
       queryFn: async () => {
         try {
           removeToken()
-          return { data: undefined }
+          return { data: { success: true } }
         } catch (error) {
-          return { error }
+          return {
+            error: {
+              status: 500,
+              data: error instanceof Error ? error.message : "Failed to logout",
+            },
+          }
         }
       },
       invalidatesTags: ["Session"],
