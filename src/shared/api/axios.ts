@@ -14,14 +14,10 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    if (typeof window !== "undefined") {
-      const token = getToken()
-
-      if (token && config.headers) {
-        config.headers["Authorization"] = `Bearer ${token}`
-      }
+    const token = getToken()
+    if (token && config.headers) {
+      config.headers["Authorization"] = `Bearer ${token}`
     }
-
     return config
   },
   (error) => {
