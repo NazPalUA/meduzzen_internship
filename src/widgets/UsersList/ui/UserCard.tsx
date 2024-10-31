@@ -1,5 +1,5 @@
-import { type UserEntity } from "@entities/user"
 import { Avatar, Card, CardContent } from "@mui/material"
+import { type UserEntity } from "../model/UserEntity"
 import styles from "./UserCard.module.scss"
 
 export function UserCard({ user }: { user: UserEntity }) {

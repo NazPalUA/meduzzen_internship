@@ -1,7 +1,7 @@
-import { type UserEntity } from "@entities/user"
 import Grid from "@mui/material/Grid2"
 import { Link } from "@navigation"
 import { Routes } from "@routes"
+import { type UserEntity } from "../model/UserEntity"
 import { UserCard } from "./UserCard"
 
 export function UsersList({ users }: { users: UserEntity[] }) {
