@@ -16,6 +16,12 @@
     "learnMoreDescription": "Your content goes here"
   },
 
+  "DashboardPage": {
+    "title": "Dashboard",
+    "description": "Welcome to the dashboard!",
+    "currentUser": "Current User"
+  },
+
   "AboutPage": {
     "title": "About This Project",
     "description": "This project is part of the Meduzzen internship program."
@@ -44,9 +50,13 @@
 
   "Navigation": {
     "home": "Home",
+    "dashboard": "Dashboard",
     "about": "About",
     "users": "Users",
-    "companies": "Companies"
+    "companies": "Companies",
+    "signUp": "Sign Up",
+    "login": "Login",
+    "logout": "Logout"
   },
 
   "Header": {

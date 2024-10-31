@@ -16,6 +16,12 @@
     "learnMoreDescription": "Ваш контент буде тут"
   },
 
+  "DashboardPage": {
+    "title": "Панель",
+    "description": "Ласкаво просимо до панелі!",
+    "currentUser": "Користувач"
+  },
+
   "AboutPage": {
     "title": "Про цей проект",
     "description": "Цей проект є частиною програми стажування Meduzzen."
@@ -44,9 +50,13 @@
 
   "Navigation": {
     "home": "Головна",
+    "dashboard": "Панель",
     "about": "Про нас",
     "users": "Користувачі",
-    "companies": "Компанії"
+    "companies": "Компанії",
+    "signUp": "Реєстрація",
+    "login": "Вхід",
+    "logout": "Вихід"
   },
 
   "Header": {
