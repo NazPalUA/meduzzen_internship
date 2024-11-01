@@ -14,5 +14,5 @@ export default function LogoutPage() {
     router.push(Routes.HOME)
   }, [logout, router])
 
-  return <div>Logging out...</div>
+  return null
 }

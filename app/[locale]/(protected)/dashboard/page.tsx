@@ -1,4 +1,4 @@
-import { PageContainer } from "@shared/ui/PageContainer"
+import { Container } from "@/src/shared/ui/Container"
 import { Dashboard as DashboardComponent } from "@widgets/Dashboard"
 import { useTranslations } from "next-intl"
 import { setRequestLocale } from "next-intl/server"
@@ -8,14 +8,14 @@ type Props = {
 }
 
 export default function Dashboard({ params: { locale } }: Props) {
-  setRequestLocale(locale) // Enable static rendering
+  setRequestLocale(locale)
 
   const t = useTranslations("DashboardPage")
 
   return (
-    <PageContainer>
+    <Container>
       <h2>{t("title")}</h2>
       <DashboardComponent />
-    </PageContainer>
+    </Container>
   )
 }

@@ -1,10 +1,10 @@
+import { Container } from "@/src/shared/ui/Container"
 import { LoginForm } from "@features/auth"
-import { PageContainer } from "@shared/ui/PageContainer"
 
 export default function LoginPage() {
   return (
-    <PageContainer>
+    <Container>
       <LoginForm />
-    </PageContainer>
+    </Container>
   )
 }

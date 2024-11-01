@@ -1,25 +1,28 @@
 "use client"
 
+import { LoadingSpinner } from "@shared/ui/LoadingSpinner"
+import { FC, ReactNode } from "react"
 import { SignedIn } from "./SignedIn"
 
 interface Props {
-  children: React.ReactNode
-  fallback?: React.ReactNode
-  LoadingComponent?: React.FC
-  ErrorComponent?: React.FC<{ error: any }>
+  children: ReactNode
+  fallback?: ReactNode
+  LoadingComponent?: FC
+  ErrorComponent?: FC<{ error: any }>
 }
 
 export const ProtectedRoute = ({
   children,
   fallback = null,
-  LoadingComponent,
+  LoadingComponent: CustomLoadingComponent,
   ErrorComponent,
 }: Props) => {
+  const loadingComponent = CustomLoadingComponent ? <CustomLoadingComponent /> : <LoadingSpinner />
   return (
     <SignedIn
       redirectToLogin
       fallback={fallback}
-      LoadingComponent={LoadingComponent}
+      LoadingComponent={() => loadingComponent}
       ErrorComponent={ErrorComponent}
     >
       {children}
