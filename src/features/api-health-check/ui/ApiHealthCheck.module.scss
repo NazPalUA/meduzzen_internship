@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1rem;
+  height: min-content;
+}
+
+.status {
+  flex-grow: 1;
+}

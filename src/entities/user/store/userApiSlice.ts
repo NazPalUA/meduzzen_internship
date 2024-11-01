@@ -1,6 +1,6 @@
+import { baseQuery } from "@/src/shared/store/baseQuery"
 import { createApi } from "@reduxjs/toolkit/query/react"
 import { API_ENDPOINTS } from "@shared/api/endpoints"
-import { axiosBaseQuery } from "@shared/store/axiosBaseQuery"
 import { parseData } from "@shared/utils/parseData"
 import {
   CreateUserCredentials,
@@ -18,7 +18,7 @@ type UserListInput = {
 }
 
 export const userApiSlice = createApi({
-  baseQuery: axiosBaseQuery(),
+  baseQuery,
   reducerPath: "userApi",
   tagTypes: ["User"],
   endpoints: (build) => ({

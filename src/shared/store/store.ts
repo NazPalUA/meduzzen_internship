@@ -1,5 +1,6 @@
-import { sessionApiSlice } from "@/src/entities/session/store/sessionApiSlice"
-import { userApiSlice } from "@/src/entities/user/store/userApiSlice"
+import { sessionApiSlice, sessionMiddleware } from "@entities/session"
+import { userApiSlice } from "@entities/user"
+import { healthApiSlice } from "@features/api-health-check"
 import { testSliceReducer } from "@features/test-store"
 import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
@@ -8,6 +9,7 @@ const rootReducer = combineSlices({
   test: testSliceReducer,
   [sessionApiSlice.reducerPath]: sessionApiSlice.reducer,
   [userApiSlice.reducerPath]: userApiSlice.reducer,
+  [healthApiSlice.reducerPath]: healthApiSlice.reducer,
 })
 
 export const makeStore = () => {
@@ -15,8 +17,10 @@ export const makeStore = () => {
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) => {
       return getDefaultMiddleware()
+        .concat(sessionMiddleware)
         .concat(sessionApiSlice.middleware)
         .concat(userApiSlice.middleware)
+        .concat(healthApiSlice.middleware)
     },
   })
 }
