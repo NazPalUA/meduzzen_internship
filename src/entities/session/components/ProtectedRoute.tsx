@@ -7,24 +7,18 @@ import { SignedIn } from "./SignedIn"
 interface Props {
   children: ReactNode
   fallback?: ReactNode
-  LoadingComponent?: FC
+  loading?: ReactNode
   ErrorComponent?: FC<{ error: any }>
 }
 
 export const ProtectedRoute = ({
   children,
   fallback = null,
-  LoadingComponent: CustomLoadingComponent,
+  loading = <LoadingSpinner />,
   ErrorComponent,
 }: Props) => {
-  const loadingComponent = CustomLoadingComponent ? <CustomLoadingComponent /> : <LoadingSpinner />
   return (
-    <SignedIn
-      redirectToLogin
-      fallback={fallback}
-      LoadingComponent={() => loadingComponent}
-      ErrorComponent={ErrorComponent}
-    >
+    <SignedIn redirectToLogin fallback={fallback} loading={loading} ErrorComponent={ErrorComponent}>
       {children}
     </SignedIn>
   )

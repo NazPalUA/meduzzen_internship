@@ -1,13 +1,14 @@
 "use client"
 
-import type { FC } from "react"
+import { CircularProgress } from "@mui/material"
+import type { FC, ReactNode } from "react"
 import { useSession } from "../hooks/useSession"
 
 interface Props {
-  children: React.ReactNode
+  children: ReactNode
   redirectToLogin?: boolean
-  fallback?: React.ReactNode
-  LoadingComponent?: FC
+  fallback?: ReactNode
+  loading?: ReactNode
   ErrorComponent?: FC<{ error: any }>
 }
 
@@ -15,22 +16,18 @@ export const SignedIn = ({
   children,
   redirectToLogin = false,
   fallback = null,
-  LoadingComponent = () => <div>Loading...</div>,
+  loading = <CircularProgress />,
   ErrorComponent = ({ error }) => <div>Error: {error?.message}</div>,
 }: Props) => {
   const { isLoading, isError, isLoggedIn, error } = useSession({ redirectToLogin })
 
   if (isLoading) {
-    return <LoadingComponent />
+    return loading
   }
 
   if (isError) {
     return <ErrorComponent error={error} />
   }
 
-  if (!isLoggedIn) {
-    return <>{fallback}</>
-  }
-
-  return <>{children}</>
+  return isLoggedIn ? children : fallback
 }
