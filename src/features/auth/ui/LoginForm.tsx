@@ -40,7 +40,7 @@ export function LoginForm() {
       submitText={t("submitText")}
       isLoading={isLoading}
       isError={isError}
-      error={error}
+      error={error instanceof Error ? error.message : "An error occurred during login."}
     />
   )
 }

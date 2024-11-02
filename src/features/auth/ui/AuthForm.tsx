@@ -21,7 +21,7 @@ interface AuthFormProps<T> {
   submitText: string
   isLoading: boolean
   isError: boolean
-  error: any
+  error: string | null
 }
 
 export const AuthForm = <T extends FieldValues>({
@@ -68,10 +68,8 @@ export const AuthForm = <T extends FieldValues>({
               )}
             </div>
           ))}
-          {isError && (
-            <p className={styles.errorMessage}>{error?.data?.detail || "An error occurred"}</p>
-          )}
-          <button type="submit" className={styles.submitButton}>
+          {isError && error && <p className={styles.errorMessage}>{error}</p>}
+          <button type="submit" className={styles.submitButton} disabled={isLoading}>
             {isLoading ? <CircularProgress className={styles.spinner} /> : submitText}
           </button>
         </form>

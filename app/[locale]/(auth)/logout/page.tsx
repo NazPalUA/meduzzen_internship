@@ -11,7 +11,7 @@ export default function LogoutPage() {
 
   useEffect(() => {
     logout()
-    router.push(Routes.HOME)
+    router.push(Routes.LOGIN)
   }, [logout, router])
 
   return null
