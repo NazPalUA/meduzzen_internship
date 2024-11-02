@@ -118,5 +118,11 @@
 
     "serverErrorInvalidCredentials": "Невірна адреса електронної пошти або пароль",
     "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+  },
+
+  "ApiHealthCheck": {
+    "checkButton": "Перевірити роботу API",
+    "successMessage": "API працює!",
+    "errorMessage": "Сталася помилка."
   }
 }

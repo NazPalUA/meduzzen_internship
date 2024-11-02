@@ -118,5 +118,11 @@
 
     "serverErrorInvalidCredentials": "Invalid email or password",
     "serverErrorGeneral": "An error occurred. Please try again later"
+  },
+
+  "ApiHealthCheck": {
+    "checkButton": "Check API Health",
+    "successMessage": "API is healthy!",
+    "errorMessage": "An error occurred."
   }
 }
