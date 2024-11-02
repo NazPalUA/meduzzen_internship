@@ -100,7 +100,10 @@
     "confirmPasswordLabel": "Підтвердження паролю",
 
     "title": "Створити новий обліковий запис",
-    "submitText": "Зареєструватися"
+    "submitText": "Зареєструватися",
+
+    "serverErrorEmailAlreadyExists": "Електронна пошта вже існує",
+    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
   },
 
   "Login": {
@@ -111,6 +114,9 @@
     "passwordLabel": "Пароль",
 
     "title": "Вхід",
-    "submitText": "Увійти"
+    "submitText": "Увійти",
+
+    "serverErrorInvalidCredentials": "Невірна адреса електронної пошти або пароль",
+    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
   }
 }

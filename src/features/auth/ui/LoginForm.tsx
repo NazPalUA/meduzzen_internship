@@ -2,6 +2,8 @@
 
 import { loginCredentialsSchema, useLoginMutation, type LoginCredentials } from "@entities/session"
 import { useRouter } from "@navigation"
+import { SerializedError } from "@reduxjs/toolkit"
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query"
 import { Routes } from "@shared/constants/routes"
 import { useTranslations } from "next-intl"
 import { AuthForm } from "./AuthForm"
@@ -16,6 +18,16 @@ export function LoginForm() {
   const onSubmit = async (data: LoginCredentials) => {
     await login(data).unwrap()
     router.push(Routes.DASHBOARD)
+  }
+
+  const getErrorMessage = (error: FetchBaseQueryError | SerializedError | undefined) => {
+    if (!error) return null
+
+    if ("status" in error && error.status === 401) {
+      return t("serverErrorInvalidCredentials")
+    }
+
+    return t("serverErrorGeneral")
   }
 
   return (
@@ -40,7 +52,7 @@ export function LoginForm() {
       submitText={t("submitText")}
       isLoading={isLoading}
       isError={isError}
-      error={error instanceof Error ? error.message : "An error occurred during login."}
+      error={getErrorMessage(error)}
     />
   )
 }

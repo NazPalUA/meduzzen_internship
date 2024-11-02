@@ -100,7 +100,10 @@
     "confirmPasswordLabel": "Confirm Password",
 
     "title": "Create a New Account",
-    "submitText": "Sign Up"
+    "submitText": "Sign Up",
+
+    "serverErrorEmailAlreadyExists": "Email already exists",
+    "serverErrorGeneral": "An error occurred. Please try again later"
   },
 
   "Login": {
@@ -111,6 +114,9 @@
     "passwordLabel": "Password",
 
     "title": "Login",
-    "submitText": "Login"
+    "submitText": "Login",
+
+    "serverErrorInvalidCredentials": "Invalid email or password",
+    "serverErrorGeneral": "An error occurred. Please try again later"
   }
 }

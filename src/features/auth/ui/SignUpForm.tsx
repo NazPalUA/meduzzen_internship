@@ -6,6 +6,8 @@ import {
   type CreateUserCredentials,
 } from "@entities/user"
 import { useRouter } from "@navigation"
+import { SerializedError } from "@reduxjs/toolkit"
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query"
 import { Routes } from "@shared/constants/routes"
 import { useTranslations } from "next-intl"
 import { AuthForm } from "./AuthForm"
@@ -15,12 +17,22 @@ export function SignUpForm() {
   const router = useRouter()
   const t = useTranslations("CreateUser")
 
+  const schema = createUserCredentialsSchema(t)
+
   const onSubmit = async (data: CreateUserCredentials) => {
     await createUser(data).unwrap()
     router.push(Routes.LOGIN)
   }
 
-  const schema = createUserCredentialsSchema(t)
+  const getErrorMessage = (error: FetchBaseQueryError | SerializedError | undefined) => {
+    if (!error) return null
+
+    if ("status" in error && error.status === 400) {
+      return t("serverErrorEmailAlreadyExists")
+    }
+
+    return t("serverErrorGeneral")
+  }
 
   return (
     <AuthForm<CreateUserCredentials>
@@ -58,7 +70,7 @@ export function SignUpForm() {
       submitText={t("submitText")}
       isLoading={isLoading}
       isError={isError}
-      error={error instanceof Error ? error.message : "An error occurred during user creation."}
+      error={getErrorMessage(error)}
     />
   )
 }
