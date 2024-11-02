@@ -1,4 +1,9 @@
 {
+  "Common": {
+    "defaultErrorMessage": "An error occurred. Please try again.",
+    "retryButton": "Try Again"
+  },
+
   "LocaleLayout": {
     "title": "Meduzzen Intership",
     "description": "Meduzzen Internship Project"
