@@ -1,14 +1,15 @@
 "use client"
 
 import { useSession } from "@/src/entities/session"
+import { ErrorMessage } from "@/src/shared/ui/ErrorMessage"
 import { CurrentUser } from "./CurrentUser"
-import styles from "./Dashboard.module.scss"
+import { UserSkeleton } from "./UserSkeleton"
 
 export function Dashboard() {
-  const { user, isLoading, isError, error } = useSession()
+  const { user, isLoading, isError } = useSession()
 
-  if (isLoading) return <div className={styles.loading}>Loading...</div>
-  if (isError) return <div className={styles.error}>Error: {`${error}`}</div>
-  if (!user) return <div className={styles.noUser}>No user information available.</div>
+  if (isLoading) return <UserSkeleton />
+  if (isError || !user) return <ErrorMessage />
+
   return <CurrentUser user={user} />
 }
