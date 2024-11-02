@@ -1,57 +1,61 @@
 "use client"
 
 import {
-  CreateUserCredentialsSchema,
+  createUserCredentialsSchema,
   useCreateUserMutation,
   type CreateUserCredentials,
 } from "@entities/user"
 import { useRouter } from "@navigation"
 import { Routes } from "@shared/constants/routes"
+import { useTranslations } from "next-intl"
 import { AuthForm } from "./AuthForm"
 
 export function SignUpForm() {
   const [createUser, { isLoading, isError, error }] = useCreateUserMutation()
   const router = useRouter()
+  const t = useTranslations("CreateUser")
 
   const onSubmit = async (data: CreateUserCredentials) => {
     await createUser(data).unwrap()
     router.push(Routes.LOGIN)
   }
 
+  const schema = createUserCredentialsSchema(t)
+
   return (
     <AuthForm<CreateUserCredentials>
-      schema={CreateUserCredentialsSchema}
+      schema={schema}
       onSubmit={onSubmit}
       fields={[
         {
           name: "user_firstname",
-          label: "First Name",
+          label: t("firstNameLabel"),
           type: "text",
         },
         {
           name: "user_lastname",
-          label: "Last Name",
+          label: t("lastNameLabel"),
           type: "text",
         },
         {
           name: "user_email",
-          label: "Email Address",
+          label: t("emailLabel"),
           type: "email",
           autoComplete: "email",
         },
         {
           name: "user_password",
-          label: "Password",
+          label: t("passwordLabel"),
           type: "password",
         },
         {
           name: "user_password_repeat",
-          label: "Confirm Password",
+          label: t("confirmPasswordLabel"),
           type: "password",
         },
       ]}
-      title="Create a new account"
-      submitText="Sign Up"
+      title={t("title")}
+      submitText={t("submitText")}
       isLoading={isLoading}
       isError={isError}
       error={error}

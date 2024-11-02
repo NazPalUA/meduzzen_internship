@@ -1,9 +1,23 @@
 import { z } from "zod"
 
-export const LoginCredentialsSchema = z.object({
-  user_email: z.string().email({ message: "Invalid email address" }).trim(),
-  user_password: z.string().min(8, { message: "Password must be at least 8 characters" }).trim(),
-})
+export const loginCredentialsSchema = (t?: (key: string) => string) => {
+  const translate = (key: string, defaultMessage: string) => {
+    return t ? t(key) : defaultMessage
+  }
+
+  return z.object({
+    user_email: z
+      .string()
+      .email({ message: translate("invalidEmail", "Invalid email address") })
+      .trim(),
+    user_password: z
+      .string()
+      .min(8, { message: translate("passwordMinLength", "Password must be at least 8 characters") })
+      .trim(),
+  })
+}
+
+export const LoginCredentialsSchema = loginCredentialsSchema()
 
 export const LoginResponseSchema = z.object({
   status_code: z.number(),

@@ -1,6 +1,7 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
+import { CircularProgress } from "@mui/material"
 import { FieldValues, Path, useForm } from "react-hook-form"
 import type { ZodSchema } from "zod"
 import styles from "./Form.module.scss"
@@ -71,7 +72,7 @@ export const AuthForm = <T extends FieldValues>({
             <p className={styles.errorMessage}>{error?.data?.detail || "An error occurred"}</p>
           )}
           <button type="submit" className={styles.submitButton}>
-            {isLoading ? "Loading..." : submitText}
+            {isLoading ? <CircularProgress className={styles.spinner} /> : submitText}
           </button>
         </form>
       </div>

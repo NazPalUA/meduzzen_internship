@@ -84,5 +84,33 @@
     "updateButton": "Оновити",
     "resetButton": "Скинути",
     "resetAllButton": "Скинути всі"
+  },
+
+  "CreateUser": {
+    "invalidEmail": "Невірна адреса електронної пошти",
+    "passwordMinLength": "Пароль повинен містити щонайменше 8 символів",
+    "firstNameRequired": "Ім'я обов'язкове",
+    "lastNameRequired": "Прізвище обов'язкове",
+    "passwordsDoNotMatch": "Паролі не співпадають",
+
+    "firstNameLabel": "Ім'я",
+    "lastNameLabel": "Прізвище",
+    "emailLabel": "Електронна пошта",
+    "passwordLabel": "Пароль",
+    "confirmPasswordLabel": "Підтвердження паролю",
+
+    "title": "Створити новий обліковий запис",
+    "submitText": "Зареєструватися"
+  },
+
+  "Login": {
+    "invalidEmail": "Невірна адреса електронної пошти",
+    "passwordMinLength": "Пароль повинен містити щонайменше 8 символів",
+
+    "emailLabel": "Електронна пошта",
+    "passwordLabel": "Пароль",
+
+    "title": "Вхід",
+    "submitText": "Увійти"
   }
 }

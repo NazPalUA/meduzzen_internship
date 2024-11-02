@@ -84,5 +84,33 @@
     "updateButton": "Update test value",
     "resetButton": "Reset value",
     "resetAllButton": "Reset all values"
+  },
+
+  "CreateUser": {
+    "invalidEmail": "Invalid email address",
+    "passwordMinLength": "Password must be at least 8 characters",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "passwordsDoNotMatch": "Passwords do not match",
+
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+
+    "title": "Create a New Account",
+    "submitText": "Sign Up"
+  },
+
+  "Login": {
+    "invalidEmail": "Invalid email address",
+    "passwordMinLength": "Password must be at least 8 characters",
+
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+
+    "title": "Login",
+    "submitText": "Login"
   }
 }
