@@ -125,6 +125,33 @@
     "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
   },
 
+  "UpdateUserInfo": {
+    "title": "Оновити вашу інформацію",
+    "firstnameLabel": "Ім'я",
+    "lastnameLabel": "Прізвище",
+
+    "submitText": "Оновити інформацію",
+
+    "firstnameRequired": "Ім'я обов'язкове",
+    "lastnameRequired": "Прізвище обов'язкове",
+    "invalidUrl": "Невірний URL",
+
+    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+  },
+
+  "UpdateUserPassword": {
+    "title": "Оновити ваш пароль",
+    "passwordLabel": "Пароль",
+    "confirmPasswordLabel": "Підтвердження паролю",
+
+    "passwordRequired": "Пароль обов'язковий",
+    "passwordsDoNotMatch": "Паролі не співпадають",
+
+    "submitText": "Оновити пароль",
+
+    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+  },
+
   "ApiHealthCheck": {
     "checkButton": "Перевірити роботу API",
     "successMessage": "API працює!",

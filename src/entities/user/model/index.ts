@@ -1,1 +1,6 @@
 export * from "./CreateUser"
+export * from "./DeleteUser"
+export * from "./UpdateUserInfo"
+export * from "./UpdateUserPassword"
+export * from "./UserDetails"
+export * from "./UsersList"

@@ -125,6 +125,33 @@
     "serverErrorGeneral": "An error occurred. Please try again later"
   },
 
+  "UpdateUserInfo": {
+    "title": "Update your information",
+    "firstnameLabel": "First Name",
+    "lastnameLabel": "Last Name",
+
+    "submitText": "Update Information",
+
+    "firstnameRequired": "First name is required",
+    "lastnameRequired": "Last name is required",
+    "invalidUrl": "Invalid URL",
+
+    "serverErrorGeneral": "An error occurred. Please try again later"
+  },
+
+  "UpdateUserPassword": {
+    "title": "Update your password",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+
+    "passwordRequired": "Password is required",
+    "passwordsDoNotMatch": "Passwords do not match",
+
+    "submitText": "Update Password",
+
+    "serverErrorGeneral": "An error occurred. Please try again later"
+  },
+
   "ApiHealthCheck": {
     "checkButton": "Check API Health",
     "successMessage": "API is healthy!",
