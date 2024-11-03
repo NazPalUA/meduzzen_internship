@@ -1,7 +1,8 @@
 {
   "Common": {
     "defaultErrorMessage": "An error occurred. Please try again.",
-    "retryButton": "Try Again"
+    "retryButton": "Try Again",
+    "defaultNoData": "No data found"
   },
 
   "LocaleLayout": {
