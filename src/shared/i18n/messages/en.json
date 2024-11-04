@@ -48,7 +48,12 @@
   "ProfilePage": {
     "title": "Profile",
     "email": "Email",
-    "about": "About"
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "status": "Status",
+    "city": "City",
+    "phone": "Phone",
+    "links": "Links"
   },
 
   "CompanyProfilePage": {

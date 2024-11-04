@@ -48,7 +48,12 @@
   "ProfilePage": {
     "title": "Профіль",
     "email": "Електронна пошта",
-    "about": "Про себе"
+    "firstName": "Ім'я",
+    "lastName": "Прізвище",
+    "status": "Статус",
+    "city": "Місто",
+    "phone": "Телефон",
+    "links": "Посилання"
   },
 
   "CompanyProfilePage": {
