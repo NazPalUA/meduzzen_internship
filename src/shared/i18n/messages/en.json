@@ -69,7 +69,8 @@
     "companies": "Companies",
     "signUp": "Sign Up",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "myProfile": "My Profile"
   },
 
   "Header": {

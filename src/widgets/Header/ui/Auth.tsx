@@ -11,7 +11,7 @@ import styles from "./Auth.module.scss"
 
 export function Auth() {
   const t = useTranslations("Navigation")
-  const { isLoggedIn } = useSession()
+  const { isLoggedIn, user } = useSession()
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleDropdown = () => {
@@ -29,10 +29,19 @@ export function Auth() {
       </button>
       {isOpen && (
         <div className={styles.dropdownMenu}>
-          {isLoggedIn ? (
-            <Link href={Routes.LOGOUT} className={styles.menuItem} onClick={closeDropdown}>
-              {t("logout")}
-            </Link>
+          {isLoggedIn && user ? (
+            <>
+              <Link href={Routes.LOGOUT} className={styles.menuItem} onClick={closeDropdown}>
+                {t("logout")}
+              </Link>
+              <Link
+                href={`${Routes.USERS}/${user.user_id}`}
+                className={styles.menuItem}
+                onClick={closeDropdown}
+              >
+                {t("myProfile")}
+              </Link>
+            </>
           ) : (
             <>
               <Link href={Routes.LOGIN} className={styles.menuItem} onClick={closeDropdown}>

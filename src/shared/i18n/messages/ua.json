@@ -69,7 +69,8 @@
     "companies": "Компанії",
     "signUp": "Реєстрація",
     "login": "Вхід",
-    "logout": "Вихід"
+    "logout": "Вихід",
+    "myProfile": "Мій профіль"
   },
 
   "Header": {
