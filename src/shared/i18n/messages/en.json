@@ -2,7 +2,9 @@
   "Common": {
     "defaultErrorMessage": "An error occurred. Please try again.",
     "retryButton": "Try Again",
-    "defaultNoData": "No data found"
+    "defaultNoData": "No data found",
+    "previousPage": "Previous",
+    "nextPage": "Next"
   },
 
   "LocaleLayout": {

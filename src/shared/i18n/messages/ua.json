@@ -2,7 +2,9 @@
   "Common": {
     "defaultErrorMessage": "Сталася помилка. Будь ласка, спробуйте пізніше.",
     "retryButton": "Спробувати ще раз",
-    "defaultNoData": "Нічого не знайдено"
+    "defaultNoData": "Нічого не знайдено",
+    "previousPage": "Назад",
+    "nextPage": "Вперед"
   },
 
   "LocaleLayout": {
