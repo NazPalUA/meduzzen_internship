@@ -1,12 +1,17 @@
-.root {
+@mixin flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.root {
+  @include flex-column;
+  position: relative;
   min-height: 100vh;
-  background: var(--mui-palette-background-default);
-  color: var(--mui-palette-text-primary);
+  background: var(--mui-palette-background-default) !important;
+  color: var(--mui-palette-text-primary) !important;
 }
 
 .main {
   flex-grow: 1;
-  padding: 1rem 0;
+  @include flex-column;
 }

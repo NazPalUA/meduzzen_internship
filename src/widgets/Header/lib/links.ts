@@ -8,6 +8,7 @@ export const useLinks = () => {
     { href: Routes.HOME, label: t("home") },
     { href: Routes.USERS, label: t("users") },
     { href: Routes.COMPANIES, label: t("companies") },
+    { href: Routes.DASHBOARD, label: t("dashboard") },
     { href: Routes.ABOUT, label: t("about") },
   ]
 }

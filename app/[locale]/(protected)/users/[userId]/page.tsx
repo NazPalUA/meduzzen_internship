@@ -1,4 +1,4 @@
-import { PageContainer } from "@shared/ui/PageContainer"
+import { Container } from "@/src/shared/ui/Container"
 import { useTranslations } from "next-intl"
 
 type Params = {
@@ -18,7 +18,7 @@ export default function UserProfile({ params }: { params: Params }) {
   const { email, about } = getUserData(userId)
   const t = useTranslations("ProfilePage")
   return (
-    <PageContainer>
+    <Container>
       <h2>
         {t("title")} {userId}
       </h2>
@@ -28,6 +28,6 @@ export default function UserProfile({ params }: { params: Params }) {
       <p>
         {t("about")}: {about}
       </p>
-    </PageContainer>
+    </Container>
   )
 }

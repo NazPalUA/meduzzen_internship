@@ -16,8 +16,6 @@
         "importNames": ["redirect", "permanent Redirect", "useRouter", "usePathname"]
       }
     ],
-    "no-console": "warn",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "prefer-const": "error"
   }
 }

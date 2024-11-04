@@ -1,6 +1,7 @@
-import { AppBar, Toolbar } from "@mui/material"
+import { Container } from "@/src/shared/ui/Container"
 import { useTranslations } from "next-intl"
 import { useLinks } from "../lib/links"
+import { Auth } from "./Auth"
 import styles from "./Header.module.scss"
 import { LocaleSwitcher } from "./LocaleSwitcher"
 import { NavItem } from "./NavItem"
@@ -9,16 +10,17 @@ export function Header() {
   const t = useTranslations("Header")
   const links = useLinks()
   return (
-    <AppBar position="static" component="header">
-      <Toolbar>
+    <header>
+      <Container className={styles.container}>
         <div className={styles.title}>{t("title")}</div>
-        <div>
+        <div className={styles.nav}>
           {links.map(({ href, label }) => (
             <NavItem key={href} href={href} label={label} />
           ))}
+          <Auth />
           <LocaleSwitcher />
         </div>
-      </Toolbar>
-    </AppBar>
+      </Container>
+    </header>
   )
 }

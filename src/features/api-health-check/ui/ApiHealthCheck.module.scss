@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1rem;
+  height: min-content;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.status {
+  flex-grow: 1;
+}
