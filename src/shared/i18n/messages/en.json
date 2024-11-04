@@ -83,7 +83,8 @@
   },
 
   "Modal": {
-    "closeButton": "Close"
+    "closeButton": "Close",
+    "submitButton": "Submit"
   },
 
   "TestStore": {

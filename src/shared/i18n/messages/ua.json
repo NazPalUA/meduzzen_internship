@@ -83,7 +83,8 @@
   },
 
   "Modal": {
-    "closeButton": "Закрити"
+    "closeButton": "Закрити",
+    "submitButton": "Підтвердити"
   },
 
   "TestStore": {
