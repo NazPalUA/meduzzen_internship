@@ -1,7 +1,0 @@
-export * from "./createUser"
-export * from "./deleteUser"
-export * from "./getAllUsers"
-export * from "./getUserById"
-export * from "./updateUserAvatar"
-export * from "./updateUserInfo"
-export * from "./updateUserPassword"
