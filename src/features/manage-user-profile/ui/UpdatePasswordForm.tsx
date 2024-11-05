@@ -1,6 +1,6 @@
 "use client"
 
-import { useSession } from "@entities/session"
+import { CurrentUser } from "@entities/session"
 import {
   updateUserPasswordCredentialsSchema,
   useUpdateUserPasswordMutation,
@@ -10,9 +10,9 @@ import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import { UpdateForm } from "./UpdateForm"
 
-export function UpdatePasswordForm() {
+export function UpdatePasswordForm({ user }: { user: CurrentUser }) {
   const [updatePassword, { isLoading, isError }] = useUpdateUserPasswordMutation()
-  const { user } = useSession()
+
   const { toastError, toastSuccess, closeModal } = useOverlays()
 
   const tPassword = useTranslations("UpdateUser.password")
@@ -22,10 +22,6 @@ export function UpdatePasswordForm() {
   const schema = updateUserPasswordCredentialsSchema(tValidation)
 
   const onSubmit = async (data: UpdateUserPasswordCredentials) => {
-    if (!user) {
-      toastError(tPassword("result.error"))
-      return
-    }
     try {
       await updatePassword({ userId: user.user_id.toString(), passwordInfo: data }).unwrap()
       toastSuccess(tPassword("result.success"))

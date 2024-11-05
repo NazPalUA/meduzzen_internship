@@ -1,6 +1,6 @@
 "use client"
 
-import { useSession } from "@entities/session"
+import { CurrentUser } from "@entities/session"
 import { useUpdateUserAvatarMutation } from "@entities/user"
 import { Button, CircularProgress } from "@mui/material"
 import { useOverlays } from "@shared/overlays"
@@ -9,9 +9,9 @@ import Image from "next/image"
 import { ChangeEvent, useState } from "react"
 import styles from "./UpdateAvatarForm.module.scss"
 
-export function UpdateAvatarForm() {
+export function UpdateAvatarForm({ user }: { user: CurrentUser }) {
   const [updateUserAvatar, { isLoading }] = useUpdateUserAvatarMutation()
-  const { user } = useSession()
+
   const t = useTranslations("UpdateUser.avatar")
   const { toastError, toastSuccess, closeModal } = useOverlays()
 
@@ -28,7 +28,7 @@ export function UpdateAvatarForm() {
   }
 
   const handleSubmit = async () => {
-    if (!user || !selectedFile) {
+    if (!selectedFile) {
       toastError(t("result.error"))
       return
     }

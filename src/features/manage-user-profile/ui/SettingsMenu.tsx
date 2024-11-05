@@ -1,6 +1,5 @@
 "use client"
 
-import { useSession } from "@entities/session"
 import {
   AccountCircle as AccountCircleIcon,
   Delete as DeleteIcon,
@@ -11,7 +10,6 @@ import {
 import { IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material"
 import { ModalType, useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
-import { useParams } from "next/navigation"
 import { MouseEvent, useState } from "react"
 
 export function SettingsMenu() {
@@ -19,15 +17,7 @@ export function SettingsMenu() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const menuOpen = Boolean(anchorEl)
 
-  const { user: currentUser } = useSession()
-  const params = useParams()
-  const profileUserId = params.userId as string
-
   const { openModal } = useOverlays()
-
-  if (!currentUser || String(currentUser.user_id) !== profileUserId) {
-    return null
-  }
 
   const handleMenuClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)

@@ -1,6 +1,6 @@
 "use client"
 
-import { useLogoutMutation, useSession } from "@entities/session"
+import { CurrentUser, useLogoutMutation } from "@entities/session"
 import { useDeleteUserMutation } from "@entities/user"
 import { Button, CircularProgress } from "@mui/material"
 import { useRouter } from "@navigation"
@@ -9,21 +9,15 @@ import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import styles from "./Form.module.scss"
 
-export function DeleteUserForm() {
+export function DeleteUserForm({ user }: { user: CurrentUser }) {
   const t = useTranslations("DeleteUser")
-  const { user, isLoading } = useSession()
   const [logout] = useLogoutMutation()
-  const [deleteUser] = useDeleteUserMutation()
+  const [deleteUser, { isLoading }] = useDeleteUserMutation()
   const router = useRouter()
 
   const { toastError, toastSuccess, closeModal } = useOverlays()
 
   const handleDelete = async () => {
-    if (!user) {
-      toastError(t("result.error"))
-      return
-    }
-
     try {
       await deleteUser(user.user_id.toString()).unwrap()
       toastSuccess(t("result.success"))

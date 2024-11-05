@@ -25,10 +25,22 @@ export function Settings() {
   }
 
   const dialogWindows: { title: string; modal: ModalType; component: ReactNode }[] = [
-    { title: t("updateInfo"), modal: "info", component: <UpdateInfoForm /> },
-    { title: t("updateAvatar"), modal: "avatar", component: <UpdateAvatarForm /> },
-    { title: t("changePassword"), modal: "password", component: <UpdatePasswordForm /> },
-    { title: t("deleteAccount"), modal: "delete", component: <DeleteUserForm /> },
+    { title: t("updateInfo"), modal: "info", component: <UpdateInfoForm user={currentUser} /> },
+    {
+      title: t("updateAvatar"),
+      modal: "avatar",
+      component: <UpdateAvatarForm user={currentUser} />,
+    },
+    {
+      title: t("changePassword"),
+      modal: "password",
+      component: <UpdatePasswordForm user={currentUser} />,
+    },
+    {
+      title: t("deleteAccount"),
+      modal: "delete",
+      component: <DeleteUserForm user={currentUser} />,
+    },
   ]
 
   return (

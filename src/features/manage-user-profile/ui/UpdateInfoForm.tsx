@@ -1,6 +1,6 @@
 "use client"
 
-import { useSession } from "@entities/session"
+import { CurrentUser } from "@entities/session"
 import {
   type UpdateUserInfoCredentials,
   updateUserInfoCredentialsSchema,
@@ -10,20 +10,14 @@ import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import { UpdateForm } from "./UpdateForm"
 
-export function UpdateInfoForm() {
+export function UpdateInfoForm({ user }: { user: CurrentUser }) {
   const [updateUserInfo, { isLoading, isError }] = useUpdateUserInfoMutation()
-  const { user } = useSession()
 
   const tInfo = useTranslations("UpdateUser.info")
   const tValidation = useTranslations("Validation")
   const tError = useTranslations("Error")
 
   const { toastError, toastSuccess, closeModal } = useOverlays()
-
-  if (!user) {
-    toastError(tInfo("result.error"))
-    return
-  }
 
   const defaultValues: UpdateUserInfoCredentials = {
     user_firstname: user.user_firstname,
