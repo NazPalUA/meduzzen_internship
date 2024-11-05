@@ -1,6 +1,7 @@
 {
   "Validation": {
     "password": {
+      "required": "Пароль обов'язковий",
       "minLength": "Пароль повинен містити щонайменше 12 символів",
       "lowercase": "Пароль повинен містити щонайменше одну малу літеру",
       "uppercase": "Пароль повинен містити щонайменше одну велику літеру",
@@ -18,6 +19,12 @@
     "lastName": {
       "required": "Прізвище обов'язкове"
     }
+  },
+
+  "Error": {
+    "default": "Сталася помилка. Будь ласка, спробуйте пізніше.",
+    "emailAlreadyExists": "Email вже існує",
+    "invalidCredentials": "Невірна адреса електронної пошти або пароль"
   },
 
   "Common": {
@@ -123,36 +130,28 @@
   },
 
   "CreateUser": {
-    "invalidEmail": "Невірна адреса електронної пошти",
-
-    "firstNameRequired": "Ім'я обов'язкове",
-    "lastNameRequired": "Прізвище обов'язкове",
-
-    "firstNameLabel": "Ім'я",
-    "lastNameLabel": "Прізвище",
-    "emailLabel": "Електронна пошта",
-    "passwordLabel": "Пароль",
-    "confirmPasswordLabel": "Підтвердження паролю",
-
     "title": "Створити новий обліковий запис",
-    "submitText": "Зареєструватися",
 
-    "serverErrorEmailAlreadyExists": "Електронна пошта вже існує",
-    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+    "labels": {
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "email": "Електронна пошта",
+      "password": "Пароль",
+      "confirmPassword": "Підтвердження паролю"
+    },
+
+    "submitText": "Зареєструватися"
   },
 
   "Login": {
-    "invalidEmail": "Невірна адреса електронної пошти",
-    "passwordMinLength": "Пароль повинен містити щонайменше 8 символів",
-
-    "emailLabel": "Електронна пошта",
-    "passwordLabel": "Пароль",
-
     "title": "Вхід",
-    "submitText": "Увійти",
 
-    "serverErrorInvalidCredentials": "Невірна адреса електронної пошти або пароль",
-    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+    "labels": {
+      "email": "Електронна пошта",
+      "password": "Пароль"
+    },
+
+    "submitText": "Увійти"
   },
 
   "UpdateUserInfo": {

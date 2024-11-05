@@ -9,12 +9,10 @@ export const loginCredentialsSchema = (t?: (key: string) => string) => {
   return z.object({
     user_email: z
       .string()
-      .email({ message: translate("invalidEmail", "Invalid email address") })
+      .min(1, translate("email.required", "Email is required"))
+      .email(translate("email.invalid", "Invalid email address"))
       .trim(),
-    user_password: z
-      .string()
-      .min(8, { message: translate("passwordMinLength", "Password must be at least 8 characters") })
-      .trim(),
+    user_password: z.string().min(1, translate("password.required", "Password is required")).trim(),
   })
 }
 

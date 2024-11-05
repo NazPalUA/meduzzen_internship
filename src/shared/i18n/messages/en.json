@@ -1,6 +1,7 @@
 {
   "Validation": {
     "password": {
+      "required": "Password is required",
       "minLength": "Password must be at least 12 characters",
       "lowercase": "Password must contain at least one lowercase letter",
       "uppercase": "Password must contain at least one uppercase letter",
@@ -18,6 +19,12 @@
     "lastName": {
       "required": "Last name is required"
     }
+  },
+
+  "Error": {
+    "default": "An error occurred. Please try again.",
+    "emailAlreadyExists": "Email already exists",
+    "invalidCredentials": "Invalid email or password"
   },
 
   "Common": {
@@ -123,36 +130,24 @@
   },
 
   "CreateUser": {
-    "invalidEmail": "Invalid email address",
-
-    "firstNameRequired": "First name is required",
-    "lastNameRequired": "Last name is required",
-
-    "firstNameLabel": "First Name",
-    "lastNameLabel": "Last Name",
-    "emailLabel": "Email Address",
-    "passwordLabel": "Password",
-    "confirmPasswordLabel": "Confirm Password",
-
     "title": "Create a New Account",
-    "submitText": "Sign Up",
-
-    "serverErrorEmailAlreadyExists": "Email already exists",
-    "serverErrorGeneral": "An error occurred. Please try again later"
+    "labels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "submitText": "Sign Up"
   },
 
   "Login": {
-    "invalidEmail": "Invalid email address",
-    "passwordMinLength": "Password must be at least 8 characters",
-
-    "emailLabel": "Email Address",
-    "passwordLabel": "Password",
-
     "title": "Login",
-    "submitText": "Login",
-
-    "serverErrorInvalidCredentials": "Invalid email or password",
-    "serverErrorGeneral": "An error occurred. Please try again later"
+    "labels": {
+      "email": "Email Address",
+      "password": "Password"
+    },
+    "submitText": "Login"
   },
 
   "UpdateUserInfo": {

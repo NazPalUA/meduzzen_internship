@@ -16,8 +16,9 @@ export function SignUpForm() {
   const [createUser, { isLoading, isError, error }] = useCreateUserMutation()
   const router = useRouter()
 
-  const t = useTranslations("CreateUser")
+  const tCreateUser = useTranslations("CreateUser")
   const tValidation = useTranslations("Validation")
+  const tError = useTranslations("Error")
 
   const schema = createUserCredentialsSchema(tValidation)
 
@@ -30,10 +31,10 @@ export function SignUpForm() {
     if (!error) return null
 
     if ("status" in error && error.status === 400) {
-      return t("serverErrorEmailAlreadyExists")
+      return tError("emailAlreadyExists")
     }
 
-    return t("serverErrorGeneral")
+    return tError("default")
   }
 
   return (
@@ -43,33 +44,33 @@ export function SignUpForm() {
       fields={[
         {
           name: "user_firstname",
-          label: t("firstNameLabel"),
+          label: tCreateUser("labels.firstName"),
           type: "text",
         },
         {
           name: "user_lastname",
-          label: t("lastNameLabel"),
+          label: tCreateUser("labels.lastName"),
           type: "text",
         },
         {
           name: "user_email",
-          label: t("emailLabel"),
+          label: tCreateUser("labels.email"),
           type: "email",
           autoComplete: "email",
         },
         {
           name: "user_password",
-          label: t("passwordLabel"),
+          label: tCreateUser("labels.password"),
           type: "password",
         },
         {
           name: "user_password_repeat",
-          label: t("confirmPasswordLabel"),
+          label: tCreateUser("labels.confirmPassword"),
           type: "password",
         },
       ]}
-      title={t("title")}
-      submitText={t("submitText")}
+      title={tCreateUser("title")}
+      submitText={tCreateUser("submitText")}
       isLoading={isLoading}
       isError={isError}
       error={getErrorMessage(error)}
