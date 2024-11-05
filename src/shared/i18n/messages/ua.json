@@ -52,7 +52,8 @@
     "welcomeMessage": "Ласкаво просимо до нашого проекту!",
     "learnMoreButton": "Дізнатися більше",
     "learnMoreTitle": "Дізнатися більше",
-    "learnMoreDescription": "Ваш контент буде тут"
+    "learnMoreDescription": "Ваш контент буде тут",
+    "closeButton": "Закрити"
   },
 
   "DashboardPage": {
@@ -117,11 +118,6 @@
   "LocaleSwitcher": {
     "label": "Змінити мову",
     "locale": "{locale, select, ua {Українська} en {Англійська} other {Unknown}}"
-  },
-
-  "Modal": {
-    "closeButton": "Закрити",
-    "submitButton": "Підтвердити"
   },
 
   "TestStore": {

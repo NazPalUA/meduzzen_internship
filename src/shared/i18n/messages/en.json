@@ -52,7 +52,8 @@
     "welcomeMessage": "Welcome to our project!",
     "learnMoreButton": "Learn More",
     "learnMoreTitle": "Learn More",
-    "learnMoreDescription": "Your content goes here"
+    "learnMoreDescription": "Your content goes here",
+    "closeButton": "Close"
   },
 
   "DashboardPage": {
@@ -117,11 +118,6 @@
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, ua {Ukrainian} en {English} other {Unknown}}"
-  },
-
-  "Modal": {
-    "closeButton": "Close",
-    "submitButton": "Submit"
   },
 
   "TestStore": {

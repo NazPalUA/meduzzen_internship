@@ -8,7 +8,7 @@ type ToastState = {
   variant: ToastVariant
 }
 
-export type ModalType = "password" | "info" | "avatar" | "delete" | null
+export type ModalType = "test" | "password" | "info" | "avatar" | "delete" | null
 
 type OverlaysState = {
   activeModal: ModalType
