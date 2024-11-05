@@ -1,5 +1,6 @@
 import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
 import { z } from "zod"
+import { passwordSchema } from "./shared/password"
 
 export const updateUserPasswordCredentialsSchema = (t?: (key: string) => string) => {
   const translate = (key: string, defaultMessage: string) => {
@@ -8,14 +9,11 @@ export const updateUserPasswordCredentialsSchema = (t?: (key: string) => string)
 
   return z
     .object({
-      user_password: z
-        .string()
-        .min(8, translate("passwordRequired", "Password is required"))
-        .trim(),
+      user_password: passwordSchema(t),
       user_password_repeat: z.string(),
     })
     .refine((data) => data.user_password === data.user_password_repeat, {
-      message: translate("passwordsDoNotMatch", "Passwords do not match"),
+      message: translate("password.doNotMatch", "Passwords do not match"),
       path: ["user_password_repeat"],
     })
 }

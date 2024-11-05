@@ -15,9 +15,11 @@ import { AuthForm } from "./AuthForm"
 export function SignUpForm() {
   const [createUser, { isLoading, isError, error }] = useCreateUserMutation()
   const router = useRouter()
-  const t = useTranslations("CreateUser")
 
-  const schema = createUserCredentialsSchema(t)
+  const t = useTranslations("CreateUser")
+  const tValidation = useTranslations("Validation")
+
+  const schema = createUserCredentialsSchema(tValidation)
 
   const onSubmit = async (data: CreateUserCredentials) => {
     await createUser(data).unwrap()

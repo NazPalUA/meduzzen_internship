@@ -16,7 +16,8 @@ export function UpdatePasswordForm() {
   const { user } = useSession()
   const dispatch = useAppDispatch()
   const t = useTranslations("UpdateUserPassword")
-  const schema = updateUserPasswordCredentialsSchema(t)
+  const tValidation = useTranslations("Validation")
+  const schema = updateUserPasswordCredentialsSchema(tValidation)
 
   const onSubmit = async (data: UpdateUserPasswordCredentials) => {
     if (!user) {

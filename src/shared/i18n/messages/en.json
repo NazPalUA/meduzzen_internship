@@ -1,4 +1,25 @@
 {
+  "Validation": {
+    "password": {
+      "minLength": "Password must be at least 12 characters",
+      "lowercase": "Password must contain at least one lowercase letter",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "number": "Password must contain at least one number",
+      "specialChar": "Password must contain at least one special character",
+      "doNotMatch": "Passwords do not match"
+    },
+    "email": {
+      "required": "Email is required",
+      "invalid": "Invalid email address"
+    },
+    "firstName": {
+      "required": "First name is required"
+    },
+    "lastName": {
+      "required": "Last name is required"
+    }
+  },
+
   "Common": {
     "defaultErrorMessage": "An error occurred. Please try again.",
     "retryButton": "Try Again",
@@ -103,10 +124,9 @@
 
   "CreateUser": {
     "invalidEmail": "Invalid email address",
-    "passwordMinLength": "Password must be at least 8 characters",
+
     "firstNameRequired": "First name is required",
     "lastNameRequired": "Last name is required",
-    "passwordsDoNotMatch": "Passwords do not match",
 
     "firstNameLabel": "First Name",
     "lastNameLabel": "Last Name",
@@ -162,9 +182,6 @@
 
     "passwordLabel": "Password",
     "confirmPasswordLabel": "Confirm Password",
-
-    "passwordRequired": "Password is required",
-    "passwordsDoNotMatch": "Passwords do not match",
 
     "submitText": "Update Password",
 
