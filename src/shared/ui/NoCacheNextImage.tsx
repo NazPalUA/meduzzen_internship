@@ -4,8 +4,8 @@ interface NoCacheNextImageProps extends ImageProps {
   cacheKey?: string | number
 }
 
-export function NoCacheNextImage({ src, cacheKey, ...props }: NoCacheNextImageProps) {
+export function NoCacheNextImage({ src, cacheKey, alt, ...props }: NoCacheNextImageProps) {
   const noCacheUrl = cacheKey ? `${src}?cb=${cacheKey}` : src
 
-  return <Image src={noCacheUrl} {...props} />
+  return <Image src={noCacheUrl} alt={alt} {...props} />
 }
