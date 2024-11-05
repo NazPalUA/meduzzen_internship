@@ -8,6 +8,9 @@ import {
   CreateUserResponseSchema,
   DeleteUserResponse,
   DeleteUserResponseSchema,
+  UpdateUserAvatarCredentials,
+  UpdateUserAvatarResponse,
+  UpdateUserAvatarResponseSchema,
   UpdateUserInfoCredentials,
   UpdateUserInfoResponse,
   UpdateUserInfoResponseSchema,
@@ -105,6 +108,26 @@ export const userApiSlice = createApi({
       },
       invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }],
     }),
+
+    updateUserAvatar: build.mutation<
+      UpdateUserAvatarResponse,
+      { userId: string; avatar: UpdateUserAvatarCredentials }
+    >({
+      query: ({ userId, avatar }) => {
+        const formData = new FormData()
+        formData.append("file", avatar.file)
+
+        return {
+          url: API_ENDPOINTS.USER.UPDATE_USER_AVATAR.replace("{user_id}", userId),
+          method: "PUT",
+          body: formData,
+        }
+      },
+      transformResponse: (response: unknown) => {
+        return parseData(UpdateUserAvatarResponseSchema, response)
+      },
+      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }],
+    }),
   }),
 })
 
@@ -115,4 +138,5 @@ export const {
   useDeleteUserMutation,
   useUpdateUserInfoMutation,
   useUpdateUserPasswordMutation,
+  useUpdateUserAvatarMutation,
 } = userApiSlice

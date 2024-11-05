@@ -1,5 +1,6 @@
 export * from "./CreateUser"
 export * from "./DeleteUser"
+export * from "./UpdateUserAvatar"
 export * from "./UpdateUserInfo"
 export * from "./UpdateUserPassword"
 export * from "./UserDetails"
