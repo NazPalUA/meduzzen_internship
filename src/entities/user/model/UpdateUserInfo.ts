@@ -1,3 +1,4 @@
+import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
 import { z } from "zod"
 
 export const updateUserInfoCredentialsSchema = (t?: (key: string) => string) => {
@@ -22,12 +23,10 @@ export const UpdateUserInfoCredentialsSchema = updateUserInfoCredentialsSchema()
 
 export type UpdateUserInfoCredentials = z.infer<typeof UpdateUserInfoCredentialsSchema>
 
-export const UpdateUserInfoResponseSchema = z.object({
-  status_code: z.number(),
-  detail: z.string(),
-  result: z.object({
+export const UpdateUserInfoResponseSchema = ServerResponseSchema(
+  z.object({
     user_id: z.number(),
   }),
-})
+)
 
 export type UpdateUserInfoResponse = z.infer<typeof UpdateUserInfoResponseSchema>

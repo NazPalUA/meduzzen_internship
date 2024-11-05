@@ -1,3 +1,4 @@
+import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
 import { z } from "zod"
 
 export const SingleUserSchema = z.object({
@@ -14,14 +15,12 @@ const PaginationSchema = z.object({
   total_results: z.number(),
 })
 
-export const UsersListResponseSchema = z.object({
-  status_code: z.number(),
-  detail: z.string(),
-  result: z.object({
+export const UsersListResponseSchema = ServerResponseSchema(
+  z.object({
     users: z.array(SingleUserSchema),
     pagination: PaginationSchema,
   }),
-})
+)
 
 export type SingleUser = z.infer<typeof SingleUserSchema>
 export type Pagination = z.infer<typeof PaginationSchema>

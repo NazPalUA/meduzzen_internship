@@ -1,3 +1,4 @@
+import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
 import { z } from "zod"
 
 export const CurrentUserSchema = z.object({
@@ -13,11 +14,7 @@ export const CurrentUserSchema = z.object({
   is_superuser: z.boolean(),
 })
 
-export const GetMeResponseSchema = z.object({
-  status_code: z.number(),
-  detail: z.string(),
-  result: CurrentUserSchema,
-})
+export const GetMeResponseSchema = ServerResponseSchema(CurrentUserSchema)
 
 export type CurrentUser = z.infer<typeof CurrentUserSchema>
 export type GetMeResponse = z.infer<typeof GetMeResponseSchema>
