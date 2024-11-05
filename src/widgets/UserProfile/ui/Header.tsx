@@ -1,7 +1,8 @@
+import { Settings } from "@/src/features/manage-user-profile"
+import { NoCacheNextImage } from "@/src/shared/ui/NoCacheNextImage"
 import { type UserDetails } from "@entities/user"
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings"
 import { Avatar } from "@mui/material"
-import Image from "next/image"
 import styles from "./Header.module.scss"
 
 export function Header({
@@ -10,17 +11,28 @@ export function Header({
   is_superuser,
   user_avatar,
 }: Pick<UserDetails, "user_firstname" | "user_lastname" | "is_superuser" | "user_avatar">) {
+  const timestamp = new Date().getTime()
+
   return (
     <div className={styles.header}>
       <Avatar>
         {user_avatar ? (
-          <Image src={user_avatar} fill sizes="40px" alt={user_firstname} />
+          <NoCacheNextImage
+            cacheKey={timestamp}
+            src={user_avatar}
+            width={40}
+            height={40}
+            alt={user_firstname}
+          />
         ) : (
           user_firstname[0]
         )}
       </Avatar>
       <h2 className={styles.userName}>{`${user_firstname} ${user_lastname}`}</h2>
       {is_superuser && <AdminPanelSettingsIcon color="primary" />}
+      <div className={styles.settings}>
+        <Settings />
+      </div>
     </div>
   )
 }
