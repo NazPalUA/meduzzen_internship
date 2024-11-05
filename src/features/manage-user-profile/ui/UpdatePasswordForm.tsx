@@ -1,20 +1,19 @@
 "use client"
 
-import { useAppDispatch } from "@/src/shared/store"
 import { useSession } from "@entities/session"
 import {
   updateUserPasswordCredentialsSchema,
   useUpdateUserPasswordMutation,
   type UpdateUserPasswordCredentials,
 } from "@entities/user"
+import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
-import { closeModal, showSnackbar } from "../store/settingsSlice"
 import { UpdateForm } from "./UpdateForm"
 
 export function UpdatePasswordForm() {
   const [updatePassword, { isLoading, isError }] = useUpdateUserPasswordMutation()
   const { user } = useSession()
-  const dispatch = useAppDispatch()
+  const { toastError, toastSuccess, closeModal } = useOverlays()
 
   const tPassword = useTranslations("UpdateUser.password")
   const tValidation = useTranslations("Validation")
@@ -24,15 +23,15 @@ export function UpdatePasswordForm() {
 
   const onSubmit = async (data: UpdateUserPasswordCredentials) => {
     if (!user) {
-      dispatch(showSnackbar({ message: tPassword("result.error"), error: true }))
+      toastError(tPassword("result.error"))
       return
     }
     try {
       await updatePassword({ userId: user.user_id.toString(), passwordInfo: data }).unwrap()
-      dispatch(showSnackbar({ message: tPassword("result.success"), error: false }))
-      dispatch(closeModal())
+      toastSuccess(tPassword("result.success"))
+      closeModal()
     } catch {
-      dispatch(showSnackbar({ message: tPassword("result.error"), error: true }))
+      toastError(tPassword("result.error"))
     }
   }
 

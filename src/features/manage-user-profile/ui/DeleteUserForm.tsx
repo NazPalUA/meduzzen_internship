@@ -1,13 +1,12 @@
 "use client"
 
-import { Routes } from "@/src/shared/constants/routes"
-import { useAppDispatch } from "@/src/shared/store"
 import { useLogoutMutation, useSession } from "@entities/session"
 import { useDeleteUserMutation } from "@entities/user"
 import { Button, CircularProgress } from "@mui/material"
 import { useRouter } from "@navigation"
+import { Routes } from "@shared/constants/routes"
+import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
-import { closeModal, showSnackbar } from "../store/settingsSlice"
 import styles from "./Form.module.scss"
 
 export function DeleteUserForm() {
@@ -16,22 +15,23 @@ export function DeleteUserForm() {
   const [logout] = useLogoutMutation()
   const [deleteUser] = useDeleteUserMutation()
   const router = useRouter()
-  const dispatch = useAppDispatch()
+
+  const { toastError, toastSuccess, closeModal } = useOverlays()
 
   const handleDelete = async () => {
     if (!user) {
-      dispatch(showSnackbar({ message: t("result.error"), error: true }))
+      toastError(t("result.error"))
       return
     }
 
     try {
       await deleteUser(user.user_id.toString()).unwrap()
-      dispatch(showSnackbar({ message: t("result.success"), error: false }))
-      dispatch(closeModal())
+      toastSuccess(t("result.success"))
+      closeModal()
       await logout().unwrap()
       router.push(Routes.LOGIN)
     } catch {
-      dispatch(showSnackbar({ message: t("result.error"), error: true }))
+      toastError(t("result.error"))
     }
   }
 
@@ -42,7 +42,7 @@ export function DeleteUserForm() {
         <Button variant="contained" color="error" onClick={handleDelete} disabled={isLoading}>
           {isLoading ? <CircularProgress size={24} /> : t("submitText")}
         </Button>
-        <Button variant="outlined" onClick={() => dispatch(closeModal())} disabled={isLoading}>
+        <Button variant="outlined" onClick={closeModal} disabled={isLoading}>
           {t("rejectText")}
         </Button>
       </div>

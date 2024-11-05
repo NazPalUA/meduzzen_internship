@@ -1,6 +1,5 @@
 "use client"
 
-import { useAppDispatch } from "@/src/shared/store"
 import { useSession } from "@entities/session"
 import {
   AccountCircle as AccountCircleIcon,
@@ -10,10 +9,10 @@ import {
   Settings as SettingsIcon,
 } from "@mui/icons-material"
 import { IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material"
+import { ModalType, useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import { MouseEvent, useState } from "react"
-import { openModal } from "../store/settingsSlice"
 
 export function SettingsMenu() {
   const t = useTranslations("Settings")
@@ -24,7 +23,7 @@ export function SettingsMenu() {
   const params = useParams()
   const profileUserId = params.userId as string
 
-  const dispatch = useAppDispatch()
+  const { openModal } = useOverlays()
 
   if (!currentUser || String(currentUser.user_id) !== profileUserId) {
     return null
@@ -36,8 +35,8 @@ export function SettingsMenu() {
 
   const handleMenuClose = () => setAnchorEl(null)
 
-  const openDialogWindow = (modalType: "password" | "info" | "avatar" | "delete") => {
-    dispatch(openModal(modalType))
+  const openDialogWindow = (modalType: ModalType) => {
+    openModal(modalType)
     handleMenuClose()
   }
 

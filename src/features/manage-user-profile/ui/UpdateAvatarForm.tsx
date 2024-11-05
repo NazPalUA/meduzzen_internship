@@ -1,20 +1,19 @@
 "use client"
 
-import { useAppDispatch } from "@/src/shared/store"
 import { useSession } from "@entities/session"
 import { useUpdateUserAvatarMutation } from "@entities/user"
 import { Button, CircularProgress } from "@mui/material"
+import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { ChangeEvent, useState } from "react"
-import { closeModal, showSnackbar } from "../store/settingsSlice"
 import styles from "./UpdateAvatarForm.module.scss"
 
 export function UpdateAvatarForm() {
   const [updateUserAvatar, { isLoading }] = useUpdateUserAvatarMutation()
   const { user } = useSession()
   const t = useTranslations("UpdateUser.avatar")
-  const dispatch = useAppDispatch()
+  const { toastError, toastSuccess, closeModal } = useOverlays()
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
@@ -30,7 +29,7 @@ export function UpdateAvatarForm() {
 
   const handleSubmit = async () => {
     if (!user || !selectedFile) {
-      dispatch(showSnackbar({ message: t("result.error"), error: true }))
+      toastError(t("result.error"))
       return
     }
 
@@ -39,13 +38,13 @@ export function UpdateAvatarForm() {
         userId: user.user_id.toString(),
         avatar: { file: selectedFile },
       }).unwrap()
-      dispatch(showSnackbar({ message: t("result.success"), error: false }))
+      toastSuccess(t("result.success"))
       setPreviewUrl(null)
       setSelectedFile(null)
       if (previewUrl) URL.revokeObjectURL(previewUrl)
-      dispatch(closeModal())
+      closeModal()
     } catch {
-      dispatch(showSnackbar({ message: t("result.error"), error: true }))
+      toastError(t("result.error"))
     }
   }
 

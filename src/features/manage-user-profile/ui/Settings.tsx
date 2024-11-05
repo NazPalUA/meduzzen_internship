@@ -1,11 +1,12 @@
 "use client"
 
 import { useSession } from "@entities/session"
+import { ModalType } from "@shared/overlays"
+import { ModalWindow } from "@shared/overlays/ui/ModalWindow"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
+import { ReactNode } from "react"
 import { DeleteUserForm } from "./DeleteUserForm"
-import { DialogContainer } from "./DialogContainer"
-import { Feedback } from "./Feedback"
 import styles from "./Settings.module.scss"
 import { SettingsMenu } from "./SettingsMenu"
 import { UpdateAvatarForm } from "./UpdateAvatarForm"
@@ -23,11 +24,11 @@ export function Settings() {
     return null
   }
 
-  const dialogWindows = [
-    { title: t("updateInfo"), modal: "info" as const, component: <UpdateInfoForm /> },
-    { title: t("updateAvatar"), modal: "avatar" as const, component: <UpdateAvatarForm /> },
-    { title: t("changePassword"), modal: "password" as const, component: <UpdatePasswordForm /> },
-    { title: t("deleteAccount"), modal: "delete" as const, component: <DeleteUserForm /> },
+  const dialogWindows: { title: string; modal: ModalType; component: ReactNode }[] = [
+    { title: t("updateInfo"), modal: "info", component: <UpdateInfoForm /> },
+    { title: t("updateAvatar"), modal: "avatar", component: <UpdateAvatarForm /> },
+    { title: t("changePassword"), modal: "password", component: <UpdatePasswordForm /> },
+    { title: t("deleteAccount"), modal: "delete", component: <DeleteUserForm /> },
   ]
 
   return (
@@ -35,12 +36,10 @@ export function Settings() {
       <SettingsMenu />
 
       {dialogWindows.map((dialog) => (
-        <DialogContainer key={dialog.modal} title={dialog.title} modal={dialog.modal}>
+        <ModalWindow key={dialog.modal} title={dialog.title} modal={dialog.modal}>
           {dialog.component}
-        </DialogContainer>
+        </ModalWindow>
       ))}
-
-      <Feedback />
     </div>
   )
 }

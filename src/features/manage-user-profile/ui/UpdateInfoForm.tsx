@@ -1,14 +1,13 @@
 "use client"
 
-import { useAppDispatch } from "@/src/shared/store"
 import { useSession } from "@entities/session"
 import {
   type UpdateUserInfoCredentials,
   updateUserInfoCredentialsSchema,
   useUpdateUserInfoMutation,
 } from "@entities/user"
+import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
-import { closeModal, showSnackbar } from "../store/settingsSlice"
 import { UpdateForm } from "./UpdateForm"
 
 export function UpdateInfoForm() {
@@ -19,10 +18,10 @@ export function UpdateInfoForm() {
   const tValidation = useTranslations("Validation")
   const tError = useTranslations("Error")
 
-  const dispatch = useAppDispatch()
+  const { toastError, toastSuccess, closeModal } = useOverlays()
 
   if (!user) {
-    dispatch(showSnackbar({ message: tInfo("result.error"), error: true }))
+    toastError(tInfo("result.error"))
     return
   }
 
@@ -40,10 +39,10 @@ export function UpdateInfoForm() {
   const onSubmit = async (data: UpdateUserInfoCredentials) => {
     try {
       await updateUserInfo({ userId: user.user_id.toString(), userInfo: data }).unwrap()
-      dispatch(showSnackbar({ message: tInfo("result.success"), error: false }))
-      dispatch(closeModal())
+      toastSuccess(tInfo("result.success"))
+      closeModal()
     } catch {
-      dispatch(showSnackbar({ message: tInfo("result.error"), error: true }))
+      toastError(tInfo("result.error"))
     }
   }
 
