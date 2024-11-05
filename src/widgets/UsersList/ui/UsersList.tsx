@@ -1,11 +1,13 @@
 "use client"
 
+import { useRouter } from "@/src/shared/i18n/navigation"
 import { useGetAllUsersQuery } from "@entities/user"
 import { ErrorMessage } from "@shared/ui/ErrorMessage"
 import { GridContainer } from "@shared/ui/GridContainer"
 import { NoData } from "@shared/ui/NoData"
 import { Pagination } from "@shared/ui/Pagination"
 import { useSearchParams } from "next/navigation"
+import { getCurrentPage } from "../utils/getCurrentPage"
 import { CardSkeleton } from "./CardSkeleton"
 import { UserCard } from "./UserCard"
 
@@ -13,14 +15,20 @@ const PAGE_SIZE = 15
 
 export function UsersList() {
   const searchParams = useSearchParams()
-  const currentPageParam = searchParams.get("page")
-  const currentPage = currentPageParam ? parseInt(currentPageParam) : 1
+  const router = useRouter()
+
+  const currentPage = getCurrentPage(searchParams)
+
   const { data, isLoading, isError } = useGetAllUsersQuery({
     page: currentPage,
     page_size: PAGE_SIZE,
   })
 
-  const users = data?.result.users
+  const handlePageChange = (page: number) => {
+    const params = new URLSearchParams(Array.from(searchParams.entries()))
+    params.set("page", page.toString())
+    router.push(`?${params.toString()}`)
+  }
 
   if (isLoading)
     return (
@@ -31,18 +39,26 @@ export function UsersList() {
       </GridContainer>
     )
 
-  if (isError) return <ErrorMessage />
+  if (isError || !data) return <ErrorMessage />
 
-  if (!users) return <NoData />
+  const { users, pagination } = data.result
 
   return (
     <div>
-      <GridContainer>
-        {users.map((user) => (
-          <UserCard key={user.user_id} user={user} />
-        ))}
-      </GridContainer>
-      <Pagination totalPages={data.result.pagination.total_page} />
+      {users?.length ? (
+        <GridContainer>
+          {users.map((user) => (
+            <UserCard key={user.user_id} user={user} />
+          ))}
+        </GridContainer>
+      ) : (
+        <NoData />
+      )}
+      <Pagination
+        totalPages={pagination.total_page}
+        currentPage={currentPage}
+        setPage={handlePageChange}
+      />
     </div>
   )
 }

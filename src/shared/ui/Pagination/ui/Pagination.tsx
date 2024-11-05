@@ -1,34 +1,24 @@
 "use client"
 
-import { useRouter } from "@navigation"
 import { useTranslations } from "next-intl"
-import { useSearchParams } from "next/navigation"
 import { getPages } from "../utils/getPages"
 import styles from "./Pagination.module.scss"
 
 type Props = {
   totalPages: number
+  currentPage: number
+  setPage: (page: number) => void
 }
 
-export function Pagination({ totalPages }: Props) {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const currentPageParam = searchParams.get("page")
-  const currentPage = currentPageParam ? parseInt(currentPageParam) : 1
+export function Pagination({ totalPages, currentPage, setPage }: Props) {
   const t = useTranslations("Common")
-
-  const handlePageChange = (page: number) => {
-    const params = new URLSearchParams(Array.from(searchParams.entries()))
-    params.set("page", page.toString())
-    router.push(`?${params.toString()}`)
-  }
 
   const pages = getPages(totalPages, currentPage)
 
   return (
     <div className={styles.container}>
       <button
-        onClick={() => handlePageChange(currentPage - 1)}
+        onClick={() => setPage(currentPage - 1)}
         disabled={currentPage === 1}
         className={styles.pageButton}
       >
@@ -43,7 +33,7 @@ export function Pagination({ totalPages }: Props) {
         ) : (
           <button
             key={page}
-            onClick={() => handlePageChange(page as number)}
+            onClick={() => setPage(page as number)}
             className={`${styles.pageButton} ${page === currentPage ? styles.active : ""}`}
           >
             {page}
@@ -52,7 +42,7 @@ export function Pagination({ totalPages }: Props) {
       )}
 
       <button
-        onClick={() => handlePageChange(currentPage + 1)}
+        onClick={() => setPage(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={styles.pageButton}
       >
