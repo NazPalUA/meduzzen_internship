@@ -137,8 +137,13 @@
 
   "UpdateUserInfo": {
     "title": "Оновити вашу інформацію",
+
     "firstnameLabel": "Ім'я",
     "lastnameLabel": "Прізвище",
+    "statusLabel": "Статус",
+    "cityLabel": "Місто",
+    "phoneLabel": "Телефон",
+    "linksLabel": "Посилання",
 
     "submitText": "Оновити інформацію",
 
@@ -146,11 +151,15 @@
     "lastnameRequired": "Прізвище обов'язкове",
     "invalidUrl": "Невірний URL",
 
+    "updateSuccess": "Інформацію успішно оновлено",
+    "updateError": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз.",
+
     "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
   },
 
   "UpdateUserPassword": {
     "title": "Оновити ваш пароль",
+
     "passwordLabel": "Пароль",
     "confirmPasswordLabel": "Підтвердження паролю",
 
@@ -159,7 +168,43 @@
 
     "submitText": "Оновити пароль",
 
+    "updateSuccess": "Пароль успішно оновлено",
+    "updateError": "Не вдалося оновити пароль. Будь ласка, спробуйте ще раз.",
+
     "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+  },
+
+  "DeleteUser": {
+    "title": "Видалити акаунт",
+
+    "deleteButton": "Видалити",
+    "confirmDelete": "Ви впевнені, що хочете видалити свій акаунт?",
+    "closeButton": "Закрити",
+
+    "deleteSuccess": "Акаунт успішно видалено",
+    "deleteError": "Не вдалося видалити акаунт. Будь ласка, спробуйте ще раз.",
+
+    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+  },
+
+  "UpdateAvatar": {
+    "title": "Оновити аватар",
+
+    "chooseFile": "Виберіть новий аватар",
+
+    "updateSuccess": "Аватар успішно оновлено!",
+    "updateError": "Не вдалося оновити аватар.",
+
+    "submitText": "Оновити аватар",
+
+    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+  },
+
+  "Settings": {
+    "changePassword": "Змінити пароль",
+    "updateInfo": "Оновити інформацію",
+    "updateAvatar": "Оновити аватар",
+    "deleteAccount": "Видалити акаунт"
   },
 
   "ApiHealthCheck": {

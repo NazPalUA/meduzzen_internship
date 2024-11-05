@@ -1,12 +1,14 @@
 import { sessionApiSlice, sessionMiddleware } from "@entities/session"
 import { userApiSlice } from "@entities/user"
 import { healthApiSlice } from "@features/api-health-check"
+import { settingsReducer } from "@features/manage-user-profile"
 import { testSliceReducer } from "@features/test-store"
 import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
 
 const rootReducer = combineSlices({
   test: testSliceReducer,
+  settings: settingsReducer,
   [sessionApiSlice.reducerPath]: sessionApiSlice.reducer,
   [userApiSlice.reducerPath]: userApiSlice.reducer,
   [healthApiSlice.reducerPath]: healthApiSlice.reducer,

@@ -137,8 +137,13 @@
 
   "UpdateUserInfo": {
     "title": "Update your information",
+
     "firstnameLabel": "First Name",
     "lastnameLabel": "Last Name",
+    "statusLabel": "Status",
+    "cityLabel": "City",
+    "phoneLabel": "Phone",
+    "linksLabel": "Links",
 
     "submitText": "Update Information",
 
@@ -146,11 +151,15 @@
     "lastnameRequired": "Last name is required",
     "invalidUrl": "Invalid URL",
 
+    "updateSuccess": "Information updated successfully!",
+    "updateError": "Failed to update information. Please try again.",
+
     "serverErrorGeneral": "An error occurred. Please try again later"
   },
 
   "UpdateUserPassword": {
     "title": "Update your password",
+
     "passwordLabel": "Password",
     "confirmPasswordLabel": "Confirm Password",
 
@@ -159,7 +168,43 @@
 
     "submitText": "Update Password",
 
+    "updateSuccess": "Password updated successfully!",
+    "updateError": "Failed to update password. Please try again.",
+
     "serverErrorGeneral": "An error occurred. Please try again later"
+  },
+
+  "DeleteUser": {
+    "title": "Delete Account",
+
+    "deleteButton": "Delete",
+    "confirmDelete": "Are you sure you want to delete your account?",
+    "closeButton": "Close",
+
+    "deleteSuccess": "Account deleted successfully",
+    "deleteError": "Failed to delete account. Please try again.",
+
+    "serverErrorGeneral": "An error occurred. Please try again later"
+  },
+
+  "UpdateAvatar": {
+    "title": "Update Avatar",
+
+    "chooseFile": "Choose a new avatar image",
+
+    "updateSuccess": "Avatar updated successfully!",
+    "updateError": "Failed to update avatar.",
+
+    "submitText": "Update Avatar",
+
+    "serverErrorGeneral": "An error occurred. Please try again later"
+  },
+
+  "Settings": {
+    "changePassword": "Change Password",
+    "updateInfo": "Update Information",
+    "updateAvatar": "Update Avatar",
+    "deleteAccount": "Delete Account"
   },
 
   "ApiHealthCheck": {
