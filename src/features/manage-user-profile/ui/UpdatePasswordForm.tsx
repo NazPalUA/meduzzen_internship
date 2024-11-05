@@ -15,21 +15,24 @@ export function UpdatePasswordForm() {
   const [updatePassword, { isLoading, isError }] = useUpdateUserPasswordMutation()
   const { user } = useSession()
   const dispatch = useAppDispatch()
-  const t = useTranslations("UpdateUserPassword")
+
+  const tPassword = useTranslations("UpdateUser.password")
   const tValidation = useTranslations("Validation")
+  const tError = useTranslations("Error")
+
   const schema = updateUserPasswordCredentialsSchema(tValidation)
 
   const onSubmit = async (data: UpdateUserPasswordCredentials) => {
     if (!user) {
-      dispatch(showSnackbar({ message: t("updateError"), error: true }))
+      dispatch(showSnackbar({ message: tPassword("result.error"), error: true }))
       return
     }
     try {
       await updatePassword({ userId: user.user_id.toString(), passwordInfo: data }).unwrap()
-      dispatch(showSnackbar({ message: t("updateSuccess"), error: false }))
+      dispatch(showSnackbar({ message: tPassword("result.success"), error: false }))
       dispatch(closeModal())
     } catch {
-      dispatch(showSnackbar({ message: t("updateError"), error: true }))
+      dispatch(showSnackbar({ message: tPassword("result.error"), error: true }))
     }
   }
 
@@ -39,19 +42,19 @@ export function UpdatePasswordForm() {
         schema={schema}
         onSubmit={onSubmit}
         isError={isError}
-        error={isError ? t("serverErrorGeneral") : null}
-        title={t("title")}
-        submitText={t("submitText")}
+        error={isError ? tError("default") : null}
+        title={tPassword("title")}
+        submitText={tPassword("submitText")}
         isLoading={isLoading}
         fields={[
           {
             name: "user_password",
-            label: t("passwordLabel"),
+            label: tPassword("labels.password"),
             type: "password",
           },
           {
             name: "user_password_repeat",
-            label: t("confirmPasswordLabel"),
+            label: tPassword("labels.confirmPassword"),
             type: "password",
           },
         ]}

@@ -18,6 +18,9 @@
     },
     "lastName": {
       "required": "Прізвище обов'язкове"
+    },
+    "url": {
+      "invalid": "Недійсна URL-адреса"
     }
   },
 
@@ -129,6 +132,17 @@
     "resetAllButton": "Скинути всі"
   },
 
+  "Login": {
+    "title": "Вхід",
+
+    "labels": {
+      "email": "Електронна пошта",
+      "password": "Пароль"
+    },
+
+    "submitText": "Увійти"
+  },
+
   "CreateUser": {
     "title": "Створити новий обліковий запис",
 
@@ -143,77 +157,68 @@
     "submitText": "Зареєструватися"
   },
 
-  "Login": {
-    "title": "Вхід",
+  "UpdateUser": {
+    "info": {
+      "title": "Оновити вашу інформацію",
 
-    "labels": {
-      "email": "Електронна пошта",
-      "password": "Пароль"
+      "labels": {
+        "firstName": "Ім'я",
+        "lastName": "Прізвище",
+        "status": "Статус",
+        "city": "Місто",
+        "phone": "Телефон",
+        "links": "Посилання"
+      },
+
+      "submitText": "Оновити інформацію",
+
+      "result": {
+        "success": "Інформацію успішно оновлено",
+        "error": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз."
+      }
     },
 
-    "submitText": "Увійти"
-  },
+    "password": {
+      "title": "Оновити ваш пароль",
 
-  "UpdateUserInfo": {
-    "title": "Оновити вашу інформацію",
+      "labels": {
+        "password": "Пароль",
+        "confirmPassword": "Підтвердження паролю"
+      },
 
-    "firstnameLabel": "Ім'я",
-    "lastnameLabel": "Прізвище",
-    "statusLabel": "Статус",
-    "cityLabel": "Місто",
-    "phoneLabel": "Телефон",
-    "linksLabel": "Посилання",
+      "submitText": "Оновити пароль",
 
-    "submitText": "Оновити інформацію",
+      "result": {
+        "success": "Пароль успішно оновлено",
+        "error": "Не вдалося оновити пароль. Будь ласка, спробуйте ще раз."
+      }
+    },
 
-    "firstnameRequired": "Ім'я обов'язкове",
-    "lastnameRequired": "Прізвище обов'язкове",
-    "invalidUrl": "Невірний URL",
+    "avatar": {
+      "title": "Оновити аватар",
 
-    "updateSuccess": "Інформацію успішно оновлено",
-    "updateError": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз.",
+      "chooseFile": "Виберіть новий аватар",
 
-    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
-  },
+      "result": {
+        "success": "Аватар успішно оновлено!",
+        "error": "Не вдалося оновити аватар."
+      },
 
-  "UpdateUserPassword": {
-    "title": "Оновити ваш пароль",
-
-    "passwordLabel": "Пароль",
-    "confirmPasswordLabel": "Підтвердження паролю",
-
-    "submitText": "Оновити пароль",
-
-    "updateSuccess": "Пароль успішно оновлено",
-    "updateError": "Не вдалося оновити пароль. Будь ласка, спробуйте ще раз.",
-
-    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+      "submitText": "Оновити аватар"
+    }
   },
 
   "DeleteUser": {
     "title": "Видалити акаунт",
 
-    "deleteButton": "Видалити",
+    "submitText": "Видалити",
     "confirmDelete": "Ви впевнені, що хочете видалити свій акаунт?",
-    "closeButton": "Закрити",
+    "rejectText": "Закрити",
 
-    "deleteSuccess": "Акаунт успішно видалено",
-    "deleteError": "Не вдалося видалити акаунт. Будь ласка, спробуйте ще раз.",
-
-    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
-  },
-
-  "UpdateAvatar": {
-    "title": "Оновити аватар",
-
-    "chooseFile": "Виберіть новий аватар",
-
-    "updateSuccess": "Аватар успішно оновлено!",
-    "updateError": "Не вдалося оновити аватар.",
-
-    "submitText": "Оновити аватар",
-
-    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+    "result": {
+      "success": "Акаунт успішно видалено",
+      "error": "Не вдалося видалити акаунт. Будь ласка, спробуйте ще раз."
+    }
   },
 
   "Settings": {

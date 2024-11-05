@@ -14,11 +14,15 @@ import { UpdateForm } from "./UpdateForm"
 export function UpdateInfoForm() {
   const [updateUserInfo, { isLoading, isError }] = useUpdateUserInfoMutation()
   const { user } = useSession()
-  const t = useTranslations("UpdateUserInfo")
+
+  const tInfo = useTranslations("UpdateUser.info")
+  const tValidation = useTranslations("Validation")
+  const tError = useTranslations("Error")
+
   const dispatch = useAppDispatch()
 
   if (!user) {
-    dispatch(showSnackbar({ message: t("updateError"), error: true }))
+    dispatch(showSnackbar({ message: tInfo("result.error"), error: true }))
     return
   }
 
@@ -31,15 +35,15 @@ export function UpdateInfoForm() {
     user_links: user.user_links || [""],
   }
 
-  const schema = updateUserInfoCredentialsSchema(t)
+  const schema = updateUserInfoCredentialsSchema(tValidation)
 
   const onSubmit = async (data: UpdateUserInfoCredentials) => {
     try {
       await updateUserInfo({ userId: user.user_id.toString(), userInfo: data }).unwrap()
-      dispatch(showSnackbar({ message: t("updateSuccess"), error: false }))
+      dispatch(showSnackbar({ message: tInfo("result.success"), error: false }))
       dispatch(closeModal())
     } catch {
-      dispatch(showSnackbar({ message: t("updateError"), error: true }))
+      dispatch(showSnackbar({ message: tInfo("result.error"), error: true }))
     }
   }
 
@@ -48,40 +52,40 @@ export function UpdateInfoForm() {
       schema={schema}
       onSubmit={onSubmit}
       isError={isError}
-      error={isError ? t("serverErrorGeneral") : null}
+      error={isError ? tError("default") : null}
       defaultValues={defaultValues}
-      title={t("title")}
-      submitText={t("submitText")}
+      title={tInfo("title")}
+      submitText={tInfo("submitText")}
       isLoading={isLoading}
       fields={[
         {
           name: "user_firstname",
-          label: t("firstnameLabel"),
+          label: tInfo("labels.firstName"),
           type: "text",
         },
         {
           name: "user_lastname",
-          label: t("lastnameLabel"),
+          label: tInfo("labels.lastName"),
           type: "text",
         },
         {
           name: "user_status",
-          label: t("statusLabel"),
+          label: tInfo("labels.status"),
           type: "text",
         },
         {
           name: "user_city",
-          label: t("cityLabel"),
+          label: tInfo("labels.city"),
           type: "text",
         },
         {
           name: "user_phone",
-          label: t("phoneLabel"),
+          label: tInfo("labels.phone"),
           type: "text",
         },
         {
           name: "user_links",
-          label: t("linksLabel"),
+          label: tInfo("labels.links"),
           type: "array",
         },
       ]}

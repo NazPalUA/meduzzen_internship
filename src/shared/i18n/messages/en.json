@@ -18,6 +18,9 @@
     },
     "lastName": {
       "required": "Last name is required"
+    },
+    "url": {
+      "invalid": "Invalid URL"
     }
   },
 
@@ -129,8 +132,20 @@
     "resetAllButton": "Reset all values"
   },
 
+  "Login": {
+    "title": "Login",
+
+    "labels": {
+      "email": "Email Address",
+      "password": "Password"
+    },
+
+    "submitText": "Login"
+  },
+
   "CreateUser": {
     "title": "Create a New Account",
+
     "labels": {
       "firstName": "First Name",
       "lastName": "Last Name",
@@ -138,78 +153,72 @@
       "password": "Password",
       "confirmPassword": "Confirm Password"
     },
+
     "submitText": "Sign Up"
   },
 
-  "Login": {
-    "title": "Login",
-    "labels": {
-      "email": "Email Address",
-      "password": "Password"
+  "UpdateUser": {
+    "info": {
+      "title": "Update your information",
+
+      "labels": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "status": "Status",
+        "city": "City",
+        "phone": "Phone",
+        "links": "Links"
+      },
+
+      "submitText": "Update Information",
+
+      "result": {
+        "success": "Information updated successfully!",
+        "error": "Failed to update information. Please try again."
+      }
     },
-    "submitText": "Login"
-  },
 
-  "UpdateUserInfo": {
-    "title": "Update your information",
+    "password": {
+      "title": "Update your password",
 
-    "firstnameLabel": "First Name",
-    "lastnameLabel": "Last Name",
-    "statusLabel": "Status",
-    "cityLabel": "City",
-    "phoneLabel": "Phone",
-    "linksLabel": "Links",
+      "labels": {
+        "password": "Password",
+        "confirmPassword": "Confirm Password"
+      },
 
-    "submitText": "Update Information",
+      "submitText": "Update Password",
 
-    "firstnameRequired": "First name is required",
-    "lastnameRequired": "Last name is required",
-    "invalidUrl": "Invalid URL",
+      "result": {
+        "success": "Password updated successfully!",
+        "error": "Failed to update password. Please try again."
+      }
+    },
 
-    "updateSuccess": "Information updated successfully!",
-    "updateError": "Failed to update information. Please try again.",
+    "avatar": {
+      "title": "Update Avatar",
 
-    "serverErrorGeneral": "An error occurred. Please try again later"
-  },
+      "chooseFile": "Choose a new avatar image",
 
-  "UpdateUserPassword": {
-    "title": "Update your password",
+      "result": {
+        "success": "Avatar updated successfully!",
+        "error": "Failed to update avatar."
+      },
 
-    "passwordLabel": "Password",
-    "confirmPasswordLabel": "Confirm Password",
-
-    "submitText": "Update Password",
-
-    "updateSuccess": "Password updated successfully!",
-    "updateError": "Failed to update password. Please try again.",
-
-    "serverErrorGeneral": "An error occurred. Please try again later"
+      "submitText": "Update Avatar"
+    }
   },
 
   "DeleteUser": {
     "title": "Delete Account",
 
-    "deleteButton": "Delete",
+    "submitText": "Delete",
     "confirmDelete": "Are you sure you want to delete your account?",
-    "closeButton": "Close",
+    "rejectText": "Close",
 
-    "deleteSuccess": "Account deleted successfully",
-    "deleteError": "Failed to delete account. Please try again.",
-
-    "serverErrorGeneral": "An error occurred. Please try again later"
-  },
-
-  "UpdateAvatar": {
-    "title": "Update Avatar",
-
-    "chooseFile": "Choose a new avatar image",
-
-    "updateSuccess": "Avatar updated successfully!",
-    "updateError": "Failed to update avatar.",
-
-    "submitText": "Update Avatar",
-
-    "serverErrorGeneral": "An error occurred. Please try again later"
+    "result": {
+      "success": "Account deleted successfully",
+      "error": "Failed to delete account. Please try again."
+    }
   },
 
   "Settings": {

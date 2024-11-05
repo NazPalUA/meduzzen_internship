@@ -9,13 +9,16 @@ export const updateUserInfoCredentialsSchema = (t?: (key: string) => string) => 
   return z.object({
     user_firstname: z
       .string()
-      .min(1, translate("firstnameRequired", "First name is required"))
+      .min(1, translate("firstName.required", "First name is required"))
       .trim(),
-    user_lastname: z.string().min(1, translate("lastnameRequired", "Last name is required")).trim(),
+    user_lastname: z
+      .string()
+      .min(1, translate("lastName.required", "Last name is required"))
+      .trim(),
     user_status: z.string().optional(),
     user_city: z.string().optional(),
     user_phone: z.string().optional(),
-    user_links: z.array(z.string().url(translate("invalidUrl", "Invalid URL"))).optional(),
+    user_links: z.array(z.string().url(translate("url.invalid", "Invalid URL"))).optional(),
   })
 }
 

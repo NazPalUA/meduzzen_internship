@@ -13,7 +13,7 @@ import styles from "./UpdateAvatarForm.module.scss"
 export function UpdateAvatarForm() {
   const [updateUserAvatar, { isLoading }] = useUpdateUserAvatarMutation()
   const { user } = useSession()
-  const t = useTranslations("UpdateAvatar")
+  const t = useTranslations("UpdateUser.avatar")
   const dispatch = useAppDispatch()
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
@@ -30,7 +30,7 @@ export function UpdateAvatarForm() {
 
   const handleSubmit = async () => {
     if (!user || !selectedFile) {
-      dispatch(showSnackbar({ message: t("updateError"), error: true }))
+      dispatch(showSnackbar({ message: t("result.error"), error: true }))
       return
     }
 
@@ -39,13 +39,13 @@ export function UpdateAvatarForm() {
         userId: user.user_id.toString(),
         avatar: { file: selectedFile },
       }).unwrap()
-      dispatch(showSnackbar({ message: t("updateSuccess"), error: false }))
+      dispatch(showSnackbar({ message: t("result.success"), error: false }))
       setPreviewUrl(null)
       setSelectedFile(null)
       if (previewUrl) URL.revokeObjectURL(previewUrl)
       dispatch(closeModal())
     } catch {
-      dispatch(showSnackbar({ message: t("updateError"), error: true }))
+      dispatch(showSnackbar({ message: t("result.error"), error: true }))
     }
   }
 

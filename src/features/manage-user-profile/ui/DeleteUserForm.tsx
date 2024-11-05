@@ -20,18 +20,18 @@ export function DeleteUserForm() {
 
   const handleDelete = async () => {
     if (!user) {
-      dispatch(showSnackbar({ message: t("deleteError"), error: true }))
+      dispatch(showSnackbar({ message: t("result.error"), error: true }))
       return
     }
 
     try {
       await deleteUser(user.user_id.toString()).unwrap()
-      dispatch(showSnackbar({ message: t("deleteSuccess"), error: false }))
+      dispatch(showSnackbar({ message: t("result.success"), error: false }))
       dispatch(closeModal())
       await logout().unwrap()
       router.push(Routes.LOGIN)
     } catch {
-      dispatch(showSnackbar({ message: t("deleteError"), error: true }))
+      dispatch(showSnackbar({ message: t("result.error"), error: true }))
     }
   }
 
@@ -40,10 +40,10 @@ export function DeleteUserForm() {
       <p>{t("confirmDelete")}</p>
       <div className={styles.buttonGroup}>
         <Button variant="contained" color="error" onClick={handleDelete} disabled={isLoading}>
-          {isLoading ? <CircularProgress size={24} /> : t("deleteButton")}
+          {isLoading ? <CircularProgress size={24} /> : t("submitText")}
         </Button>
         <Button variant="outlined" onClick={() => dispatch(closeModal())} disabled={isLoading}>
-          {t("closeButton")}
+          {t("rejectText")}
         </Button>
       </div>
     </div>
