@@ -1,5 +1,5 @@
 import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
-import { UserDetailsSchema } from "@shared/models/UserDetails"
+import { UserDetailsSchema } from "@shared/models/userDetails"
 import { z } from "zod"
 
 export const CurrentUserSchema = UserDetailsSchema
