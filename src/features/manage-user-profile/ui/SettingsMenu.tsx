@@ -67,8 +67,8 @@ export function SettingsMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        {menuItems.map((item, index) => (
-          <MenuItem key={index} onClick={item.onClick}>
+        {menuItems.map((item) => (
+          <MenuItem key={item.text} onClick={item.onClick}>
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText>{item.text}</ListItemText>
           </MenuItem>
