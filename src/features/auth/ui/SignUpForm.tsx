@@ -16,11 +16,9 @@ export function SignUpForm() {
   const [createUser, { isLoading, isError, error }] = useCreateUserMutation()
   const router = useRouter()
 
-  const tCreateUser = useTranslations("CreateUser")
-  const tValidation = useTranslations("Validation")
-  const tError = useTranslations("Error")
+  const t = useTranslations()
 
-  const schema = createUserCredentialsSchema(tValidation)
+  const schema = createUserCredentialsSchema((key) => t(`Validation.${key}`))
 
   const onSubmit = async (data: CreateUserCredentials) => {
     await createUser(data).unwrap()
@@ -31,10 +29,10 @@ export function SignUpForm() {
     if (!error) return null
 
     if ("status" in error && error.status === 400) {
-      return tError("emailAlreadyExists")
+      return t("Error.emailAlreadyExists")
     }
 
-    return tError("default")
+    return t("Error.default")
   }
 
   return (
@@ -44,33 +42,33 @@ export function SignUpForm() {
       fields={[
         {
           name: "user_firstname",
-          label: tCreateUser("labels.firstName"),
+          label: t("CreateUser.labels.firstName"),
           type: "text",
         },
         {
           name: "user_lastname",
-          label: tCreateUser("labels.lastName"),
+          label: t("CreateUser.labels.lastName"),
           type: "text",
         },
         {
           name: "user_email",
-          label: tCreateUser("labels.email"),
+          label: t("CreateUser.labels.email"),
           type: "email",
           autoComplete: "email",
         },
         {
           name: "user_password",
-          label: tCreateUser("labels.password"),
+          label: t("CreateUser.labels.password"),
           type: "password",
         },
         {
           name: "user_password_repeat",
-          label: tCreateUser("labels.confirmPassword"),
+          label: t("CreateUser.labels.confirmPassword"),
           type: "password",
         },
       ]}
-      title={tCreateUser("title")}
-      submitText={tCreateUser("submitText")}
+      title={t("CreateUser.title")}
+      submitText={t("CreateUser.submitText")}
       isLoading={isLoading}
       isError={isError}
       error={getErrorMessage(error)}

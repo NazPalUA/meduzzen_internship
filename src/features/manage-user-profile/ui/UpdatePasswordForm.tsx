@@ -15,19 +15,17 @@ export function UpdatePasswordForm({ user }: { user: CurrentUser }) {
 
   const { toastError, toastSuccess, closeModal } = useOverlays()
 
-  const tPassword = useTranslations("UpdateUser.password")
-  const tValidation = useTranslations("Validation")
-  const tError = useTranslations("Error")
+  const t = useTranslations()
 
-  const schema = updateUserPasswordCredentialsSchema(tValidation)
+  const schema = updateUserPasswordCredentialsSchema((key) => t(`Validation.${key}`))
 
   const onSubmit = async (data: UpdateUserPasswordCredentials) => {
     try {
       await updatePassword({ userId: user.user_id.toString(), passwordInfo: data }).unwrap()
-      toastSuccess(tPassword("result.success"))
+      toastSuccess(t("UpdateUser.password.result.success"))
       closeModal()
     } catch {
-      toastError(tPassword("result.error"))
+      toastError(t("UpdateUser.password.result.error"))
     }
   }
 
@@ -37,19 +35,19 @@ export function UpdatePasswordForm({ user }: { user: CurrentUser }) {
         schema={schema}
         onSubmit={onSubmit}
         isError={isError}
-        error={isError ? tError("default") : null}
-        title={tPassword("title")}
-        submitText={tPassword("submitText")}
+        error={isError ? t("Error.default") : null}
+        title={t("UpdateUser.password.title")}
+        submitText={t("UpdateUser.password.submitText")}
         isLoading={isLoading}
         fields={[
           {
             name: "user_password",
-            label: tPassword("labels.password"),
+            label: t("UpdateUser.password.labels.password"),
             type: "password",
           },
           {
             name: "user_password_repeat",
-            label: tPassword("labels.confirmPassword"),
+            label: t("UpdateUser.password.labels.confirmPassword"),
             type: "password",
           },
         ]}

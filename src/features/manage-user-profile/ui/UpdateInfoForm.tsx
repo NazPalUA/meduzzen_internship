@@ -13,9 +13,7 @@ import { UpdateForm } from "./UpdateForm"
 export function UpdateInfoForm({ user }: { user: CurrentUser }) {
   const [updateUserInfo, { isLoading, isError }] = useUpdateUserInfoMutation()
 
-  const tInfo = useTranslations("UpdateUser.info")
-  const tValidation = useTranslations("Validation")
-  const tError = useTranslations("Error")
+  const t = useTranslations()
 
   const { toastError, toastSuccess, closeModal } = useOverlays()
 
@@ -28,15 +26,15 @@ export function UpdateInfoForm({ user }: { user: CurrentUser }) {
     user_links: user.user_links || [""],
   }
 
-  const schema = updateUserInfoCredentialsSchema(tValidation)
+  const schema = updateUserInfoCredentialsSchema((key) => t(`Validation.${key}`))
 
   const onSubmit = async (data: UpdateUserInfoCredentials) => {
     try {
       await updateUserInfo({ userId: user.user_id.toString(), userInfo: data }).unwrap()
-      toastSuccess(tInfo("result.success"))
+      toastSuccess(t("UpdateUser.info.result.success"))
       closeModal()
     } catch {
-      toastError(tInfo("result.error"))
+      toastError(t("UpdateUser.info.result.error"))
     }
   }
 
@@ -45,40 +43,40 @@ export function UpdateInfoForm({ user }: { user: CurrentUser }) {
       schema={schema}
       onSubmit={onSubmit}
       isError={isError}
-      error={isError ? tError("default") : null}
+      error={isError ? t("Error.default") : null}
       defaultValues={defaultValues}
-      title={tInfo("title")}
-      submitText={tInfo("submitText")}
+      title={t("UpdateUser.info.title")}
+      submitText={t("UpdateUser.info.submitText")}
       isLoading={isLoading}
       fields={[
         {
           name: "user_firstname",
-          label: tInfo("labels.firstName"),
+          label: t("UpdateUser.info.labels.firstName"),
           type: "text",
         },
         {
           name: "user_lastname",
-          label: tInfo("labels.lastName"),
+          label: t("UpdateUser.info.labels.lastName"),
           type: "text",
         },
         {
           name: "user_status",
-          label: tInfo("labels.status"),
+          label: t("UpdateUser.info.labels.status"),
           type: "text",
         },
         {
           name: "user_city",
-          label: tInfo("labels.city"),
+          label: t("UpdateUser.info.labels.city"),
           type: "text",
         },
         {
           name: "user_phone",
-          label: tInfo("labels.phone"),
+          label: t("UpdateUser.info.labels.phone"),
           type: "text",
         },
         {
           name: "user_links",
-          label: tInfo("labels.links"),
+          label: t("UpdateUser.info.labels.links"),
           type: "array",
         },
       ]}
