@@ -17,7 +17,7 @@ import {
   UpdateUserPasswordCredentials,
   UpdateUserPasswordResponse,
   UpdateUserPasswordResponseSchema,
-  UserDetailsResponse,
+  UserDetails,
   UserDetailsResponseSchema,
   UsersListResponse,
   UsersListResponseSchema,
@@ -33,25 +33,25 @@ export const userApiSlice = createApi({
   reducerPath: "userApi",
   tagTypes: ["User"],
   endpoints: (build) => ({
-    getAllUsers: build.query<UsersListResponse, UserListInput>({
+    getAllUsers: build.query<UsersListResponse["result"], UserListInput>({
       query: ({ page, page_size }) => ({
         url: API_ENDPOINTS.USER.GET_ALL_USERS,
         method: "GET",
         params: { page, page_size },
       }),
       transformResponse: (response: unknown) => {
-        return parseData(UsersListResponseSchema, response)
+        return parseData(UsersListResponseSchema, response).result
       },
       providesTags: ["User"],
     }),
 
-    getUserById: build.query<UserDetailsResponse, string>({
+    getUserById: build.query<UserDetails, string>({
       query: (userId) => ({
         url: API_ENDPOINTS.USER.GET_USER_BY_ID.replace("{user_id}", userId),
         method: "GET",
       }),
       transformResponse: (response: unknown) => {
-        return parseData(UserDetailsResponseSchema, response)
+        return parseData(UserDetailsResponseSchema, response).result
       },
       providesTags: (result, error, userId) => [{ type: "User", id: userId }],
     }),

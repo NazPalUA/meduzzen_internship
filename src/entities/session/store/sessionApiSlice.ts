@@ -4,7 +4,7 @@ import { API_ENDPOINTS } from "@shared/api/endpoints"
 import { removeToken, setToken } from "@shared/utils/authToken"
 import { parseData } from "@shared/utils/parseData"
 import {
-  GetMeResponse,
+  CurrentUser,
   GetMeResponseSchema,
   LoginCredentials,
   LoginResponse,
@@ -16,10 +16,10 @@ export const sessionApiSlice = createApi({
   reducerPath: "sessionApi",
   tagTypes: ["Session"],
   endpoints: (build) => ({
-    getSession: build.query<GetMeResponse, void>({
+    getSession: build.query<CurrentUser, void>({
       query: () => ({ url: API_ENDPOINTS.AUTH.GET_ME, method: "GET" }),
       transformResponse: (response: unknown) => {
-        return parseData(GetMeResponseSchema, response)
+        return parseData(GetMeResponseSchema, response).result
       },
       providesTags: ["Session"],
     }),

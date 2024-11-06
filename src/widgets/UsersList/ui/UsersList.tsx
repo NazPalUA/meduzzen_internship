@@ -41,7 +41,7 @@ export function UsersList() {
 
   if (isError || !data) return <ErrorMessage />
 
-  const { users, pagination } = data.result
+  const { users, pagination } = data
 
   return (
     <div>

@@ -6,9 +6,7 @@ import { UserDetails } from "./UserDetails"
 import { UserDetailsSkeleton } from "./UserDetailsSkeleton"
 
 export function UserProfile({ userId }: { userId: string }) {
-  const { data, isLoading, isError } = useGetUserByIdQuery(userId)
-
-  const user = data?.result
+  const { data: user, isLoading, isError } = useGetUserByIdQuery(userId)
 
   if (isLoading) return <UserDetailsSkeleton />
 
