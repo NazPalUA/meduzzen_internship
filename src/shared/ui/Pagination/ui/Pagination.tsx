@@ -1,5 +1,6 @@
 "use client"
 
+import Button from "@mui/material/Button"
 import { useTranslations } from "next-intl"
 import { getPages } from "../utils/getPages"
 import styles from "./Pagination.module.scss"
@@ -17,37 +18,38 @@ export function Pagination({ totalPages, currentPage, setPage }: Props) {
 
   return (
     <div className={styles.container}>
-      <button
+      <Button
         onClick={() => setPage(currentPage - 1)}
         disabled={currentPage === 1}
-        className={styles.pageButton}
+        variant="outlined"
       >
         {t("previousPage")}
-      </button>
+      </Button>
 
       {pages.map((page, index) =>
         page === "ellipsis" ? (
-          <span key={`ellipsis-${index}`} className={styles.ellipsis}>
+          <Button variant="text" key={`ellipsis-${index}`} disabled>
             ...
-          </span>
+          </Button>
         ) : (
-          <button
+          <Button
             key={page}
             onClick={() => setPage(page as number)}
-            className={`${styles.pageButton} ${page === currentPage ? styles.active : ""}`}
+            variant={page === currentPage ? "contained" : "outlined"}
+            color={page === currentPage ? "primary" : "inherit"}
           >
             {page}
-          </button>
+          </Button>
         ),
       )}
 
-      <button
+      <Button
         onClick={() => setPage(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={styles.pageButton}
+        variant="outlined"
       >
         {t("nextPage")}
-      </button>
+      </Button>
     </div>
   )
 }
