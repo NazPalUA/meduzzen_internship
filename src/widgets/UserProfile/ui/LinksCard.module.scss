@@ -1,0 +1,10 @@
+.link {
+  display: block;
+  color: var(--mui-palette-primary-main);
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -4,9 +4,11 @@ import { healthApiSlice } from "@features/api-health-check"
 import { testSliceReducer } from "@features/test-store"
 import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
+import { overlaysReducer } from "@shared/overlays"
 
 const rootReducer = combineSlices({
   test: testSliceReducer,
+  overlays: overlaysReducer,
   [sessionApiSlice.reducerPath]: sessionApiSlice.reducer,
   [userApiSlice.reducerPath]: userApiSlice.reducer,
   [healthApiSlice.reducerPath]: healthApiSlice.reducer,

@@ -3,7 +3,7 @@
 import { useRouter } from "@navigation"
 import { Routes } from "@shared/constants/routes"
 import { getToken } from "@shared/utils/authToken"
-import { useEffect, useMemo } from "react"
+import { useEffect } from "react"
 import { CurrentUser } from "../model"
 import { useGetSessionQuery } from "../store/sessionApiSlice"
 
@@ -25,7 +25,7 @@ export const useSession = (options: UseSessionOptions = {}): UseSessionResult =>
   const { data, isLoading, isError, error } = useGetSessionQuery()
 
   const token = getToken()
-  const isLoggedIn = Boolean(data?.result?.user_id && token)
+  const isLoggedIn = Boolean(data?.user_id && token)
 
   useEffect(() => {
     if (redirectToLogin && !isLoggedIn && !isLoading) {
@@ -33,7 +33,7 @@ export const useSession = (options: UseSessionOptions = {}): UseSessionResult =>
     }
   }, [redirectToLogin, isLoggedIn, isLoading, router])
 
-  const user = useMemo(() => data?.result || null, [data])
+  const user = data || null
 
   return {
     user,

@@ -1,6 +1,7 @@
 import { CssBaseline } from "@mui/material"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import { ThemeProvider } from "@mui/material/styles"
+import { Toaster } from "@shared/overlays/ui/Toaster"
 import { StoreProvider } from "@shared/store"
 import "@shared/styles/globals.css"
 import theme from "@shared/styles/theme"
@@ -31,7 +32,10 @@ export async function BaseLayout({ children, locale }: Props) {
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <StoreProvider>{children}</StoreProvider>
+              <StoreProvider>
+                {children}
+                <Toaster />
+              </StoreProvider>
             </ThemeProvider>
           </AppRouterCacheProvider>
         </NextIntlClientProvider>

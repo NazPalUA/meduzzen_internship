@@ -1,7 +1,41 @@
 {
+  "Validation": {
+    "password": {
+      "required": "Password is required",
+      "minLength": "Password must be at least 12 characters",
+      "lowercase": "Password must contain at least one lowercase letter",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "number": "Password must contain at least one number",
+      "specialChar": "Password must contain at least one special character",
+      "doNotMatch": "Passwords do not match"
+    },
+    "email": {
+      "required": "Email is required",
+      "invalid": "Invalid email address"
+    },
+    "firstName": {
+      "required": "First name is required"
+    },
+    "lastName": {
+      "required": "Last name is required"
+    },
+    "url": {
+      "invalid": "Invalid URL"
+    }
+  },
+
+  "Error": {
+    "default": "An error occurred. Please try again.",
+    "emailAlreadyExists": "Email already exists",
+    "invalidCredentials": "Invalid email or password"
+  },
+
   "Common": {
     "defaultErrorMessage": "An error occurred. Please try again.",
-    "retryButton": "Try Again"
+    "retryButton": "Try Again",
+    "defaultNoData": "No data found",
+    "previousPage": "Previous",
+    "nextPage": "Next"
   },
 
   "LocaleLayout": {
@@ -18,7 +52,8 @@
     "welcomeMessage": "Welcome to our project!",
     "learnMoreButton": "Learn More",
     "learnMoreTitle": "Learn More",
-    "learnMoreDescription": "Your content goes here"
+    "learnMoreDescription": "Your content goes here",
+    "closeButton": "Close"
   },
 
   "DashboardPage": {
@@ -45,7 +80,12 @@
   "ProfilePage": {
     "title": "Profile",
     "email": "Email",
-    "about": "About"
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "status": "Status",
+    "city": "City",
+    "phone": "Phone",
+    "links": "Links"
   },
 
   "CompanyProfilePage": {
@@ -61,7 +101,8 @@
     "companies": "Companies",
     "signUp": "Sign Up",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "myProfile": "My Profile"
   },
 
   "Header": {
@@ -79,10 +120,6 @@
     "locale": "{locale, select, ua {Ukrainian} en {English} other {Unknown}}"
   },
 
-  "Modal": {
-    "closeButton": "Close"
-  },
-
   "TestStore": {
     "title": "Test Component",
     "inputLabel": "New Test Value",
@@ -91,38 +128,100 @@
     "resetAllButton": "Reset all values"
   },
 
-  "CreateUser": {
-    "invalidEmail": "Invalid email address",
-    "passwordMinLength": "Password must be at least 8 characters",
-    "firstNameRequired": "First name is required",
-    "lastNameRequired": "Last name is required",
-    "passwordsDoNotMatch": "Passwords do not match",
+  "Login": {
+    "title": "Login",
 
-    "firstNameLabel": "First Name",
-    "lastNameLabel": "Last Name",
-    "emailLabel": "Email Address",
-    "passwordLabel": "Password",
-    "confirmPasswordLabel": "Confirm Password",
+    "labels": {
+      "email": "Email Address",
+      "password": "Password"
+    },
 
-    "title": "Create a New Account",
-    "submitText": "Sign Up",
-
-    "serverErrorEmailAlreadyExists": "Email already exists",
-    "serverErrorGeneral": "An error occurred. Please try again later"
+    "submitText": "Login"
   },
 
-  "Login": {
-    "invalidEmail": "Invalid email address",
-    "passwordMinLength": "Password must be at least 8 characters",
+  "CreateUser": {
+    "title": "Create a New Account",
 
-    "emailLabel": "Email Address",
-    "passwordLabel": "Password",
+    "labels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    },
 
-    "title": "Login",
-    "submitText": "Login",
+    "submitText": "Sign Up"
+  },
 
-    "serverErrorInvalidCredentials": "Invalid email or password",
-    "serverErrorGeneral": "An error occurred. Please try again later"
+  "UpdateUser": {
+    "info": {
+      "title": "Update your information",
+
+      "labels": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "status": "Status",
+        "city": "City",
+        "phone": "Phone",
+        "links": "Links"
+      },
+
+      "submitText": "Update Information",
+
+      "result": {
+        "success": "Information updated successfully!",
+        "error": "Failed to update information. Please try again."
+      }
+    },
+
+    "password": {
+      "title": "Update your password",
+
+      "labels": {
+        "password": "Password",
+        "confirmPassword": "Confirm Password"
+      },
+
+      "submitText": "Update Password",
+
+      "result": {
+        "success": "Password updated successfully!",
+        "error": "Failed to update password. Please try again."
+      }
+    },
+
+    "avatar": {
+      "title": "Update Avatar",
+
+      "chooseFile": "Choose a new avatar image",
+
+      "result": {
+        "success": "Avatar updated successfully!",
+        "error": "Failed to update avatar."
+      },
+
+      "submitText": "Update Avatar"
+    }
+  },
+
+  "DeleteUser": {
+    "title": "Delete Account",
+
+    "submitText": "Delete",
+    "confirmDelete": "Are you sure you want to delete your account?",
+    "rejectText": "Close",
+
+    "result": {
+      "success": "Account deleted successfully",
+      "error": "Failed to delete account. Please try again."
+    }
+  },
+
+  "Settings": {
+    "changePassword": "Change Password",
+    "updateInfo": "Update Information",
+    "updateAvatar": "Update Avatar",
+    "deleteAccount": "Delete Account"
   },
 
   "ApiHealthCheck": {

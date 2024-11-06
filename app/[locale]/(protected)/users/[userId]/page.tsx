@@ -1,33 +1,19 @@
 import { Container } from "@/src/shared/ui/Container"
+import { UserProfile as UserProfileWidget } from "@widgets/UserProfile"
 import { useTranslations } from "next-intl"
 
 type Params = {
   userId: string
 }
 
-function getUserData(userId: string) {
-  return {
-    email: `user${userId}@example.com`,
-    about: `About ${userId.toUpperCase()}`,
-  }
-}
-
 export default function UserProfile({ params }: { params: Params }) {
   const { userId } = params
 
-  const { email, about } = getUserData(userId)
   const t = useTranslations("ProfilePage")
   return (
     <Container>
-      <h2>
-        {t("title")} {userId}
-      </h2>
-      <p>
-        {t("email")}: {email}
-      </p>
-      <p>
-        {t("about")}: {about}
-      </p>
+      <h2>{t("title")}</h2>
+      <UserProfileWidget userId={userId} />
     </Container>
   )
 }

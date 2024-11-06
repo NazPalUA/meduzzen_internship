@@ -1,20 +1,25 @@
-import { Avatar, Card, CardContent } from "@mui/material"
-import { type UserEntity } from "../model/UserEntity"
+import { Routes } from "@/src/shared/constants/routes"
+import { type SingleUser } from "@entities/user"
+import { Avatar } from "@mui/material"
+import { Link } from "@navigation"
+import Image from "next/image"
 import styles from "./UserCard.module.scss"
 
-export function UserCard({ user }: { user: UserEntity }) {
-  const { name, email } = user
+export function UserCard({ user }: { user: SingleUser }) {
+  const { user_firstname, user_lastname, user_email, user_avatar, user_id } = user
   return (
-    <Card elevation={3} className={styles.card}>
-      <CardContent>
-        <div className={styles.container}>
-          <Avatar>{name[0]}</Avatar>
-          <div className={styles.details}>
-            <strong>{name}</strong>
-            <div>{email}</div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+    <Link href={`${Routes.USERS}/${user_id}`} className={styles.container}>
+      <Avatar>
+        {user_avatar ? (
+          <Image src={user_avatar} fill sizes="40px" alt={user_firstname} />
+        ) : (
+          user_firstname[0]
+        )}
+      </Avatar>
+      <div className={styles.details}>
+        <strong className={styles.name}>{`${user_firstname} ${user_lastname}`}</strong>
+        <div className={styles.email}>{user_email}</div>
+      </div>
+    </Link>
   )
 }

@@ -1,0 +1,16 @@
+.container {
+  background-color: var(--mui-palette-background-paper);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: var(--mui-shadows-5);
+}
+
+.userInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}

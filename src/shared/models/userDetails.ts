@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const CurrentUserSchema = z.object({
+export const UserDetailsSchema = z.object({
   user_id: z.number(),
   user_email: z.string().email(),
   user_firstname: z.string(),
@@ -13,11 +13,4 @@ export const CurrentUserSchema = z.object({
   is_superuser: z.boolean(),
 })
 
-export const GetMeResponseSchema = z.object({
-  status_code: z.number(),
-  detail: z.string(),
-  result: CurrentUserSchema,
-})
-
-export type CurrentUser = z.infer<typeof CurrentUserSchema>
-export type GetMeResponse = z.infer<typeof GetMeResponseSchema>
+export type UserDetails = z.infer<typeof UserDetailsSchema>

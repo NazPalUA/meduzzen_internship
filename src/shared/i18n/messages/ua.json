@@ -1,7 +1,41 @@
 {
+  "Validation": {
+    "password": {
+      "required": "Пароль обов'язковий",
+      "minLength": "Пароль повинен містити щонайменше 12 символів",
+      "lowercase": "Пароль повинен містити щонайменше одну малу літеру",
+      "uppercase": "Пароль повинен містити щонайменше одну велику літеру",
+      "number": "Пароль повинен містити щонайменше одну цифру",
+      "specialChar": "Пароль повинен містити щонайменше один спеціальний символ",
+      "doNotMatch": "Паролі не співпадають"
+    },
+    "email": {
+      "required": "Email обов'язковий",
+      "invalid": "Невірна адреса електронної пошти"
+    },
+    "firstName": {
+      "required": "Ім'я обов'язкове"
+    },
+    "lastName": {
+      "required": "Прізвище обов'язкове"
+    },
+    "url": {
+      "invalid": "Недійсна URL-адреса"
+    }
+  },
+
+  "Error": {
+    "default": "Сталася помилка. Будь ласка, спробуйте пізніше.",
+    "emailAlreadyExists": "Email вже існує",
+    "invalidCredentials": "Невірна адреса електронної пошти або пароль"
+  },
+
   "Common": {
     "defaultErrorMessage": "Сталася помилка. Будь ласка, спробуйте пізніше.",
-    "retryButton": "Спробувати ще раз"
+    "retryButton": "Спробувати ще раз",
+    "defaultNoData": "Нічого не знайдено",
+    "previousPage": "Назад",
+    "nextPage": "Вперед"
   },
 
   "LocaleLayout": {
@@ -18,7 +52,8 @@
     "welcomeMessage": "Ласкаво просимо до нашого проекту!",
     "learnMoreButton": "Дізнатися більше",
     "learnMoreTitle": "Дізнатися більше",
-    "learnMoreDescription": "Ваш контент буде тут"
+    "learnMoreDescription": "Ваш контент буде тут",
+    "closeButton": "Закрити"
   },
 
   "DashboardPage": {
@@ -45,7 +80,12 @@
   "ProfilePage": {
     "title": "Профіль",
     "email": "Електронна пошта",
-    "about": "Про себе"
+    "firstName": "Ім'я",
+    "lastName": "Прізвище",
+    "status": "Статус",
+    "city": "Місто",
+    "phone": "Телефон",
+    "links": "Посилання"
   },
 
   "CompanyProfilePage": {
@@ -61,7 +101,8 @@
     "companies": "Компанії",
     "signUp": "Реєстрація",
     "login": "Вхід",
-    "logout": "Вихід"
+    "logout": "Вихід",
+    "myProfile": "Мій профіль"
   },
 
   "Header": {
@@ -79,10 +120,6 @@
     "locale": "{locale, select, ua {Українська} en {Англійська} other {Unknown}}"
   },
 
-  "Modal": {
-    "closeButton": "Закрити"
-  },
-
   "TestStore": {
     "title": "Компонент",
     "inputLabel": "Нове значення",
@@ -91,38 +128,100 @@
     "resetAllButton": "Скинути всі"
   },
 
-  "CreateUser": {
-    "invalidEmail": "Невірна адреса електронної пошти",
-    "passwordMinLength": "Пароль повинен містити щонайменше 8 символів",
-    "firstNameRequired": "Ім'я обов'язкове",
-    "lastNameRequired": "Прізвище обов'язкове",
-    "passwordsDoNotMatch": "Паролі не співпадають",
+  "Login": {
+    "title": "Вхід",
 
-    "firstNameLabel": "Ім'я",
-    "lastNameLabel": "Прізвище",
-    "emailLabel": "Електронна пошта",
-    "passwordLabel": "Пароль",
-    "confirmPasswordLabel": "Підтвердження паролю",
+    "labels": {
+      "email": "Електронна пошта",
+      "password": "Пароль"
+    },
 
-    "title": "Створити новий обліковий запис",
-    "submitText": "Зареєструватися",
-
-    "serverErrorEmailAlreadyExists": "Електронна пошта вже існує",
-    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+    "submitText": "Увійти"
   },
 
-  "Login": {
-    "invalidEmail": "Невірна адреса електронної пошти",
-    "passwordMinLength": "Пароль повинен містити щонайменше 8 символів",
+  "CreateUser": {
+    "title": "Створити новий обліковий запис",
 
-    "emailLabel": "Електронна пошта",
-    "passwordLabel": "Пароль",
+    "labels": {
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "email": "Електронна пошта",
+      "password": "Пароль",
+      "confirmPassword": "Підтвердження паролю"
+    },
 
-    "title": "Вхід",
-    "submitText": "Увійти",
+    "submitText": "Зареєструватися"
+  },
 
-    "serverErrorInvalidCredentials": "Невірна адреса електронної пошти або пароль",
-    "serverErrorGeneral": "Сталася помилка. Будь ласка, спробуйте пізніше"
+  "UpdateUser": {
+    "info": {
+      "title": "Оновити вашу інформацію",
+
+      "labels": {
+        "firstName": "Ім'я",
+        "lastName": "Прізвище",
+        "status": "Статус",
+        "city": "Місто",
+        "phone": "Телефон",
+        "links": "Посилання"
+      },
+
+      "submitText": "Оновити інформацію",
+
+      "result": {
+        "success": "Інформацію успішно оновлено",
+        "error": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "password": {
+      "title": "Оновити ваш пароль",
+
+      "labels": {
+        "password": "Пароль",
+        "confirmPassword": "Підтвердження паролю"
+      },
+
+      "submitText": "Оновити пароль",
+
+      "result": {
+        "success": "Пароль успішно оновлено",
+        "error": "Не вдалося оновити пароль. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "avatar": {
+      "title": "Оновити аватар",
+
+      "chooseFile": "Виберіть новий аватар",
+
+      "result": {
+        "success": "Аватар успішно оновлено!",
+        "error": "Не вдалося оновити аватар."
+      },
+
+      "submitText": "Оновити аватар"
+    }
+  },
+
+  "DeleteUser": {
+    "title": "Видалити акаунт",
+
+    "submitText": "Видалити",
+    "confirmDelete": "Ви впевнені, що хочете видалити свій акаунт?",
+    "rejectText": "Закрити",
+
+    "result": {
+      "success": "Акаунт успішно видалено",
+      "error": "Не вдалося видалити акаунт. Будь ласка, спробуйте ще раз."
+    }
+  },
+
+  "Settings": {
+    "changePassword": "Змінити пароль",
+    "updateInfo": "Оновити інформацію",
+    "updateAvatar": "Оновити аватар",
+    "deleteAccount": "Видалити акаунт"
   },
 
   "ApiHealthCheck": {

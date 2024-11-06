@@ -1,2 +1,2 @@
-export * from "./GetMe"
-export * from "./Login"
+export * from "./getMe"
+export * from "./login"

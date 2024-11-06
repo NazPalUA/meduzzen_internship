@@ -11,9 +11,9 @@ import { AuthForm } from "./AuthForm"
 export function LoginForm() {
   const [login, { isLoading, isError, error }] = useLoginMutation()
   const router = useRouter()
-  const t = useTranslations("Login")
+  const t = useTranslations()
 
-  const schema = loginCredentialsSchema(t)
+  const schema = loginCredentialsSchema((key) => t(`Validation.${key}`))
 
   const onSubmit = async (data: LoginCredentials) => {
     await login(data).unwrap()
@@ -24,10 +24,10 @@ export function LoginForm() {
     if (!error) return null
 
     if ("status" in error && error.status === 401) {
-      return t("serverErrorInvalidCredentials")
+      return t("Error.invalidCredentials")
     }
 
-    return t("serverErrorGeneral")
+    return t("Error.default")
   }
 
   return (
@@ -37,19 +37,19 @@ export function LoginForm() {
       fields={[
         {
           name: "user_email",
-          label: t("emailLabel"),
+          label: t("Login.labels.email"),
           type: "email",
           autoComplete: "email",
         },
         {
           name: "user_password",
-          label: t("passwordLabel"),
+          label: t("Login.labels.password"),
           type: "password",
           autoComplete: "current-password",
         },
       ]}
-      title={t("title")}
-      submitText={t("submitText")}
+      title={t("Login.title")}
+      submitText={t("Login.submitText")}
       isLoading={isLoading}
       isError={isError}
       error={getErrorMessage(error)}
