@@ -1,0 +1,13 @@
+.modal-window {
+  &__close {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+  }
+
+  &__content {
+    &.no-title & {
+      padding-top: 1.25rem !important;
+    }
+  }
+}

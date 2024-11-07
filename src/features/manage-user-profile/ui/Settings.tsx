@@ -24,15 +24,17 @@ export function Settings() {
     return null
   }
 
-  const dialogWindows: { title: string; modal: ModalType; component: ReactNode }[] = [
-    { title: t("updateInfo"), modal: "info", component: <UpdateInfoForm user={currentUser} /> },
+  const dialogWindows: { title?: string; modal: ModalType; component: ReactNode }[] = [
+    {
+      modal: "info",
+      component: <UpdateInfoForm user={currentUser} />,
+    },
     {
       title: t("updateAvatar"),
       modal: "avatar",
       component: <UpdateAvatarForm user={currentUser} />,
     },
     {
-      title: t("changePassword"),
       modal: "password",
       component: <UpdatePasswordForm user={currentUser} />,
     },
