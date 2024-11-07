@@ -1,3 +1,4 @@
+import { companyApiSlice } from "@/src/entities/company/store/companyApiSlice"
 import { sessionMiddleware } from "@/src/entities/session"
 import { sessionApiSlice } from "@entities/session/store/sessionApiSlice"
 import { userApiSlice } from "@entities/user/store/userApiSlice"
@@ -34,6 +35,7 @@ const rootReducer = combineSlices({
   overlays: overlaysReducer,
   [sessionApiSlice.reducerPath]: sessionApiSlice.reducer,
   [userApiSlice.reducerPath]: userApiSlice.reducer,
+  [companyApiSlice.reducerPath]: companyApiSlice.reducer,
   [healthApiSlice.reducerPath]: healthApiSlice.reducer,
 })
 
@@ -46,6 +48,7 @@ export const makeStore = () => {
         .concat(sessionMiddleware)
         .concat(sessionApiSlice.middleware)
         .concat(userApiSlice.middleware)
+        .concat(companyApiSlice.middleware)
         .concat(healthApiSlice.middleware),
     devTools: process.env.NODE_ENV !== "production",
   })

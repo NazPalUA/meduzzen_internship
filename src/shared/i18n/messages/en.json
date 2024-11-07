@@ -13,14 +13,17 @@
       "required": "Email is required",
       "invalid": "Invalid email address"
     },
+    "url": {
+      "invalid": "Invalid URL"
+    },
     "firstName": {
       "required": "First name is required"
     },
     "lastName": {
       "required": "Last name is required"
     },
-    "url": {
-      "invalid": "Invalid URL"
+    "company": {
+      "nameRequired": "Company name is required"
     }
   },
 

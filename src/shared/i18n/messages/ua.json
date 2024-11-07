@@ -13,14 +13,17 @@
       "required": "Email обов'язковий",
       "invalid": "Невірна адреса електронної пошти"
     },
+    "url": {
+      "invalid": "Недійсна URL-адреса"
+    },
     "firstName": {
       "required": "Ім'я обов'язкове"
     },
     "lastName": {
       "required": "Прізвище обов'язкове"
     },
-    "url": {
-      "invalid": "Недійсна URL-адреса"
+    "company": {
+      "nameRequired": "Назва компанії обов'язкова"
     }
   },
 
