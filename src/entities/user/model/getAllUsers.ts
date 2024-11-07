@@ -1,3 +1,4 @@
+import { PaginationSchema } from "@shared/models/PaginationSchema"
 import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
 import { z } from "zod"
 
@@ -7,12 +8,6 @@ export const SingleUserSchema = z.object({
   user_firstname: z.string(),
   user_lastname: z.string(),
   user_avatar: z.string().nullable(),
-})
-
-const PaginationSchema = z.object({
-  current_page: z.number(),
-  total_page: z.number(),
-  total_results: z.number(),
 })
 
 export const UsersListResponseSchema = ServerResponseSchema(
