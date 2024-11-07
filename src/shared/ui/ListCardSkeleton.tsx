@@ -1,7 +1,7 @@
 import { Skeleton } from "@/src/shared/ui/Skeleton"
-import styles from "./CardSkeleton.module.scss"
+import styles from "./ListCardSkeleton.module.scss"
 
-export function CardSkeleton() {
+export function ListCardSkeleton() {
   return (
     <div className={styles.container}>
       <Skeleton className={styles.avatar} />
