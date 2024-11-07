@@ -1,15 +1,16 @@
 "use client"
 
+import { getForm } from "@/src/shared/ui/Form"
 import { loginCredentialsSchema, useLoginMutation, type LoginCredentials } from "@entities/session"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "@navigation"
-import { SerializedError } from "@reduxjs/toolkit"
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query"
 import { Routes } from "@shared/constants/routes"
 import { useTranslations } from "next-intl"
-import { AuthForm } from "./AuthForm"
+import { useForm } from "react-hook-form"
+import styles from "./Form.module.scss"
 
 export function LoginForm() {
-  const [login, { isLoading, isError, error }] = useLoginMutation()
+  const [login, { isError, error }] = useLoginMutation()
   const router = useRouter()
   const t = useTranslations()
 
@@ -20,39 +21,28 @@ export function LoginForm() {
     router.push(Routes.DASHBOARD)
   }
 
-  const getErrorMessage = (error: FetchBaseQueryError | SerializedError | undefined) => {
-    if (!error) return null
+  const errorMessage = isError
+    ? "status" in error && error.status === 401
+      ? t("Error.invalidCredentials")
+      : t("Error.default")
+    : null
 
-    if ("status" in error && error.status === 401) {
-      return t("Error.invalidCredentials")
-    }
+  const form = useForm<LoginCredentials>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      user_email: "",
+      user_password: "",
+    },
+  })
 
-    return t("Error.default")
-  }
+  const Form = getForm<LoginCredentials>()
 
   return (
-    <AuthForm<LoginCredentials>
-      schema={schema}
-      onSubmit={onSubmit}
-      fields={[
-        {
-          name: "user_email",
-          label: t("Login.labels.email"),
-          type: "email",
-          autoComplete: "email",
-        },
-        {
-          name: "user_password",
-          label: t("Login.labels.password"),
-          type: "password",
-          autoComplete: "current-password",
-        },
-      ]}
-      title={t("Login.title")}
-      submitText={t("Login.submitText")}
-      isLoading={isLoading}
-      isError={isError}
-      error={getErrorMessage(error)}
-    />
+    <Form form={form} onSubmit={onSubmit} title={t("Login.title")} className={styles.form}>
+      <Form.TextField name="user_email" label={t("Login.labels.email")} type="email" />
+      <Form.TextField name="user_password" label={t("Login.labels.password")} type="password" />
+      <Form.SubmitButton text={t("Login.submitText")} />
+      <Form.ErrorMessage text={errorMessage} />
+    </Form>
   )
 }

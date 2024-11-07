@@ -7,7 +7,7 @@ import { useRouter } from "@navigation"
 import { Routes } from "@shared/constants/routes"
 import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
-import styles from "./Form.module.scss"
+import styles from "./Styles.module.scss"
 
 export function DeleteUserForm({ user }: { user: CurrentUser }) {
   const t = useTranslations("DeleteUser")
@@ -32,7 +32,7 @@ export function DeleteUserForm({ user }: { user: CurrentUser }) {
   return (
     <div>
       <p>{t("confirmDelete")}</p>
-      <div className={styles.buttonGroup}>
+      <div className={styles["delete-form__buttons-container"]}>
         <Button variant="contained" color="error" onClick={handleDelete} disabled={isLoading}>
           {isLoading ? <CircularProgress size={24} /> : t("submitText")}
         </Button>
