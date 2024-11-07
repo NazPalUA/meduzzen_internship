@@ -1,5 +1,5 @@
-import { type CompanyEntity } from "@entities/company"
 import { Card, CardContent } from "@mui/material"
+import { type CompanyEntity } from "../model"
 import styles from "./CompanyCard.module.scss"
 
 export function CompanyCard({ company }: { company: CompanyEntity }) {
