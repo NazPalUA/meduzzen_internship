@@ -106,7 +106,6 @@ export const userApiSlice = createApi({
       transformResponse: (response: unknown) => {
         return parseData(UpdateUserPasswordResponseSchema, response)
       },
-      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }],
     }),
 
     updateUserAvatar: build.mutation<
