@@ -1,10 +1,33 @@
-import { sessionApiSlice, sessionMiddleware } from "@entities/session"
-import { userApiSlice } from "@entities/user"
+import { sessionMiddleware } from "@/src/entities/session"
+import { sessionApiSlice } from "@entities/session/store/sessionApiSlice"
+import { userApiSlice } from "@entities/user/store/userApiSlice"
 import { healthApiSlice } from "@features/api-health-check"
 import { testSliceReducer } from "@features/test-store"
-import type { Action, ThunkAction } from "@reduxjs/toolkit"
-import { combineSlices, configureStore } from "@reduxjs/toolkit"
+import {
+  Action,
+  combineSlices,
+  configureStore,
+  createListenerMiddleware,
+  isAnyOf,
+  ThunkAction,
+} from "@reduxjs/toolkit"
 import { overlaysReducer } from "@shared/overlays"
+
+const userMutationListener = createListenerMiddleware()
+
+// Trigger a refetch of the session data after user mutations
+userMutationListener.startListening({
+  matcher: isAnyOf(
+    userApiSlice.endpoints.updateUserInfo.matchFulfilled,
+    userApiSlice.endpoints.updateUserPassword.matchFulfilled,
+    userApiSlice.endpoints.updateUserAvatar.matchFulfilled,
+  ),
+  effect: async (action, listenerApi) => {
+    listenerApi.dispatch(
+      sessionApiSlice.endpoints.getSession.initiate(undefined, { forceRefetch: true }),
+    )
+  },
+})
 
 const rootReducer = combineSlices({
   test: testSliceReducer,
@@ -17,13 +40,13 @@ const rootReducer = combineSlices({
 export const makeStore = () => {
   return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware()
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware()
+        .prepend(userMutationListener.middleware)
         .concat(sessionMiddleware)
         .concat(sessionApiSlice.middleware)
         .concat(userApiSlice.middleware)
-        .concat(healthApiSlice.middleware)
-    },
+        .concat(healthApiSlice.middleware),
     devTools: process.env.NODE_ENV !== "production",
   })
 }
