@@ -47,7 +47,7 @@ export const userApiSlice = createApi({
 
     getUserById: build.query<UserDetails, string>({
       query: (userId) => ({
-        url: API_ENDPOINTS.USER.GET_USER_BY_ID.replace("{user_id}", userId),
+        url: API_ENDPOINTS.USER.GET_USER_BY_ID(userId),
         method: "GET",
       }),
       transformResponse: (response: unknown) => {
@@ -70,7 +70,7 @@ export const userApiSlice = createApi({
 
     deleteUser: build.mutation<DeleteUserResponse, string>({
       query: (userId) => ({
-        url: API_ENDPOINTS.USER.DELETE_USER.replace("{user_id}", userId),
+        url: API_ENDPOINTS.USER.DELETE_USER(userId),
         method: "DELETE",
       }),
       transformResponse: (response: unknown) => {
@@ -84,7 +84,7 @@ export const userApiSlice = createApi({
       { userId: string; userInfo: UpdateUserInfoCredentials }
     >({
       query: ({ userId, userInfo }) => ({
-        url: API_ENDPOINTS.USER.UPDATE_USER_INFO.replace("{user_id}", userId),
+        url: API_ENDPOINTS.USER.UPDATE_USER_INFO(userId),
         method: "PUT",
         body: userInfo,
       }),
@@ -99,7 +99,7 @@ export const userApiSlice = createApi({
       { userId: string; passwordInfo: UpdateUserPasswordCredentials }
     >({
       query: ({ userId, passwordInfo }) => ({
-        url: API_ENDPOINTS.USER.UPDATE_USER_PASSWORD.replace("{user_id}", userId),
+        url: API_ENDPOINTS.USER.UPDATE_USER_PASSWORD(userId),
         method: "PUT",
         body: passwordInfo,
       }),
@@ -117,7 +117,7 @@ export const userApiSlice = createApi({
         formData.append("file", avatar.file)
 
         return {
-          url: API_ENDPOINTS.USER.UPDATE_USER_AVATAR.replace("{user_id}", userId),
+          url: API_ENDPOINTS.USER.UPDATE_USER_AVATAR(userId),
           method: "PUT",
           body: formData,
         }
