@@ -93,7 +93,10 @@
 
   "CompanyProfilePage": {
     "title": "Company Profile",
-    "description": "Description"
+    "description": "Description",
+    "aboutUs": "About Us",
+    "companyLinks": "Company Links",
+    "companyOwner": "Company Owner"
   },
 
   "Navigation": {

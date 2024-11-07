@@ -93,7 +93,10 @@
 
   "CompanyProfilePage": {
     "title": "Профіль компанії",
-    "description": "Опис"
+    "description": "Опис",
+    "aboutUs": "Про нас",
+    "companyLinks": "Посилання компанії",
+    "companyOwner": "Власник компанії"
   },
 
   "Navigation": {
