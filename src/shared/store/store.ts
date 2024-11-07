@@ -24,6 +24,7 @@ export const makeStore = () => {
         .concat(userApiSlice.middleware)
         .concat(healthApiSlice.middleware)
     },
+    devTools: process.env.NODE_ENV !== "production",
   })
 }
 
