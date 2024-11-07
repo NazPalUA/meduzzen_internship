@@ -18,5 +18,4 @@ export const UsersListResponseSchema = ServerResponseSchema(
 )
 
 export type SingleUser = z.infer<typeof SingleUserSchema>
-export type Pagination = z.infer<typeof PaginationSchema>
 export type UsersListResponse = z.infer<typeof UsersListResponseSchema>
