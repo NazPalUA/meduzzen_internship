@@ -8,8 +8,9 @@ import {
   Menu,
   MenuItem as MuiMenuItem,
 } from "@mui/material"
-import { ModalType, useOverlays } from "@shared/overlays"
-import { useCallback, useState } from "react"
+
+import { ModalWindow, useOverlays, type ModalType } from "@shared/overlays/"
+import { MouseEvent, ReactNode, useCallback, useState } from "react"
 
 type BaseMenuItem = {
   text: string
@@ -18,12 +19,16 @@ type BaseMenuItem = {
 
 type ModalMenuItem = BaseMenuItem & {
   modalWindow: ModalType
+  content: ReactNode
+  modalTitle?: string
   onClick?: never
 }
 
 type ClickMenuItem = BaseMenuItem & {
   modalWindow?: never
   onClick: () => void
+  content?: never
+  modalTitle?: never
 }
 
 export type MenuItem = ModalMenuItem | ClickMenuItem
@@ -36,6 +41,15 @@ type SettingsMenuProps = {
 export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMenuProps) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const menuOpen = Boolean(anchorEl)
+
+  const openMenu = useCallback((event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }, [])
+
+  const closeMenu = useCallback(() => {
+    setAnchorEl(null)
+  }, [])
+
   const { openModal } = useOverlays()
 
   const handleItemClick = useCallback(
@@ -45,15 +59,15 @@ export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMen
       } else if ("onClick" in item && item.onClick) {
         item.onClick()
       }
-      setAnchorEl(null)
+      closeMenu()
     },
-    [openModal],
+    [closeMenu, openModal],
   )
 
   return (
     <>
       <IconButton
-        onClick={(e) => setAnchorEl(e.currentTarget)}
+        onClick={openMenu}
         size="small"
         aria-controls={menuOpen ? "settings-menu" : undefined}
         aria-haspopup="true"
@@ -67,7 +81,7 @@ export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMen
         id="settings-menu"
         anchorEl={anchorEl}
         open={menuOpen}
-        onClose={() => setAnchorEl(null)}
+        onClose={closeMenu}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         MenuListProps={{
@@ -75,12 +89,23 @@ export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMen
         }}
       >
         {menuItems.map((item, index) => (
-          <MuiMenuItem key={`${item.text}-${index}`} onClick={() => handleItemClick(item)}>
+          <MuiMenuItem
+            key={item.modalWindow || `${item.text}-${index}`}
+            onClick={() => handleItemClick(item)}
+          >
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.text} />
           </MuiMenuItem>
         ))}
       </Menu>
+
+      {menuItems
+        .filter((item) => "modalWindow" in item && item.modalWindow !== undefined)
+        .map((item) => (
+          <ModalWindow title={item.modalTitle} modal={item.modalWindow} key={item.modalWindow}>
+            {item.content}
+          </ModalWindow>
+        ))}
     </>
   )
 }

@@ -6,14 +6,11 @@ import {
   AccountCircle as AccountCircleIcon,
   Delete as DeleteIcon,
   Edit as EditIcon,
+  Visibility as VisibilityIcon,
 } from "@mui/icons-material"
-import VisibilityIcon from "@mui/icons-material/Visibility"
-import { ModalType } from "@shared/overlays"
-import { ModalWindow } from "@shared/overlays/ui/ModalWindow"
 import { SettingsMenu, type MenuItem } from "@shared/ui/SettingsMenu"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
-import { ReactNode } from "react"
 import { DeleteForm } from "./DeleteForm"
 import { UpdateAvatarForm } from "./UpdateAvatarForm"
 import { UpdateInfoForm } from "./UpdateInfoForm"
@@ -31,59 +28,40 @@ export function Settings() {
     return null
   }
 
-  const dialogWindows: { title?: string; modal: ModalType; component: ReactNode }[] = [
-    {
-      modal: "updateCompanyInfo",
-      component: <UpdateInfoForm company={companyData} />,
-    },
-    {
-      title: t("updateAvatar"),
-      modal: "updateCompanyAvatar",
-      component: <UpdateAvatarForm company={companyData} />,
-    },
-    {
-      modal: "updateCompanyVisible",
-      component: <UpdateVisibleForm company={companyData} />,
-    },
-    {
-      title: t("deleteCompany"),
-      modal: "deleteCompany",
-      component: <DeleteForm company={companyData} />,
-    },
-  ]
-
   const menuItems: MenuItem[] = [
     {
       text: t("updateInfo"),
       icon: <EditIcon fontSize="small" />,
       modalWindow: "updateCompanyInfo",
+      modalTitle: t("updateInfo"),
+      content: <UpdateInfoForm company={companyData} />,
     },
     {
       text: t("updateAvatar"),
       icon: <AccountCircleIcon fontSize="small" />,
       modalWindow: "updateCompanyAvatar",
+      modalTitle: t("updateAvatar"),
+      content: <UpdateAvatarForm company={companyData} />,
     },
     {
       text: t("updateVisible"),
       icon: <VisibilityIcon fontSize="small" />,
       modalWindow: "updateCompanyVisible",
+      modalTitle: t("updateVisible"),
+      content: <UpdateVisibleForm company={companyData} />,
     },
     {
       text: t("deleteCompany"),
       icon: <DeleteIcon fontSize="small" />,
       modalWindow: "deleteCompany",
+      modalTitle: t("deleteCompany"),
+      content: <DeleteForm company={companyData} />,
     },
   ]
 
   return (
     <div>
       <SettingsMenu menuItems={menuItems} />
-
-      {dialogWindows.map((dialog) => (
-        <ModalWindow key={dialog.modal} title={dialog.title} modal={dialog.modal}>
-          {dialog.component}
-        </ModalWindow>
-      ))}
     </div>
   )
 }

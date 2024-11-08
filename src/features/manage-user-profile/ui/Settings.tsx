@@ -7,12 +7,9 @@ import {
   Edit as EditIcon,
   Lock as LockIcon,
 } from "@mui/icons-material"
-import { ModalType } from "@shared/overlays"
-import { ModalWindow } from "@shared/overlays/ui/ModalWindow"
 import { SettingsMenu, type MenuItem } from "@shared/ui/SettingsMenu"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
-import { ReactNode } from "react"
 import { DeleteUserForm } from "./DeleteUserForm"
 import styles from "./Styles.module.scss"
 import { UpdateAvatarForm } from "./UpdateAvatarForm"
@@ -30,59 +27,40 @@ export function Settings() {
     return null
   }
 
-  const dialogWindows: { title?: string; modal: ModalType; component: ReactNode }[] = [
-    {
-      modal: "updateUserInfo",
-      component: <UpdateInfoForm user={currentUser} />,
-    },
-    {
-      title: t("updateAvatar"),
-      modal: "updateUserAvatar",
-      component: <UpdateAvatarForm user={currentUser} />,
-    },
-    {
-      modal: "updateUserPassword",
-      component: <UpdatePasswordForm user={currentUser} />,
-    },
-    {
-      title: t("deleteAccount"),
-      modal: "deleteUser",
-      component: <DeleteUserForm user={currentUser} />,
-    },
-  ]
-
   const menuItems: MenuItem[] = [
     {
       text: t("updateInfo"),
       icon: <EditIcon fontSize="small" />,
       modalWindow: "updateUserInfo",
+      modalTitle: t("updateInfo"),
+      content: <UpdateInfoForm user={currentUser} />,
     },
     {
       text: t("updateAvatar"),
       icon: <AccountCircleIcon fontSize="small" />,
       modalWindow: "updateUserAvatar",
+      modalTitle: t("updateAvatar"),
+      content: <UpdateAvatarForm user={currentUser} />,
     },
     {
       text: t("changePassword"),
       icon: <LockIcon fontSize="small" />,
       modalWindow: "updateUserPassword",
+      modalTitle: t("changePassword"),
+      content: <UpdatePasswordForm user={currentUser} />,
     },
     {
       text: t("deleteAccount"),
       icon: <DeleteIcon fontSize="small" />,
       modalWindow: "deleteUser",
+      modalTitle: t("deleteAccount"),
+      content: <DeleteUserForm user={currentUser} />,
     },
   ]
 
   return (
     <div className={styles.container}>
       <SettingsMenu menuItems={menuItems} />
-
-      {dialogWindows.map((dialog) => (
-        <ModalWindow key={dialog.modal} title={dialog.title} modal={dialog.modal}>
-          {dialog.component}
-        </ModalWindow>
-      ))}
     </div>
   )
 }
