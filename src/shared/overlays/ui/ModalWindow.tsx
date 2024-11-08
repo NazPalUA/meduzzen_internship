@@ -8,31 +8,56 @@ import { useOverlays } from "../hooks/useOverlays"
 import { ModalType } from "../store/overlaysSlice"
 import styles from "./Overlays.module.scss"
 
-type Props = {
+type CommonProps = {
   title?: string
-  modal: ModalType
   children: ReactNode
 }
 
-export function ModalWindow({ title, modal, children }: Props) {
+type Controls = {
+  open: boolean
+  onClose: () => void
+}
+
+type LocalControlledProps = CommonProps & {
+  modal?: never
+  controls: Controls
+}
+
+type GloballyControlledProps = CommonProps & {
+  modal: ModalType
+  controls?: never
+}
+
+type Props = LocalControlledProps | GloballyControlledProps
+
+export function ModalWindow(props: Props) {
   const { activeModal, closeModal } = useOverlays()
+
+  const isOpen =
+    "controls" in props && props.controls ? props.controls.open : activeModal === props.modal
+
+  const handleClose = "controls" in props && props.controls ? props.controls.onClose : closeModal
 
   return (
     <Dialog
-      open={activeModal === modal}
-      onClose={closeModal}
+      open={isOpen}
+      onClose={handleClose}
       maxWidth="sm"
       fullWidth
       className={styles["modal-window"]}
     >
-      <IconButton aria-label="close" onClick={closeModal} className={styles["modal-window__close"]}>
+      <IconButton
+        aria-label="close"
+        onClick={handleClose}
+        className={styles["modal-window__close"]}
+      >
         <CloseIcon />
       </IconButton>
-      {title && <DialogTitle>{title}</DialogTitle>}
+      {props.title && <DialogTitle>{props.title}</DialogTitle>}
       <DialogContent
-        className={clsx(styles["modal-window__content"], !title && styles["no-title"])}
+        className={clsx(styles["modal-window__content"], !props.title && styles["no-title"])}
       >
-        {children}
+        {props.children}
       </DialogContent>
     </Dialog>
   )
