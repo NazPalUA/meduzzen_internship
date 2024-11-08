@@ -1,6 +1,7 @@
 import { baseQuery } from "@/src/shared/store/baseQuery"
 import { createApi } from "@reduxjs/toolkit/query/react"
 import { API_ENDPOINTS } from "@shared/api/endpoints"
+import { HttpMethod } from "@shared/api/http"
 import { removeToken, setToken } from "@shared/utils/authToken"
 import { parseData } from "@shared/utils/parseData"
 import {
@@ -17,7 +18,7 @@ export const sessionApiSlice = createApi({
   tagTypes: ["Session"],
   endpoints: (build) => ({
     getSession: build.query<CurrentUser, void>({
-      query: () => ({ url: API_ENDPOINTS.AUTH.GET_ME, method: "GET" }),
+      query: () => ({ url: API_ENDPOINTS.AUTH.GET_ME, method: HttpMethod.GET }),
       transformResponse: (response: unknown) => {
         return parseData(GetMeResponseSchema, response).result
       },
@@ -27,7 +28,7 @@ export const sessionApiSlice = createApi({
     login: build.mutation<LoginResponse, LoginCredentials>({
       query: (credentials) => ({
         url: API_ENDPOINTS.AUTH.LOGIN,
-        method: "POST",
+        method: HttpMethod.POST,
         body: credentials,
       }),
       transformResponse: (response: unknown) => {

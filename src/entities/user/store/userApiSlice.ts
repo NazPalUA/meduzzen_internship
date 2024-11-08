@@ -1,6 +1,7 @@
-import { baseQuery } from "@/src/shared/store/baseQuery"
 import { createApi } from "@reduxjs/toolkit/query/react"
 import { API_ENDPOINTS } from "@shared/api/endpoints"
+import { HttpMethod } from "@shared/api/http"
+import { baseQuery } from "@shared/store/baseQuery"
 import { parseData } from "@shared/utils/parseData"
 import {
   CreateUserCredentials,
@@ -36,7 +37,7 @@ export const userApiSlice = createApi({
     getAllUsers: build.query<UsersListResponse["result"], UserListInput>({
       query: ({ page, page_size }) => ({
         url: API_ENDPOINTS.USER.GET_ALL_USERS,
-        method: "GET",
+        method: HttpMethod.GET,
         params: { page, page_size },
       }),
       transformResponse: (response: unknown) => {
@@ -48,7 +49,7 @@ export const userApiSlice = createApi({
     getUserById: build.query<UserDetails, string>({
       query: (userId) => ({
         url: API_ENDPOINTS.USER.GET_USER_BY_ID(userId),
-        method: "GET",
+        method: HttpMethod.GET,
       }),
       transformResponse: (response: unknown) => {
         return parseData(UserDetailsResponseSchema, response).result
@@ -59,7 +60,7 @@ export const userApiSlice = createApi({
     createUser: build.mutation<CreateUserResponse, CreateUserCredentials>({
       query: (userDetails) => ({
         url: API_ENDPOINTS.USER.CREATE_USER,
-        method: "POST",
+        method: HttpMethod.POST,
         body: userDetails,
       }),
       transformResponse: (response: unknown) => {
@@ -71,7 +72,7 @@ export const userApiSlice = createApi({
     deleteUser: build.mutation<DeleteUserResponse, string>({
       query: (userId) => ({
         url: API_ENDPOINTS.USER.DELETE_USER(userId),
-        method: "DELETE",
+        method: HttpMethod.DELETE,
       }),
       transformResponse: (response: unknown) => {
         return parseData(DeleteUserResponseSchema, response)
@@ -85,7 +86,7 @@ export const userApiSlice = createApi({
     >({
       query: ({ userId, userInfo }) => ({
         url: API_ENDPOINTS.USER.UPDATE_USER_INFO(userId),
-        method: "PUT",
+        method: HttpMethod.PUT,
         body: userInfo,
       }),
       transformResponse: (response: unknown) => {
@@ -100,7 +101,7 @@ export const userApiSlice = createApi({
     >({
       query: ({ userId, passwordInfo }) => ({
         url: API_ENDPOINTS.USER.UPDATE_USER_PASSWORD(userId),
-        method: "PUT",
+        method: HttpMethod.PUT,
         body: passwordInfo,
       }),
       transformResponse: (response: unknown) => {
@@ -118,7 +119,7 @@ export const userApiSlice = createApi({
 
         return {
           url: API_ENDPOINTS.USER.UPDATE_USER_AVATAR(userId),
-          method: "PUT",
+          method: HttpMethod.PUT,
           body: formData,
         }
       },

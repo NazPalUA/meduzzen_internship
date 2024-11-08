@@ -1,6 +1,7 @@
-import { baseQuery } from "@/src/shared/store/baseQuery"
 import { createApi } from "@reduxjs/toolkit/query/react"
 import { API_ENDPOINTS } from "@shared/api/endpoints"
+import { HttpMethod } from "@shared/api/http"
+import { baseQuery } from "@shared/store/baseQuery"
 import { parseData } from "@shared/utils/parseData"
 import {
   CompaniesListResponse,
@@ -36,7 +37,7 @@ export const companyApiSlice = createApi({
     getAllCompanies: build.query<CompaniesListResponse["result"], CompanyListInput>({
       query: ({ page, page_size }) => ({
         url: API_ENDPOINTS.COMPANY.GET_ALL_COMPANIES,
-        method: "GET",
+        method: HttpMethod.GET,
         params: { page, page_size },
       }),
       transformResponse: (response: unknown) => {
@@ -48,7 +49,7 @@ export const companyApiSlice = createApi({
     getCompanyById: build.query<CompanyDetails, string>({
       query: (companyId) => ({
         url: API_ENDPOINTS.COMPANY.GET_COMPANY_BY_ID(companyId),
-        method: "GET",
+        method: HttpMethod.GET,
       }),
       transformResponse: (response: unknown) => {
         return parseData(CompanyDetailsResponseSchema, response).result
@@ -59,7 +60,7 @@ export const companyApiSlice = createApi({
     createCompany: build.mutation<CreateCompanyResponse, CreateCompanyCredentials>({
       query: (companyDetails) => ({
         url: API_ENDPOINTS.COMPANY.CREATE_COMPANY,
-        method: "POST",
+        method: HttpMethod.POST,
         body: companyDetails,
       }),
       transformResponse: (response: unknown) => {
@@ -71,7 +72,7 @@ export const companyApiSlice = createApi({
     deleteCompany: build.mutation<DeleteCompanyResponse, string>({
       query: (companyId) => ({
         url: API_ENDPOINTS.COMPANY.DELETE_COMPANY(companyId),
-        method: "DELETE",
+        method: HttpMethod.DELETE,
       }),
       transformResponse: (response: unknown) => {
         return parseData(DeleteCompanyResponseSchema, response)
@@ -85,7 +86,7 @@ export const companyApiSlice = createApi({
     >({
       query: ({ companyId, companyInfo }) => ({
         url: API_ENDPOINTS.COMPANY.UPDATE_COMPANY_INFO(companyId),
-        method: "PUT",
+        method: HttpMethod.PUT,
         body: companyInfo,
       }),
       transformResponse: (response: unknown) => {
@@ -100,7 +101,7 @@ export const companyApiSlice = createApi({
     >({
       query: ({ companyId, visibleInfo }) => ({
         url: API_ENDPOINTS.COMPANY.UPDATE_COMPANY_VISIBLE(companyId),
-        method: "PUT",
+        method: HttpMethod.PUT,
         body: visibleInfo,
       }),
       transformResponse: (response: unknown) => {
@@ -119,7 +120,7 @@ export const companyApiSlice = createApi({
 
         return {
           url: API_ENDPOINTS.COMPANY.UPDATE_COMPANY_AVATAR(companyId),
-          method: "PUT",
+          method: HttpMethod.PUT,
           body: formData,
         }
       },
