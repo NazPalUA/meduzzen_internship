@@ -34,22 +34,22 @@ export function SettingsMenu() {
     {
       text: t("updateInfo"),
       icon: <EditIcon fontSize="small" />,
-      onClick: () => openDialogWindow("info"),
+      onClick: () => openDialogWindow("updateUserInfo"),
     },
     {
       text: t("updateAvatar"),
       icon: <AccountCircleIcon fontSize="small" />,
-      onClick: () => openDialogWindow("avatar"),
+      onClick: () => openDialogWindow("updateUserAvatar"),
     },
     {
       text: t("changePassword"),
       icon: <LockIcon fontSize="small" />,
-      onClick: () => openDialogWindow("password"),
+      onClick: () => openDialogWindow("updateUserPassword"),
     },
     {
       text: t("deleteAccount"),
       icon: <DeleteIcon fontSize="small" />,
-      onClick: () => openDialogWindow("delete"),
+      onClick: () => openDialogWindow("deleteUser"),
     },
   ]
 
