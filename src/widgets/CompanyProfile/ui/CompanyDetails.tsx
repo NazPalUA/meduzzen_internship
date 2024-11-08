@@ -6,10 +6,10 @@ import EmailIcon from "@mui/icons-material/Email"
 import LinkIcon from "@mui/icons-material/Link"
 import LocationCityIcon from "@mui/icons-material/LocationCity"
 import PhoneIcon from "@mui/icons-material/Phone"
-import { Avatar, Card, CardContent, CardHeader, Chip } from "@mui/material"
+import { Card, CardContent, CardHeader, Chip } from "@mui/material"
 import { Link } from "@navigation"
+import { Avatar } from "@shared/ui/Avatar"
 import { useTranslations } from "next-intl"
-import Image from "next/image"
 import styles from "./CompanyDetails.module.scss"
 
 type DisplayLink = {
@@ -51,15 +51,7 @@ export function CompanyDetails({ company }: { company: CompanyDetails }) {
   return (
     <Card className={styles.card}>
       <CardHeader
-        avatar={
-          <Avatar sx={{ width: 100, height: 100 }}>
-            {company_avatar ? (
-              <Image src={company_avatar} fill alt={company_name} />
-            ) : (
-              company_name[0]
-            )}
-          </Avatar>
-        }
+        avatar={<Avatar src={company_avatar} alt={company_name} size="lg" />}
         title={<h3>{company_name}</h3>}
         subheader={
           <>
@@ -123,13 +115,7 @@ export function CompanyDetails({ company }: { company: CompanyDetails }) {
           <h4>{t("companyOwner")}</h4>
 
           <div className={styles.owner__info}>
-            <Avatar>
-              {user_avatar ? (
-                <Image src={user_avatar} width={40} height={40} alt={user_firstname} />
-              ) : (
-                user_firstname[0]
-              )}
-            </Avatar>
+            <Avatar src={user_avatar} alt={user_firstname} size="sm" />
             <div className={styles.owner__details}>
               <strong>
                 {user_firstname} {user_lastname}
