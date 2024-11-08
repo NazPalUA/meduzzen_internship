@@ -61,8 +61,7 @@
 
   "DashboardPage": {
     "title": "Dashboard",
-    "description": "Welcome to the dashboard!",
-    "currentUser": "Current User"
+    "description": "Welcome to the dashboard!"
   },
 
   "AboutPage": {
@@ -221,6 +220,25 @@
       "success": "Account deleted successfully",
       "error": "Failed to delete account. Please try again."
     }
+  },
+
+  "CreateCompany": {
+    "title": "Create a New Company",
+    "modal": {
+      "title": "Create a New Company",
+      "openButton": "Create Company"
+    },
+    "labels": {
+      "companyName": "Company Name",
+      "isVisible": "Is Visible"
+    },
+
+    "result": {
+      "success": "Company created successfully!",
+      "error": "Failed to create company. Please try again."
+    },
+
+    "submitText": "Create Company"
   },
 
   "Settings": {

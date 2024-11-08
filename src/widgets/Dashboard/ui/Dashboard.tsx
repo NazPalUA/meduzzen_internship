@@ -1,15 +1,28 @@
 "use client"
 
 import { useSession } from "@/src/entities/session"
-import { ErrorMessage } from "@/src/shared/ui/ErrorMessage"
-import { CurrentUser } from "./CurrentUser"
-import { UserSkeleton } from "./UserSkeleton"
+import { ModalWindow, useOverlays } from "@/src/shared/overlays"
+import { Button } from "@mui/material"
+import { useTranslations } from "next-intl"
+import { CreateCompanyForm } from "./CreateCompanyForm"
 
 export function Dashboard() {
-  const { user, isLoading, isError } = useSession()
+  const t = useTranslations("CreateCompany")
+  const { user: currentUser } = useSession()
+  const { openModal } = useOverlays()
 
-  if (isLoading) return <UserSkeleton />
-  if (isError || !user) return <ErrorMessage />
+  if (!currentUser) {
+    return null
+  }
 
-  return <CurrentUser user={user} />
+  return (
+    <div>
+      <Button variant="contained" color="primary" onClick={() => openModal("createCompany")}>
+        {t("modal.openButton")}
+      </Button>
+      <ModalWindow title={t("modal.title")} modal="createCompany">
+        <CreateCompanyForm />
+      </ModalWindow>
+    </div>
+  )
 }
