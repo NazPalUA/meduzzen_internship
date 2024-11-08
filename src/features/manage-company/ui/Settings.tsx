@@ -2,13 +2,19 @@
 
 import { useGetCompanyByIdQuery } from "@/src/entities/company"
 import { useSession } from "@entities/session"
+import {
+  AccountCircle as AccountCircleIcon,
+  Delete as DeleteIcon,
+  Edit as EditIcon,
+} from "@mui/icons-material"
+import VisibilityIcon from "@mui/icons-material/Visibility"
 import { ModalType } from "@shared/overlays"
 import { ModalWindow } from "@shared/overlays/ui/ModalWindow"
+import { SettingsMenu, type MenuItem } from "@shared/ui/SettingsMenu"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import { ReactNode } from "react"
 import { DeleteForm } from "./DeleteForm"
-import { SettingsMenu } from "./SettingsMenu"
 import { UpdateAvatarForm } from "./UpdateAvatarForm"
 import { UpdateInfoForm } from "./UpdateInfoForm"
 import { UpdateVisibleForm } from "./UpdateVisibleForm"
@@ -46,9 +52,32 @@ export function Settings() {
     },
   ]
 
+  const menuItems: MenuItem[] = [
+    {
+      text: t("updateInfo"),
+      icon: <EditIcon fontSize="small" />,
+      modalWindow: "updateCompanyInfo",
+    },
+    {
+      text: t("updateAvatar"),
+      icon: <AccountCircleIcon fontSize="small" />,
+      modalWindow: "updateCompanyAvatar",
+    },
+    {
+      text: t("updateVisible"),
+      icon: <VisibilityIcon fontSize="small" />,
+      modalWindow: "updateCompanyVisible",
+    },
+    {
+      text: t("deleteCompany"),
+      icon: <DeleteIcon fontSize="small" />,
+      modalWindow: "deleteCompany",
+    },
+  ]
+
   return (
     <div>
-      <SettingsMenu />
+      <SettingsMenu menuItems={menuItems} />
 
       {dialogWindows.map((dialog) => (
         <ModalWindow key={dialog.modal} title={dialog.title} modal={dialog.modal}>

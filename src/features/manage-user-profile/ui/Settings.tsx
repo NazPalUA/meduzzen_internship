@@ -1,13 +1,19 @@
 "use client"
 
 import { useSession } from "@entities/session"
+import {
+  AccountCircle as AccountCircleIcon,
+  Delete as DeleteIcon,
+  Edit as EditIcon,
+  Lock as LockIcon,
+} from "@mui/icons-material"
 import { ModalType } from "@shared/overlays"
 import { ModalWindow } from "@shared/overlays/ui/ModalWindow"
+import { SettingsMenu, type MenuItem } from "@shared/ui/SettingsMenu"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import { ReactNode } from "react"
 import { DeleteUserForm } from "./DeleteUserForm"
-import { SettingsMenu } from "./SettingsMenu"
 import styles from "./Styles.module.scss"
 import { UpdateAvatarForm } from "./UpdateAvatarForm"
 import { UpdateInfoForm } from "./UpdateInfoForm"
@@ -45,9 +51,32 @@ export function Settings() {
     },
   ]
 
+  const menuItems: MenuItem[] = [
+    {
+      text: t("updateInfo"),
+      icon: <EditIcon fontSize="small" />,
+      modalWindow: "updateUserInfo",
+    },
+    {
+      text: t("updateAvatar"),
+      icon: <AccountCircleIcon fontSize="small" />,
+      modalWindow: "updateUserAvatar",
+    },
+    {
+      text: t("changePassword"),
+      icon: <LockIcon fontSize="small" />,
+      modalWindow: "updateUserPassword",
+    },
+    {
+      text: t("deleteAccount"),
+      icon: <DeleteIcon fontSize="small" />,
+      modalWindow: "deleteUser",
+    },
+  ]
+
   return (
     <div className={styles.container}>
-      <SettingsMenu />
+      <SettingsMenu menuItems={menuItems} />
 
       {dialogWindows.map((dialog) => (
         <ModalWindow key={dialog.modal} title={dialog.title} modal={dialog.modal}>
