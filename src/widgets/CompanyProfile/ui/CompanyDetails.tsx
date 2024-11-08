@@ -1,12 +1,12 @@
 "use client"
 
 import { type CompanyDetails } from "@entities/company"
-import { Settings } from "@mui/icons-material"
+import { Settings } from "@features/manage-company"
 import EmailIcon from "@mui/icons-material/Email"
 import LinkIcon from "@mui/icons-material/Link"
 import LocationCityIcon from "@mui/icons-material/LocationCity"
 import PhoneIcon from "@mui/icons-material/Phone"
-import { Avatar, Card, CardContent, CardHeader, Chip, IconButton } from "@mui/material"
+import { Avatar, Card, CardContent, CardHeader, Chip } from "@mui/material"
 import { Link } from "@navigation"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
@@ -71,11 +71,7 @@ export function CompanyDetails({ company }: { company: CompanyDetails }) {
             />
           </>
         }
-        action={
-          <IconButton>
-            <Settings color="inherit" />
-          </IconButton>
-        }
+        action={<Settings />}
       />
       <CardContent>
         {company_description && (
