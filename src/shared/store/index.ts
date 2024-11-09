@@ -1,4 +1,3 @@
-export { baseQuery } from "./baseQuery"
 export { createAppSlice } from "./createAppSlice"
 export { useAppDispatch, useAppSelector, useAppStore } from "./hooks"
 export { makeStore } from "./store"

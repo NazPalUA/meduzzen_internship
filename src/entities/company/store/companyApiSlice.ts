@@ -1,6 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS, HttpMethod } from "@shared/api"
-import { baseQuery } from "@shared/store"
+import { API_ENDPOINTS, baseQuery, HttpMethod } from "@shared/api"
 import { parseData } from "@shared/utils"
 import {
   CompaniesListResponse,
