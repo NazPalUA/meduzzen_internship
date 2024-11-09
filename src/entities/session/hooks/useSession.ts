@@ -1,8 +1,8 @@
 "use client"
 
 import { useRouter } from "@navigation"
-import { Routes } from "@shared/constants/routes"
-import { getToken } from "@shared/utils/authToken"
+import { Routes } from "@shared/constants"
+import { getToken } from "@shared/utils"
 import { useEffect } from "react"
 import { CurrentUser } from "../model"
 import { useGetSessionQuery } from "../store/sessionApiSlice"

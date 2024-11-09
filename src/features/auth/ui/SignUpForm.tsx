@@ -1,6 +1,5 @@
 "use client"
 
-import { getForm } from "@/src/shared/ui/Form/index"
 import {
   createUserCredentialsSchema,
   useCreateUserMutation,
@@ -8,7 +7,8 @@ import {
 } from "@entities/user"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "@navigation"
-import { Routes } from "@shared/constants/routes"
+import { getForm } from "@shared/components/Form"
+import { Routes } from "@shared/constants"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import styles from "./Form.module.scss"

@@ -1,6 +1,5 @@
 "use client"
 
-import { getForm } from "@/src/shared/ui/Form"
 import {
   CompanyDetails,
   UpdateCompanyVisibleCredentialsSchema,
@@ -8,6 +7,7 @@ import {
   type UpdateCompanyVisibleCredentials,
 } from "@entities/company"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { getForm } from "@shared/components/Form"
 import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"

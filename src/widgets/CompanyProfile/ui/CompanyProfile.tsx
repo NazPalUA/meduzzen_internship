@@ -1,8 +1,7 @@
 "use client"
 
 import { useGetCompanyByIdQuery } from "@entities/company"
-import { ErrorMessage } from "@shared/ui/ErrorMessage"
-import { LoadingSpinner } from "@shared/ui/LoadingSpinner"
+import { ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { CompanyDetails } from "./CompanyDetails"
 
 export function CompanyProfile({ companyId }: { companyId: string }) {

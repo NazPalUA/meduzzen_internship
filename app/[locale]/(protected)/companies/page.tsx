@@ -1,4 +1,4 @@
-import { Container } from "@shared/ui/Container"
+import { Container } from "@shared/components/ui"
 import { CompaniesList } from "@widgets/CompaniesList"
 import { useTranslations } from "next-intl"
 import { setRequestLocale } from "next-intl/server"

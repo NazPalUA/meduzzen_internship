@@ -1,5 +1,5 @@
-import { Container } from "@/src/shared/ui/Container"
 import { SignUpForm } from "@features/auth"
+import { Container } from "@shared/components/ui"
 
 export default function LoginPage() {
   return (

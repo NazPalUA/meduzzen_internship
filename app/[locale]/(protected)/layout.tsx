@@ -1,5 +1,4 @@
 import { ProtectedRoute } from "@entities/session"
-import "@shared/styles/globals.css"
 
 import { ReactNode } from "react"
 

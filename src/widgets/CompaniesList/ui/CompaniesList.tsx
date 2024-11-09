@@ -2,12 +2,9 @@
 
 import { useGetAllCompaniesQuery } from "@entities/company"
 import { useRouter } from "@navigation"
-import { ErrorMessage } from "@shared/ui/ErrorMessage"
-import { GridContainer } from "@shared/ui/GridContainer"
-import { ListCardSkeleton } from "@shared/ui/ListCardSkeleton"
-import { NoData } from "@shared/ui/NoData"
-import { Pagination } from "@shared/ui/Pagination"
-import { getCurrentPage } from "@shared/utils/getCurrentPage"
+import { Pagination } from "@shared/components/Pagination"
+import { ErrorMessage, GridContainer, ListCardSkeleton, NoData } from "@shared/components/ui"
+import { getCurrentPage } from "@shared/utils"
 import { useSearchParams } from "next/navigation"
 import { CompanyCard } from "./CompanyCard"
 

@@ -1,4 +1,4 @@
-import { Skeleton } from "@/src/shared/ui/Skeleton"
+import { Skeleton } from "@shared/components/ui"
 import styles from "./ListCardSkeleton.module.scss"
 
 export function ListCardSkeleton() {

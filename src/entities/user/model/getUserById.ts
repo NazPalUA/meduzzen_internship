@@ -1,8 +1,7 @@
-import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
-import { UserDetailsSchema } from "@shared/models/userDetails"
+import { ServerResponseSchema, UserDetailsSchema } from "@shared/api"
 import { z } from "zod"
 
-export { UserDetailsSchema, type UserDetails } from "@shared/models/userDetails"
+export { UserDetailsSchema, type UserDetails } from "@shared/api"
 
 export const UserDetailsResponseSchema = ServerResponseSchema(UserDetailsSchema)
 

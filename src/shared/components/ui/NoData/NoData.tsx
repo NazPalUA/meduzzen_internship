@@ -4,7 +4,7 @@ import { Alert } from "@mui/material"
 import { useTranslations } from "next-intl"
 import styles from "./NoData.module.scss"
 
-interface NoDataProps {
+type NoDataProps = {
   message?: string
 }
 

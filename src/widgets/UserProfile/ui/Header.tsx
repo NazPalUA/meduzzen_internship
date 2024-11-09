@@ -1,8 +1,8 @@
-import { Settings } from "@/src/features/manage-user-profile"
-import { NoCacheNextImage } from "@/src/shared/ui/NoCacheNextImage"
 import { type UserDetails } from "@entities/user"
+import { Settings } from "@features/manage-user-profile"
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings"
 import { Avatar } from "@mui/material"
+import { NoCacheNextImage } from "@shared/components/ui"
 import styles from "./Header.module.scss"
 
 export function Header({

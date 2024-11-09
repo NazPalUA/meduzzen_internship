@@ -1,4 +1,4 @@
-import { Container } from "@/src/shared/ui/Container"
+import { Container } from "@shared/components/ui"
 import { CompanyProfile as CompanyProfileWidget } from "@widgets/CompanyProfile"
 import { useTranslations } from "next-intl"
 

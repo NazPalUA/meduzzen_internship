@@ -7,7 +7,7 @@ import {
   Edit as EditIcon,
   Lock as LockIcon,
 } from "@mui/icons-material"
-import { SettingsMenu, type MenuItem } from "@shared/ui/SettingsMenu"
+import { SettingsMenu, type MenuItem } from "@shared/components/SettingsMenu"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import { DeleteUserForm } from "./DeleteUserForm"

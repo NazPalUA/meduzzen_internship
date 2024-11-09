@@ -1,5 +1,5 @@
-import { Container } from "@/src/shared/ui/Container"
 import { Link } from "@navigation"
+import { Container } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import styles from "./Footer.module.scss"
 

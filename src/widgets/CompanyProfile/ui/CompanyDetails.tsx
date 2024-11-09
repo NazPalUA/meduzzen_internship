@@ -8,7 +8,7 @@ import LocationCityIcon from "@mui/icons-material/LocationCity"
 import PhoneIcon from "@mui/icons-material/Phone"
 import { Card, CardContent, CardHeader, Chip } from "@mui/material"
 import { Link } from "@navigation"
-import { Avatar } from "@shared/ui/Avatar"
+import { Avatar } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import styles from "./CompanyDetails.module.scss"
 

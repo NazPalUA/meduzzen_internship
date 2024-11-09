@@ -1,5 +1,5 @@
+import { Routes } from "@shared/constants"
 import { jwtDecode } from "jwt-decode"
-import { Routes } from "../constants/routes"
 
 export const getToken = (): string | null => {
   if (typeof window !== "undefined") {

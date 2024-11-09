@@ -1,7 +1,7 @@
-import { baseQuery } from "@/src/shared/store/baseQuery"
 import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS } from "@shared/api/endpoints"
-import { parseData } from "@shared/utils/parseData"
+import { API_ENDPOINTS } from "@shared/api"
+import { baseQuery } from "@shared/store"
+import { parseData } from "@shared/utils"
 import { CheckHealthResponse, CheckHealthResponseSchema } from "../model"
 
 export const healthApiSlice = createApi({

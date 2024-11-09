@@ -1,6 +1,6 @@
 "use client"
 
-import { useGetCompanyByIdQuery } from "@/src/entities/company"
+import { useGetCompanyByIdQuery } from "@entities/company"
 import { useSession } from "@entities/session"
 import {
   AccountCircle as AccountCircleIcon,
@@ -8,7 +8,7 @@ import {
   Edit as EditIcon,
   Visibility as VisibilityIcon,
 } from "@mui/icons-material"
-import { SettingsMenu, type MenuItem } from "@shared/ui/SettingsMenu"
+import { SettingsMenu, type MenuItem } from "@shared/components/SettingsMenu"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import { DeleteForm } from "./DeleteForm"

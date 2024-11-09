@@ -1,8 +1,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS } from "@shared/api/endpoints"
-import { HttpMethod } from "@shared/api/http"
-import { baseQuery } from "@shared/store/baseQuery"
-import { parseData } from "@shared/utils/parseData"
+import { API_ENDPOINTS, HttpMethod } from "@shared/api"
+import { baseQuery } from "@shared/store"
+import { parseData } from "@shared/utils"
 import {
   CreateUserCredentials,
   CreateUserResponse,

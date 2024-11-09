@@ -1,4 +1,4 @@
-import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
+import { ServerResponseSchema } from "@shared/api"
 import { z } from "zod"
 
 export const DeleteCompanyResponseSchema = ServerResponseSchema(z.string().or(z.null()))

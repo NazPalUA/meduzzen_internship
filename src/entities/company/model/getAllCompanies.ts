@@ -1,5 +1,4 @@
-import { PaginationSchema } from "@shared/models/PaginationSchema"
-import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
+import { PaginationSchema, ServerResponseSchema } from "@shared/api"
 import { z } from "zod"
 
 export const SingleCompanySchema = z.object({

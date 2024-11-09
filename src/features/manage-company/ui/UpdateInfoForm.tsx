@@ -7,8 +7,8 @@ import {
   useUpdateCompanyInfoMutation,
 } from "@entities/company"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { getForm } from "@shared/components/Form"
 import { useOverlays } from "@shared/overlays"
-import { getForm } from "@shared/ui/Form"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import styles from "./Styles.module.scss"

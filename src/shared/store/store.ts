@@ -1,7 +1,6 @@
-import { companyApiSlice } from "@/src/entities/company/store/companyApiSlice"
-import { sessionMiddleware } from "@/src/entities/session"
-import { sessionApiSlice } from "@entities/session/store/sessionApiSlice"
-import { userApiSlice } from "@entities/user/store/userApiSlice"
+import { companyApiSlice } from "@entities/company"
+import { sessionApiSlice, sessionMiddleware } from "@entities/session"
+import { userApiSlice } from "@entities/user"
 import { healthApiSlice } from "@features/api-health-check"
 import { testSliceReducer } from "@features/test-store"
 import {

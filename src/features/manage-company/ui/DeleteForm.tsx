@@ -3,7 +3,7 @@
 import { CompanyDetails, useDeleteCompanyMutation } from "@entities/company"
 import { Button, CircularProgress } from "@mui/material"
 import { useRouter } from "@navigation"
-import { Routes } from "@shared/constants/routes"
+import { Routes } from "@shared/constants"
 import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import styles from "./Styles.module.scss"

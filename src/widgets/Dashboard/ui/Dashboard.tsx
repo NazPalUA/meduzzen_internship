@@ -1,8 +1,8 @@
 "use client"
 
-import { useSession } from "@/src/entities/session"
-import { ModalWindow, useOverlays } from "@/src/shared/overlays"
+import { useSession } from "@entities/session"
 import { Button } from "@mui/material"
+import { ModalWindow, useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import { CreateCompanyForm } from "./CreateCompanyForm"
 

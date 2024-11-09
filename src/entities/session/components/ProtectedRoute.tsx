@@ -1,6 +1,6 @@
 "use client"
 
-import { LoadingSpinner } from "@shared/ui/LoadingSpinner"
+import { LoadingSpinner } from "@shared/components/ui"
 import { FC, ReactNode } from "react"
 import { SignedIn } from "./SignedIn"
 

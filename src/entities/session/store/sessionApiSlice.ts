@@ -1,9 +1,7 @@
-import { baseQuery } from "@/src/shared/store/baseQuery"
 import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS } from "@shared/api/endpoints"
-import { HttpMethod } from "@shared/api/http"
-import { removeToken, setToken } from "@shared/utils/authToken"
-import { parseData } from "@shared/utils/parseData"
+import { API_ENDPOINTS, HttpMethod } from "@shared/api"
+import { baseQuery } from "@shared/store"
+import { parseData, removeToken, setToken } from "@shared/utils"
 import {
   CurrentUser,
   GetMeResponseSchema,
