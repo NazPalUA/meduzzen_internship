@@ -23,7 +23,13 @@ export function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
   function onSelectChange(event: SelectChangeEvent<string>) {
     const nextLocale = event.target.value as Locale
     startTransition(() => {
-      router.replace({ pathname, query: params }, { locale: nextLocale })
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        // are used in combination with a given `pathname`. Since the two will
+        // always match for the current route, we can skip runtime checks.
+        { pathname, params },
+        { locale: nextLocale },
+      )
     })
   }
 
