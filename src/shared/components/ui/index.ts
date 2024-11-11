@@ -6,5 +6,4 @@ export * from "./LoadingSpinner"
 export * from "./NoData"
 
 export { Avatar } from "./Avatar"
-export { NoCacheNextImage } from "./NoCacheNextImage"
 export { Skeleton } from "./Skeleton"

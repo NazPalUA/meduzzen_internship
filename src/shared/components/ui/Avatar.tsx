@@ -9,6 +9,7 @@ type Props = {
   src?: string | null
   alt: string
   size?: AvatarSize
+  cacheKey?: string | number
 }
 
 const SIZE_DIMENSIONS: Record<AvatarSize, number> = {
@@ -17,8 +18,10 @@ const SIZE_DIMENSIONS: Record<AvatarSize, number> = {
   lg: 100,
 }
 
-export function Avatar({ src, alt, size = "md" }: Props) {
+export function Avatar({ src, alt, size = "md", cacheKey }: Props) {
   const dimension = SIZE_DIMENSIONS[size]
+
+  const imageSrc = cacheKey ? `${src}?cb=${cacheKey}` : src
 
   return (
     <MuiAvatar
@@ -27,7 +30,7 @@ export function Avatar({ src, alt, size = "md" }: Props) {
         height: dimension,
       }}
     >
-      {src ? <Image src={src} fill sizes={`${dimension}px`} alt={alt} /> : alt.charAt(0)}
+      {imageSrc ? <Image src={imageSrc} fill sizes={`${dimension}px`} alt={alt} /> : alt.charAt(0)}
     </MuiAvatar>
   )
 }
