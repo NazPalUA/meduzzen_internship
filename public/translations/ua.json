@@ -87,7 +87,11 @@
     "status": "Статус",
     "city": "Місто",
     "phone": "Телефон",
-    "links": "Посилання"
+    "links": "Посилання",
+
+    "companies": "Компанії",
+    "noCompanies": "Користувач не є членом жодної компанії",
+    "leaveCompany": "Покинути компанію"
   },
 
   "CompanyProfilePage": {

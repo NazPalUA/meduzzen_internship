@@ -87,7 +87,11 @@
     "status": "Status",
     "city": "City",
     "phone": "Phone",
-    "links": "Links"
+    "links": "Links",
+
+    "companies": "Companies",
+    "noCompanies": "The user is not a member of any company",
+    "leaveCompany": "Leave Company"
   },
 
   "CompanyProfilePage": {

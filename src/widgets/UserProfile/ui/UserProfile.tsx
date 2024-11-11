@@ -2,6 +2,7 @@
 
 import { useGetUserByIdQuery } from "@entities/user"
 import { ErrorMessage } from "@shared/components/ui"
+import { UserCompanies } from "./UserCompanies"
 import { UserDetails } from "./UserDetails"
 import { UserDetailsSkeleton } from "./UserDetailsSkeleton"
 
@@ -12,5 +13,10 @@ export function UserProfile({ userId }: { userId: string }) {
 
   if (isError || !user) return <ErrorMessage />
 
-  return <UserDetails user={user} />
+  return (
+    <>
+      <UserDetails user={user} />
+      <UserCompanies userId={userId} />
+    </>
+  )
 }
