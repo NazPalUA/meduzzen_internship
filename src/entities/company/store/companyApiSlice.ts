@@ -1,5 +1,4 @@
-import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS, baseQuery, HttpMethod } from "@shared/api"
+import { API_ENDPOINTS, baseApi, HttpMethod } from "@shared/api"
 import { parseData } from "@shared/utils"
 import {
   CompaniesListResponse,
@@ -27,10 +26,8 @@ type CompanyListInput = {
   page_size: number
 }
 
-export const companyApiSlice = createApi({
-  baseQuery,
-  reducerPath: "companyApi",
-  tagTypes: ["Company"],
+const companyApiSlice = baseApi.injectEndpoints({
+  overrideExisting: false,
   endpoints: (build) => ({
     getAllCompanies: build.query<CompaniesListResponse["result"], CompanyListInput>({
       query: ({ page, page_size }) => ({

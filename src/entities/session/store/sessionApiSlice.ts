@@ -1,5 +1,4 @@
-import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS, baseQuery, HttpMethod } from "@shared/api"
+import { API_ENDPOINTS, baseApi, HttpMethod } from "@shared/api"
 import { parseData, removeToken, setToken } from "@shared/utils"
 import {
   CurrentUser,
@@ -9,10 +8,8 @@ import {
   LoginResponseSchema,
 } from "../model"
 
-export const sessionApiSlice = createApi({
-  baseQuery,
-  reducerPath: "sessionApi",
-  tagTypes: ["Session"],
+const sessionApiSlice = baseApi.injectEndpoints({
+  overrideExisting: false,
   endpoints: (build) => ({
     getSession: build.query<CurrentUser, void>({
       query: () => ({ url: API_ENDPOINTS.AUTH.GET_ME, method: HttpMethod.GET }),

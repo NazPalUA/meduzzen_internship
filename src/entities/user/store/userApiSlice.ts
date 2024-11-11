@@ -1,5 +1,4 @@
-import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS, baseQuery, HttpMethod } from "@shared/api"
+import { API_ENDPOINTS, baseApi, HttpMethod } from "@shared/api"
 import { parseData } from "@shared/utils"
 import {
   CreateUserCredentials,
@@ -27,10 +26,8 @@ type UserListInput = {
   page_size: number
 }
 
-export const userApiSlice = createApi({
-  baseQuery,
-  reducerPath: "userApi",
-  tagTypes: ["User"],
+const userApiSlice = baseApi.injectEndpoints({
+  overrideExisting: false,
   endpoints: (build) => ({
     getAllUsers: build.query<UsersListResponse["result"], UserListInput>({
       query: ({ page, page_size }) => ({
@@ -75,7 +72,7 @@ export const userApiSlice = createApi({
       transformResponse: (response: unknown) => {
         return parseData(DeleteUserResponseSchema, response)
       },
-      invalidatesTags: ["User"],
+      invalidatesTags: ["User", "Session"],
     }),
 
     updateUserInfo: build.mutation<
@@ -90,7 +87,7 @@ export const userApiSlice = createApi({
       transformResponse: (response: unknown) => {
         return parseData(UpdateUserInfoResponseSchema, response)
       },
-      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }],
+      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }, "Session"],
     }),
 
     updateUserPassword: build.mutation<
@@ -124,7 +121,7 @@ export const userApiSlice = createApi({
       transformResponse: (response: unknown) => {
         return parseData(UpdateUserAvatarResponseSchema, response)
       },
-      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }],
+      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }, "Session"],
     }),
   }),
 })

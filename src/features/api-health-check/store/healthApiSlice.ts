@@ -1,12 +1,9 @@
-import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS, baseQuery } from "@shared/api"
+import { API_ENDPOINTS, baseApi } from "@shared/api"
 import { parseData } from "@shared/utils"
 import { CheckHealthResponse, CheckHealthResponseSchema } from "../model"
 
-export const healthApiSlice = createApi({
-  baseQuery,
-  reducerPath: "healthApi",
-  tagTypes: ["Health"],
+const healthApiSlice = baseApi.injectEndpoints({
+  overrideExisting: false,
   endpoints: (build) => ({
     checkHealth: build.query<CheckHealthResponse, void>({
       query: () => ({
