@@ -1,7 +1,7 @@
-import { Routes } from "@/src/shared/constants/routes"
 import { type SingleUser } from "@entities/user"
 import { Avatar } from "@mui/material"
 import { Link } from "@navigation"
+import { Routes } from "@shared/constants"
 import Image from "next/image"
 import styles from "./UserCard.module.scss"
 

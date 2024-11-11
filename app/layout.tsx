@@ -1,4 +1,4 @@
-import "@shared/styles/globals.css"
+import "@compose/styles/globals.css"
 import { Metadata } from "next"
 import { ReactNode } from "react"
 

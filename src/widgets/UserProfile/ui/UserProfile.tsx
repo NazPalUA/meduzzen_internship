@@ -1,7 +1,7 @@
 "use client"
 
 import { useGetUserByIdQuery } from "@entities/user"
-import { ErrorMessage } from "@shared/ui/ErrorMessage"
+import { ErrorMessage } from "@shared/components/ui"
 import { UserDetails } from "./UserDetails"
 import { UserDetailsSkeleton } from "./UserDetailsSkeleton"
 

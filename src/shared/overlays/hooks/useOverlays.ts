@@ -1,4 +1,6 @@
-import { useAppDispatch, useAppSelector } from "@shared/store"
+"use client"
+
+import { useAppDispatch, useAppSelector } from "@shared/store/hooks"
 import type { ToastVariant } from "../store/overlaysSlice"
 import {
   closeModal,

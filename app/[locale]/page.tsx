@@ -1,6 +1,6 @@
-import { ApiHealthCheck } from "@/src/features/api-health-check"
-import { Container } from "@/src/shared/ui/Container"
+import { ApiHealthCheck } from "@features/api-health-check"
 import { TestStore } from "@features/test-store"
+import { Container } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import LearnMore from "./_lib/LearnMore"
 

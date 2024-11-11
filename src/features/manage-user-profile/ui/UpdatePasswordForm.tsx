@@ -6,12 +6,15 @@ import {
   useUpdateUserPasswordMutation,
   type UpdateUserPasswordCredentials,
 } from "@entities/user"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { getForm } from "@shared/components/Form"
 import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
-import { UpdateForm } from "./UpdateForm"
+import { useForm } from "react-hook-form"
+import styles from "./Styles.module.scss"
 
 export function UpdatePasswordForm({ user }: { user: CurrentUser }) {
-  const [updatePassword, { isLoading, isError }] = useUpdateUserPasswordMutation()
+  const [updatePassword, { isError }] = useUpdateUserPasswordMutation()
 
   const { toastError, toastSuccess, closeModal } = useOverlays()
 
@@ -29,29 +32,35 @@ export function UpdatePasswordForm({ user }: { user: CurrentUser }) {
     }
   }
 
+  const Form = getForm<UpdateUserPasswordCredentials>()
+
+  const form = useForm<UpdateUserPasswordCredentials>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      user_password: "",
+      user_password_repeat: "",
+    },
+  })
+
   return (
-    <>
-      <UpdateForm<UpdateUserPasswordCredentials>
-        schema={schema}
-        onSubmit={onSubmit}
-        isError={isError}
-        error={isError ? t("Error.default") : null}
-        title={t("UpdateUser.password.title")}
-        submitText={t("UpdateUser.password.submitText")}
-        isLoading={isLoading}
-        fields={[
-          {
-            name: "user_password",
-            label: t("UpdateUser.password.labels.password"),
-            type: "password",
-          },
-          {
-            name: "user_password_repeat",
-            label: t("UpdateUser.password.labels.confirmPassword"),
-            type: "password",
-          },
-        ]}
+    <Form
+      form={form}
+      onSubmit={onSubmit}
+      title={t("UpdateUser.password.title")}
+      className={styles["update-form"]}
+    >
+      <Form.TextField
+        name="user_password"
+        label={t("UpdateUser.password.labels.password")}
+        type="password"
       />
-    </>
+      <Form.TextField
+        name="user_password_repeat"
+        label={t("UpdateUser.password.labels.confirmPassword")}
+        type="password"
+      />
+      <Form.SubmitButton text={t("UpdateUser.password.submitText")} />
+      <Form.ErrorMessage text={isError ? t("Error.default") : null} />
+    </Form>
   )
 }

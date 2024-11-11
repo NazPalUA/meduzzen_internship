@@ -1,29 +1,21 @@
-import { sessionApiSlice, sessionMiddleware } from "@entities/session"
-import { userApiSlice } from "@entities/user"
-import { healthApiSlice } from "@features/api-health-check"
+import { sessionMiddleware } from "@entities/session"
 import { testSliceReducer } from "@features/test-store"
-import type { Action, ThunkAction } from "@reduxjs/toolkit"
-import { combineSlices, configureStore } from "@reduxjs/toolkit"
+import { Action, combineSlices, configureStore, ThunkAction } from "@reduxjs/toolkit"
 import { overlaysReducer } from "@shared/overlays"
+import { baseApi } from "../api"
 
 const rootReducer = combineSlices({
   test: testSliceReducer,
   overlays: overlaysReducer,
-  [sessionApiSlice.reducerPath]: sessionApiSlice.reducer,
-  [userApiSlice.reducerPath]: userApiSlice.reducer,
-  [healthApiSlice.reducerPath]: healthApiSlice.reducer,
+  [baseApi.reducerPath]: baseApi.reducer,
 })
 
 export const makeStore = () => {
   return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware()
-        .concat(sessionMiddleware)
-        .concat(sessionApiSlice.middleware)
-        .concat(userApiSlice.middleware)
-        .concat(healthApiSlice.middleware)
-    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(sessionMiddleware).concat(baseApi.middleware),
+    devTools: process.env.NODE_ENV !== "production",
   })
 }
 

@@ -1,0 +1,318 @@
+{
+  "Validation": {
+    "password": {
+      "required": "Пароль обов'язковий",
+      "minLength": "Пароль повинен містити щонайменше 12 символів",
+      "lowercase": "Пароль повинен містити щонайменше одну малу літеру",
+      "uppercase": "Пароль повинен містити щонайменше одну велику літеру",
+      "number": "Пароль повинен містити щонайменше одну цифру",
+      "specialChar": "Пароль повинен містити щонайменше один спеціальний символ",
+      "doNotMatch": "Паролі не співпадають"
+    },
+    "email": {
+      "required": "Email обов'язковий",
+      "invalid": "Невірна адреса електронної пошти"
+    },
+    "url": {
+      "invalid": "Недійсна URL-адреса"
+    },
+    "firstName": {
+      "required": "Ім'я обов'язкове"
+    },
+    "lastName": {
+      "required": "Прізвище обов'язкове"
+    },
+    "company": {
+      "nameRequired": "Назва компанії обов'язкова"
+    }
+  },
+
+  "Error": {
+    "default": "Сталася помилка. Будь ласка, спробуйте пізніше.",
+    "emailAlreadyExists": "Email вже існує",
+    "invalidCredentials": "Невірна адреса електронної пошти або пароль"
+  },
+
+  "Common": {
+    "defaultErrorMessage": "Сталася помилка. Будь ласка, спробуйте пізніше.",
+    "retryButton": "Спробувати ще раз",
+    "defaultNoData": "Нічого не знайдено",
+    "previousPage": "Назад",
+    "nextPage": "Вперед"
+  },
+
+  "LocaleLayout": {
+    "title": "Стажування Meduzzen",
+    "description": "Проект стажування Meduzzen"
+  },
+
+  "NotFoundPage": {
+    "description": "Сторінка, яку ви шукаєте, не існує."
+  },
+
+  "HomePage": {
+    "title": "Стажування Meduzzen",
+    "welcomeMessage": "Ласкаво просимо до нашого проекту!",
+    "learnMoreButton": "Дізнатися більше",
+    "learnMoreTitle": "Дізнатися більше",
+    "learnMoreDescription": "Ваш контент буде тут",
+    "closeButton": "Закрити"
+  },
+
+  "DashboardPage": {
+    "title": "Панель",
+    "description": "Ласкаво просимо до панелі!"
+  },
+
+  "AboutPage": {
+    "title": "Про цей проект",
+    "description": "Цей проект є частиною програми стажування Meduzzen."
+  },
+
+  "UsersPage": {
+    "title": "Наша спільнота",
+    "description": "Познайомтеся з талановитими людьми в нашій мережі."
+  },
+
+  "CompaniesPage": {
+    "title": "Компанії-партнери",
+    "description": "Відкрийте для себе інноваційні компанії, з якими ми співпрацюємо."
+  },
+
+  "ProfilePage": {
+    "title": "Профіль",
+    "email": "Електронна пошта",
+    "firstName": "Ім'я",
+    "lastName": "Прізвище",
+    "status": "Статус",
+    "city": "Місто",
+    "phone": "Телефон",
+    "links": "Посилання"
+  },
+
+  "CompanyProfilePage": {
+    "title": "Профіль компанії",
+    "description": "Опис",
+    "aboutUs": "Про нас",
+    "companyLinks": "Посилання компанії",
+    "companyOwner": "Власник компанії"
+  },
+
+  "Navigation": {
+    "home": "Головна",
+    "dashboard": "Панель",
+    "about": "Про нас",
+    "users": "Користувачі",
+    "companies": "Компанії",
+    "signUp": "Реєстрація",
+    "login": "Вхід",
+    "logout": "Вихід",
+    "myProfile": "Мій профіль"
+  },
+
+  "Header": {
+    "title": "Стажування Meduzzen"
+  },
+
+  "Footer": {
+    "copyright": "Проект стажування Meduzzen",
+    "privacyPolicyLinkLabel": "Політика конфіденційності",
+    "termsOfServiceLinkLabel": "Умови використання"
+  },
+
+  "LocaleSwitcher": {
+    "label": "Змінити мову",
+    "locale": "{locale, select, ua {Українська} en {Англійська} other {Unknown}}"
+  },
+
+  "TestStore": {
+    "title": "Компонент",
+    "inputLabel": "Нове значення",
+    "updateButton": "Оновити",
+    "resetButton": "Скинути",
+    "resetAllButton": "Скинути всі"
+  },
+
+  "Login": {
+    "title": "Вхід",
+
+    "labels": {
+      "email": "Електронна пошта",
+      "password": "Пароль"
+    },
+
+    "submitText": "Увійти"
+  },
+
+  "CreateUser": {
+    "title": "Створити новий обліковий запис",
+
+    "labels": {
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "email": "Електронна пошта",
+      "password": "Пароль",
+      "confirmPassword": "Підтвердження паролю"
+    },
+
+    "submitText": "Зареєструватися"
+  },
+
+  "UpdateUser": {
+    "info": {
+      "title": "Оновити вашу інформацію",
+
+      "labels": {
+        "firstName": "Ім'я",
+        "lastName": "Прізвище",
+        "status": "Статус",
+        "city": "Місто",
+        "phone": "Телефон",
+        "links": "Посилання"
+      },
+
+      "submitText": "Оновити інформацію",
+
+      "result": {
+        "success": "Інформацію успішно оновлено",
+        "error": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "password": {
+      "title": "Оновити ваш пароль",
+
+      "labels": {
+        "password": "Пароль",
+        "confirmPassword": "Підтвердження паролю"
+      },
+
+      "submitText": "Оновити пароль",
+
+      "result": {
+        "success": "Пароль успішно оновлено",
+        "error": "Не вдалося оновити пароль. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "avatar": {
+      "title": "Оновити аватар",
+
+      "chooseFile": "Виберіть новий аватар",
+
+      "result": {
+        "success": "Аватар успішно оновлено!",
+        "error": "Не вдалося оновити аватар."
+      },
+
+      "submitText": "Оновити аватар"
+    }
+  },
+
+  "DeleteUser": {
+    "title": "Видалити акаунт",
+
+    "submitText": "Видалити",
+    "confirmDelete": "Ви впевнені, що хочете видалити свій акаунт?",
+    "rejectText": "Закрити",
+
+    "result": {
+      "success": "Акаунт успішно видалено",
+      "error": "Не вдалося видалити акаунт. Будь ласка, спробуйте ще раз."
+    }
+  },
+
+  "CreateCompany": {
+    "title": "Створити нову компанію",
+    "modal": {
+      "title": "Створити нову компанію",
+      "openButton": "Створити компанію"
+    },
+    "labels": {
+      "companyName": "Назва компанії",
+      "isVisible": "Відображати"
+    },
+
+    "result": {
+      "success": "Компанія створена успішно!",
+      "error": "Не вдалося створити компанію. Будь ласка, спробуйте ще раз."
+    },
+
+    "submitText": "Створити компанію"
+  },
+
+  "UpdateCompany": {
+    "info": {
+      "title": "Оновити інформацію про компанію",
+
+      "labels": {
+        "name": "Назва компанії",
+        "title": "Назва компанії",
+        "description": "Опис компанії",
+        "city": "Місто",
+        "phone": "Телефон",
+        "links": "Посилання"
+      },
+
+      "submitText": "Оновити інформацію",
+
+      "result": {
+        "success": "Інформацію успішно оновлено!",
+        "error": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "visible": {
+      "title": "Змінити видимість",
+      "labels": {
+        "visible": "Відображати"
+      },
+      "result": {
+        "success": "Видимість успішно змінено!",
+        "error": "Не вдалося змінити видимість. Будь ласка, спробуйте ще раз."
+      },
+      "submitText": "Змінити видимість"
+    },
+
+    "avatar": {
+      "title": "Оновити аватар",
+
+      "chooseFile": "Виберіть новий аватар",
+
+      "result": {
+        "success": "Аватар успішно оновлено!",
+        "error": "Не вдалося оновити аватар."
+      },
+
+      "submitText": "Оновити аватар"
+    }
+  },
+
+  "DeleteCompany": {
+    "title": "Видалити компанію",
+
+    "submitText": "Видалити",
+    "confirmDelete": "Ви впевнені, що хочете видалити цю компанію?",
+    "rejectText": "Закрити",
+
+    "result": {
+      "success": "Компанію успішно видалено",
+      "error": "Не вдалося видалити компанію. Будь ласка, спробуйте ще раз."
+    }
+  },
+
+  "Settings": {
+    "changePassword": "Змінити пароль",
+    "updateInfo": "Оновити інформацію",
+    "updateAvatar": "Оновити аватар",
+    "updateVisible": "Змінити видимість",
+    "deleteAccount": "Видалити акаунт",
+    "deleteCompany": "Видалити компанію"
+  },
+
+  "ApiHealthCheck": {
+    "checkButton": "Перевірити роботу API",
+    "successMessage": "API працює!",
+    "errorMessage": "Сталася помилка."
+  }
+}

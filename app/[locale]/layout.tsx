@@ -1,11 +1,10 @@
+import { BaseLayout } from "@compose/BaseLayout"
 import { routing } from "@shared/i18n/routing"
-import "@shared/styles/globals.css"
 import { Footer } from "@widgets/Footer"
 import { Header } from "@widgets/Header"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { notFound } from "next/navigation"
 import { ReactNode } from "react"
-import { BaseLayout } from "../_lib/BaseLayout"
 import styles from "./layout.module.scss"
 
 type Props = {

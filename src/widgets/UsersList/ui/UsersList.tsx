@@ -1,14 +1,11 @@
 "use client"
 
-import { useRouter } from "@/src/shared/i18n/navigation"
 import { useGetAllUsersQuery } from "@entities/user"
-import { ErrorMessage } from "@shared/ui/ErrorMessage"
-import { GridContainer } from "@shared/ui/GridContainer"
-import { NoData } from "@shared/ui/NoData"
-import { Pagination } from "@shared/ui/Pagination"
+import { useRouter } from "@navigation"
+import { Pagination } from "@shared/components/Pagination"
+import { ErrorMessage, GridContainer, ListCardSkeleton, NoData } from "@shared/components/ui"
+import { getCurrentPage } from "@shared/utils"
 import { useSearchParams } from "next/navigation"
-import { getCurrentPage } from "../utils/getCurrentPage"
-import { CardSkeleton } from "./CardSkeleton"
 import { UserCard } from "./UserCard"
 
 const PAGE_SIZE = 15
@@ -34,7 +31,7 @@ export function UsersList() {
     return (
       <GridContainer>
         {Array.from({ length: PAGE_SIZE > 24 ? 24 : PAGE_SIZE }).map((_, index) => (
-          <CardSkeleton key={index} />
+          <ListCardSkeleton key={index} />
         ))}
       </GridContainer>
     )

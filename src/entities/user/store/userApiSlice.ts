@@ -1,7 +1,5 @@
-import { baseQuery } from "@/src/shared/store/baseQuery"
-import { createApi } from "@reduxjs/toolkit/query/react"
-import { API_ENDPOINTS } from "@shared/api/endpoints"
-import { parseData } from "@shared/utils/parseData"
+import { API_ENDPOINTS, baseApi, HttpMethod } from "@shared/api"
+import { parseData } from "@shared/utils"
 import {
   CreateUserCredentials,
   CreateUserResponse,
@@ -28,15 +26,13 @@ type UserListInput = {
   page_size: number
 }
 
-export const userApiSlice = createApi({
-  baseQuery,
-  reducerPath: "userApi",
-  tagTypes: ["User"],
+const userApiSlice = baseApi.injectEndpoints({
+  overrideExisting: false,
   endpoints: (build) => ({
     getAllUsers: build.query<UsersListResponse["result"], UserListInput>({
       query: ({ page, page_size }) => ({
         url: API_ENDPOINTS.USER.GET_ALL_USERS,
-        method: "GET",
+        method: HttpMethod.GET,
         params: { page, page_size },
       }),
       transformResponse: (response: unknown) => {
@@ -47,8 +43,8 @@ export const userApiSlice = createApi({
 
     getUserById: build.query<UserDetails, string>({
       query: (userId) => ({
-        url: API_ENDPOINTS.USER.GET_USER_BY_ID.replace("{user_id}", userId),
-        method: "GET",
+        url: API_ENDPOINTS.USER.GET_USER_BY_ID(userId),
+        method: HttpMethod.GET,
       }),
       transformResponse: (response: unknown) => {
         return parseData(UserDetailsResponseSchema, response).result
@@ -59,7 +55,7 @@ export const userApiSlice = createApi({
     createUser: build.mutation<CreateUserResponse, CreateUserCredentials>({
       query: (userDetails) => ({
         url: API_ENDPOINTS.USER.CREATE_USER,
-        method: "POST",
+        method: HttpMethod.POST,
         body: userDetails,
       }),
       transformResponse: (response: unknown) => {
@@ -70,13 +66,13 @@ export const userApiSlice = createApi({
 
     deleteUser: build.mutation<DeleteUserResponse, string>({
       query: (userId) => ({
-        url: API_ENDPOINTS.USER.DELETE_USER.replace("{user_id}", userId),
-        method: "DELETE",
+        url: API_ENDPOINTS.USER.DELETE_USER(userId),
+        method: HttpMethod.DELETE,
       }),
       transformResponse: (response: unknown) => {
         return parseData(DeleteUserResponseSchema, response)
       },
-      invalidatesTags: ["User"],
+      invalidatesTags: ["User", "Session"],
     }),
 
     updateUserInfo: build.mutation<
@@ -84,14 +80,14 @@ export const userApiSlice = createApi({
       { userId: string; userInfo: UpdateUserInfoCredentials }
     >({
       query: ({ userId, userInfo }) => ({
-        url: API_ENDPOINTS.USER.UPDATE_USER_INFO.replace("{user_id}", userId),
-        method: "PUT",
+        url: API_ENDPOINTS.USER.UPDATE_USER_INFO(userId),
+        method: HttpMethod.PUT,
         body: userInfo,
       }),
       transformResponse: (response: unknown) => {
         return parseData(UpdateUserInfoResponseSchema, response)
       },
-      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }],
+      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }, "Session"],
     }),
 
     updateUserPassword: build.mutation<
@@ -99,14 +95,13 @@ export const userApiSlice = createApi({
       { userId: string; passwordInfo: UpdateUserPasswordCredentials }
     >({
       query: ({ userId, passwordInfo }) => ({
-        url: API_ENDPOINTS.USER.UPDATE_USER_PASSWORD.replace("{user_id}", userId),
-        method: "PUT",
+        url: API_ENDPOINTS.USER.UPDATE_USER_PASSWORD(userId),
+        method: HttpMethod.PUT,
         body: passwordInfo,
       }),
       transformResponse: (response: unknown) => {
         return parseData(UpdateUserPasswordResponseSchema, response)
       },
-      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }],
     }),
 
     updateUserAvatar: build.mutation<
@@ -118,15 +113,15 @@ export const userApiSlice = createApi({
         formData.append("file", avatar.file)
 
         return {
-          url: API_ENDPOINTS.USER.UPDATE_USER_AVATAR.replace("{user_id}", userId),
-          method: "PUT",
+          url: API_ENDPOINTS.USER.UPDATE_USER_AVATAR(userId),
+          method: HttpMethod.PUT,
           body: formData,
         }
       },
       transformResponse: (response: unknown) => {
         return parseData(UpdateUserAvatarResponseSchema, response)
       },
-      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }],
+      invalidatesTags: (result, error, { userId }) => [{ type: "User", id: userId }, "Session"],
     }),
   }),
 })

@@ -7,7 +7,7 @@ import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { ChangeEvent, useState } from "react"
-import styles from "./UpdateAvatarForm.module.scss"
+import styles from "./Styles.module.scss"
 
 export function UpdateAvatarForm({ user }: { user: CurrentUser }) {
   const [updateUserAvatar, { isLoading }] = useUpdateUserAvatarMutation()
@@ -49,10 +49,10 @@ export function UpdateAvatarForm({ user }: { user: CurrentUser }) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles["update-avatar"]}>
       <input
         accept="image/*"
-        className={styles.hiddenInput}
+        className={styles["update-avatar__hidden-input"]}
         id="avatar-file-input"
         type="file"
         onChange={handleFileSelect}
@@ -68,7 +68,7 @@ export function UpdateAvatarForm({ user }: { user: CurrentUser }) {
           alt="Avatar preview"
           width={250}
           height={250}
-          className={styles.previewImage}
+          className={styles["update-avatar__preview-image"]}
         />
       )}
 

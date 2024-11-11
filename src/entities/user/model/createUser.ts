@@ -1,4 +1,4 @@
-import { ServerResponseSchema } from "@shared/models/ServerResponseSchema"
+import { ServerResponseSchema } from "@shared/api"
 import { z } from "zod"
 import { passwordSchema } from "./shared/password"
 

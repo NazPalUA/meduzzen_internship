@@ -1,8 +1,8 @@
 "use client"
 
-import { useLogoutMutation } from "@/src/entities/session"
-import { Routes } from "@/src/shared/constants/routes"
+import { useLogoutMutation } from "@entities/session"
 import { useRouter } from "@navigation"
+import { Routes } from "@shared/constants"
 import { useEffect } from "react"
 
 export default function LogoutPage() {

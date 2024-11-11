@@ -1,10 +1,10 @@
 "use client"
 
-import { useSession } from "@/src/entities/session/hooks/useSession"
-import { Routes } from "@/src/shared/constants/routes"
+import { useSession } from "@entities/session"
 import LoginIcon from "@mui/icons-material/Login"
 import PersonIcon from "@mui/icons-material/Person"
 import { Link } from "@navigation"
+import { Routes } from "@shared/constants"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
 import styles from "./Auth.module.scss"
