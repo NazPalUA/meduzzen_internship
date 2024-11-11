@@ -15,6 +15,7 @@ import { MouseEvent, ReactNode, useCallback, useState } from "react"
 type BaseMenuItem = {
   text: string
   icon: React.ReactNode
+  disabled?: boolean
 }
 
 type ModalMenuItem = BaseMenuItem & {
@@ -92,6 +93,7 @@ export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMen
           <MuiMenuItem
             key={item.modalWindow || `${item.text}-${index}`}
             onClick={() => handleItemClick(item)}
+            disabled={item.disabled}
           >
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.text} />
