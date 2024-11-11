@@ -11,13 +11,6 @@
 }
 
 .card {
-  background-color: var(--mui-palette-background-paper);
-  padding: 2rem;
-  max-width: 800px;
-  margin: 2rem auto;
-  box-shadow: var(--mui-shadows-5) !important;
-  border-radius: 1rem !important;
-
   &__sub-title {
     display: block;
     font-size: 1.2rem;
