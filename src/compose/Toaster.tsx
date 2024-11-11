@@ -1,10 +1,10 @@
 "use client"
 
 import { Alert, Snackbar } from "@mui/material"
-import { useOverlays } from "../hooks/useOverlays"
+import { useToaster } from "@shared/hooks"
 
 export function Toaster() {
-  const { closeToast, toast } = useOverlays()
+  const { closeToast, toast } = useToaster()
 
   return (
     <Snackbar

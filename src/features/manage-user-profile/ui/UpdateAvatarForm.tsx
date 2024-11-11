@@ -3,8 +3,7 @@
 import { CurrentUser } from "@entities/session"
 import { useUpdateUserAvatarMutation } from "@entities/user"
 import { Button, CircularProgress } from "@mui/material"
-import { useDialog } from "@shared/hooks"
-import { useOverlays } from "@shared/overlays"
+import { useDialog, useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { ChangeEvent, useState } from "react"
@@ -14,7 +13,7 @@ export function UpdateAvatarForm({ user }: { user: CurrentUser }) {
   const [updateUserAvatar, { isLoading }] = useUpdateUserAvatarMutation()
 
   const t = useTranslations("UpdateUser.avatar")
-  const { toastError, toastSuccess } = useOverlays()
+  const { toastError, toastSuccess } = useToaster()
   const { closeDialog } = useDialog()
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null)

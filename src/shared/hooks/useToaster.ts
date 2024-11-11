@@ -1,27 +1,11 @@
 "use client"
 
 import { useAppDispatch, useAppSelector } from "@shared/store/hooks"
-import type { ToastVariant } from "../store/overlaysSlice"
-import {
-  closeModal,
-  closeToast,
-  ModalType,
-  openModal,
-  selectActiveModal,
-  selectToast,
-  showToast,
-} from "../store/overlaysSlice"
+import type { ToastVariant } from "../lib/toasterSlice"
+import { closeToast, selectToast, showToast } from "../lib/toasterSlice"
 
-export const useOverlays = () => {
+export const useToaster = () => {
   const dispatch = useAppDispatch()
-
-  const handleOpenModal = (modal: ModalType) => {
-    dispatch(openModal(modal))
-  }
-
-  const handleCloseModal = () => {
-    dispatch(closeModal())
-  }
 
   const handleShowToast = (message: string, variant: ToastVariant) => {
     dispatch(showToast({ message, variant }))
@@ -39,17 +23,13 @@ export const useOverlays = () => {
     dispatch(showToast({ message: message ?? "Error occurred", variant: "error" }))
   }
 
-  const activeModal = useAppSelector(selectActiveModal)
   const toast = useAppSelector(selectToast)
 
   return {
-    openModal: handleOpenModal,
-    closeModal: handleCloseModal,
     showToast: handleShowToast,
     closeToast: handleCloseToast,
     toastSuccess,
     toastError,
-    activeModal,
     toast,
   }
 }

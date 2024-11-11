@@ -9,8 +9,7 @@ import { Link } from "@navigation"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { Avatar, ContentDialog, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { Action } from "@shared/constants"
-import { useDialog } from "@shared/hooks"
-import { useOverlays } from "@shared/overlays"
+import { useDialog, useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import styles from "./UserCompanies.module.scss"
@@ -56,7 +55,7 @@ function CompaniesList({ userId }: { userId: string }) {
 function CompanyCard({ company }: { company: UserCompany }) {
   const [leaveCompany] = useLeaveCompanyMutation()
 
-  const { toastError, toastSuccess } = useOverlays()
+  const { toastError, toastSuccess } = useToaster()
   const { closeDialog } = useDialog()
   const t = useTranslations("ProfilePage")
 

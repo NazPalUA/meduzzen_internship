@@ -5,8 +5,7 @@ import { useDeleteUserMutation } from "@entities/user"
 import { Button, CircularProgress } from "@mui/material"
 import { useRouter } from "@navigation"
 import { Routes } from "@shared/constants"
-import { useDialog } from "@shared/hooks"
-import { useOverlays } from "@shared/overlays"
+import { useDialog, useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import styles from "./Styles.module.scss"
 
@@ -16,7 +15,7 @@ export function DeleteUserForm({ user }: { user: CurrentUser }) {
   const [deleteUser, { isLoading }] = useDeleteUserMutation()
   const router = useRouter()
 
-  const { toastError, toastSuccess } = useOverlays()
+  const { toastError, toastSuccess } = useToaster()
   const { closeDialog } = useDialog()
 
   const handleDelete = async () => {
