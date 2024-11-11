@@ -9,6 +9,7 @@ import {
   Visibility as VisibilityIcon,
 } from "@mui/icons-material"
 import { SettingsMenu, type MenuItem } from "@shared/components/SettingsMenu"
+import { ContentDialog } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import { DeleteForm } from "./DeleteForm"
@@ -32,30 +33,38 @@ export function Settings() {
     {
       text: t("updateInfo"),
       icon: <EditIcon fontSize="small" />,
-      modalWindow: "updateCompanyInfo",
-      modalTitle: t("updateInfo"),
-      content: <UpdateInfoForm company={companyData} />,
+      content: (
+        <ContentDialog title={t("updateInfo")}>
+          <UpdateInfoForm company={companyData} />
+        </ContentDialog>
+      ),
     },
     {
       text: t("updateAvatar"),
       icon: <AccountCircleIcon fontSize="small" />,
-      modalWindow: "updateCompanyAvatar",
-      modalTitle: t("updateAvatar"),
-      content: <UpdateAvatarForm company={companyData} />,
+      content: (
+        <ContentDialog title={t("updateAvatar")}>
+          <UpdateAvatarForm company={companyData} />
+        </ContentDialog>
+      ),
     },
     {
       text: t("updateVisible"),
       icon: <VisibilityIcon fontSize="small" />,
-      modalWindow: "updateCompanyVisible",
-      modalTitle: t("updateVisible"),
-      content: <UpdateVisibleForm company={companyData} />,
+      content: (
+        <ContentDialog title={t("updateVisible")}>
+          <UpdateVisibleForm company={companyData} />
+        </ContentDialog>
+      ),
     },
     {
       text: t("deleteCompany"),
       icon: <DeleteIcon fontSize="small" />,
-      modalWindow: "deleteCompany",
-      modalTitle: t("deleteCompany"),
-      content: <DeleteForm company={companyData} />,
+      content: (
+        <ContentDialog title={t("deleteCompany")}>
+          <DeleteForm company={companyData} />
+        </ContentDialog>
+      ),
     },
   ]
 

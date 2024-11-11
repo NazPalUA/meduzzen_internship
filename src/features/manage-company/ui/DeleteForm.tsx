@@ -4,6 +4,7 @@ import { CompanyDetails, useDeleteCompanyMutation } from "@entities/company"
 import { Button, CircularProgress } from "@mui/material"
 import { useRouter } from "@navigation"
 import { Routes } from "@shared/constants"
+import { useDialog } from "@shared/hooks"
 import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import styles from "./Styles.module.scss"
@@ -14,13 +15,14 @@ export function DeleteForm({ company }: { company: CompanyDetails }) {
   const [deleteCompany, { isLoading }] = useDeleteCompanyMutation()
   const router = useRouter()
 
-  const { toastError, toastSuccess, closeModal } = useOverlays()
+  const { toastError, toastSuccess } = useOverlays()
+  const { closeDialog } = useDialog()
 
   const handleDelete = async () => {
     try {
       await deleteCompany(company.company_id.toString()).unwrap()
       toastSuccess(t("result.success"))
-      closeModal()
+      closeDialog()
       router.push(Routes.DASHBOARD)
     } catch {
       toastError(t("result.error"))
@@ -34,7 +36,7 @@ export function DeleteForm({ company }: { company: CompanyDetails }) {
         <Button variant="contained" color="error" onClick={handleDelete} disabled={isLoading}>
           {isLoading ? <CircularProgress size={24} /> : t("submitText")}
         </Button>
-        <Button variant="outlined" onClick={closeModal} disabled={isLoading}>
+        <Button variant="outlined" onClick={closeDialog} disabled={isLoading}>
           {t("rejectText")}
         </Button>
       </div>

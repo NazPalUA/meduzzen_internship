@@ -91,7 +91,9 @@
 
     "companies": "Companies",
     "noCompanies": "The user is not a member of any company",
-    "leaveCompany": "Leave Company"
+    "leaveCompany": "Leave Company",
+    "confirmLeaveCompany": "Are you sure you want to leave this company?",
+    "cancelText": "Close"
   },
 
   "CompanyProfilePage": {

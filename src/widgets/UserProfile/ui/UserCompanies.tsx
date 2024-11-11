@@ -4,11 +4,12 @@ import { useSession } from "@entities/session"
 import { useLeaveCompanyMutation } from "@features/action"
 import { useGetUserCompaniesListQuery, UserCompany } from "@features/user-data"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
-import { Card, CardContent, CardHeader } from "@mui/material"
+import { Button, Card, CardContent, CardHeader } from "@mui/material"
 import { Link } from "@navigation"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
-import { Avatar, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
+import { Avatar, ContentDialog, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { Action } from "@shared/constants"
+import { useDialog } from "@shared/hooks"
 import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
@@ -56,6 +57,7 @@ function CompanyCard({ company }: { company: UserCompany }) {
   const [leaveCompany] = useLeaveCompanyMutation()
 
   const { toastError, toastSuccess } = useOverlays()
+  const { closeDialog } = useDialog()
   const t = useTranslations("ProfilePage")
 
   async function handleLeaveCompany() {
@@ -70,10 +72,26 @@ function CompanyCard({ company }: { company: UserCompany }) {
 
   const menuItems: MenuItem[] = [
     {
-      onClick: () => handleLeaveCompany,
       icon: <ExitToAppIcon />,
       text: t("leaveCompany"),
       disabled: company.action === Action.OWNER,
+      content: (
+        <ContentDialog
+          title={t("leaveCompany")}
+          actions={
+            <>
+              <Button variant="contained" color="error" onClick={handleLeaveCompany}>
+                {t("leaveCompany")}
+              </Button>
+              <Button variant="outlined" onClick={closeDialog}>
+                {t("cancelText")}
+              </Button>
+            </>
+          }
+        >
+          <p>{t("confirmLeaveCompany")}</p>
+        </ContentDialog>
+      ),
     },
   ]
 

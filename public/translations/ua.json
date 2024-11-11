@@ -91,7 +91,9 @@
 
     "companies": "Компанії",
     "noCompanies": "Користувач не є членом жодної компанії",
-    "leaveCompany": "Покинути компанію"
+    "leaveCompany": "Покинути компанію",
+    "confirmLeaveCompany": "Ви впевнені, що хочете покинути цю компанію?",
+    "cancelText": "Закрити"
   },
 
   "CompanyProfilePage": {

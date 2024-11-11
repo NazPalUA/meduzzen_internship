@@ -7,6 +7,7 @@ import {
 } from "@entities/company"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { getForm } from "@shared/components/Form"
+import { useDialog } from "@shared/hooks"
 import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
@@ -16,7 +17,8 @@ export function CreateCompanyForm() {
 
   const t = useTranslations()
 
-  const { toastError, toastSuccess, closeModal } = useOverlays()
+  const { toastError, toastSuccess } = useOverlays()
+  const { closeDialog } = useDialog()
 
   const schema = createCompanyCredentialsSchema((key) => t(`Validation.${key}`))
 
@@ -24,7 +26,7 @@ export function CreateCompanyForm() {
     try {
       await createCompany(data).unwrap()
       toastSuccess(t("CreateCompany.result.success"))
-      closeModal()
+      closeDialog()
     } catch {
       toastError(t("CreateCompany.result.error"))
     }

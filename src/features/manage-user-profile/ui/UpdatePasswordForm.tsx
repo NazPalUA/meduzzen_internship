@@ -8,6 +8,7 @@ import {
 } from "@entities/user"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { getForm } from "@shared/components/Form"
+import { useDialog } from "@shared/hooks"
 import { useOverlays } from "@shared/overlays"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
@@ -16,7 +17,8 @@ import styles from "./Styles.module.scss"
 export function UpdatePasswordForm({ user }: { user: CurrentUser }) {
   const [updatePassword, { isError }] = useUpdateUserPasswordMutation()
 
-  const { toastError, toastSuccess, closeModal } = useOverlays()
+  const { toastError, toastSuccess } = useOverlays()
+  const { closeDialog } = useDialog()
 
   const t = useTranslations()
 
@@ -26,7 +28,7 @@ export function UpdatePasswordForm({ user }: { user: CurrentUser }) {
     try {
       await updatePassword({ userId: user.user_id.toString(), passwordInfo: data }).unwrap()
       toastSuccess(t("UpdateUser.password.result.success"))
-      closeModal()
+      closeDialog()
     } catch {
       toastError(t("UpdateUser.password.result.error"))
     }
