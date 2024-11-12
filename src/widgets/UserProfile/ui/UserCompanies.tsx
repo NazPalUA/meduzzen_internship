@@ -1,15 +1,15 @@
 "use client"
 
+import { ConfirmActionModal } from "@/src/shared/components/ConfirmActionModal"
 import { useSession } from "@entities/session"
 import { useLeaveCompanyMutation } from "@features/action"
 import { useGetUserCompaniesListQuery, UserCompany } from "@features/user-data"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
-import { Button, Card, CardContent, CardHeader } from "@mui/material"
+import { Card, CardContent, CardHeader } from "@mui/material"
 import { Link } from "@navigation"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
-import { Avatar, ContentDialog, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
+import { Avatar, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { Action } from "@shared/constants"
-import { useDialog, useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
 import styles from "./UserCompanies.module.scss"
@@ -55,19 +55,7 @@ function CompaniesList({ userId }: { userId: string }) {
 function CompanyCard({ company }: { company: UserCompany }) {
   const [leaveCompany] = useLeaveCompanyMutation()
 
-  const { toastError, toastSuccess } = useToaster()
-  const { closeDialog } = useDialog()
   const t = useTranslations("ProfilePage")
-
-  async function handleLeaveCompany() {
-    const response = await leaveCompany(company.action_id.toString())
-    console.log(response)
-    if (response.error) {
-      toastError()
-    } else {
-      toastSuccess()
-    }
-  }
 
   const menuItems: MenuItem[] = [
     {
@@ -75,21 +63,23 @@ function CompanyCard({ company }: { company: UserCompany }) {
       text: t("leaveCompany"),
       disabled: company.action === Action.OWNER,
       content: (
-        <ContentDialog
+        <ConfirmActionModal
+          confirmAction={{
+            onAction: () => leaveCompany(company.action_id.toString()).unwrap(),
+            buttonProps: {
+              children: t("leaveCompany"),
+              color: "error",
+            },
+          }}
+          cancelAction={{
+            buttonProps: {
+              children: t("cancelText"),
+              color: "primary",
+            },
+          }}
+          message={t("confirmLeaveCompany")}
           title={t("leaveCompany")}
-          actions={
-            <>
-              <Button variant="contained" color="error" onClick={handleLeaveCompany}>
-                {t("leaveCompany")}
-              </Button>
-              <Button variant="outlined" onClick={closeDialog}>
-                {t("cancelText")}
-              </Button>
-            </>
-          }
-        >
-          <p>{t("confirmLeaveCompany")}</p>
-        </ContentDialog>
+        />
       ),
     },
   ]

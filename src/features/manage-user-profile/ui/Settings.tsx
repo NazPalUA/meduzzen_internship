@@ -11,8 +11,7 @@ import { SettingsMenu, type MenuItem } from "@shared/components/SettingsMenu"
 import { ContentDialog } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
-import { DeleteUserForm } from "./DeleteUserForm"
-import styles from "./Styles.module.scss"
+import { DeleteModal } from "./DeleteModal"
 import { UpdateAvatarForm } from "./UpdateAvatarForm"
 import { UpdateInfoForm } from "./UpdateInfoForm"
 import { UpdatePasswordForm } from "./UpdatePasswordForm"
@@ -33,7 +32,7 @@ export function Settings() {
       text: t("updateInfo"),
       icon: <EditIcon fontSize="small" />,
       content: (
-        <ContentDialog title={t("updateInfo")}>
+        <ContentDialog>
           <UpdateInfoForm user={currentUser} />
         </ContentDialog>
       ),
@@ -51,7 +50,7 @@ export function Settings() {
       text: t("changePassword"),
       icon: <LockIcon fontSize="small" />,
       content: (
-        <ContentDialog title={t("changePassword")}>
+        <ContentDialog>
           <UpdatePasswordForm user={currentUser} />
         </ContentDialog>
       ),
@@ -59,17 +58,9 @@ export function Settings() {
     {
       text: t("deleteAccount"),
       icon: <DeleteIcon fontSize="small" />,
-      content: (
-        <ContentDialog title={t("deleteAccount")}>
-          <DeleteUserForm user={currentUser} />
-        </ContentDialog>
-      ),
+      content: <DeleteModal user={currentUser} />,
     },
   ]
 
-  return (
-    <div className={styles.container}>
-      <SettingsMenu menuItems={menuItems} />
-    </div>
-  )
+  return <SettingsMenu menuItems={menuItems} />
 }

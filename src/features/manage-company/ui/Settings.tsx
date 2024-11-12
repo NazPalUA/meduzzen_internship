@@ -12,7 +12,7 @@ import { SettingsMenu, type MenuItem } from "@shared/components/SettingsMenu"
 import { ContentDialog } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
-import { DeleteForm } from "./DeleteForm"
+import { DeleteModal } from "./DeleteModal"
 import { UpdateAvatarForm } from "./UpdateAvatarForm"
 import { UpdateInfoForm } from "./UpdateInfoForm"
 import { UpdateVisibleForm } from "./UpdateVisibleForm"
@@ -34,7 +34,7 @@ export function Settings() {
       text: t("updateInfo"),
       icon: <EditIcon fontSize="small" />,
       content: (
-        <ContentDialog title={t("updateInfo")}>
+        <ContentDialog>
           <UpdateInfoForm company={companyData} />
         </ContentDialog>
       ),
@@ -52,7 +52,7 @@ export function Settings() {
       text: t("updateVisible"),
       icon: <VisibilityIcon fontSize="small" />,
       content: (
-        <ContentDialog title={t("updateVisible")}>
+        <ContentDialog>
           <UpdateVisibleForm company={companyData} />
         </ContentDialog>
       ),
@@ -60,17 +60,9 @@ export function Settings() {
     {
       text: t("deleteCompany"),
       icon: <DeleteIcon fontSize="small" />,
-      content: (
-        <ContentDialog title={t("deleteCompany")}>
-          <DeleteForm company={companyData} />
-        </ContentDialog>
-      ),
+      content: <DeleteModal company={companyData} />,
     },
   ]
 
-  return (
-    <div>
-      <SettingsMenu menuItems={menuItems} />
-    </div>
-  )
+  return <SettingsMenu menuItems={menuItems} />
 }
