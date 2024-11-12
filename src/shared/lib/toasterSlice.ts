@@ -20,14 +20,14 @@ const toasterSlice = createSlice({
   initialState,
   reducers: {
     showToast(state, action: PayloadAction<{ message: string; variant: ToastVariant }>) {
-      state = {
-        isOpen: true,
-        message: action.payload.message,
-        variant: action.payload.variant,
-      }
+      state.isOpen = true
+      state.message = action.payload.message
+      state.variant = action.payload.variant
     },
-    closeToast() {
-      return initialState
+    closeToast(state) {
+      state.isOpen = false
+      state.message = ""
+      state.variant = "info"
     },
   },
 })
