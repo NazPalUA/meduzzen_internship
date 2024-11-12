@@ -320,5 +320,16 @@
     "checkButton": "Перевірити роботу API",
     "successMessage": "API працює!",
     "errorMessage": "Сталася помилка."
+  },
+
+  "ConfirmActionModal": {
+    "title": "Підтвердіть дію",
+    "message": "Ви впевнені, що хочете продовжити?",
+    "confirm": "Підтвердити",
+    "cancel": "Скасувати",
+    "close": "Закрити",
+    "successMessage": "Дія успішно виконана.",
+    "cancelSuccessMessage": "Дія успішно скасована.",
+    "errorMessage": "Сталася помилка."
   }
 }

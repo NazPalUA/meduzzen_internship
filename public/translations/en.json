@@ -320,5 +320,16 @@
     "checkButton": "Check API Health",
     "successMessage": "API is healthy!",
     "errorMessage": "An error occurred."
+  },
+
+  "ConfirmActionModal": {
+    "title": "Confirm Action",
+    "message": "Are you sure you want to proceed?",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "successMessage": "Action completed successfully.",
+    "cancelSuccessMessage": "Action cancelled successfully.",
+    "errorMessage": "An error occurred."
   }
 }
