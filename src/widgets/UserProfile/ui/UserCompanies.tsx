@@ -43,7 +43,7 @@ function CompaniesList({ userId }: { userId: string }) {
 
   if (isLoading) return <LoadingSpinner />
   if (isError) return <ErrorMessage />
-  if (!companies) return <p>{t("noCompanies")}</p>
+  if (!companies?.length) return <p>{t("noCompanies")}</p>
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
