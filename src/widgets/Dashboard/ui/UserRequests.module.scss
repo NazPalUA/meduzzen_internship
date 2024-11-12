@@ -1,0 +1,12 @@
+.contentContainer {
+  padding-top: 0 !important;
+}
+
+.link {
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

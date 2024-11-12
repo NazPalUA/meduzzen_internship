@@ -61,7 +61,26 @@
 
   "DashboardPage": {
     "title": "Панель",
-    "description": "Ласкаво просимо до панелі!"
+    "description": "Ласкаво просимо до панелі!",
+
+    "userInvites": {
+      "title": "Запрошення",
+      "accept": "Прийняти",
+      "modalAcceptTitle": "Прийняти запрошення",
+      "confirmAccept": "Ви впевнені, що хочете прийняти це запрошення?",
+      "reject": "Відхилити",
+      "modalRejectTitle": "Відхилити запрошення",
+      "confirmReject": "Ви впевнені, що хочете відхилити це запрошення?",
+      "noInvites": "Немає запрошень"
+    },
+
+    "userRequests": {
+      "title": "Заявки",
+      "cancel": "Скасувати",
+      "modalCancelTitle": "Скасувати заявку",
+      "confirmCancel": "Ви впевнені, що хочете скасувати цю заявку?",
+      "noRequests": "Немає заявок"
+    }
   },
 
   "AboutPage": {

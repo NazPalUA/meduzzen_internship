@@ -61,7 +61,26 @@
 
   "DashboardPage": {
     "title": "Dashboard",
-    "description": "Welcome to the dashboard!"
+    "description": "Welcome to the dashboard!",
+
+    "userInvites": {
+      "title": "User Invites",
+      "accept": "Accept",
+      "modalAcceptTitle": "Accept Invite",
+      "confirmAccept": "Are you sure you want to accept this invite?",
+      "reject": "Reject",
+      "modalRejectTitle": "Reject Invite",
+      "confirmReject": "Are you sure you want to reject this invite?",
+      "noInvites": "No invites found"
+    },
+
+    "userRequests": {
+      "title": "User Requests",
+      "cancel": "Cancel",
+      "modalCancelTitle": "Cancel Request",
+      "confirmCancel": "Are you sure you want to cancel this request?",
+      "noRequests": "No requests found"
+    }
   },
 
   "AboutPage": {
