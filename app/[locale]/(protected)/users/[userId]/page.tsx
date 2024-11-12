@@ -1,4 +1,5 @@
 import { Container } from "@shared/components/ui"
+import { UserCompanies } from "@widgets/UserCompanies"
 import { UserProfile as UserProfileWidget } from "@widgets/UserProfile"
 import { useTranslations } from "next-intl"
 
@@ -14,6 +15,7 @@ export default function UserProfile({ params }: { params: Params }) {
     <Container>
       <h2>{t("title")}</h2>
       <UserProfileWidget userId={userId} />
+      <UserCompanies userId={userId} />
     </Container>
   )
 }
