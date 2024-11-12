@@ -98,6 +98,48 @@
     "description": "Discover the innovative companies we work with."
   },
 
+  "CompanyDashboardPage": {
+    "title": "Company Dashboard",
+
+    "nav": {
+      "members": "Members",
+      "invites": "Invites",
+      "requests": "Requests"
+    },
+
+    "members": {
+      "noMembers": "There are no members in this company",
+      "exclude": "Exclude",
+      "modalExcludeTitle": "Exclude Member",
+      "confirmExclude": "Are you sure you want to exclude this member?",
+      "submitExclude": "Exclude",
+      "cancelExclude": "Close"
+    },
+
+    "invites": {
+      "noInvites": "There are no pending invites in this company",
+      "cancelInvite": "Cancel Invite",
+      "modalCancelInviteTitle": "Cancel Invite",
+      "confirmCancelInvite": "Are you sure you want to cancel this invite?",
+      "submitCancelInvite": "Cancel Invite",
+      "cancelCancelInvite": "Close"
+    },
+
+    "requests": {
+      "noRequests": "There are no pending requests for joining this company",
+      "acceptRequest": "Accept Request",
+      "modalAcceptRequestTitle": "Accept Request",
+      "confirmAcceptRequest": "Are you sure you want to accept this request?",
+      "submitAcceptRequest": "Accept Request",
+      "cancelAcceptRequest": "Close",
+      "rejectRequest": "Reject Request",
+      "modalRejectRequestTitle": "Reject Request",
+      "confirmRejectRequest": "Are you sure you want to reject this request?",
+      "submitRejectRequest": "Reject Request",
+      "cancelRejectRequest": "Close"
+    }
+  },
+
   "ProfilePage": {
     "title": "Profile",
     "email": "Email",

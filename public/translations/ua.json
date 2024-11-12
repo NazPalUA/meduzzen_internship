@@ -98,6 +98,48 @@
     "description": "Відкрийте для себе інноваційні компанії, з якими ми співпрацюємо."
   },
 
+  "CompanyDashboardPage": {
+    "title": "Панель компанії",
+
+    "nav": {
+      "members": "Члени",
+      "invites": "Запрошення",
+      "requests": "Заявки"
+    },
+
+    "members": {
+      "noMembers": "Немає членів в цій компанії",
+      "exclude": "Вилучити",
+      "modalExcludeTitle": "Вилучити члена",
+      "confirmExclude": "Ви впевнені, що хочете вилучити цього члена?",
+      "submitExclude": "Вилучити",
+      "cancelExclude": "Закрити"
+    },
+
+    "invites": {
+      "noInvites": "Немає запрошень",
+      "cancelInvite": "Скасувати запрошення",
+      "modalCancelInviteTitle": "Скасувати запрошення",
+      "confirmCancelInvite": "Ви впевнені, що хочете скасувати це запрошення?",
+      "submitCancelInvite": "Скасувати запрошення",
+      "cancelCancelInvite": "Закрити"
+    },
+
+    "requests": {
+      "noRequests": "Немає заявок",
+      "acceptRequest": "Прийняти",
+      "modalAcceptRequestTitle": "Прийняти заявку",
+      "confirmAcceptRequest": "Ви впевнені, що хочете прийняти цю заявку?",
+      "submitAcceptRequest": "Прийняти заявку",
+      "cancelAcceptRequest": "Закрити",
+      "rejectRequest": "Відхилити",
+      "modalRejectRequestTitle": "Відхилити заявку",
+      "confirmRejectRequest": "Ви впевнені, що хочете відхилити цю заявку?",
+      "submitRejectRequest": "Відхилити заявку",
+      "cancelRejectRequest": "Закрити"
+    }
+  },
+
   "ProfilePage": {
     "title": "Профіль",
     "email": "Електронна пошта",
