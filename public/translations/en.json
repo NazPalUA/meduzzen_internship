@@ -109,16 +109,23 @@
 
     "members": {
       "noMembers": "There are no members in this company",
-      "exclude": "Exclude",
-      "modalExcludeTitle": "Exclude Member",
+      "exclude": "Exclude from Company",
+      "modalExcludeTitle": "Exclude Member from Company",
       "confirmExclude": "Are you sure you want to exclude this member?",
       "submitExclude": "Exclude",
       "cancelExclude": "Close",
+
       "addToAdmin": "Make Admin",
       "modalAddToAdminTitle": "Promote User to Admin",
       "confirmAddToAdmin": "Are you sure you want to promote this user to admin?",
       "submitAddToAdmin": "Promote to Admin",
-      "cancelAddToAdmin": "Close"
+      "cancelAddToAdmin": "Close",
+
+      "removeFromAdmin": "Remove Admin",
+      "modalRemoveFromAdminTitle": "Remove Admin",
+      "confirmRemoveFromAdmin": "Are you sure you want to remove this user from admin?",
+      "submitRemoveFromAdmin": "Remove from Admin",
+      "cancelRemoveFromAdmin": "Close"
     },
 
     "invites": {

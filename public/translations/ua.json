@@ -109,16 +109,23 @@
 
     "members": {
       "noMembers": "Немає членів в цій компанії",
-      "exclude": "Вилучити",
-      "modalExcludeTitle": "Вилучити члена",
+      "exclude": "Вилучити з компанії",
+      "modalExcludeTitle": "Вилучити члена з компанії",
       "confirmExclude": "Ви впевнені, що хочете вилучити цього члена?",
       "submitExclude": "Вилучити",
       "cancelExclude": "Закрити",
+
       "addToAdmin": "Додати в адміністратори",
       "modalAddToAdminTitle": "Додати в адміністратори",
       "confirmAddToAdmin": "Ви впевнені, що хочете додати цього користувача в адміністратори?",
       "submitAddToAdmin": "Додати в адміністратори",
-      "cancelAddToAdmin": "Закрити"
+      "cancelAddToAdmin": "Закрити",
+
+      "removeFromAdmin": "Вилучити з адміністраторів",
+      "modalRemoveFromAdminTitle": "Вилучити з адміністраторів",
+      "confirmRemoveFromAdmin": "Ви впевнені, що хочете вилучити цього користувача з адміністраторів?",
+      "submitRemoveFromAdmin": "Вилучити з адміністраторів",
+      "cancelRemoveFromAdmin": "Закрити"
     },
 
     "invites": {
