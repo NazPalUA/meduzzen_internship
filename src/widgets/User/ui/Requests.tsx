@@ -81,7 +81,6 @@ function Request({ company }: { company: SingleCompany }) {
           </Link>
         }
         secondary={company.company_title}
-        secondaryTypographyProps={{ style: { margin: 0 } }}
       />
     </ListItem>
   )

@@ -81,7 +81,6 @@ function Invite({ user }: { user: SingleUser }) {
           </Link>
         }
         secondary={user.user_email}
-        secondaryTypographyProps={{ style: { margin: 0 } }}
       />
     </ListItem>
   )

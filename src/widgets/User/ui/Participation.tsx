@@ -75,7 +75,6 @@ function Company({ company }: { company: UserCompany }) {
           </Link>
         }
         secondary={company.company_title}
-        secondaryTypographyProps={{ style: { margin: 0 } }}
       />
     </ListItem>
   )
