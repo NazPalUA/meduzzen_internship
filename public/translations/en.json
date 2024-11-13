@@ -59,30 +59,6 @@
     "closeButton": "Close"
   },
 
-  "DashboardPage": {
-    "title": "Dashboard",
-    "description": "Welcome to the dashboard!",
-
-    "userInvites": {
-      "title": "User Invites",
-      "accept": "Accept",
-      "modalAcceptTitle": "Accept Invite",
-      "confirmAccept": "Are you sure you want to accept this invite?",
-      "reject": "Reject",
-      "modalRejectTitle": "Reject Invite",
-      "confirmReject": "Are you sure you want to reject this invite?",
-      "noInvites": "No invites found"
-    },
-
-    "userRequests": {
-      "title": "User Requests",
-      "cancel": "Cancel",
-      "modalCancelTitle": "Cancel Request",
-      "confirmCancel": "Are you sure you want to cancel this request?",
-      "noRequests": "No requests found"
-    }
-  },
-
   "AboutPage": {
     "title": "About This Project",
     "description": "This project is part of the Meduzzen internship program."
@@ -147,21 +123,63 @@
     }
   },
 
-  "ProfilePage": {
+  "UserPage": {
     "title": "Profile",
-    "email": "Email",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "status": "Status",
-    "city": "City",
-    "phone": "Phone",
-    "links": "Links",
 
-    "companies": "Companies",
-    "noCompanies": "The user is not a member of any company",
-    "leaveCompany": "Leave Company",
-    "confirmLeaveCompany": "Are you sure you want to leave this company?",
-    "cancelText": "Close"
+    "nav": {
+      "info": "Info",
+      "participation": "My Companies",
+      "invites": "Invites",
+      "requests": "Requests"
+    },
+
+    "info": {
+      "email": "Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "status": "Status",
+      "city": "City",
+      "phone": "Phone",
+      "links": "Links"
+    },
+
+    "participation": {
+      "noCompanies": "You are not a member of any companies",
+      "leave": "Leave",
+      "modalLeaveTitle": "Leave Company",
+      "confirmLeave": "Are you sure you want to leave this company?",
+      "submitLeave": "Leave Company",
+      "cancelLeave": "Close"
+    },
+
+    "invites": {
+      "noInvites": "You have no invites",
+      "acceptInvite": "Accept",
+      "modalAcceptInviteTitle": "Accept Invite",
+      "confirmAcceptInvite": "Are you sure you want to accept this invite?",
+      "submitAcceptInvite": "Accept Invite",
+      "cancelAcceptInvite": "Close",
+
+      "rejectInvite": "Reject",
+      "modalRejectInviteTitle": "Reject Invite",
+      "confirmRejectInvite": "Are you sure you want to reject this invite?",
+      "submitRejectInvite": "Reject Invite",
+      "cancelRejectInvite": "Close"
+    },
+
+    "requests": {
+      "noRequests": "There are no active requests",
+      "cancelRequest": "Cancel",
+      "modalCancelRequestTitle": "Cancel Request",
+      "confirmCancelRequest": "Are you sure you want to cancel this request?",
+      "submitCancelRequest": "Cancel Request",
+      "cancelCancelRequest": "Close"
+    }
+  },
+
+  "DashboardPage": {
+    "title": "Dashboard",
+    "description": "Welcome to the dashboard!"
   },
 
   "Navigation": {

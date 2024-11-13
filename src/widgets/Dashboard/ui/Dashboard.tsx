@@ -6,8 +6,6 @@ import { ContentDialog } from "@shared/components/ui"
 import { useDialog } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import { CreateCompanyForm } from "./CreateCompanyForm"
-import { UserInvites } from "./UserInvites"
-import { UserRequests } from "./UserRequests"
 
 export function Dashboard() {
   const t = useTranslations("CreateCompany")
@@ -33,10 +31,6 @@ export function Dashboard() {
       >
         {t("modal.openButton")}
       </Button>
-      <div style={{ display: "flex", gap: "1rem" }}>
-        <UserInvites user={currentUser} />
-        <UserRequests user={currentUser} />
-      </div>
     </div>
   )
 }

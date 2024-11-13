@@ -59,30 +59,6 @@
     "closeButton": "Закрити"
   },
 
-  "DashboardPage": {
-    "title": "Панель",
-    "description": "Ласкаво просимо до панелі!",
-
-    "userInvites": {
-      "title": "Запрошення",
-      "accept": "Прийняти",
-      "modalAcceptTitle": "Прийняти запрошення",
-      "confirmAccept": "Ви впевнені, що хочете прийняти це запрошення?",
-      "reject": "Відхилити",
-      "modalRejectTitle": "Відхилити запрошення",
-      "confirmReject": "Ви впевнені, що хочете відхилити це запрошення?",
-      "noInvites": "Немає запрошень"
-    },
-
-    "userRequests": {
-      "title": "Заявки",
-      "cancel": "Скасувати",
-      "modalCancelTitle": "Скасувати заявку",
-      "confirmCancel": "Ви впевнені, що хочете скасувати цю заявку?",
-      "noRequests": "Немає заявок"
-    }
-  },
-
   "AboutPage": {
     "title": "Про цей проект",
     "description": "Цей проект є частиною програми стажування Meduzzen."
@@ -147,21 +123,63 @@
     }
   },
 
-  "ProfilePage": {
+  "UserPage": {
     "title": "Профіль",
-    "email": "Електронна пошта",
-    "firstName": "Ім'я",
-    "lastName": "Прізвище",
-    "status": "Статус",
-    "city": "Місто",
-    "phone": "Телефон",
-    "links": "Посилання",
 
-    "companies": "Компанії",
-    "noCompanies": "Користувач не є членом жодної компанії",
-    "leaveCompany": "Покинути компанію",
-    "confirmLeaveCompany": "Ви впевнені, що хочете покинути цю компанію?",
-    "cancelText": "Закрити"
+    "nav": {
+      "info": "Інформація",
+      "participation": "Мої компанії",
+      "invites": "Запрошення",
+      "requests": "Заявки"
+    },
+
+    "info": {
+      "email": "Електронна пошта",
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "status": "Статус",
+      "city": "Місто",
+      "phone": "Телефон",
+      "links": "Посилання"
+    },
+
+    "participation": {
+      "noCompanies": "You are not a member of any companies",
+      "leave": "Leave",
+      "modalLeaveTitle": "Leave Company",
+      "confirmLeave": "Are you sure you want to leave this company?",
+      "submitLeave": "Leave Company",
+      "cancelLeave": "Close"
+    },
+
+    "invites": {
+      "noInvites": "Ви не маєте запрошень",
+      "acceptInvite": "Прийняти",
+      "modalAcceptInviteTitle": "Прийняти запрошення",
+      "confirmAcceptInvite": "Ви впевнені, що хочете прийняти це запрошення?",
+      "submitAcceptInvite": "Прийняти запрошення",
+      "cancelAcceptInvite": "Закрити",
+
+      "rejectInvite": "Відхилити",
+      "modalRejectInviteTitle": "Відхилити запрошення",
+      "confirmRejectInvite": "Ви впевнені, що хочете відхилити це запрошення?",
+      "submitRejectInvite": "Відхилити запрошення",
+      "cancelRejectInvite": "Закрити"
+    },
+
+    "requests": {
+      "noRequests": "Немає активних заявок",
+      "cancelRequest": "Скасувати",
+      "modalCancelRequestTitle": "Скасувати заявку",
+      "confirmCancelRequest": "Ви впевнені, що хочете скасувати цю заявку?",
+      "submitCancelRequest": "Скасувати заявку",
+      "cancelCancelRequest": "Закрити"
+    }
+  },
+
+  "DashboardPage": {
+    "title": "Панель",
+    "description": "Ласкаво просимо до панелі!"
   },
 
   "Navigation": {
