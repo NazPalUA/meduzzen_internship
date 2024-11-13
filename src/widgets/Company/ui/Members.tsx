@@ -1,6 +1,6 @@
 "use client"
 
-import { SingleUser } from "@entities/user"
+import { useGetCompanyMembersListQuery, type CompanyDataUser } from "@features/company-data"
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove"
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
@@ -11,19 +11,15 @@ import { ConfirmActionModal } from "@shared/components/ConfirmActionModal"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { Avatar, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
-import { fakeUsers } from "../lib/fakeUsers"
 import styles from "./Styles.module.scss"
 
 export function Members({ companyId }: { companyId: number }) {
-  const users = fakeUsers("members", companyId)
+  const { data: users, isLoading, isError } = useGetCompanyMembersListQuery(companyId.toString())
   const t = useTranslations("CompanyPage.members")
-
-  const isLoading = false
-  const isError = false
 
   if (isLoading) return <LoadingSpinner />
   if (isError) return <ErrorMessage />
-  if (!users.length) return <p>{t("noMembers")}</p>
+  if (!users?.length) return <p>{t("noMembers")}</p>
 
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
@@ -34,7 +30,7 @@ export function Members({ companyId }: { companyId: number }) {
   )
 }
 
-function Member({ user }: { user: SingleUser }) {
+function Member({ user }: { user: CompanyDataUser }) {
   const t = useTranslations("CompanyPage.members")
 
   async function excludeMember() {

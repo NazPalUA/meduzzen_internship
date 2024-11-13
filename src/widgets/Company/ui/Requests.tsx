@@ -1,6 +1,6 @@
 "use client"
 
-import { SingleUser } from "@entities/user"
+import { type CompanyDataUser, useGetCompanyRequestsListQuery } from "@features/company-data"
 import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import PersonOffIcon from "@mui/icons-material/PersonOff"
 import List from "@mui/material/List"
@@ -12,19 +12,15 @@ import { ConfirmActionModal } from "@shared/components/ConfirmActionModal"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { Avatar, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
-import { fakeUsers } from "../lib/fakeUsers"
 import styles from "./Styles.module.scss"
 
 export function Requests({ companyId }: { companyId: number }) {
-  const users = fakeUsers("requests", companyId)
+  const { data: users, isLoading, isError } = useGetCompanyRequestsListQuery(companyId.toString())
   const t = useTranslations("CompanyPage.requests")
-
-  const isLoading = false
-  const isError = false
 
   if (isLoading) return <LoadingSpinner />
   if (isError) return <ErrorMessage />
-  if (!users.length) return <p>{t("noRequests")}</p>
+  if (!users?.length) return <p>{t("noRequests")}</p>
 
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
@@ -35,7 +31,7 @@ export function Requests({ companyId }: { companyId: number }) {
   )
 }
 
-function Request({ user }: { user: SingleUser }) {
+function Request({ user }: { user: CompanyDataUser }) {
   const t = useTranslations("CompanyPage.requests")
 
   async function acceptRequest() {

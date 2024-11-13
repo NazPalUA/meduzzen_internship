@@ -1,6 +1,6 @@
 "use client"
 
-import { SingleUser } from "@entities/user"
+import { type CompanyDataUser, useGetCompanyInvitesListQuery } from "@features/company-data"
 import PersonAddDisabledIcon from "@mui/icons-material/PersonAddDisabled"
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
@@ -11,19 +11,15 @@ import { ConfirmActionModal } from "@shared/components/ConfirmActionModal"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { Avatar, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
-import { fakeUsers } from "../lib/fakeUsers"
 import styles from "./Styles.module.scss"
 
 export function Invites({ companyId }: { companyId: number }) {
-  const users = fakeUsers("invites", companyId)
+  const { data: users, isLoading, isError } = useGetCompanyInvitesListQuery(companyId.toString())
   const t = useTranslations("CompanyPage.invites")
-
-  const isLoading = false
-  const isError = false
 
   if (isLoading) return <LoadingSpinner />
   if (isError) return <ErrorMessage />
-  if (!users.length) return <p>{t("noInvites")}</p>
+  if (!users?.length) return <p>{t("noInvites")}</p>
 
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
@@ -34,7 +30,7 @@ export function Invites({ companyId }: { companyId: number }) {
   )
 }
 
-function Invite({ user }: { user: SingleUser }) {
+function Invite({ user }: { user: CompanyDataUser }) {
   const t = useTranslations("CompanyPage.invites")
 
   async function cancelInvite() {
