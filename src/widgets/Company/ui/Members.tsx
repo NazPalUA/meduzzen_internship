@@ -1,7 +1,8 @@
 "use client"
 
-import { useLeaveCompanyMutation } from "@features/action"
+import { useAddToAdminMutation, useLeaveCompanyMutation } from "@features/action"
 import { useGetCompanyMembersListQuery, type CompanyDataUser } from "@features/company-data"
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings"
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove"
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
@@ -14,20 +15,24 @@ import { Avatar, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import styles from "./Styles.module.scss"
 
-export function Members({ companyId }: { companyId: number }) {
+export function Members({ companyId, adminOnly }: { companyId: number; adminOnly: boolean }) {
   const { data: users, isLoading, isError } = useGetCompanyMembersListQuery(companyId.toString())
   const t = useTranslations("CompanyPage.members")
 
+  const filteredUsers = users?.filter((user) => (adminOnly ? user.action === "admin" : true))
+
   if (isLoading) return <LoadingSpinner />
   if (isError) return <ErrorMessage />
-  if (!users?.length) return <p>{t("noMembers")}</p>
+  if (!filteredUsers?.length) return <p>{adminOnly ? t("noAdmins") : t("noMembers")}</p>
 
   return (
-    <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-      {users.map((user) => (
-        <Member key={user.user_id} user={user} />
-      ))}
-    </List>
+    <>
+      <List sx={{ width: "100%", bgcolor: "background.paper" }}>
+        {filteredUsers.map((user) => (
+          <Member key={user.user_id} user={user} />
+        ))}
+      </List>
+    </>
   )
 }
 
@@ -35,6 +40,7 @@ function Member({ user }: { user: CompanyDataUser }) {
   const t = useTranslations("CompanyPage.members")
 
   const [excludeMember] = useLeaveCompanyMutation()
+  const [addToAdmin] = useAddToAdminMutation()
 
   const menuItems: MenuItem[] = [
     {
@@ -54,6 +60,30 @@ function Member({ user }: { user: CompanyDataUser }) {
           cancelAction={{
             buttonProps: {
               children: t("cancelExclude"),
+              color: "primary",
+            },
+          }}
+        />
+      ),
+    },
+
+    {
+      icon: <AdminPanelSettingsIcon />,
+      text: t("addToAdmin"),
+      content: (
+        <ConfirmActionModal
+          title={t("modalAddToAdminTitle")}
+          message={t("confirmAddToAdmin")}
+          confirmAction={{
+            onAction: () => addToAdmin(user.action_id.toString()).unwrap(),
+            buttonProps: {
+              children: t("submitAddToAdmin"),
+              color: "primary",
+            },
+          }}
+          cancelAction={{
+            buttonProps: {
+              children: t("cancelAddToAdmin"),
               color: "primary",
             },
           }}

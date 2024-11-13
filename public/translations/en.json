@@ -85,7 +85,8 @@
       "info": "Info",
       "members": "Members",
       "invites": "Invites",
-      "requests": "Requests"
+      "requests": "Requests",
+      "showAdminsOnly": "Show Admins Only"
     },
 
     "info": {
@@ -100,7 +101,12 @@
       "modalExcludeTitle": "Exclude Member",
       "confirmExclude": "Are you sure you want to exclude this member?",
       "submitExclude": "Exclude",
-      "cancelExclude": "Close"
+      "cancelExclude": "Close",
+      "addToAdmin": "Make Admin",
+      "modalAddToAdminTitle": "Promote User to Admin",
+      "confirmAddToAdmin": "Are you sure you want to promote this user to admin?",
+      "submitAddToAdmin": "Promote to Admin",
+      "cancelAddToAdmin": "Close"
     },
 
     "invites": {

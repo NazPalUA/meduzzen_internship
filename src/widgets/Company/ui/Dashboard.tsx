@@ -3,18 +3,19 @@
 import { CompanyDetails } from "@entities/company"
 import { InviteFromCompany, RequestFromUser } from "@features/action"
 import { Settings } from "@features/manage-company"
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings"
 import BusinessIcon from "@mui/icons-material/Business"
 import GroupIcon from "@mui/icons-material/Group"
 import GroupAddIcon from "@mui/icons-material/GroupAdd"
 import HowToRegIcon from "@mui/icons-material/HowToReg"
-import { Card, CardContent, CardHeader, Chip } from "@mui/material"
+import { Card, CardContent, CardHeader, Chip, Switch } from "@mui/material"
 import Tab from "@mui/material/Tab"
 import Tabs from "@mui/material/Tabs"
 import { useRouter } from "@navigation"
 import { Avatar } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import { useSearchParams } from "next/navigation"
-import { SyntheticEvent } from "react"
+import { SyntheticEvent, useState } from "react"
 import { Info } from "./Info"
 import { Invites } from "./Invites"
 import { Members } from "./Members"
@@ -23,6 +24,7 @@ import styles from "./Styles.module.scss"
 
 export function Dashboard({ company, admin }: { company: CompanyDetails; admin: boolean }) {
   const { company_id, company_name, company_title, company_avatar, is_visible } = company
+  const [adminOnly, setAdminOnly] = useState(false)
 
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -73,7 +75,20 @@ export function Dashboard({ company, admin }: { company: CompanyDetails; admin: 
         )}
 
         {currentTab === "info" && <Info company={company} />}
-        {currentTab === "members" && <Members companyId={company_id} />}
+        {currentTab === "members" && (
+          <>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Switch
+                checked={adminOnly}
+                onChange={(e) => setAdminOnly(e.target.checked)}
+                inputProps={{ "aria-label": "controlled" }}
+              />
+              <AdminPanelSettingsIcon />
+              <span>{t("showAdminsOnly")}</span>
+            </div>
+            <Members companyId={company_id} adminOnly={adminOnly} />
+          </>
+        )}
         {currentTab === "invites" && (
           <div>
             <InviteFromCompany companyId={company_id} />

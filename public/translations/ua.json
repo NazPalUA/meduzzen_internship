@@ -85,7 +85,8 @@
       "info": "Інформація",
       "members": "Члени",
       "invites": "Запрошення",
-      "requests": "Заявки"
+      "requests": "Заявки",
+      "showAdminsOnly": "Показати адмінів тільки"
     },
 
     "info": {
@@ -100,7 +101,12 @@
       "modalExcludeTitle": "Вилучити члена",
       "confirmExclude": "Ви впевнені, що хочете вилучити цього члена?",
       "submitExclude": "Вилучити",
-      "cancelExclude": "Закрити"
+      "cancelExclude": "Закрити",
+      "addToAdmin": "Додати в адміністратори",
+      "modalAddToAdminTitle": "Додати в адміністратори",
+      "confirmAddToAdmin": "Ви впевнені, що хочете додати цього користувача в адміністратори?",
+      "submitAddToAdmin": "Додати в адміністратори",
+      "cancelAddToAdmin": "Закрити"
     },
 
     "invites": {
