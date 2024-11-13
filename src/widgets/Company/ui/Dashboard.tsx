@@ -1,7 +1,8 @@
 "use client"
 
 import { CompanyDetails } from "@entities/company"
-import { InviteFromCompany, RequestFromUser } from "@features/action"
+import { CurrentUser } from "@entities/session"
+import { InviteFromCompany } from "@features/action"
 import { Settings } from "@features/manage-company"
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings"
 import BusinessIcon from "@mui/icons-material/Business"
@@ -19,10 +20,19 @@ import { SyntheticEvent, useState } from "react"
 import { Info } from "./Info"
 import { Invites } from "./Invites"
 import { Members } from "./Members"
+import { RequestFromUser } from "./RequestFromUser"
 import { Requests } from "./Requests"
 import styles from "./Styles.module.scss"
 
-export function Dashboard({ company, admin }: { company: CompanyDetails; admin: boolean }) {
+export function Dashboard({
+  company,
+  admin,
+  user,
+}: {
+  company: CompanyDetails
+  admin: boolean
+  user: CurrentUser
+}) {
   const { company_id, company_name, company_title, company_avatar, is_visible } = company
   const [adminOnly, setAdminOnly] = useState(false)
 
@@ -51,7 +61,9 @@ export function Dashboard({ company, admin }: { company: CompanyDetails; admin: 
             />
           </>
         }
-        action={admin ? <Settings /> : <RequestFromUser companyId={company_id} />}
+        action={
+          admin ? <Settings /> : <RequestFromUser companyId={company_id} userId={user.user_id} />
+        }
       />
 
       <CardContent>

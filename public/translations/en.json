@@ -79,7 +79,19 @@
 
   "CompanyPage": {
     "title": "Company Profile",
-    "sendRequest": "Send Request",
+
+    "request": {
+      "send": {
+        "label": "Join",
+        "success": "Request sent successfully!",
+        "error": "Failed to send request. Please try again."
+      },
+      "cancel": {
+        "label": "Cancel Request",
+        "success": "Request cancelled successfully!",
+        "error": "Failed to cancel request. Please try again."
+      }
+    },
 
     "nav": {
       "info": "Info",
