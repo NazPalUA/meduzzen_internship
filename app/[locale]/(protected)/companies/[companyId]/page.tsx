@@ -1,5 +1,5 @@
 import { Container } from "@shared/components/ui"
-import { CompanyProfile as CompanyProfileWidget } from "@widgets/CompanyProfile"
+import { Company } from "@widgets/Company"
 import { useTranslations } from "next-intl"
 
 type Params = {
@@ -9,11 +9,11 @@ type Params = {
 export default function CompanyProfile({ params }: { params: Params }) {
   const { companyId } = params
 
-  const t = useTranslations("CompanyProfilePage")
+  const t = useTranslations("CompanyPage")
   return (
     <Container>
       <h2>{t("title")}</h2>
-      <CompanyProfileWidget companyId={companyId} />
+      <Company companyId={companyId} />
     </Container>
   )
 }

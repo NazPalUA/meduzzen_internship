@@ -98,13 +98,20 @@
     "description": "Discover the innovative companies we work with."
   },
 
-  "CompanyDashboardPage": {
-    "title": "Company Dashboard",
+  "CompanyPage": {
+    "title": "Company Profile",
 
     "nav": {
+      "info": "Info",
       "members": "Members",
       "invites": "Invites",
       "requests": "Requests"
+    },
+
+    "info": {
+      "aboutUs": "About Us",
+      "companyLinks": "Company Links",
+      "companyOwner": "Company Owner"
     },
 
     "members": {
@@ -155,14 +162,6 @@
     "leaveCompany": "Leave Company",
     "confirmLeaveCompany": "Are you sure you want to leave this company?",
     "cancelText": "Close"
-  },
-
-  "CompanyProfilePage": {
-    "title": "Company Profile",
-    "description": "Description",
-    "aboutUs": "About Us",
-    "companyLinks": "Company Links",
-    "companyOwner": "Company Owner"
   },
 
   "Navigation": {

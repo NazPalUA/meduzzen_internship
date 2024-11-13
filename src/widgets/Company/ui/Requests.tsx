@@ -1,6 +1,5 @@
 "use client"
 
-import { ConfirmActionModal } from "@/src/shared/components/ConfirmActionModal"
 import { SingleUser } from "@entities/user"
 import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import PersonOffIcon from "@mui/icons-material/PersonOff"
@@ -8,14 +7,17 @@ import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import ListItemText from "@mui/material/ListItemText"
+import { Link } from "@navigation"
+import { ConfirmActionModal } from "@shared/components/ConfirmActionModal"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { Avatar, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import { fakeUsers } from "../lib/fakeUsers"
+import styles from "./Styles.module.scss"
 
 export function Requests({ companyId }: { companyId: number }) {
   const users = fakeUsers("requests", companyId)
-  const t = useTranslations("CompanyDashboardPage.requests")
+  const t = useTranslations("CompanyPage.requests")
 
   const isLoading = false
   const isError = false
@@ -34,7 +36,7 @@ export function Requests({ companyId }: { companyId: number }) {
 }
 
 function Request({ user }: { user: SingleUser }) {
-  const t = useTranslations("CompanyDashboardPage.requests")
+  const t = useTranslations("CompanyPage.requests")
 
   async function acceptRequest() {
     await new Promise((resolve) => setTimeout(resolve, 2000))
@@ -101,7 +103,11 @@ function Request({ user }: { user: SingleUser }) {
       </ListItemAvatar>
 
       <ListItemText
-        primary={`${user.user_firstname} ${user.user_lastname}`}
+        primary={
+          <Link href={`/users/${user.user_id}`} className={styles.link}>
+            {`${user.user_firstname} ${user.user_lastname}`}
+          </Link>
+        }
         secondary={user.user_email}
         secondaryTypographyProps={{ style: { margin: 0 } }}
       />

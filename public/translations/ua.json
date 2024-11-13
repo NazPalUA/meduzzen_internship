@@ -98,13 +98,20 @@
     "description": "Відкрийте для себе інноваційні компанії, з якими ми співпрацюємо."
   },
 
-  "CompanyDashboardPage": {
-    "title": "Панель компанії",
+  "CompanyPage": {
+    "title": "Профіль компанії",
 
     "nav": {
+      "info": "Інформація",
       "members": "Члени",
       "invites": "Запрошення",
       "requests": "Заявки"
+    },
+
+    "info": {
+      "aboutUs": "Про нас",
+      "companyLinks": "Посилання компанії",
+      "companyOwner": "Власник компанії"
     },
 
     "members": {
@@ -155,14 +162,6 @@
     "leaveCompany": "Покинути компанію",
     "confirmLeaveCompany": "Ви впевнені, що хочете покинути цю компанію?",
     "cancelText": "Закрити"
-  },
-
-  "CompanyProfilePage": {
-    "title": "Профіль компанії",
-    "description": "Опис",
-    "aboutUs": "Про нас",
-    "companyLinks": "Посилання компанії",
-    "companyOwner": "Власник компанії"
   },
 
   "Navigation": {
