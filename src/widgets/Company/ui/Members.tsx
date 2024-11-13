@@ -1,5 +1,6 @@
 "use client"
 
+import { useLeaveCompanyMutation } from "@features/action"
 import { useGetCompanyMembersListQuery, type CompanyDataUser } from "@features/company-data"
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove"
 import List from "@mui/material/List"
@@ -33,10 +34,7 @@ export function Members({ companyId }: { companyId: number }) {
 function Member({ user }: { user: CompanyDataUser }) {
   const t = useTranslations("CompanyPage.members")
 
-  async function excludeMember() {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("Member excluded")
-  }
+  const [excludeMember] = useLeaveCompanyMutation()
 
   const menuItems: MenuItem[] = [
     {
@@ -47,7 +45,7 @@ function Member({ user }: { user: CompanyDataUser }) {
           title={t("modalExcludeTitle")}
           message={t("confirmExclude")}
           confirmAction={{
-            onAction: () => excludeMember(),
+            onAction: () => excludeMember(user.action_id.toString()).unwrap(),
             buttonProps: {
               children: t("submitExclude"),
               color: "error",

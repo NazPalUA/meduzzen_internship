@@ -1,5 +1,6 @@
 "use client"
 
+import { useAcceptActionInviteMutation, useDeclineActionMutation } from "@features/action"
 import { useGetUserInvitesListQuery, type UserDataCompany } from "@features/user-data"
 import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import PersonOffIcon from "@mui/icons-material/PersonOff"
@@ -34,15 +35,9 @@ export function Invites({ user_id }: { user_id: number }) {
 function Invite({ company }: { company: UserDataCompany }) {
   const t = useTranslations("UserPage.invites")
 
-  async function acceptInvite() {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("Invite accepted")
-  }
+  const [acceptInvite] = useAcceptActionInviteMutation()
+  const [rejectInvite] = useDeclineActionMutation()
 
-  async function rejectInvite() {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("Invite rejected")
-  }
   const menuItems: MenuItem[] = [
     {
       icon: <PersonAddIcon />,
@@ -52,7 +47,7 @@ function Invite({ company }: { company: UserDataCompany }) {
           title={t("modalAcceptInviteTitle")}
           message={t("confirmAcceptInvite")}
           confirmAction={{
-            onAction: () => acceptInvite(),
+            onAction: () => acceptInvite(company.action_id.toString()).unwrap(),
             buttonProps: {
               children: t("submitAcceptInvite"),
               color: "success",
@@ -75,7 +70,7 @@ function Invite({ company }: { company: UserDataCompany }) {
           title={t("modalRejectInviteTitle")}
           message={t("confirmRejectInvite")}
           confirmAction={{
-            onAction: () => rejectInvite(),
+            onAction: () => rejectInvite(company.action_id.toString()).unwrap(),
             buttonProps: {
               children: t("submitRejectInvite"),
               color: "error",

@@ -1,5 +1,6 @@
 "use client"
 
+import { useDeclineActionMutation } from "@features/action"
 import { type CompanyDataUser, useGetCompanyInvitesListQuery } from "@features/company-data"
 import PersonAddDisabledIcon from "@mui/icons-material/PersonAddDisabled"
 import List from "@mui/material/List"
@@ -33,10 +34,7 @@ export function Invites({ companyId }: { companyId: number }) {
 function Invite({ user }: { user: CompanyDataUser }) {
   const t = useTranslations("CompanyPage.invites")
 
-  async function cancelInvite() {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("invite canceled")
-  }
+  const [cancelInvite] = useDeclineActionMutation()
 
   const menuItems: MenuItem[] = [
     {
@@ -47,7 +45,7 @@ function Invite({ user }: { user: CompanyDataUser }) {
           title={t("modalCancelInviteTitle")}
           message={t("confirmCancelInvite")}
           confirmAction={{
-            onAction: () => cancelInvite(),
+            onAction: () => cancelInvite(user.action_id.toString()).unwrap(),
             buttonProps: {
               children: t("submitCancelInvite"),
               color: "error",

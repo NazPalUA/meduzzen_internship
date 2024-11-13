@@ -1,5 +1,6 @@
 "use client"
 
+import { useDeclineActionMutation } from "@features/action"
 import { useGetUserRequestsListQuery, type UserDataCompany } from "@features/user-data"
 import PersonAddDisabledIcon from "@mui/icons-material/PersonAddDisabled"
 import List from "@mui/material/List"
@@ -33,10 +34,7 @@ export function Requests({ user_id }: { user_id: number }) {
 function Request({ company }: { company: UserDataCompany }) {
   const t = useTranslations("UserPage.requests")
 
-  async function cancelRequest() {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("request canceled")
-  }
+  const [cancelRequest] = useDeclineActionMutation()
 
   const menuItems: MenuItem[] = [
     {
@@ -47,7 +45,7 @@ function Request({ company }: { company: UserDataCompany }) {
           title={t("modalCancelRequestTitle")}
           message={t("confirmCancelRequest")}
           confirmAction={{
-            onAction: () => cancelRequest(),
+            onAction: () => cancelRequest(company.action_id.toString()).unwrap(),
             buttonProps: {
               children: t("submitCancelRequest"),
               color: "error",

@@ -1,5 +1,6 @@
 "use client"
 
+import { useAcceptActionRequestMutation, useDeclineActionMutation } from "@/src/features/action"
 import { type CompanyDataUser, useGetCompanyRequestsListQuery } from "@features/company-data"
 import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import PersonOffIcon from "@mui/icons-material/PersonOff"
@@ -34,15 +35,9 @@ export function Requests({ companyId }: { companyId: number }) {
 function Request({ user }: { user: CompanyDataUser }) {
   const t = useTranslations("CompanyPage.requests")
 
-  async function acceptRequest() {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("Request accepted")
-  }
+  const [rejectRequest] = useDeclineActionMutation()
+  const [acceptRequest] = useAcceptActionRequestMutation()
 
-  async function rejectRequest() {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("Request rejected")
-  }
   const menuItems: MenuItem[] = [
     {
       icon: <PersonAddIcon />,
@@ -52,7 +47,7 @@ function Request({ user }: { user: CompanyDataUser }) {
           title={t("modalAcceptRequestTitle")}
           message={t("confirmAcceptRequest")}
           confirmAction={{
-            onAction: () => acceptRequest(),
+            onAction: () => acceptRequest(user.action_id.toString()).unwrap(),
             buttonProps: {
               children: t("submitAcceptRequest"),
               color: "success",
@@ -75,7 +70,7 @@ function Request({ user }: { user: CompanyDataUser }) {
           title={t("modalRejectRequestTitle")}
           message={t("confirmRejectRequest")}
           confirmAction={{
-            onAction: () => rejectRequest(),
+            onAction: () => rejectRequest(user.action_id.toString()).unwrap(),
             buttonProps: {
               children: t("submitRejectRequest"),
               color: "error",

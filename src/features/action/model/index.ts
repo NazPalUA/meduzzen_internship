@@ -1,1 +1,2 @@
-export * from "./leaveCompany"
+export * from "./actionWithId"
+export * from "./actionWithoutId"
