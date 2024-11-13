@@ -1,6 +1,6 @@
 "use client"
 
-import { SingleCompany } from "@entities/company"
+import { useGetUserInvitesListQuery, type UserDataCompany } from "@features/user-data"
 import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import PersonOffIcon from "@mui/icons-material/PersonOff"
 import List from "@mui/material/List"
@@ -12,19 +12,15 @@ import { ConfirmActionModal } from "@shared/components/ConfirmActionModal"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { Avatar, ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
-import { fakeCompanies } from "../lib/fakeCompanies"
 import styles from "./Styles.module.scss"
 
 export function Invites({ user_id }: { user_id: number }) {
-  const companies = fakeCompanies("invites", user_id)
+  const { data: companies, isLoading, isError } = useGetUserInvitesListQuery(user_id.toString())
   const t = useTranslations("UserPage.invites")
-
-  const isLoading = false
-  const isError = false
 
   if (isLoading) return <LoadingSpinner />
   if (isError) return <ErrorMessage />
-  if (!companies.length) return <p>{t("noInvites")}</p>
+  if (!companies?.length) return <p>{t("noInvites")}</p>
 
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
@@ -35,7 +31,7 @@ export function Invites({ user_id }: { user_id: number }) {
   )
 }
 
-function Invite({ company }: { company: SingleCompany }) {
+function Invite({ company }: { company: UserDataCompany }) {
   const t = useTranslations("UserPage.invites")
 
   async function acceptInvite() {

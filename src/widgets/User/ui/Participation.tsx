@@ -1,7 +1,7 @@
 "use client"
 
 import { useLeaveCompanyMutation } from "@features/action"
-import { useGetUserCompaniesListQuery, type UserCompany } from "@features/user-data"
+import { useGetUserCompaniesListQuery, type UserDataCompany } from "@features/user-data"
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove"
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
@@ -31,7 +31,7 @@ export function Participation({ user_id }: { user_id: number }) {
   )
 }
 
-function Company({ company }: { company: UserCompany }) {
+function Company({ company }: { company: UserDataCompany }) {
   const t = useTranslations("UserPage.participation")
 
   const [leaveCompany] = useLeaveCompanyMutation()
