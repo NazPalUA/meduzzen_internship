@@ -68,6 +68,28 @@ const actionApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["CompanyData", "UserData"],
     }),
 
+    addToAdmin: build.mutation<ActionWithIdResponse["result"], string>({
+      query: (actionId) => ({
+        url: API_ENDPOINTS.ACTION.ADD_TO_ADMIN(actionId),
+        method: HttpMethod.GET,
+      }),
+      transformResponse: (response: unknown) => {
+        return parseData(ActionWithIdResponseSchema, response).result
+      },
+      invalidatesTags: ["CompanyData", "UserData"],
+    }),
+
+    removeFromAdmin: build.mutation<ActionWithIdResponse["result"], string>({
+      query: (actionId) => ({
+        url: API_ENDPOINTS.ACTION.REMOVE_FROM_ADMIN(actionId),
+        method: HttpMethod.GET,
+      }),
+      transformResponse: (response: unknown) => {
+        return parseData(ActionWithIdResponseSchema, response).result
+      },
+      invalidatesTags: ["CompanyData", "UserData"],
+    }),
+
     leaveCompany: build.mutation<ActionWithoutIdResponse["result"], string>({
       query: (actionId) => ({
         url: API_ENDPOINTS.ACTION.LEAVE_COMPANY(actionId),
@@ -89,4 +111,6 @@ export const {
   useAcceptActionRequestMutation,
   useCreateActionFromCompanyMutation,
   useDeclineActionMutation,
+  useAddToAdminMutation,
+  useRemoveFromAdminMutation,
 } = actionApiSlice
