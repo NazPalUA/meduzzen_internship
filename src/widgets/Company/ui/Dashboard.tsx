@@ -1,6 +1,7 @@
 "use client"
 
 import { CompanyDetails } from "@entities/company"
+import { InviteFromCompany, RequestFromUser } from "@features/action"
 import { Settings } from "@features/manage-company"
 import BusinessIcon from "@mui/icons-material/Business"
 import GroupIcon from "@mui/icons-material/Group"
@@ -48,7 +49,7 @@ export function Dashboard({ company, admin }: { company: CompanyDetails; admin: 
             />
           </>
         }
-        action={admin && <Settings />}
+        action={admin ? <Settings /> : <RequestFromUser companyId={company_id} />}
       />
 
       <CardContent>
@@ -73,7 +74,12 @@ export function Dashboard({ company, admin }: { company: CompanyDetails; admin: 
 
         {currentTab === "info" && <Info company={company} />}
         {currentTab === "members" && <Members companyId={company_id} />}
-        {currentTab === "invites" && <Invites companyId={company_id} />}
+        {currentTab === "invites" && (
+          <div>
+            <InviteFromCompany companyId={company_id} />
+            <Invites companyId={company_id} />
+          </div>
+        )}
         {currentTab === "requests" && <Requests companyId={company_id} />}
       </CardContent>
     </Card>

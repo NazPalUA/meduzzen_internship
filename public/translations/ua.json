@@ -24,6 +24,9 @@
     },
     "company": {
       "nameRequired": "Назва компанії обов'язкова"
+    },
+    "userId": {
+      "number": "Ідентифікатор користувача повинен містити лише цифри"
     }
   },
 
@@ -76,6 +79,7 @@
 
   "CompanyPage": {
     "title": "Профіль компанії",
+    "sendRequest": "Надіслати заявку",
 
     "nav": {
       "info": "Інформація",
@@ -105,7 +109,10 @@
       "modalCancelInviteTitle": "Скасувати запрошення",
       "confirmCancelInvite": "Ви впевнені, що хочете скасувати це запрошення?",
       "submitCancelInvite": "Скасувати запрошення",
-      "cancelCancelInvite": "Закрити"
+      "cancelCancelInvite": "Закрити",
+
+      "inviteUser": "Запросити",
+      "enterUserId": "Введіть ID користувача"
     },
 
     "requests": {
