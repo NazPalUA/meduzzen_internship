@@ -3,16 +3,16 @@ import { ServerResponseSchema } from "@shared/api"
 import { Action } from "@shared/constants"
 import { z } from "zod"
 
-export const UserCompanySchema = SingleCompanySchema.extend({
+export const UserDataCompanySchema = SingleCompanySchema.extend({
   action_id: z.number(),
   action: z.nativeEnum(Action),
 })
 
-export const UserCompaniesListResponseSchema = ServerResponseSchema(
+export const UserDataCompaniesListResponseSchema = ServerResponseSchema(
   z.object({
-    companies: z.array(UserCompanySchema),
+    companies: z.array(UserDataCompanySchema),
   }),
 )
 
-export type UserCompany = z.infer<typeof UserCompanySchema>
-export type UserCompaniesListResponse = z.infer<typeof UserCompaniesListResponseSchema>
+export type UserDataCompany = z.infer<typeof UserDataCompanySchema>
+export type UserDataCompaniesListResponse = z.infer<typeof UserDataCompaniesListResponseSchema>

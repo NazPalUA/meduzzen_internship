@@ -61,7 +61,7 @@ const companyApiSlice = baseApi.injectEndpoints({
       transformResponse: (response: unknown) => {
         return parseData(CreateCompanyResponseSchema, response)
       },
-      invalidatesTags: ["Company"],
+      invalidatesTags: ["Company", "UserData"],
     }),
 
     deleteCompany: build.mutation<DeleteCompanyResponse, string>({
@@ -72,7 +72,7 @@ const companyApiSlice = baseApi.injectEndpoints({
       transformResponse: (response: unknown) => {
         return parseData(DeleteCompanyResponseSchema, response)
       },
-      invalidatesTags: ["Company"],
+      invalidatesTags: ["Company", "UserData"],
     }),
 
     updateCompanyInfo: build.mutation<
@@ -87,7 +87,10 @@ const companyApiSlice = baseApi.injectEndpoints({
       transformResponse: (response: unknown) => {
         return parseData(UpdateCompanyInfoResponseSchema, response)
       },
-      invalidatesTags: (result, error, { companyId }) => [{ type: "Company", id: companyId }],
+      invalidatesTags: (result, error, { companyId }) => [
+        { type: "Company", id: companyId },
+        "UserData",
+      ],
     }),
 
     updateCompanyVisible: build.mutation<
@@ -102,7 +105,10 @@ const companyApiSlice = baseApi.injectEndpoints({
       transformResponse: (response: unknown) => {
         return parseData(UpdateCompanyVisibleResponseSchema, response)
       },
-      invalidatesTags: (result, error, { companyId }) => [{ type: "Company", id: companyId }],
+      invalidatesTags: (result, error, { companyId }) => [
+        { type: "Company", id: companyId },
+        "UserData",
+      ],
     }),
 
     updateCompanyAvatar: build.mutation<
@@ -122,7 +128,10 @@ const companyApiSlice = baseApi.injectEndpoints({
       transformResponse: (response: unknown) => {
         return parseData(UpdateCompanyAvatarResponseSchema, response)
       },
-      invalidatesTags: (result, error, { companyId }) => [{ type: "Company", id: companyId }],
+      invalidatesTags: (result, error, { companyId }) => [
+        { type: "Company", id: companyId },
+        "UserData",
+      ],
     }),
   }),
 })

@@ -6,4 +6,5 @@ export * from "./LoadingSpinner"
 export * from "./NoData"
 
 export { Avatar } from "./Avatar"
+export { ContentDialog } from "./ContentDialog"
 export { Skeleton } from "./Skeleton"

@@ -1,5 +1,5 @@
 import { Container } from "@shared/components/ui"
-import { UserProfile as UserProfileWidget } from "@widgets/UserProfile"
+import { User } from "@widgets/User"
 import { useTranslations } from "next-intl"
 
 type Params = {
@@ -9,11 +9,11 @@ type Params = {
 export default function UserProfile({ params }: { params: Params }) {
   const { userId } = params
 
-  const t = useTranslations("ProfilePage")
+  const t = useTranslations("UserPage")
   return (
     <Container>
       <h2>{t("title")}</h2>
-      <UserProfileWidget userId={userId} />
+      <User userId={userId} />
     </Container>
   )
 }

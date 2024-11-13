@@ -8,7 +8,7 @@ import {
 } from "@entities/user"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { getForm } from "@shared/components/Form"
-import { useOverlays } from "@shared/overlays"
+import { useDialog, useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import styles from "./Styles.module.scss"
@@ -18,7 +18,8 @@ export function UpdateInfoForm({ user }: { user: CurrentUser }) {
 
   const t = useTranslations()
 
-  const { toastError, toastSuccess, closeModal } = useOverlays()
+  const { toastError, toastSuccess } = useToaster()
+  const { closeDialog } = useDialog()
 
   const schema = updateUserInfoCredentialsSchema((key) => t(`Validation.${key}`))
 
@@ -26,7 +27,7 @@ export function UpdateInfoForm({ user }: { user: CurrentUser }) {
     try {
       await updateUserInfo({ userId: user.user_id.toString(), userInfo: data }).unwrap()
       toastSuccess(t("UpdateUser.info.result.success"))
-      closeModal()
+      closeDialog()
     } catch {
       toastError(t("UpdateUser.info.result.error"))
     }

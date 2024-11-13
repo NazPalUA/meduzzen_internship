@@ -21,7 +21,9 @@ const SIZE_DIMENSIONS: Record<AvatarSize, number> = {
 export function Avatar({ src, alt, size = "md", cacheKey }: Props) {
   const dimension = SIZE_DIMENSIONS[size]
 
-  const imageSrc = cacheKey && src ? `${src}?cb=${cacheKey}` : null
+  const noCacheImageSrc = cacheKey && src ? `${src}?cb=${cacheKey}` : null
+
+  const imageSrc = noCacheImageSrc || src
 
   return (
     <MuiAvatar

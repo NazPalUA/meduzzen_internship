@@ -24,6 +24,9 @@
     },
     "company": {
       "nameRequired": "Назва компанії обов'язкова"
+    },
+    "userId": {
+      "number": "Ідентифікатор користувача повинен містити лише цифри"
     }
   },
 
@@ -59,11 +62,6 @@
     "closeButton": "Закрити"
   },
 
-  "DashboardPage": {
-    "title": "Панель",
-    "description": "Ласкаво просимо до панелі!"
-  },
-
   "AboutPage": {
     "title": "Про цей проект",
     "description": "Цей проект є частиною програми стажування Meduzzen."
@@ -79,23 +77,116 @@
     "description": "Відкрийте для себе інноваційні компанії, з якими ми співпрацюємо."
   },
 
-  "ProfilePage": {
-    "title": "Профіль",
-    "email": "Електронна пошта",
-    "firstName": "Ім'я",
-    "lastName": "Прізвище",
-    "status": "Статус",
-    "city": "Місто",
-    "phone": "Телефон",
-    "links": "Посилання"
+  "CompanyPage": {
+    "title": "Профіль компанії",
+    "sendRequest": "Надіслати заявку",
+
+    "nav": {
+      "info": "Інформація",
+      "members": "Члени",
+      "invites": "Запрошення",
+      "requests": "Заявки"
+    },
+
+    "info": {
+      "aboutUs": "Про нас",
+      "companyLinks": "Посилання компанії",
+      "companyOwner": "Власник компанії"
+    },
+
+    "members": {
+      "noMembers": "Немає членів в цій компанії",
+      "exclude": "Вилучити",
+      "modalExcludeTitle": "Вилучити члена",
+      "confirmExclude": "Ви впевнені, що хочете вилучити цього члена?",
+      "submitExclude": "Вилучити",
+      "cancelExclude": "Закрити"
+    },
+
+    "invites": {
+      "noInvites": "Немає запрошень",
+      "cancelInvite": "Скасувати запрошення",
+      "modalCancelInviteTitle": "Скасувати запрошення",
+      "confirmCancelInvite": "Ви впевнені, що хочете скасувати це запрошення?",
+      "submitCancelInvite": "Скасувати запрошення",
+      "cancelCancelInvite": "Закрити",
+
+      "inviteUser": "Запросити",
+      "enterUserId": "Введіть ID користувача"
+    },
+
+    "requests": {
+      "noRequests": "Немає заявок",
+      "acceptRequest": "Прийняти",
+      "modalAcceptRequestTitle": "Прийняти заявку",
+      "confirmAcceptRequest": "Ви впевнені, що хочете прийняти цю заявку?",
+      "submitAcceptRequest": "Прийняти заявку",
+      "cancelAcceptRequest": "Закрити",
+      "rejectRequest": "Відхилити",
+      "modalRejectRequestTitle": "Відхилити заявку",
+      "confirmRejectRequest": "Ви впевнені, що хочете відхилити цю заявку?",
+      "submitRejectRequest": "Відхилити заявку",
+      "cancelRejectRequest": "Закрити"
+    }
   },
 
-  "CompanyProfilePage": {
-    "title": "Профіль компанії",
-    "description": "Опис",
-    "aboutUs": "Про нас",
-    "companyLinks": "Посилання компанії",
-    "companyOwner": "Власник компанії"
+  "UserPage": {
+    "title": "Профіль",
+
+    "nav": {
+      "info": "Інформація",
+      "participation": "Мої компанії",
+      "invites": "Запрошення",
+      "requests": "Заявки"
+    },
+
+    "info": {
+      "email": "Електронна пошта",
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "status": "Статус",
+      "city": "Місто",
+      "phone": "Телефон",
+      "links": "Посилання"
+    },
+
+    "participation": {
+      "noCompanies": "You are not a member of any companies",
+      "leave": "Leave",
+      "modalLeaveTitle": "Leave Company",
+      "confirmLeave": "Are you sure you want to leave this company?",
+      "submitLeave": "Leave Company",
+      "cancelLeave": "Close"
+    },
+
+    "invites": {
+      "noInvites": "Ви не маєте запрошень",
+      "acceptInvite": "Прийняти",
+      "modalAcceptInviteTitle": "Прийняти запрошення",
+      "confirmAcceptInvite": "Ви впевнені, що хочете прийняти це запрошення?",
+      "submitAcceptInvite": "Прийняти запрошення",
+      "cancelAcceptInvite": "Закрити",
+
+      "rejectInvite": "Відхилити",
+      "modalRejectInviteTitle": "Відхилити запрошення",
+      "confirmRejectInvite": "Ви впевнені, що хочете відхилити це запрошення?",
+      "submitRejectInvite": "Відхилити запрошення",
+      "cancelRejectInvite": "Закрити"
+    },
+
+    "requests": {
+      "noRequests": "Немає активних заявок",
+      "cancelRequest": "Скасувати",
+      "modalCancelRequestTitle": "Скасувати заявку",
+      "confirmCancelRequest": "Ви впевнені, що хочете скасувати цю заявку?",
+      "submitCancelRequest": "Скасувати заявку",
+      "cancelCancelRequest": "Закрити"
+    }
+  },
+
+  "DashboardPage": {
+    "title": "Панель",
+    "description": "Ласкаво просимо до панелі!"
   },
 
   "Navigation": {
@@ -313,6 +404,17 @@
   "ApiHealthCheck": {
     "checkButton": "Перевірити роботу API",
     "successMessage": "API працює!",
+    "errorMessage": "Сталася помилка."
+  },
+
+  "ConfirmActionModal": {
+    "title": "Підтвердіть дію",
+    "message": "Ви впевнені, що хочете продовжити?",
+    "confirm": "Підтвердити",
+    "cancel": "Скасувати",
+    "close": "Закрити",
+    "successMessage": "Дія успішно виконана.",
+    "cancelSuccessMessage": "Дія успішно скасована.",
     "errorMessage": "Сталася помилка."
   }
 }

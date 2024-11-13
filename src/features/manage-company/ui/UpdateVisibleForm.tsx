@@ -8,7 +8,7 @@ import {
 } from "@entities/company"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { getForm } from "@shared/components/Form"
-import { useOverlays } from "@shared/overlays"
+import { useDialog, useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import styles from "./Styles.module.scss"
@@ -16,7 +16,8 @@ import styles from "./Styles.module.scss"
 export function UpdateVisibleForm({ company }: { company: CompanyDetails }) {
   const [updateVisible, { isError }] = useUpdateCompanyVisibleMutation()
 
-  const { toastError, toastSuccess, closeModal } = useOverlays()
+  const { toastError, toastSuccess } = useToaster()
+  const { closeDialog } = useDialog()
 
   const t = useTranslations()
 
@@ -27,7 +28,7 @@ export function UpdateVisibleForm({ company }: { company: CompanyDetails }) {
         visibleInfo: data,
       }).unwrap()
       toastSuccess(t("UpdateCompany.visible.result.success"))
-      closeModal()
+      closeDialog()
     } catch {
       toastError(t("UpdateCompany.visible.result.error"))
     }
@@ -50,7 +51,6 @@ export function UpdateVisibleForm({ company }: { company: CompanyDetails }) {
       className={styles["update-form"]}
     >
       <Form.Switch name="is_visible" label={t("UpdateCompany.visible.labels.visible")} />
-
       <Form.SubmitButton text={t("UpdateCompany.visible.submitText")} />
       <Form.ErrorMessage text={isError ? t("Error.default") : null} />
     </Form>

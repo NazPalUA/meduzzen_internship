@@ -8,35 +8,19 @@ import {
   Menu,
   MenuItem as MuiMenuItem,
 } from "@mui/material"
-
-import { ModalWindow, useOverlays, type ModalType } from "@shared/overlays/"
+import { useDialog } from "@shared/hooks"
 import { MouseEvent, ReactNode, useCallback, useState } from "react"
 
-type BaseMenuItem = {
+export type MenuItem = {
   text: string
-  icon: React.ReactNode
+  icon: ReactNode
   disabled?: boolean
-}
-
-type ModalMenuItem = BaseMenuItem & {
-  modalWindow: ModalType
   content: ReactNode
-  modalTitle?: string
-  onClick?: never
 }
-
-type ClickMenuItem = BaseMenuItem & {
-  modalWindow?: never
-  onClick: () => void
-  content?: never
-  modalTitle?: never
-}
-
-export type MenuItem = ModalMenuItem | ClickMenuItem
 
 type SettingsMenuProps = {
   menuItems: MenuItem[]
-  icon?: React.ReactNode
+  icon?: ReactNode
 }
 
 export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMenuProps) {
@@ -51,18 +35,14 @@ export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMen
     setAnchorEl(null)
   }, [])
 
-  const { openModal } = useOverlays()
+  const { openDialog } = useDialog()
 
   const handleItemClick = useCallback(
     (item: MenuItem) => {
-      if ("modalWindow" in item && item.modalWindow) {
-        openModal(item.modalWindow)
-      } else if ("onClick" in item && item.onClick) {
-        item.onClick()
-      }
+      openDialog(item.content)
       closeMenu()
     },
-    [closeMenu, openModal],
+    [closeMenu, openDialog],
   )
 
   return (
@@ -91,7 +71,7 @@ export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMen
       >
         {menuItems.map((item, index) => (
           <MuiMenuItem
-            key={item.modalWindow || `${item.text}-${index}`}
+            key={`${item.text}-${index}`}
             onClick={() => handleItemClick(item)}
             disabled={item.disabled}
           >
@@ -100,14 +80,6 @@ export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMen
           </MuiMenuItem>
         ))}
       </Menu>
-
-      {menuItems
-        .filter((item) => "modalWindow" in item && item.modalWindow !== undefined)
-        .map((item) => (
-          <ModalWindow title={item.modalTitle} modal={item.modalWindow} key={item.modalWindow}>
-            {item.content}
-          </ModalWindow>
-        ))}
     </>
   )
 }

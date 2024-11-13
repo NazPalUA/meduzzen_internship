@@ -24,6 +24,9 @@
     },
     "company": {
       "nameRequired": "Company name is required"
+    },
+    "userId": {
+      "number": "User ID must contain only numbers"
     }
   },
 
@@ -59,11 +62,6 @@
     "closeButton": "Close"
   },
 
-  "DashboardPage": {
-    "title": "Dashboard",
-    "description": "Welcome to the dashboard!"
-  },
-
   "AboutPage": {
     "title": "About This Project",
     "description": "This project is part of the Meduzzen internship program."
@@ -79,23 +77,116 @@
     "description": "Discover the innovative companies we work with."
   },
 
-  "ProfilePage": {
-    "title": "Profile",
-    "email": "Email",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "status": "Status",
-    "city": "City",
-    "phone": "Phone",
-    "links": "Links"
+  "CompanyPage": {
+    "title": "Company Profile",
+    "sendRequest": "Send Request",
+
+    "nav": {
+      "info": "Info",
+      "members": "Members",
+      "invites": "Invites",
+      "requests": "Requests"
+    },
+
+    "info": {
+      "aboutUs": "About Us",
+      "companyLinks": "Company Links",
+      "companyOwner": "Company Owner"
+    },
+
+    "members": {
+      "noMembers": "There are no members in this company",
+      "exclude": "Exclude",
+      "modalExcludeTitle": "Exclude Member",
+      "confirmExclude": "Are you sure you want to exclude this member?",
+      "submitExclude": "Exclude",
+      "cancelExclude": "Close"
+    },
+
+    "invites": {
+      "noInvites": "There are no pending invites in this company",
+      "cancelInvite": "Cancel Invite",
+      "modalCancelInviteTitle": "Cancel Invite",
+      "confirmCancelInvite": "Are you sure you want to cancel this invite?",
+      "submitCancelInvite": "Cancel Invite",
+      "cancelCancelInvite": "Close",
+
+      "inviteUser": "Invite",
+      "enterUserId": "Enter User ID"
+    },
+
+    "requests": {
+      "noRequests": "There are no pending requests for joining this company",
+      "acceptRequest": "Accept Request",
+      "modalAcceptRequestTitle": "Accept Request",
+      "confirmAcceptRequest": "Are you sure you want to accept this request?",
+      "submitAcceptRequest": "Accept Request",
+      "cancelAcceptRequest": "Close",
+      "rejectRequest": "Reject Request",
+      "modalRejectRequestTitle": "Reject Request",
+      "confirmRejectRequest": "Are you sure you want to reject this request?",
+      "submitRejectRequest": "Reject Request",
+      "cancelRejectRequest": "Close"
+    }
   },
 
-  "CompanyProfilePage": {
-    "title": "Company Profile",
-    "description": "Description",
-    "aboutUs": "About Us",
-    "companyLinks": "Company Links",
-    "companyOwner": "Company Owner"
+  "UserPage": {
+    "title": "Profile",
+
+    "nav": {
+      "info": "Info",
+      "participation": "My Companies",
+      "invites": "Invites",
+      "requests": "Requests"
+    },
+
+    "info": {
+      "email": "Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "status": "Status",
+      "city": "City",
+      "phone": "Phone",
+      "links": "Links"
+    },
+
+    "participation": {
+      "noCompanies": "You are not a member of any companies",
+      "leave": "Leave",
+      "modalLeaveTitle": "Leave Company",
+      "confirmLeave": "Are you sure you want to leave this company?",
+      "submitLeave": "Leave Company",
+      "cancelLeave": "Close"
+    },
+
+    "invites": {
+      "noInvites": "You have no invites",
+      "acceptInvite": "Accept",
+      "modalAcceptInviteTitle": "Accept Invite",
+      "confirmAcceptInvite": "Are you sure you want to accept this invite?",
+      "submitAcceptInvite": "Accept Invite",
+      "cancelAcceptInvite": "Close",
+
+      "rejectInvite": "Reject",
+      "modalRejectInviteTitle": "Reject Invite",
+      "confirmRejectInvite": "Are you sure you want to reject this invite?",
+      "submitRejectInvite": "Reject Invite",
+      "cancelRejectInvite": "Close"
+    },
+
+    "requests": {
+      "noRequests": "There are no active requests",
+      "cancelRequest": "Cancel",
+      "modalCancelRequestTitle": "Cancel Request",
+      "confirmCancelRequest": "Are you sure you want to cancel this request?",
+      "submitCancelRequest": "Cancel Request",
+      "cancelCancelRequest": "Close"
+    }
+  },
+
+  "DashboardPage": {
+    "title": "Dashboard",
+    "description": "Welcome to the dashboard!"
   },
 
   "Navigation": {
@@ -313,6 +404,17 @@
   "ApiHealthCheck": {
     "checkButton": "Check API Health",
     "successMessage": "API is healthy!",
+    "errorMessage": "An error occurred."
+  },
+
+  "ConfirmActionModal": {
+    "title": "Confirm Action",
+    "message": "Are you sure you want to proceed?",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "successMessage": "Action completed successfully.",
+    "cancelSuccessMessage": "Action cancelled successfully.",
     "errorMessage": "An error occurred."
   }
 }

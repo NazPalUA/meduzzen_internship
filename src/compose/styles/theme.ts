@@ -18,6 +18,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiListItemText: {
+      styleOverrides: {
+        secondary: {
+          margin: 0,
+        },
+      },
+    },
   },
 })
 

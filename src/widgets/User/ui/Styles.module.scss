@@ -1,0 +1,50 @@
+.link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.userInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  &__link {
+    display: block;
+    color: var(--mui-palette-primary-main);
+    margin-bottom: 0.25rem;
+  }
+}
+
+.infoCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  width: calc(50% - 1rem);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+
+  background-color: var(--mui-palette-grey-50);
+
+  &__label {
+    display: block;
+    margin-bottom: 0.25rem;
+
+    color: var(--mui-palette-text-secondary);
+  }
+
+  &__value {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  &__noValue {
+    color: var(--mui-palette-text-disabled);
+  }
+}

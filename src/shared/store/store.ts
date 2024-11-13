@@ -1,12 +1,12 @@
 import { sessionMiddleware } from "@entities/session"
 import { testSliceReducer } from "@features/test-store"
 import { Action, combineSlices, configureStore, ThunkAction } from "@reduxjs/toolkit"
-import { overlaysReducer } from "@shared/overlays"
+import { toasterReducer } from "@shared/lib"
 import { baseApi } from "../api"
 
 const rootReducer = combineSlices({
   test: testSliceReducer,
-  overlays: overlaysReducer,
+  toaster: toasterReducer,
   [baseApi.reducerPath]: baseApi.reducer,
 })
 

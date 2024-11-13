@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  margin-left: auto;
+  margin-top: 1rem;
+}
+
+.error {
+  color: var(--mui-palette-error-main);
+}

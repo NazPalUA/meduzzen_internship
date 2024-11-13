@@ -2,7 +2,7 @@
 
 import { CompanyDetails, useUpdateCompanyAvatarMutation } from "@entities/company"
 import { Button, CircularProgress } from "@mui/material"
-import { useOverlays } from "@shared/overlays"
+import { useDialog, useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { ChangeEvent, useState } from "react"
@@ -12,7 +12,8 @@ export function UpdateAvatarForm({ company }: { company: CompanyDetails }) {
   const [updateCompanyAvatar, { isLoading }] = useUpdateCompanyAvatarMutation()
 
   const t = useTranslations("UpdateCompany.avatar")
-  const { toastError, toastSuccess, closeModal } = useOverlays()
+  const { toastError, toastSuccess } = useToaster()
+  const { closeDialog } = useDialog()
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
@@ -41,7 +42,7 @@ export function UpdateAvatarForm({ company }: { company: CompanyDetails }) {
       setPreviewUrl(null)
       setSelectedFile(null)
       if (previewUrl) URL.revokeObjectURL(previewUrl)
-      closeModal()
+      closeDialog()
     } catch {
       toastError(t("result.error"))
     }

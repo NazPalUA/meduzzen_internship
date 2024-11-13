@@ -8,10 +8,10 @@ import {
   Lock as LockIcon,
 } from "@mui/icons-material"
 import { SettingsMenu, type MenuItem } from "@shared/components/SettingsMenu"
+import { ContentDialog } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
-import { DeleteUserForm } from "./DeleteUserForm"
-import styles from "./Styles.module.scss"
+import { DeleteModal } from "./DeleteModal"
 import { UpdateAvatarForm } from "./UpdateAvatarForm"
 import { UpdateInfoForm } from "./UpdateInfoForm"
 import { UpdatePasswordForm } from "./UpdatePasswordForm"
@@ -31,36 +31,36 @@ export function Settings() {
     {
       text: t("updateInfo"),
       icon: <EditIcon fontSize="small" />,
-      modalWindow: "updateUserInfo",
-      modalTitle: t("updateInfo"),
-      content: <UpdateInfoForm user={currentUser} />,
+      content: (
+        <ContentDialog>
+          <UpdateInfoForm user={currentUser} />
+        </ContentDialog>
+      ),
     },
     {
       text: t("updateAvatar"),
       icon: <AccountCircleIcon fontSize="small" />,
-      modalWindow: "updateUserAvatar",
-      modalTitle: t("updateAvatar"),
-      content: <UpdateAvatarForm user={currentUser} />,
+      content: (
+        <ContentDialog title={t("updateAvatar")}>
+          <UpdateAvatarForm user={currentUser} />
+        </ContentDialog>
+      ),
     },
     {
       text: t("changePassword"),
       icon: <LockIcon fontSize="small" />,
-      modalWindow: "updateUserPassword",
-      modalTitle: t("changePassword"),
-      content: <UpdatePasswordForm user={currentUser} />,
+      content: (
+        <ContentDialog>
+          <UpdatePasswordForm user={currentUser} />
+        </ContentDialog>
+      ),
     },
     {
       text: t("deleteAccount"),
       icon: <DeleteIcon fontSize="small" />,
-      modalWindow: "deleteUser",
-      modalTitle: t("deleteAccount"),
-      content: <DeleteUserForm user={currentUser} />,
+      content: <DeleteModal user={currentUser} />,
     },
   ]
 
-  return (
-    <div className={styles.container}>
-      <SettingsMenu menuItems={menuItems} />
-    </div>
-  )
+  return <SettingsMenu menuItems={menuItems} />
 }
