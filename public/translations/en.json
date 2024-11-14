@@ -177,7 +177,7 @@
 
     "nav": {
       "info": "Info",
-      "participation": "My Companies",
+      "companies": "My Companies",
       "invites": "Invites",
       "requests": "Requests"
     },
@@ -192,13 +192,15 @@
       "links": "Links"
     },
 
-    "participation": {
+    "companies": {
       "noCompanies": "You are not a member of any companies",
       "leave": "Leave",
       "modalLeaveTitle": "Leave Company",
       "confirmLeave": "Are you sure you want to leave this company?",
       "submitLeave": "Leave Company",
-      "cancelLeave": "Close"
+      "cancelLeave": "Close",
+      "successLeave": "You have successfully left the company!",
+      "errorLeave": "Failed to leave company. Please try again."
     },
 
     "invites": {
@@ -208,12 +210,16 @@
       "confirmAcceptInvite": "Are you sure you want to accept this invite?",
       "submitAcceptInvite": "Accept Invite",
       "cancelAcceptInvite": "Close",
+      "successAcceptInvite": "Invite accepted successfully!",
+      "errorAcceptInvite": "Failed to accept invite. Please try again.",
 
       "rejectInvite": "Reject",
       "modalRejectInviteTitle": "Reject Invite",
       "confirmRejectInvite": "Are you sure you want to reject this invite?",
       "submitRejectInvite": "Reject Invite",
-      "cancelRejectInvite": "Close"
+      "cancelRejectInvite": "Close",
+      "successRejectInvite": "Invite rejected successfully!",
+      "errorRejectInvite": "Failed to reject invite. Please try again."
     },
 
     "requests": {
@@ -222,7 +228,9 @@
       "modalCancelRequestTitle": "Cancel Request",
       "confirmCancelRequest": "Are you sure you want to cancel this request?",
       "submitCancelRequest": "Cancel Request",
-      "cancelCancelRequest": "Close"
+      "cancelCancelRequest": "Close",
+      "successCancelRequest": "Request cancelled successfully!",
+      "errorCancelRequest": "Failed to cancel request. Please try again."
     }
   },
 

@@ -5,9 +5,9 @@ import LocationCityIcon from "@mui/icons-material/LocationCity"
 import PhoneIcon from "@mui/icons-material/Phone"
 import { Link } from "@navigation"
 import { Avatar } from "@shared/components/ui"
+import { getDisplayLinks } from "@shared/utils"
 import clsx from "clsx"
 import { useTranslations } from "next-intl"
-import { getDisplayLinks } from "../lib/utils/getDisplayLinks"
 import styles from "./Styles.module.scss"
 
 export function TabInfo({ company }: { company: CompanyDetails }) {

@@ -177,7 +177,7 @@
 
     "nav": {
       "info": "Інформація",
-      "participation": "Мої компанії",
+      "companies": "Мої компанії",
       "invites": "Запрошення",
       "requests": "Заявки"
     },
@@ -192,13 +192,15 @@
       "links": "Посилання"
     },
 
-    "participation": {
+    "companies": {
       "noCompanies": "Ви не є членом жодної компанії",
       "leave": "Вийти",
       "modalLeaveTitle": "Вийти з компанії",
       "confirmLeave": "Ви впевнені, що хочете вийти з цієї компанії?",
       "submitLeave": "Вийти з компанії",
-      "cancelLeave": "Закрити"
+      "cancelLeave": "Закрити",
+      "successLeave": "Ви успішно вийшли з компанії!",
+      "errorLeave": "Не вдалося вийти з компанії. Будь ласка, спробуйте ще раз."
     },
 
     "invites": {
@@ -208,12 +210,16 @@
       "confirmAcceptInvite": "Ви впевнені, що хочете прийняти це запрошення?",
       "submitAcceptInvite": "Прийняти запрошення",
       "cancelAcceptInvite": "Закрити",
+      "successAcceptInvite": "Запрошення прийнято успішно!",
+      "errorAcceptInvite": "Не вдалося прийняти запрошення. Будь ласка, спробуйте ще раз.",
 
       "rejectInvite": "Відхилити",
       "modalRejectInviteTitle": "Відхилити запрошення",
       "confirmRejectInvite": "Ви впевнені, що хочете відхилити це запрошення?",
       "submitRejectInvite": "Відхилити запрошення",
-      "cancelRejectInvite": "Закрити"
+      "cancelRejectInvite": "Закрити",
+      "successRejectInvite": "Запрошення відхилено успішно!",
+      "errorRejectInvite": "Не вдалося відхилити запрошення. Будь ласка, спробуйте ще раз."
     },
 
     "requests": {
@@ -222,7 +228,9 @@
       "modalCancelRequestTitle": "Скасувати заявку",
       "confirmCancelRequest": "Ви впевнені, що хочете скасувати цю заявку?",
       "submitCancelRequest": "Скасувати заявку",
-      "cancelCancelRequest": "Закрити"
+      "cancelCancelRequest": "Закрити",
+      "successCancelRequest": "Заявку скасовано успішно!",
+      "errorCancelRequest": "Не вдалося скасувати заявку. Будь ласка, спробуйте ще раз."
     }
   },
 
