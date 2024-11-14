@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl"
 import { InviteItem } from "./InviteItem"
 
 export function InvitesList({ companyId }: { companyId: number }) {
-  const { data: users, isLoading, isError } = useGetCompanyInvitesListQuery(companyId.toString())
+  const { data: users, isLoading, isError } = useGetCompanyInvitesListQuery(companyId)
   const t = useTranslations("CompanyPage.invites")
 
   if (isLoading) return <LoadingSpinner />

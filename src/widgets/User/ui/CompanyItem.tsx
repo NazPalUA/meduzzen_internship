@@ -22,7 +22,7 @@ export function CompanyItem({ company }: { company: UserDataCompany }) {
           title={t("modalLeaveTitle")}
           message={t("confirmLeave")}
           confirmAction={{
-            onAction: () => leaveCompany(company.action_id.toString()).unwrap(),
+            onAction: () => leaveCompany(company.action_id).unwrap(),
             buttonProps: {
               children: t("submitLeave"),
               color: "error",

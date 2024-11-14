@@ -14,7 +14,7 @@ type UsePermissionReturn = {
 export const usePermission = (companyId: number): UsePermissionReturn => {
   const { user, isLoading: isSessionLoading, isError: isSessionError } = useSession()
 
-  const userId = user?.user_id?.toString()
+  const userId = user?.user_id
 
   const {
     data: userCompanies,

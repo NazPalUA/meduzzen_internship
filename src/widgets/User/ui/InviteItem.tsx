@@ -24,7 +24,7 @@ export function InviteItem({ company }: { company: UserDataCompany }) {
           title={t("modalAcceptInviteTitle")}
           message={t("confirmAcceptInvite")}
           confirmAction={{
-            onAction: () => acceptInvite(company.action_id.toString()).unwrap(),
+            onAction: () => acceptInvite(company.action_id).unwrap(),
             buttonProps: {
               children: t("submitAcceptInvite"),
               color: "success",
@@ -49,7 +49,7 @@ export function InviteItem({ company }: { company: UserDataCompany }) {
           title={t("modalRejectInviteTitle")}
           message={t("confirmRejectInvite")}
           confirmAction={{
-            onAction: () => rejectInvite(company.action_id.toString()).unwrap(),
+            onAction: () => rejectInvite(company.action_id).unwrap(),
             buttonProps: {
               children: t("submitRejectInvite"),
               color: "error",

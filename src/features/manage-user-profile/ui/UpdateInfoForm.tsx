@@ -25,7 +25,7 @@ export function UpdateInfoForm({ user }: { user: CurrentUser }) {
 
   const onSubmit = async (data: UpdateUserInfoCredentials) => {
     try {
-      await updateUserInfo({ userId: user.user_id.toString(), userInfo: data }).unwrap()
+      await updateUserInfo({ userId: user.user_id, userInfo: data }).unwrap()
       toastSuccess(t("UpdateUser.info.result.success"))
       closeDialog()
     } catch {

@@ -41,7 +41,7 @@ export function MemberItem({
           title={t("modalExcludeTitle")}
           message={t("confirmExclude")}
           confirmAction={{
-            onAction: () => excludeMember(member.action_id.toString()).unwrap(),
+            onAction: () => excludeMember(member.action_id).unwrap(),
             buttonProps: {
               children: t("submitExclude"),
               color: "error",
@@ -69,8 +69,8 @@ export function MemberItem({
           confirmAction={{
             onAction: () =>
               !isMemberAdmin
-                ? addToAdmin(member.action_id.toString()).unwrap()
-                : removeFromAdmin(member.action_id.toString()).unwrap(),
+                ? addToAdmin(member.action_id).unwrap()
+                : removeFromAdmin(member.action_id).unwrap(),
             buttonProps: {
               children: !isMemberAdmin ? t("submitAddToAdmin") : t("submitRemoveFromAdmin"),
               color: "primary",

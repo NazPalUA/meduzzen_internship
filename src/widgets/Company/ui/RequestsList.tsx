@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl"
 import { RequestItem } from "./RequestItem"
 
 export function RequestsList({ companyId }: { companyId: number }) {
-  const { data: users, isLoading, isError } = useGetCompanyRequestsListQuery(companyId.toString())
+  const { data: users, isLoading, isError } = useGetCompanyRequestsListQuery(companyId)
   const t = useTranslations("CompanyPage.requests")
 
   if (isLoading) return <LoadingSpinner />

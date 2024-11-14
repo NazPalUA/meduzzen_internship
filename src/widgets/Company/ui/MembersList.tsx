@@ -17,7 +17,7 @@ export function MembersList({
   showAdminOnly: boolean
   permission: Permission
 }) {
-  const { data, isLoading, isError } = useGetCompanyMembersListQuery(companyId.toString())
+  const { data, isLoading, isError } = useGetCompanyMembersListQuery(companyId)
   const t = useTranslations("CompanyPage.members")
 
   const members = filterMembers(data, showAdminOnly)

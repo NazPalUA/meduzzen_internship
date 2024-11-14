@@ -5,7 +5,7 @@ import { CompanyDataUsersListResponse, CompanyDataUsersListResponseSchema } from
 const companyDataApiSlice = baseApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
-    getCompanyMembersList: build.query<CompanyDataUsersListResponse["result"]["users"], string>({
+    getCompanyMembersList: build.query<CompanyDataUsersListResponse["result"]["users"], number>({
       query: (userId) => ({
         url: API_ENDPOINTS.COMPANY_DATA.GET_MEMBERS_LIST(userId),
         method: HttpMethod.GET,
@@ -16,7 +16,7 @@ const companyDataApiSlice = baseApi.injectEndpoints({
       providesTags: ["CompanyData"],
     }),
 
-    getCompanyInvitesList: build.query<CompanyDataUsersListResponse["result"]["users"], string>({
+    getCompanyInvitesList: build.query<CompanyDataUsersListResponse["result"]["users"], number>({
       query: (userId) => ({
         url: API_ENDPOINTS.COMPANY_DATA.GET_INVITES_LIST(userId),
         method: HttpMethod.GET,
@@ -27,7 +27,7 @@ const companyDataApiSlice = baseApi.injectEndpoints({
       providesTags: ["CompanyData"],
     }),
 
-    getCompanyRequestsList: build.query<CompanyDataUsersListResponse["result"]["users"], string>({
+    getCompanyRequestsList: build.query<CompanyDataUsersListResponse["result"]["users"], number>({
       query: (userId) => ({
         url: API_ENDPOINTS.COMPANY_DATA.GET_REQUESTS_LIST(userId),
         method: HttpMethod.GET,

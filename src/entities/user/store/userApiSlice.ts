@@ -41,7 +41,7 @@ const userApiSlice = baseApi.injectEndpoints({
       providesTags: ["User"],
     }),
 
-    getUserById: build.query<UserDetails, string>({
+    getUserById: build.query<UserDetails, number>({
       query: (userId) => ({
         url: API_ENDPOINTS.USER.GET_USER_BY_ID(userId),
         method: HttpMethod.GET,
@@ -64,7 +64,7 @@ const userApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["User"],
     }),
 
-    deleteUser: build.mutation<DeleteUserResponse, string>({
+    deleteUser: build.mutation<DeleteUserResponse, number>({
       query: (userId) => ({
         url: API_ENDPOINTS.USER.DELETE_USER(userId),
         method: HttpMethod.DELETE,
@@ -77,7 +77,7 @@ const userApiSlice = baseApi.injectEndpoints({
 
     updateUserInfo: build.mutation<
       UpdateUserInfoResponse,
-      { userId: string; userInfo: UpdateUserInfoCredentials }
+      { userId: number; userInfo: UpdateUserInfoCredentials }
     >({
       query: ({ userId, userInfo }) => ({
         url: API_ENDPOINTS.USER.UPDATE_USER_INFO(userId),
@@ -92,7 +92,7 @@ const userApiSlice = baseApi.injectEndpoints({
 
     updateUserPassword: build.mutation<
       UpdateUserPasswordResponse,
-      { userId: string; passwordInfo: UpdateUserPasswordCredentials }
+      { userId: number; passwordInfo: UpdateUserPasswordCredentials }
     >({
       query: ({ userId, passwordInfo }) => ({
         url: API_ENDPOINTS.USER.UPDATE_USER_PASSWORD(userId),
@@ -106,7 +106,7 @@ const userApiSlice = baseApi.injectEndpoints({
 
     updateUserAvatar: build.mutation<
       UpdateUserAvatarResponse,
-      { userId: string; avatar: UpdateUserAvatarCredentials }
+      { userId: number; avatar: UpdateUserAvatarCredentials }
     >({
       query: ({ userId, avatar }) => {
         const formData = new FormData()

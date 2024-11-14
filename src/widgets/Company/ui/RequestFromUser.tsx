@@ -16,7 +16,7 @@ export function RequestFromUser({ companyId, userId }: { companyId: number; user
     isLoading: isDataLoading,
     isFetching: isDataFetching,
     isError,
-  } = useGetUserRequestsListQuery(userId.toString())
+  } = useGetUserRequestsListQuery(userId)
 
   const { toastError, toastSuccess } = useToaster()
   const t = useTranslations("CompanyPage.request")
@@ -27,7 +27,7 @@ export function RequestFromUser({ companyId, userId }: { companyId: number; user
 
   async function handleSendRequest() {
     try {
-      await sendRequest(companyId.toString()).unwrap()
+      await sendRequest(companyId).unwrap()
       toastSuccess(t("send.success"))
     } catch (error) {
       console.error(error)
@@ -38,7 +38,7 @@ export function RequestFromUser({ companyId, userId }: { companyId: number; user
   async function handleCancelRequest() {
     if (currentRequest) {
       try {
-        await cancelRequest(currentRequest.action_id.toString()).unwrap()
+        await cancelRequest(currentRequest.action_id).unwrap()
         toastSuccess(t("cancel.success"))
       } catch (error) {
         console.error(error)

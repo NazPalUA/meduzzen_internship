@@ -22,7 +22,7 @@ export function RequestItem({ company }: { company: UserDataCompany }) {
           title={t("modalCancelRequestTitle")}
           message={t("confirmCancelRequest")}
           confirmAction={{
-            onAction: () => cancelRequest(company.action_id.toString()).unwrap(),
+            onAction: () => cancelRequest(company.action_id).unwrap(),
             buttonProps: {
               children: t("submitCancelRequest"),
               color: "error",

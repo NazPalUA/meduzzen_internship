@@ -23,7 +23,7 @@ export function RequestItem({ user }: { user: CompanyDataUser }) {
           title={t("modalAcceptRequestTitle")}
           message={t("confirmAcceptRequest")}
           confirmAction={{
-            onAction: () => acceptRequest(user.action_id.toString()).unwrap(),
+            onAction: () => acceptRequest(user.action_id).unwrap(),
             buttonProps: {
               children: t("submitAcceptRequest"),
               color: "success",
@@ -48,7 +48,7 @@ export function RequestItem({ user }: { user: CompanyDataUser }) {
           title={t("modalRejectRequestTitle")}
           message={t("confirmRejectRequest")}
           confirmAction={{
-            onAction: () => rejectRequest(user.action_id.toString()).unwrap(),
+            onAction: () => rejectRequest(user.action_id).unwrap(),
             buttonProps: {
               children: t("submitRejectRequest"),
               color: "error",

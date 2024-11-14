@@ -36,7 +36,7 @@ export function UpdateAvatarForm({ user }: { user: CurrentUser }) {
 
     try {
       await updateUserAvatar({
-        userId: user.user_id.toString(),
+        userId: user.user_id,
         avatar: { file: selectedFile },
       }).unwrap()
       toastSuccess(t("result.success"))

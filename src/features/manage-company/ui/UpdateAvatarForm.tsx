@@ -35,7 +35,7 @@ export function UpdateAvatarForm({ company }: { company: CompanyDetails }) {
 
     try {
       await updateCompanyAvatar({
-        companyId: company.company_id.toString(),
+        companyId: company.company_id,
         avatar: { file: selectedFile },
       }).unwrap()
       toastSuccess(t("result.success"))

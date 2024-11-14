@@ -41,7 +41,7 @@ const companyApiSlice = baseApi.injectEndpoints({
       providesTags: ["Company"],
     }),
 
-    getCompanyById: build.query<CompanyDetails, string>({
+    getCompanyById: build.query<CompanyDetails, number>({
       query: (companyId) => ({
         url: API_ENDPOINTS.COMPANY.GET_COMPANY_BY_ID(companyId),
         method: HttpMethod.GET,
@@ -64,7 +64,7 @@ const companyApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["Company", "UserData"],
     }),
 
-    deleteCompany: build.mutation<DeleteCompanyResponse, string>({
+    deleteCompany: build.mutation<DeleteCompanyResponse, number>({
       query: (companyId) => ({
         url: API_ENDPOINTS.COMPANY.DELETE_COMPANY(companyId),
         method: HttpMethod.DELETE,
@@ -77,7 +77,7 @@ const companyApiSlice = baseApi.injectEndpoints({
 
     updateCompanyInfo: build.mutation<
       UpdateCompanyInfoResponse,
-      { companyId: string; companyInfo: UpdateCompanyInfoCredentials }
+      { companyId: number; companyInfo: UpdateCompanyInfoCredentials }
     >({
       query: ({ companyId, companyInfo }) => ({
         url: API_ENDPOINTS.COMPANY.UPDATE_COMPANY_INFO(companyId),
@@ -95,7 +95,7 @@ const companyApiSlice = baseApi.injectEndpoints({
 
     updateCompanyVisible: build.mutation<
       UpdateCompanyVisibleResponse,
-      { companyId: string; visibleInfo: UpdateCompanyVisibleCredentials }
+      { companyId: number; visibleInfo: UpdateCompanyVisibleCredentials }
     >({
       query: ({ companyId, visibleInfo }) => ({
         url: API_ENDPOINTS.COMPANY.UPDATE_COMPANY_VISIBLE(companyId),
@@ -113,7 +113,7 @@ const companyApiSlice = baseApi.injectEndpoints({
 
     updateCompanyAvatar: build.mutation<
       UpdateCompanyAvatarResponse,
-      { companyId: string; avatar: UpdateCompanyAvatarCredentials }
+      { companyId: number; avatar: UpdateCompanyAvatarCredentials }
     >({
       query: ({ companyId, avatar }) => {
         const formData = new FormData()

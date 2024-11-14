@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl"
 import { CompanyItem } from "./CompanyItem"
 
 export function CompaniesList({ user_id }: { user_id: number }) {
-  const { data: companies, isLoading, isError } = useGetUserCompaniesListQuery(user_id.toString())
+  const { data: companies, isLoading, isError } = useGetUserCompaniesListQuery(user_id)
   const t = useTranslations("UserPage.companies")
 
   if (isLoading) return <LoadingSpinner />

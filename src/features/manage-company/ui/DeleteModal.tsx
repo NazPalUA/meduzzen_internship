@@ -16,7 +16,7 @@ export function DeleteModal({ company }: { company: CompanyDetails }) {
   return (
     <ConfirmActionModal
       confirmAction={{
-        onAction: () => deleteCompany(company.company_id.toString()).unwrap(),
+        onAction: () => deleteCompany(company.company_id).unwrap(),
         successMessage: t("result.success"),
         errorMessage: t("result.error"),
         onSuccess: () => router.push(`${Routes.USERS}/${company.company_owner.user_id}`),

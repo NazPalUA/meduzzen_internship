@@ -22,7 +22,7 @@ export function InviteItem({ user }: { user: CompanyDataUser }) {
           title={t("modalCancelInviteTitle")}
           message={t("confirmCancelInvite")}
           confirmAction={{
-            onAction: () => cancelInvite(user.action_id.toString()).unwrap(),
+            onAction: () => cancelInvite(user.action_id).unwrap(),
             buttonProps: {
               children: t("submitCancelInvite"),
               color: "error",

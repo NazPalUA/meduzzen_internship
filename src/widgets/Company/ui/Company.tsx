@@ -7,7 +7,7 @@ import { usePermission } from "../lib/hooks/usePermission"
 import { Dashboard } from "./Dashboard"
 
 export function Company({ companyId }: { companyId: string }) {
-  const { data: company, isLoading, isError } = useGetCompanyByIdQuery(companyId)
+  const { data: company, isLoading, isError } = useGetCompanyByIdQuery(Number(companyId))
   const { user } = useSession()
   const {
     permission,

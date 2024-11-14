@@ -10,7 +10,7 @@ import {
 const actionApiSlice = baseApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
-    createActionFromUser: build.mutation<ActionWithIdResponse["result"], string>({
+    createActionFromUser: build.mutation<ActionWithIdResponse["result"], number>({
       query: (companyId) => ({
         url: API_ENDPOINTS.ACTION.CREATE_ACTION_FROM_USER(companyId),
         method: HttpMethod.GET,
@@ -23,7 +23,7 @@ const actionApiSlice = baseApi.injectEndpoints({
 
     createActionFromCompany: build.mutation<
       ActionWithIdResponse["result"],
-      { companyId: string; userId: string }
+      { companyId: number; userId: number }
     >({
       query: ({ companyId, userId }) => ({
         url: API_ENDPOINTS.ACTION.CREATE_ACTION_FROM_COMPANY(companyId, userId),
@@ -35,7 +35,7 @@ const actionApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["CompanyData", "UserData"],
     }),
 
-    acceptActionInvite: build.mutation<ActionWithIdResponse["result"], string>({
+    acceptActionInvite: build.mutation<ActionWithIdResponse["result"], number>({
       query: (actionId) => ({
         url: API_ENDPOINTS.ACTION.ACCEPT_INVITE(actionId),
         method: HttpMethod.GET,
@@ -46,7 +46,7 @@ const actionApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["CompanyData", "UserData"],
     }),
 
-    acceptActionRequest: build.mutation<ActionWithIdResponse["result"], string>({
+    acceptActionRequest: build.mutation<ActionWithIdResponse["result"], number>({
       query: (actionId) => ({
         url: API_ENDPOINTS.ACTION.ACCEPT_REQUEST(actionId),
         method: HttpMethod.GET,
@@ -57,7 +57,7 @@ const actionApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["CompanyData", "UserData"],
     }),
 
-    declineAction: build.mutation<ActionWithoutIdResponse["result"], string>({
+    declineAction: build.mutation<ActionWithoutIdResponse["result"], number>({
       query: (actionId) => ({
         url: API_ENDPOINTS.ACTION.DECLINE_ACTION(actionId),
         method: HttpMethod.GET,
@@ -68,7 +68,7 @@ const actionApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["CompanyData", "UserData"],
     }),
 
-    addToAdmin: build.mutation<ActionWithIdResponse["result"], string>({
+    addToAdmin: build.mutation<ActionWithIdResponse["result"], number>({
       query: (actionId) => ({
         url: API_ENDPOINTS.ACTION.ADD_TO_ADMIN(actionId),
         method: HttpMethod.GET,
@@ -79,7 +79,7 @@ const actionApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["CompanyData", "UserData"],
     }),
 
-    removeFromAdmin: build.mutation<ActionWithIdResponse["result"], string>({
+    removeFromAdmin: build.mutation<ActionWithIdResponse["result"], number>({
       query: (actionId) => ({
         url: API_ENDPOINTS.ACTION.REMOVE_FROM_ADMIN(actionId),
         method: HttpMethod.GET,
@@ -90,7 +90,7 @@ const actionApiSlice = baseApi.injectEndpoints({
       invalidatesTags: ["CompanyData", "UserData"],
     }),
 
-    leaveCompany: build.mutation<ActionWithoutIdResponse["result"], string>({
+    leaveCompany: build.mutation<ActionWithoutIdResponse["result"], number>({
       query: (actionId) => ({
         url: API_ENDPOINTS.ACTION.LEAVE_COMPANY(actionId),
         method: HttpMethod.GET,
