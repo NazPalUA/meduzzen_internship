@@ -1,6 +1,11 @@
 import { API_ENDPOINTS, baseApi, HttpMethod } from "@shared/api"
 import { parseData } from "@shared/utils"
-import { CompanyDataUsersListResponse, CompanyDataUsersListResponseSchema } from "../model"
+import {
+  CompanyDataQuizzesListResponse,
+  CompanyDataQuizzesListResponseSchema,
+  CompanyDataUsersListResponse,
+  CompanyDataUsersListResponseSchema,
+} from "../model"
 
 const companyDataApiSlice = baseApi.injectEndpoints({
   overrideExisting: false,
@@ -37,6 +42,19 @@ const companyDataApiSlice = baseApi.injectEndpoints({
       },
       providesTags: ["CompanyData"],
     }),
+
+    getCompanyQuizzesList: build.query<CompanyDataQuizzesListResponse["result"]["quizzes"], number>(
+      {
+        query: (companyId) => ({
+          url: API_ENDPOINTS.COMPANY_DATA.GET_QUIZZES_LIST(companyId),
+          method: HttpMethod.GET,
+        }),
+        transformResponse: (response: unknown) => {
+          return parseData(CompanyDataQuizzesListResponseSchema, response).result.quizzes
+        },
+        providesTags: ["CompanyData"],
+      },
+    ),
   }),
 })
 
@@ -44,4 +62,5 @@ export const {
   useGetCompanyMembersListQuery,
   useGetCompanyInvitesListQuery,
   useGetCompanyRequestsListQuery,
+  useGetCompanyQuizzesListQuery,
 } = companyDataApiSlice
