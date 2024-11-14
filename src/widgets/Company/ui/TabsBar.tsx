@@ -1,9 +1,11 @@
 "use client"
 
-import BusinessIcon from "@mui/icons-material/Business"
-import GroupIcon from "@mui/icons-material/Group"
-import GroupAddIcon from "@mui/icons-material/GroupAdd"
-import HowToRegIcon from "@mui/icons-material/HowToReg"
+import {
+  Business as InfoIcon,
+  GroupAdd as InvitesIcon,
+  Group as MembersIcon,
+  HowToReg as RequestsIcon,
+} from "@mui/icons-material"
 import Tab from "@mui/material/Tab"
 import Tabs from "@mui/material/Tabs"
 import { useRouter } from "@navigation"
@@ -26,11 +28,16 @@ export function TabsBar({ permission: { isOutsider, isOwner } }: { permission: P
 
   return isOutsider ? null : (
     <Tabs value={currentTab} onChange={handleChange}>
-      <Tab icon={<BusinessIcon />} value={TabEnum.INFO} iconPosition="start" label={t("info")} />
-      <Tab icon={<GroupIcon />} value={TabEnum.MEMBERS} iconPosition="start" label={t("members")} />
+      <Tab icon={<InfoIcon />} value={TabEnum.INFO} iconPosition="start" label={t("info")} />
+      <Tab
+        icon={<MembersIcon />}
+        value={TabEnum.MEMBERS}
+        iconPosition="start"
+        label={t("members")}
+      />
       {isOwner && (
         <Tab
-          icon={<GroupAddIcon />}
+          icon={<InvitesIcon />}
           value={TabEnum.INVITES}
           iconPosition="start"
           label={t("invites")}
@@ -38,7 +45,7 @@ export function TabsBar({ permission: { isOutsider, isOwner } }: { permission: P
       )}
       {isOwner && (
         <Tab
-          icon={<HowToRegIcon />}
+          icon={<RequestsIcon />}
           value={TabEnum.REQUESTS}
           iconPosition="start"
           label={t("requests")}
