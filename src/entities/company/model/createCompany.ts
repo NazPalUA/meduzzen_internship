@@ -1,10 +1,9 @@
 import { ServerResponseSchema } from "@shared/api"
+import { translateMessage } from "@shared/utils"
 import { z } from "zod"
 
 export const createCompanyCredentialsSchema = (t?: (key: string) => string) => {
-  const translate = (key: string, defaultMessage: string) => {
-    return t ? t(key) : defaultMessage
-  }
+  const translate = translateMessage(t)
 
   return z.object({
     company_name: z
