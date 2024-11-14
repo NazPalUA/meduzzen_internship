@@ -1,5 +1,3 @@
-"use client"
-
 import { type CompanyDetails } from "@entities/company"
 import EmailIcon from "@mui/icons-material/Email"
 import LinkIcon from "@mui/icons-material/Link"
@@ -9,14 +7,10 @@ import { Link } from "@navigation"
 import { Avatar } from "@shared/components/ui"
 import clsx from "clsx"
 import { useTranslations } from "next-intl"
+import { getDisplayLinks } from "../lib/utils/getDisplayLinks"
 import styles from "./Styles.module.scss"
 
-type DisplayLink = {
-  url: string
-  displayText: string
-}
-
-export function Info({ company }: { company: CompanyDetails }) {
+export function TabInfo({ company }: { company: CompanyDetails }) {
   const {
     company_description,
     company_city,
@@ -27,21 +21,7 @@ export function Info({ company }: { company: CompanyDetails }) {
 
   const t = useTranslations("CompanyPage.info")
 
-  const displayLinks: DisplayLink[] = company_links
-    ? company_links
-        .map((link) => {
-          try {
-            const url = new URL(link)
-            return {
-              url: url.toString(),
-              displayText: url.hostname.replace(/^www\./, ""),
-            }
-          } catch {
-            return null
-          }
-        })
-        .filter((link) => link !== null)
-    : []
+  const displayLinks = getDisplayLinks(company_links)
 
   return (
     <div className={styles.info}>
@@ -75,7 +55,7 @@ export function Info({ company }: { company: CompanyDetails }) {
         </section>
       )}
 
-      {displayLinks.length > 0 && (
+      {!!displayLinks.length && (
         <section className={styles.info__section}>
           <h4 className={styles.info__sectionTitle}>{t("companyLinks")}</h4>
 

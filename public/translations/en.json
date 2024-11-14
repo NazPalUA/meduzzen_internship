@@ -109,23 +109,31 @@
 
     "members": {
       "noMembers": "There are no members in this company",
+      "noAdmins": "There are no admins in this company",
+
       "exclude": "Exclude from Company",
       "modalExcludeTitle": "Exclude Member from Company",
       "confirmExclude": "Are you sure you want to exclude this member?",
       "submitExclude": "Exclude",
       "cancelExclude": "Close",
+      "successExclude": "Member excluded successfully!",
+      "errorExclude": "Failed to exclude member. Please try again.",
 
       "addToAdmin": "Make Admin",
       "modalAddToAdminTitle": "Promote User to Admin",
       "confirmAddToAdmin": "Are you sure you want to promote this user to admin?",
       "submitAddToAdmin": "Promote to Admin",
       "cancelAddToAdmin": "Close",
+      "successAddToAdmin": "Member promoted to admin successfully!",
+      "errorAddToAdmin": "Failed to promote member to admin. Please try again.",
 
       "removeFromAdmin": "Remove Admin",
       "modalRemoveFromAdminTitle": "Remove Admin",
       "confirmRemoveFromAdmin": "Are you sure you want to remove this user from admin?",
       "submitRemoveFromAdmin": "Remove from Admin",
-      "cancelRemoveFromAdmin": "Close"
+      "cancelRemoveFromAdmin": "Close",
+      "successRemoveFromAdmin": "Member removed from admin successfully!",
+      "errorRemoveFromAdmin": "Failed to remove member from admin. Please try again."
     },
 
     "invites": {
@@ -135,9 +143,13 @@
       "confirmCancelInvite": "Are you sure you want to cancel this invite?",
       "submitCancelInvite": "Cancel Invite",
       "cancelCancelInvite": "Close",
+      "successCancelInvite": "Invite cancelled successfully!",
+      "errorCancelInvite": "Failed to cancel invite. Please try again.",
 
       "inviteUser": "Invite",
-      "enterUserId": "Enter User ID"
+      "enterUserId": "Enter User ID",
+      "successInvite": "Invite sent successfully!",
+      "errorInvite": "Failed to send invite. Please try again."
     },
 
     "requests": {
@@ -147,11 +159,16 @@
       "confirmAcceptRequest": "Are you sure you want to accept this request?",
       "submitAcceptRequest": "Accept Request",
       "cancelAcceptRequest": "Close",
+      "successAcceptRequest": "Request accepted successfully!",
+      "errorAcceptRequest": "Failed to accept request. Please try again.",
+
       "rejectRequest": "Reject Request",
       "modalRejectRequestTitle": "Reject Request",
       "confirmRejectRequest": "Are you sure you want to reject this request?",
       "submitRejectRequest": "Reject Request",
-      "cancelRejectRequest": "Close"
+      "cancelRejectRequest": "Close",
+      "successRejectRequest": "Request rejected successfully!",
+      "errorRejectRequest": "Failed to reject request. Please try again."
     }
   },
 

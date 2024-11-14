@@ -6,7 +6,7 @@ import { Close as CloseIcon, Telegram as TelegramIcon } from "@mui/icons-materia
 import { Button, CircularProgress } from "@mui/material"
 import { useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
-import { getCurrentUserRequest } from "../utils/getCurrentUserRequest"
+import { getCurrentUserRequest } from "../lib/utils/getCurrentUserRequest"
 
 export function RequestFromUser({ companyId, userId }: { companyId: number; userId: number }) {
   const [sendRequest, { isLoading: isSending }] = useCreateActionFromUserMutation()
