@@ -1,6 +1,5 @@
 "use client"
 
-import CloseIcon from "@mui/icons-material/Close"
 import {
   Button,
   ButtonProps,
@@ -8,8 +7,8 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  IconButton,
 } from "@mui/material"
+import { CloseIconButton } from "@shared/components/ui"
 import { useDialog, useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import { ReactNode, useState } from "react"
@@ -137,19 +136,11 @@ export function ConfirmActionModal({
   return (
     <>
       {closeIcon && (
-        <IconButton
+        <CloseIconButton
           aria-label={t("close")}
           onClick={closeDialog}
           disabled={loadingConfirm || loadingCancel}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
+        />
       )}
       <DialogTitle>{title || t("title")}</DialogTitle>
       <DialogContent>{children || message || t("message")}</DialogContent>

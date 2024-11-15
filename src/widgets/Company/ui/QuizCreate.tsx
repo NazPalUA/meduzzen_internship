@@ -1,9 +1,9 @@
 "use client "
 
-import { ContentDialog } from "@/src/shared/components/ui"
 import { CreateQuizForm } from "@entities/quiz"
 import { Quiz as QuizIcon } from "@mui/icons-material"
 import { Button } from "@mui/material"
+import { ContentDialog } from "@shared/components/ui"
 import { useDialog } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 
