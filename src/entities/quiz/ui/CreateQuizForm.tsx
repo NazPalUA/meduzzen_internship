@@ -59,12 +59,8 @@ export function CreateQuizForm({ companyId }: { companyId: number }) {
   return (
     <Form form={form} onSubmit={onSubmit} title={t("Quiz.create.title")}>
       <div className={styles.upperFields}>
-        <Form.TextField name="quiz_name" type="text" label={t("Quiz.create.labels.name")} />
-        <Form.TextField
-          name="quiz_frequency"
-          type="number"
-          label={t("Quiz.create.labels.frequency")}
-        />
+        <Form.TextField name="quiz_name" type="text" label={t("Quiz.labels.name")} />
+        <Form.TextField name="quiz_frequency" type="number" label={t("Quiz.labels.frequency")} />
       </div>
 
       <QuestionsField control={form.control} fieldArray={fieldArray} />

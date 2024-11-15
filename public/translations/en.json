@@ -30,6 +30,24 @@
     }
   },
 
+  "question": {
+    "textRequired": "Question text is required",
+    "answerRequired": "Answer field cannot be empty",
+    "answersAtLeast": "You need to enter at least 2 answer options",
+    "answersUnique": "All answer options must be different",
+    "correctAnswerInvalidType": "Correct answer must be a number",
+    "correctAnswerInteger": "Correct answer must be an integer",
+    "correctAnswerMin": "The index of the correct answer cannot be less than 0",
+    "correctAnswerInvalid": "The index of the correct answer must be within the range of the number of answer options"
+  },
+
+  "quiz": {
+    "nameRequired": "Quiz name is required",
+    "frequencyMin": "Quiz frequency must be at least once a day",
+    "companyIdRequired": "Company ID is required",
+    "questionsAtLeast": "You need to enter at least 2 questions"
+  },
+
   "Error": {
     "default": "An error occurred. Please try again.",
     "emailAlreadyExists": "Email already exists",
@@ -140,7 +158,8 @@
 
     "quizzes": {
       "create": "Add New Quiz",
-      "noQuizzes": "There are no quizzes in this company"
+      "noQuizzes": "There are no quizzes in this company",
+      "edit": "Edit"
     },
 
     "invites": {
@@ -459,23 +478,36 @@
   },
 
   "Quiz": {
+    "labels": {
+      "name": "Quiz Name",
+      "title": "Quiz Title",
+      "description": "Quiz Description",
+      "frequency": "Frequency",
+      "question": "Question",
+      "answer": "Answer",
+      "correctAnswer": "Correct Answer"
+    },
+
     "create": {
       "title": "Create a New Quiz",
       "addQuestion": "Add Question",
-
-      "labels": {
-        "name": "Quiz Name",
-        "frequency": "Frequency",
-        "question": "Question",
-        "answer": "Answer",
-        "correctAnswer": "Correct Answer"
-      },
 
       "submitText": "Create Quiz",
 
       "result": {
         "success": "Quiz created successfully!",
         "error": "Failed to create quiz. Please try again."
+      }
+    },
+
+    "updateInfo": {
+      "title": "Update Quiz Information",
+
+      "submitText": "Update Information",
+
+      "result": {
+        "success": "Information updated successfully!",
+        "error": "Failed to update information. Please try again."
       }
     }
   },

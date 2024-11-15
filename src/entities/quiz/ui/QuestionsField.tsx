@@ -17,7 +17,7 @@ export function QuestionsField({
   control: Control<CreateQuizCredentials>
   fieldArray: UseFieldArrayReturn<CreateQuizCredentials>
 }) {
-  const t = useTranslations("Quiz.create")
+  const t = useTranslations("Quiz")
 
   const form = useFormContext<CreateQuizCredentials>()
 
