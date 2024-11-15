@@ -22,6 +22,7 @@ export type ArrayFieldProps<T extends FieldValues> = {
   addButton?: boolean
   leftPadding?: boolean
   minItems?: number
+  className?: string
 }
 
 export function ArrayField<T extends FieldValues>({
@@ -31,6 +32,7 @@ export function ArrayField<T extends FieldValues>({
   addButton,
   leftPadding = true,
   minItems = 0,
+  className,
 }: ArrayFieldProps<T>) {
   const { control } = useFormContext<T>()
   const t = useTranslations()
@@ -47,7 +49,7 @@ export function ArrayField<T extends FieldValues>({
   }
 
   return (
-    <div className={styles["array-field"]}>
+    <div className={clsx(styles["array-field"], className)}>
       {label && (
         <div className={styles["array-field__label-container"]}>
           <label className={styles["array-field__label"]} htmlFor={String(name)}>
