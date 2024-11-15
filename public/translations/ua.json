@@ -79,13 +79,26 @@
 
   "CompanyPage": {
     "title": "Профіль компанії",
-    "sendRequest": "Надіслати заявку",
+
+    "request": {
+      "send": {
+        "label": "Приєднатися",
+        "success": "Заявку успішно надіслано!",
+        "error": "Не вдалося надіслати заявку. Будь ласка, спробуйте ще раз."
+      },
+      "cancel": {
+        "label": "Скасувати заявку",
+        "success": "Заявку успішно скасовано!",
+        "error": "Не вдалося скасувати заявку. Будь ласка, спробуйте ще раз."
+      }
+    },
 
     "nav": {
       "info": "Інформація",
       "members": "Члени",
       "invites": "Запрошення",
-      "requests": "Заявки"
+      "requests": "Заявки",
+      "showAdminsOnly": "Показати адмінів тільки"
     },
 
     "info": {
@@ -96,11 +109,31 @@
 
     "members": {
       "noMembers": "Немає членів в цій компанії",
-      "exclude": "Вилучити",
-      "modalExcludeTitle": "Вилучити члена",
+      "noAdmins": "Немає адміністраторів в цій компанії",
+
+      "exclude": "Вилучити з компанії",
+      "modalExcludeTitle": "Вилучити члена з компанії",
       "confirmExclude": "Ви впевнені, що хочете вилучити цього члена?",
       "submitExclude": "Вилучити",
-      "cancelExclude": "Закрити"
+      "cancelExclude": "Закрити",
+      "successExclude": "Користувача вилучено з компанії успішно!",
+      "errorExclude": "Не вдалося вилучити користувача. Будь ласка, спробуйте ще раз.",
+
+      "addToAdmin": "Додати в адміністратори",
+      "modalAddToAdminTitle": "Додати в адміністратори",
+      "confirmAddToAdmin": "Ви впевнені, що хочете додати цього користувача в адміністратори?",
+      "submitAddToAdmin": "Додати в адміністратори",
+      "cancelAddToAdmin": "Закрити",
+      "successAddToAdmin": "Користувача додано в адміністратори успішно!",
+      "errorAddToAdmin": "Не вдалося додати користувача в адміністратори. Будь ласка, спробуйте ще раз.",
+
+      "removeFromAdmin": "Вилучити з адміністраторів",
+      "modalRemoveFromAdminTitle": "Вилучити з адміністраторів",
+      "confirmRemoveFromAdmin": "Ви впевнені, що хочете вилучити цього користувача з адміністраторів?",
+      "submitRemoveFromAdmin": "Вилучити з адміністраторів",
+      "cancelRemoveFromAdmin": "Закрити",
+      "successRemoveFromAdmin": "Користувача видалено з адміністраторів успішно!",
+      "errorRemoveFromAdmin": "Не вдалося видалити користувача з адміністраторів. Будь ласка, спробуйте ще раз."
     },
 
     "invites": {
@@ -110,9 +143,13 @@
       "confirmCancelInvite": "Ви впевнені, що хочете скасувати це запрошення?",
       "submitCancelInvite": "Скасувати запрошення",
       "cancelCancelInvite": "Закрити",
+      "successCancelInvite": "Запрошення скасовано успішно!",
+      "errorCancelInvite": "Не вдалося скасувати запрошення. Будь ласка, спробуйте ще раз.",
 
       "inviteUser": "Запросити",
-      "enterUserId": "Введіть ID користувача"
+      "enterUserId": "Введіть ID користувача",
+      "successInvite": "Запрошення успішно надіслано!",
+      "errorInvite": "Не вдалося надіслати запрошення. Будь ласка, спробуйте ще раз."
     },
 
     "requests": {
@@ -122,11 +159,16 @@
       "confirmAcceptRequest": "Ви впевнені, що хочете прийняти цю заявку?",
       "submitAcceptRequest": "Прийняти заявку",
       "cancelAcceptRequest": "Закрити",
+      "successAcceptRequest": "Заявку прийнято успішно!",
+      "errorAcceptRequest": "Не вдалося прийняти заявку. Будь ласка, спробуйте ще раз.",
+
       "rejectRequest": "Відхилити",
       "modalRejectRequestTitle": "Відхилити заявку",
       "confirmRejectRequest": "Ви впевнені, що хочете відхилити цю заявку?",
       "submitRejectRequest": "Відхилити заявку",
-      "cancelRejectRequest": "Закрити"
+      "cancelRejectRequest": "Закрити",
+      "successRejectRequest": "Заявку відхилено успішно!",
+      "errorRejectRequest": "Не вдалося відхилити заявку. Будь ласка, спробуйте ще раз."
     }
   },
 
@@ -135,7 +177,7 @@
 
     "nav": {
       "info": "Інформація",
-      "participation": "Мої компанії",
+      "companies": "Мої компанії",
       "invites": "Запрошення",
       "requests": "Заявки"
     },
@@ -150,13 +192,15 @@
       "links": "Посилання"
     },
 
-    "participation": {
-      "noCompanies": "You are not a member of any companies",
-      "leave": "Leave",
-      "modalLeaveTitle": "Leave Company",
-      "confirmLeave": "Are you sure you want to leave this company?",
-      "submitLeave": "Leave Company",
-      "cancelLeave": "Close"
+    "companies": {
+      "noCompanies": "Ви не є членом жодної компанії",
+      "leave": "Вийти",
+      "modalLeaveTitle": "Вийти з компанії",
+      "confirmLeave": "Ви впевнені, що хочете вийти з цієї компанії?",
+      "submitLeave": "Вийти з компанії",
+      "cancelLeave": "Закрити",
+      "successLeave": "Ви успішно вийшли з компанії!",
+      "errorLeave": "Не вдалося вийти з компанії. Будь ласка, спробуйте ще раз."
     },
 
     "invites": {
@@ -166,12 +210,16 @@
       "confirmAcceptInvite": "Ви впевнені, що хочете прийняти це запрошення?",
       "submitAcceptInvite": "Прийняти запрошення",
       "cancelAcceptInvite": "Закрити",
+      "successAcceptInvite": "Запрошення прийнято успішно!",
+      "errorAcceptInvite": "Не вдалося прийняти запрошення. Будь ласка, спробуйте ще раз.",
 
       "rejectInvite": "Відхилити",
       "modalRejectInviteTitle": "Відхилити запрошення",
       "confirmRejectInvite": "Ви впевнені, що хочете відхилити це запрошення?",
       "submitRejectInvite": "Відхилити запрошення",
-      "cancelRejectInvite": "Закрити"
+      "cancelRejectInvite": "Закрити",
+      "successRejectInvite": "Запрошення відхилено успішно!",
+      "errorRejectInvite": "Не вдалося відхилити запрошення. Будь ласка, спробуйте ще раз."
     },
 
     "requests": {
@@ -180,7 +228,9 @@
       "modalCancelRequestTitle": "Скасувати заявку",
       "confirmCancelRequest": "Ви впевнені, що хочете скасувати цю заявку?",
       "submitCancelRequest": "Скасувати заявку",
-      "cancelCancelRequest": "Закрити"
+      "cancelCancelRequest": "Закрити",
+      "successCancelRequest": "Заявку скасовано успішно!",
+      "errorCancelRequest": "Не вдалося скасувати заявку. Будь ласка, спробуйте ще раз."
     }
   },
 

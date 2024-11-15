@@ -3,18 +3,23 @@
 import { useGetCompanyByIdQuery } from "@entities/company"
 import { useSession } from "@entities/session"
 import { ErrorMessage, LoadingSpinner } from "@shared/components/ui"
+import { usePermission } from "../lib/hooks/usePermission"
 import { Dashboard } from "./Dashboard"
 
 export function Company({ companyId }: { companyId: string }) {
-  const { data: company, isLoading, isError } = useGetCompanyByIdQuery(companyId)
+  const { data: company, isLoading, isError } = useGetCompanyByIdQuery(Number(companyId))
   const { user } = useSession()
+  const {
+    permission,
+    isLoading: isPermissionLoading,
+    isError: isPermissionError,
+  } = usePermission(Number(companyId))
 
-  // TODO: check if user is admin of the company
-  const admin = user?.user_id === company?.company_owner.user_id
+  if (!user) return null
 
-  if (isLoading) return <LoadingSpinner />
+  if (isLoading || isPermissionLoading) return <LoadingSpinner />
 
-  if (isError || !company) return <ErrorMessage />
+  if (isError || isPermissionError || !company) return <ErrorMessage />
 
-  return <Dashboard company={company} admin={admin} />
+  return <Dashboard company={company} currentUser={user} permission={permission} />
 }

@@ -1,12 +1,12 @@
 "use client"
 
+import { useCreateActionFromCompanyMutation } from "@features/action"
 import { Button, CircularProgress, Input } from "@mui/material"
 import { useToaster } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import React, { useState } from "react"
 import { z } from "zod"
-import { useCreateActionFromCompanyMutation } from "../store/actionApiSlice"
-import styles from "./InviteFromCompany.module.scss"
+import styles from "./Styles.module.scss"
 
 export function InviteFromCompany({ companyId }: { companyId: number }) {
   const [userId, setUserId] = useState<string>("")
@@ -34,12 +34,12 @@ export function InviteFromCompany({ companyId }: { companyId: number }) {
     }
 
     try {
-      await inviteUser({ companyId: companyId.toString(), userId: userId.trim() }).unwrap()
-      toastSuccess()
+      await inviteUser({ companyId, userId: Number(userId.trim()) }).unwrap()
+      toastSuccess(t("CompanyPage.invites.successInvite"))
       setUserId("")
     } catch (error) {
       console.error(error)
-      toastError()
+      toastError(t("CompanyPage.invites.errorInvite"))
     }
   }
 
@@ -51,8 +51,8 @@ export function InviteFromCompany({ companyId }: { companyId: number }) {
   }
 
   return (
-    <div className={styles.container}>
-      {userIdError && <small className={styles.error}>{userIdError}</small>}
+    <div className={styles.invites__formContainer}>
+      {userIdError && <small className={styles.invites__formError}>{userIdError}</small>}
       <Input
         type="text"
         value={userId}

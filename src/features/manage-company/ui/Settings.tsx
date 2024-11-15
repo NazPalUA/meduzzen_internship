@@ -21,7 +21,7 @@ export function Settings() {
   const t = useTranslations("Settings")
   const { user: currentUser } = useSession()
   const params = useParams()
-  const companyId = params.companyId as string
+  const companyId = Number(params.companyId)
 
   const { data: companyData } = useGetCompanyByIdQuery(companyId)
 

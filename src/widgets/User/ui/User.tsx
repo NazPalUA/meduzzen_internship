@@ -6,7 +6,7 @@ import { ErrorMessage, LoadingSpinner } from "@shared/components/ui"
 import { Dashboard } from "./Dashboard"
 
 export function User({ userId }: { userId: string }) {
-  const { data: user, isLoading, isError } = useGetUserByIdQuery(userId)
+  const { data: user, isLoading, isError } = useGetUserByIdQuery(Number(userId))
   const { user: sessionUser } = useSession()
 
   const isOwner = sessionUser?.user_id === user?.user_id

@@ -16,7 +16,7 @@ export function DeleteModal({ user }: { user: CurrentUser }) {
   return (
     <ConfirmActionModal
       confirmAction={{
-        onAction: () => deleteUser(user.user_id.toString()).unwrap(),
+        onAction: () => deleteUser(user.user_id).unwrap(),
         successMessage: t("result.success"),
         errorMessage: t("result.error"),
         onSuccess: async () => {

@@ -24,7 +24,7 @@ export function UpdateVisibleForm({ company }: { company: CompanyDetails }) {
   const onSubmit = async (data: UpdateCompanyVisibleCredentials) => {
     try {
       await updateVisible({
-        companyId: company.company_id.toString(),
+        companyId: company.company_id,
         visibleInfo: data,
       }).unwrap()
       toastSuccess(t("UpdateCompany.visible.result.success"))

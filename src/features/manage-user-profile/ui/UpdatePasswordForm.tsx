@@ -25,7 +25,7 @@ export function UpdatePasswordForm({ user }: { user: CurrentUser }) {
 
   const onSubmit = async (data: UpdateUserPasswordCredentials) => {
     try {
-      await updatePassword({ userId: user.user_id.toString(), passwordInfo: data }).unwrap()
+      await updatePassword({ userId: user.user_id, passwordInfo: data }).unwrap()
       toastSuccess(t("UpdateUser.password.result.success"))
       closeDialog()
     } catch {

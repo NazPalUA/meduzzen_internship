@@ -86,3 +86,35 @@
     @include flex-align-center-gap(0.5rem);
   }
 }
+
+.members {
+  &__adminOnly {
+    @include flex-align-center-gap(0.5rem);
+  }
+
+  &__adminOnlyLabel {
+    @include flex-align-center-gap(0.5rem);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &_role {
+    margin-left: 0.5rem;
+  }
+}
+
+.invites {
+  &__formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+
+  &__formError {
+    color: var(--mui-palette-error-main);
+  }
+}

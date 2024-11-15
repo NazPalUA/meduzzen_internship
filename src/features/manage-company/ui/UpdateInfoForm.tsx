@@ -26,7 +26,7 @@ export function UpdateInfoForm({ company }: { company: CompanyDetails }) {
   const onSubmit = async (data: UpdateCompanyInfoCredentials) => {
     try {
       await updateCompanyInfo({
-        companyId: company.company_id.toString(),
+        companyId: company.company_id,
         companyInfo: data,
       }).unwrap()
       toastSuccess(t("UpdateCompany.info.result.success"))
