@@ -159,7 +159,14 @@
     "quizzes": {
       "create": "Додати новий тест",
       "noQuizzes": "Немає тестів в цій компанії",
-      "edit": "Редагувати"
+      "edit": "Редагувати",
+      "delete": "Видалити",
+      "modalDeleteQuizTitle": "Видалити тест",
+      "confirmDeleteQuiz": "Ви впевнені, що хочете видалити цей тест?",
+      "submitDeleteQuiz": "Видалити тест",
+      "cancelDeleteQuiz": "Закрити",
+      "successDeleteQuiz": "Тест видалено успішно!",
+      "errorDeleteQuiz": "Не вдалося видалити тест. Будь ласка, спробуйте ще раз."
     },
 
     "invites": {

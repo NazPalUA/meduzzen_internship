@@ -159,7 +159,14 @@
     "quizzes": {
       "create": "Add New Quiz",
       "noQuizzes": "There are no quizzes in this company",
-      "edit": "Edit"
+      "edit": "Edit",
+      "delete": "Delete",
+      "modalDeleteQuizTitle": "Delete Quiz",
+      "confirmDeleteQuiz": "Are you sure you want to delete this quiz?",
+      "submitDeleteQuiz": "Delete Quiz",
+      "cancelDeleteQuiz": "Close",
+      "successDeleteQuiz": "Quiz deleted successfully!",
+      "errorDeleteQuiz": "Failed to delete quiz. Please try again."
     },
 
     "invites": {

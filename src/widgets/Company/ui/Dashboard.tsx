@@ -12,6 +12,7 @@ import { SubHeader } from "./SubHeader"
 import { TabInfo } from "./TabInfo"
 import { TabInvites } from "./TabInvites"
 import { TabMembers } from "./TabMembers"
+import { TabQuizzes } from "./TabQuizzes"
 import { TabRequests } from "./TabRequests"
 import { TabsBar } from "./TabsBar"
 
@@ -45,6 +46,7 @@ export function Dashboard({
         <TabsBar permission={permission} />
         {currentTab === Tab.INFO && <TabInfo company={company} />}
         {currentTab === Tab.MEMBERS && <TabMembers company={company} permission={permission} />}
+        {currentTab === Tab.QUIZZES && <TabQuizzes company={company} permission={permission} />}
         {currentTab === Tab.INVITES && <TabInvites company={company} permission={permission} />}
         {currentTab === Tab.REQUESTS && <TabRequests company={company} permission={permission} />}
       </CardContent>
