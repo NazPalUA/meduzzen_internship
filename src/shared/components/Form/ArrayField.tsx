@@ -2,7 +2,9 @@
 
 import AddIcon from "@mui/icons-material/AddCircleOutline"
 import DeleteIcon from "@mui/icons-material/RemoveCircleOutline"
-import { IconButton } from "@mui/material"
+import { Button, IconButton } from "@mui/material"
+import clsx from "clsx"
+import { useTranslations } from "next-intl"
 import {
   FieldArray,
   FieldArrayPath,
@@ -16,12 +18,21 @@ import { TextField } from "./TextField"
 
 export type ArrayFieldProps<T extends FieldValues> = {
   name: keyof T
-  label: string
+  label?: string
   itemLabel: string
+  addButton?: boolean
+  leftPadding?: boolean
 }
 
-export function ArrayField<T extends FieldValues>({ name, label, itemLabel }: ArrayFieldProps<T>) {
+export function ArrayField<T extends FieldValues>({
+  name,
+  label,
+  itemLabel,
+  addButton,
+  leftPadding = true,
+}: ArrayFieldProps<T>) {
   const { control } = useFormContext<T>()
+  const t = useTranslations()
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -30,15 +41,22 @@ export function ArrayField<T extends FieldValues>({ name, label, itemLabel }: Ar
 
   return (
     <div className={styles["array-field"]}>
-      <div className={styles["array-field__label-container"]}>
-        <label className={styles["array-field__label"]} htmlFor={String(name)}>
-          {label}
-        </label>
-        <IconButton onClick={() => append("" as FieldArray<T, FieldArrayPath<T>>)}>
-          <AddIcon />
-        </IconButton>
-      </div>
-      <div className={styles["array-field__items"]}>
+      {label && (
+        <div className={styles["array-field__label-container"]}>
+          <label className={styles["array-field__label"]} htmlFor={String(name)}>
+            {label}
+          </label>
+          <IconButton onClick={() => append("" as FieldArray<T, FieldArrayPath<T>>)}>
+            <AddIcon />
+          </IconButton>
+        </div>
+      )}
+      <div
+        className={clsx(
+          styles["array-field__items"],
+          leftPadding && styles["array-field__items--left-padding"],
+        )}
+      >
         {fields.map((item, index) => (
           <div key={item.id} className={styles["array-field__item"]}>
             <TextField
@@ -55,6 +73,16 @@ export function ArrayField<T extends FieldValues>({ name, label, itemLabel }: Ar
           </div>
         ))}
       </div>
+      {addButton && (
+        <Button
+          onClick={() => append("" as FieldArray<T, FieldArrayPath<T>>)}
+          className={styles["array-field__add-button"]}
+          variant="outlined"
+          size="small"
+        >
+          {t("Common.addField")}
+        </Button>
+      )}
     </div>
   )
 }
