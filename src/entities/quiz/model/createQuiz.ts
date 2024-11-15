@@ -11,7 +11,7 @@ export const createQuizCredentialsSchema = (t?: (key: string) => string) => {
       .string()
       .min(1, { message: translate("quiz.nameRequired", "Quiz name is required.") })
       .trim(),
-    quiz_frequency: z
+    quiz_frequency: z.coerce
       .number()
       .min(1, {
         message: translate("quiz.frequencyMin", "Quiz frequency must be at least once a day."),
@@ -22,7 +22,7 @@ export const createQuizCredentialsSchema = (t?: (key: string) => string) => {
     company_id: z
       .number()
       .min(1, { message: translate("quiz.companyIdRequired", "Company ID is required.") }),
-    questions: z
+    questions_list: z
       .array(questionCredentialsSchema(t))
       .min(2, {
         message: translate("quiz.questionsAtLeast", "At least two questions are required."),

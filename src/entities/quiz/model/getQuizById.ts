@@ -13,8 +13,8 @@ const QuizCreatorSchema = UserDetailsSchema.pick({
 export const QuizDetailsSchema = z.object({
   quiz_id: z.number(),
   quiz_name: z.string(),
-  quiz_title: z.string(),
-  quiz_description: z.string(),
+  quiz_title: z.string().nullable(),
+  quiz_description: z.string().nullable(),
   quiz_frequency: z.number(),
   created_by: QuizCreatorSchema,
   questions_list: z.array(QuestionSchema),
