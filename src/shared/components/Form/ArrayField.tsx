@@ -53,7 +53,7 @@ export function ArrayField<T extends FieldValues>({
           <label className={styles["array-field__label"]} htmlFor={String(name)}>
             {label}
           </label>
-          <IconButton onClick={() => append("" as FieldArray<T, FieldArrayPath<T>>)}>
+          <IconButton onClick={() => append(" " as FieldArray<T, FieldArrayPath<T>>)}>
             <AddFieldIcon />
           </IconButton>
         </div>
@@ -84,7 +84,7 @@ export function ArrayField<T extends FieldValues>({
       </div>
       {addButton && (
         <Button
-          onClick={() => append("" as FieldArray<T, FieldArrayPath<T>>)}
+          onClick={() => append(" " as FieldArray<T, FieldArrayPath<T>>)}
           className={styles["array-field__add-button"]}
           variant="outlined"
           size="small"
