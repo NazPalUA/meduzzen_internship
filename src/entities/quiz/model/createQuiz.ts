@@ -11,25 +11,15 @@ export const createQuizCredentialsSchema = (t?: (key: string) => string) => {
       .string()
       .min(1, { message: translate("quiz.nameRequired", "Quiz name is required.") })
       .trim(),
-    quiz_frequency: z.coerce
-      .number()
-      .min(1, {
-        message: translate("quiz.frequencyMin", "Quiz frequency must be at least once a day."),
-      })
-      .max(365, {
-        message: translate("quiz.frequencyMax", "Quiz frequency cannot exceed once a year."),
-      }),
+    quiz_frequency: z.coerce.number().min(1, {
+      message: translate("quiz.frequencyMin", "Quiz frequency must be at least once a day."),
+    }),
     company_id: z
       .number()
       .min(1, { message: translate("quiz.companyIdRequired", "Company ID is required.") }),
-    questions_list: z
-      .array(questionCredentialsSchema(t))
-      .min(2, {
-        message: translate("quiz.questionsAtLeast", "At least two questions are required."),
-      })
-      .max(50, {
-        message: translate("quiz.questionsMax", "A maximum of 50 questions is allowed."),
-      }),
+    questions_list: z.array(questionCredentialsSchema(t)).min(2, {
+      message: translate("quiz.questionsAtLeast", "At least two questions are required."),
+    }),
   })
 }
 

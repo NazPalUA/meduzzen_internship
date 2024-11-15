@@ -12,14 +12,9 @@ export const updateQuizInfoCredentialsSchema = (t?: (key: string) => string) => 
       .trim(),
     quiz_title: z.string(),
     quiz_description: z.string(),
-    quiz_frequency: z
-      .number()
-      .min(1, {
-        message: translate("quiz.frequencyMin", "Quiz frequency must be at least once a day."),
-      })
-      .max(365, {
-        message: translate("quiz.frequencyMax", "Quiz frequency cannot exceed once a year."),
-      }),
+    quiz_frequency: z.number().min(1, {
+      message: translate("quiz.frequencyMin", "Quiz frequency must be at least once a day."),
+    }),
   })
 }
 

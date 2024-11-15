@@ -41,7 +41,8 @@
     "retryButton": "Try Again",
     "defaultNoData": "No data found",
     "previousPage": "Previous",
-    "nextPage": "Next"
+    "nextPage": "Next",
+    "addField": "Add Field"
   },
 
   "LocaleLayout": {
@@ -96,6 +97,7 @@
     "nav": {
       "info": "Info",
       "members": "Members",
+      "quizzes": "Quizzes",
       "invites": "Invites",
       "requests": "Requests",
       "showAdminsOnly": "Show Admins Only"
@@ -134,6 +136,11 @@
       "cancelRemoveFromAdmin": "Close",
       "successRemoveFromAdmin": "Member removed from admin successfully!",
       "errorRemoveFromAdmin": "Failed to remove member from admin. Please try again."
+    },
+
+    "quizzes": {
+      "create": "Add New Quiz",
+      "noQuizzes": "There are no quizzes in this company"
     },
 
     "invites": {
@@ -449,6 +456,28 @@
     "updateVisible": "Change Visibility",
     "deleteAccount": "Delete Account",
     "deleteCompany": "Delete Company"
+  },
+
+  "Quiz": {
+    "create": {
+      "title": "Create a New Quiz",
+      "addQuestion": "Add Question",
+
+      "labels": {
+        "name": "Quiz Name",
+        "frequency": "Frequency",
+        "question": "Question",
+        "answer": "Answer",
+        "correctAnswer": "Correct Answer"
+      },
+
+      "submitText": "Create Quiz",
+
+      "result": {
+        "success": "Quiz created successfully!",
+        "error": "Failed to create quiz. Please try again."
+      }
+    }
   },
 
   "ApiHealthCheck": {

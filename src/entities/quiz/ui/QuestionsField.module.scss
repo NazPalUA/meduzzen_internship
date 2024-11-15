@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.listItem {
+  border: 1px solid var(--mui-palette-divider);
+  border-radius: 8px;
+  padding: 2.2rem 1.2rem 2rem 1.2rem;
+  position: relative;
+}
+
+.answersField {
+  margin-top: 2rem;
+}
+
+.correctAnswerField {
+  margin-top: 1.5rem;
+}
+
+.deleteQuestionField {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+}

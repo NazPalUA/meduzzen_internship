@@ -1,0 +1,16 @@
+@mixin flex-row-gap($gap) {
+  display: flex;
+  gap: $gap;
+}
+
+.upperFields {
+  @include flex-row-gap(1rem);
+}
+
+.buttonsContainer {
+  @include flex-row-gap(1rem);
+
+  button {
+    flex: 1;
+  }
+}
