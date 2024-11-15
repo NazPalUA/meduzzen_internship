@@ -1,7 +1,6 @@
 "use client"
 
-import AddIcon from "@mui/icons-material/AddCircleOutline"
-import DeleteIcon from "@mui/icons-material/RemoveCircleOutline"
+import { AddBox as AddFieldIcon, Clear as RemoveFieldIcon } from "@mui/icons-material"
 import { Button, IconButton } from "@mui/material"
 import clsx from "clsx"
 import { useTranslations } from "next-intl"
@@ -22,6 +21,7 @@ export type ArrayFieldProps<T extends FieldValues> = {
   itemLabel: string
   addButton?: boolean
   leftPadding?: boolean
+  minItems?: number
 }
 
 export function ArrayField<T extends FieldValues>({
@@ -30,6 +30,7 @@ export function ArrayField<T extends FieldValues>({
   itemLabel,
   addButton,
   leftPadding = true,
+  minItems = 0,
 }: ArrayFieldProps<T>) {
   const { control } = useFormContext<T>()
   const t = useTranslations()
@@ -39,6 +40,12 @@ export function ArrayField<T extends FieldValues>({
     name: name as FieldArrayPath<T>,
   })
 
+  function removeItem(index: number) {
+    if (fields.length > minItems) {
+      remove(index)
+    }
+  }
+
   return (
     <div className={styles["array-field"]}>
       {label && (
@@ -47,7 +54,7 @@ export function ArrayField<T extends FieldValues>({
             {label}
           </label>
           <IconButton onClick={() => append("" as FieldArray<T, FieldArrayPath<T>>)}>
-            <AddIcon />
+            <AddFieldIcon />
           </IconButton>
         </div>
       )}
@@ -60,15 +67,17 @@ export function ArrayField<T extends FieldValues>({
         {fields.map((item, index) => (
           <div key={item.id} className={styles["array-field__item"]}>
             <TextField
+              size="small"
               className={styles["array-field__input"]}
               name={`${String(name)}.${index}` as Path<T>}
               label={`${itemLabel} ${index + 1}`}
             />
             <IconButton
-              onClick={() => remove(index)}
+              onClick={() => removeItem(index)}
+              disabled={fields.length <= minItems}
               className={styles["array-field__delete-button"]}
             >
-              <DeleteIcon />
+              <RemoveFieldIcon />
             </IconButton>
           </div>
         ))}
