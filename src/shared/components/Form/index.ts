@@ -25,3 +25,5 @@ export const getForm = <T extends FieldValues>() => {
 
   return FormComponent
 }
+
+export { ArrayField } from "./ArrayField"

@@ -13,7 +13,7 @@ export function Toaster() {
       onClose={closeToast}
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     >
-      <Alert onClose={closeToast} severity={toast.variant} variant="filled" sx={{ width: "100%" }}>
+      <Alert onClose={closeToast} severity={toast.variant} variant="filled">
         {toast.message}
       </Alert>
     </Snackbar>

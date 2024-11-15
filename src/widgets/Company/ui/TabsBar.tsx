@@ -4,6 +4,7 @@ import {
   Business as InfoIcon,
   GroupAdd as InvitesIcon,
   Group as MembersIcon,
+  Quiz as QuizzesIcon,
   HowToReg as RequestsIcon,
 } from "@mui/icons-material"
 import Tab from "@mui/material/Tab"
@@ -34,6 +35,12 @@ export function TabsBar({ permission: { isOutsider, isOwner } }: { permission: P
         value={TabEnum.MEMBERS}
         iconPosition="start"
         label={t("members")}
+      />
+      <Tab
+        icon={<QuizzesIcon />}
+        value={TabEnum.QUIZZES}
+        iconPosition="start"
+        label={t("quizzes")}
       />
       {isOwner && (
         <Tab

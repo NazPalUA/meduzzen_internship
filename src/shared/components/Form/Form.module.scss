@@ -56,21 +56,17 @@
     @include flex-column;
     gap: 0.75rem;
     width: 100%;
-    padding-left: 1rem;
+
+    &--left-padding {
+      padding-left: 1rem;
+    }
   }
 
   &__item {
     position: relative;
   }
 
-  &__input {
-    label[data-shrink="false"] {
-      left: 0.875rem;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    input {
-      padding: 0.5rem 2.5rem 0.5rem 0.875rem;
-    }
+  &__add-button {
+    margin-top: 0.5rem !important;
   }
 }
