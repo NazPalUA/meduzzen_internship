@@ -8,6 +8,7 @@ import { Routes } from "@shared/constants"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import styles from "./Form.module.scss"
+import { SwitchAuth } from "./SwitchAuth"
 
 export function LoginForm() {
   const [login, { isError, error }] = useLoginMutation()
@@ -43,6 +44,8 @@ export function LoginForm() {
       <Form.TextField name="user_password" label={t("Login.labels.password")} type="password" />
       <Form.SubmitButton text={t("Login.submitText")} />
       <Form.ErrorMessage text={errorMessage} />
+
+      <SwitchAuth to={Routes.SIGN_UP} />
     </Form>
   )
 }

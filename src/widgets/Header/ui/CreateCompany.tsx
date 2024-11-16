@@ -3,7 +3,6 @@
 import { CreateCompanyForm } from "@entities/company"
 import { useSession } from "@entities/session"
 import DomainAddOutlinedIcon from "@mui/icons-material/DomainAddOutlined"
-import Badge from "@mui/material/Badge"
 import IconButton from "@mui/material/IconButton"
 import Tooltip from "@mui/material/Tooltip"
 import { ContentDialog } from "@shared/components/ui"
@@ -15,22 +14,11 @@ export function CreateCompany() {
   const { user: currentUser } = useSession()
   const { openDialog } = useDialog()
 
-  if (!currentUser) {
-    return null
-  }
-
   return (
-    <Tooltip title={<p>{t("modal.openButton")}</p>}>
-      <Badge
-        variant="dot"
-        color="secondary"
-        overlap="circular"
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-      >
+    <Tooltip title={<p>{currentUser ? t("modal.openButton") : t("modal.disabledButton")}</p>}>
+      <span>
         <IconButton
+          disabled={!currentUser}
           onClick={() =>
             openDialog(
               <ContentDialog title={t("modal.title")}>
@@ -41,7 +29,7 @@ export function CreateCompany() {
         >
           <DomainAddOutlinedIcon fontSize="medium" color="primary" />
         </IconButton>
-      </Badge>
+      </span>
     </Tooltip>
   )
 }

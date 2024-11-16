@@ -12,6 +12,7 @@ import { Routes } from "@shared/constants"
 import { useTranslations } from "next-intl"
 import { useForm } from "react-hook-form"
 import styles from "./Form.module.scss"
+import { SwitchAuth } from "./SwitchAuth"
 
 export function SignUpForm() {
   const [createUser, { error, isError }] = useCreateUserMutation()
@@ -50,22 +51,26 @@ export function SignUpForm() {
         name="user_email"
         type="email"
         label={t("CreateUser.labels.email")}
-        autoComplete="new-email"
+        autoComplete="email"
       />
       <Form.TextField name="user_firstname" label={t("CreateUser.labels.firstName")} />
       <Form.TextField name="user_lastname" label={t("CreateUser.labels.lastName")} />
       <Form.TextField
         name="user_password"
         type="password"
+        autoComplete="new-password"
         label={t("CreateUser.labels.password")}
       />
       <Form.TextField
         name="user_password_repeat"
         type="password"
+        autoComplete="new-password"
         label={t("CreateUser.labels.confirmPassword")}
       />
       <Form.SubmitButton text={t("CreateUser.submitText")} />
       <Form.ErrorMessage text={errorMessage} />
+
+      <SwitchAuth to={Routes.LOGIN} />
     </Form>
   )
 }

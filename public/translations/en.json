@@ -395,7 +395,8 @@
     "title": "Create a New Company",
     "modal": {
       "title": "Create a New Company",
-      "openButton": "Create Company"
+      "openButton": "Create Company",
+      "disabledButton": "You must be logged in to create a company"
     },
     "labels": {
       "companyName": "Company Name",
@@ -529,5 +530,12 @@
     "successMessage": "Action completed successfully.",
     "cancelSuccessMessage": "Action cancelled successfully.",
     "errorMessage": "An error occurred."
+  },
+
+  "Auth": {
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "login": "Log in",
+    "signUp": "Sign up"
   }
 }

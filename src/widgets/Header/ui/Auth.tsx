@@ -1,8 +1,12 @@
 "use client"
 
 import { useSession } from "@entities/session"
+import AccountCircleIcon from "@mui/icons-material/AccountCircle"
+import BusinessIcon from "@mui/icons-material/Business"
 import LoginIcon from "@mui/icons-material/Login"
+import LogoutIcon from "@mui/icons-material/Logout"
 import PersonIcon from "@mui/icons-material/Person"
+import PersonAddIcon from "@mui/icons-material/PersonAdd"
 import { IconButton, Menu, MenuItem } from "@mui/material"
 import { Link } from "@navigation"
 import { Avatar } from "@shared/components/ui"
@@ -60,6 +64,7 @@ export function Auth() {
                 onClick={handleMenuClose}
                 key="logout"
               >
+                <LogoutIcon sx={{ mr: 1 }} />
                 {t("logout")}
               </MenuItem>,
               <MenuItem
@@ -68,6 +73,7 @@ export function Auth() {
                 onClick={handleMenuClose}
                 key="myProfile"
               >
+                <AccountCircleIcon sx={{ mr: 1 }} />
                 {t("myProfile")}
               </MenuItem>,
               <MenuItem
@@ -76,11 +82,13 @@ export function Auth() {
                 onClick={handleMenuClose}
                 key="myCompanies"
               >
+                <BusinessIcon sx={{ mr: 1 }} />
                 {t("myCompanies")}
               </MenuItem>,
             ]
           : [
               <MenuItem component={Link} href={Routes.LOGIN} onClick={handleMenuClose} key="login">
+                <LoginIcon sx={{ mr: 1 }} />
                 {t("login")}
               </MenuItem>,
               <MenuItem
@@ -89,6 +97,7 @@ export function Auth() {
                 onClick={handleMenuClose}
                 key="signUp"
               >
+                <PersonAddIcon sx={{ mr: 1 }} />
                 {t("signUp")}
               </MenuItem>,
             ]}
