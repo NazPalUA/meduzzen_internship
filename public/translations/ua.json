@@ -281,7 +281,8 @@
     "signUp": "Реєстрація",
     "login": "Вхід",
     "logout": "Вихід",
-    "myProfile": "Мій профіль"
+    "myProfile": "Мій профіль",
+    "myCompanies": "Мої компанії"
   },
 
   "Header": {
