@@ -2,8 +2,12 @@
 
 import { UpdateQuizInfo, useDeleteQuizMutation } from "@entities/quiz"
 import { CompanyDataQuiz } from "@features/company-data"
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
-import EditNoteIcon from "@mui/icons-material/EditNote"
+import {
+  DeleteForever as DeleteIcon,
+  EditNote as EditIcon,
+  FactCheckOutlined as TakeQuizIcon,
+} from "@mui/icons-material"
+import { Button } from "@mui/material"
 import MuiListItem from "@mui/material/ListItem"
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import ListItemText from "@mui/material/ListItemText"
@@ -24,12 +28,12 @@ export function QuizItem({ permission, quiz }: { permission: Permission; quiz: C
 
   const menuItems: MenuItem[] = [
     {
-      icon: <EditNoteIcon />,
+      icon: <EditIcon />,
       text: t("edit"),
       content: <UpdateQuizInfo quizId={quiz.quiz_id} />,
     },
     {
-      icon: <DeleteForeverIcon />,
+      icon: <DeleteIcon />,
       text: t("delete"),
       content: (
         <ConfirmActionModal
@@ -56,19 +60,28 @@ export function QuizItem({ permission, quiz }: { permission: Permission; quiz: C
   ]
 
   return (
-    <MuiListItem secondaryAction={showSettingsMenu ? <SettingsMenu menuItems={menuItems} /> : null}>
+    <MuiListItem
+      secondaryAction={
+        <div className={styles.quizzes__secondaryAction}>
+          <Link href={`${Routes.QUIZZES}/${quiz.quiz_id}`} className={styles.link}>
+            <Button
+              variant="outlined"
+              color="inherit"
+              size="small"
+              startIcon={<TakeQuizIcon sx={{ transform: "translateY(-1px) scale(1.2)" }} />}
+            >
+              {t("takeQuiz")}
+            </Button>
+          </Link>
+          {showSettingsMenu && <SettingsMenu menuItems={menuItems} />}
+        </div>
+      }
+    >
       <ListItemAvatar>
         <Avatar src={undefined} alt={quiz.quiz_name} size="sm" />
       </ListItemAvatar>
 
-      <ListItemText
-        primary={
-          <Link href={`${Routes.QUIZZES}/${quiz.quiz_id}`} className={styles.link}>
-            <span>{quiz.quiz_name}</span>
-          </Link>
-        }
-        secondary={quiz.quiz_title}
-      />
+      <ListItemText primary={quiz.quiz_name} secondary={quiz.quiz_title} />
     </MuiListItem>
   )
 }

@@ -166,7 +166,8 @@
       "submitDeleteQuiz": "Delete Quiz",
       "cancelDeleteQuiz": "Close",
       "successDeleteQuiz": "Quiz deleted successfully!",
-      "errorDeleteQuiz": "Failed to delete quiz. Please try again."
+      "errorDeleteQuiz": "Failed to delete quiz. Please try again.",
+      "takeQuiz": "Take Quiz"
     },
 
     "invites": {
@@ -512,6 +513,23 @@
         "success": "Information updated successfully!",
         "error": "Failed to update information. Please try again."
       }
+    }
+  },
+
+  "TakeQuiz": {
+    "questionNumber": "Question {number} of {total}",
+    "nav": {
+      "previous": "Previous",
+      "submit": "Submit",
+      "next": "Next"
+    },
+    "results": {
+      "title": "Quiz Results",
+      "excellent": "Excellent work! You've mastered this topic!",
+      "good": "Good job! Keep practicing to improve further.",
+      "needsPractice": "Keep practicing! You'll get better with time.",
+      "backToQuizzes": "Back to Quizzes",
+      "retakeQuiz": "Try Again"
     }
   },
 
