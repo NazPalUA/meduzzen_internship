@@ -1,0 +1,538 @@
+{
+  "Validation": {
+    "password": {
+      "required": "Пароль обов'язковий",
+      "minLength": "Пароль повинен містити щонайменше 12 символів",
+      "lowercase": "Пароль повинен містити щонайменше одну малу літеру",
+      "uppercase": "Пароль повинен містити щонайменше одну велику літеру",
+      "number": "Пароль повинен містити щонайменше одну цифру",
+      "specialChar": "Пароль повинен містити щонайменше один спеціальний символ",
+      "doNotMatch": "Паролі не співпадають"
+    },
+    "email": {
+      "required": "Email обов'язковий",
+      "invalid": "Невірна адреса електронної пошти"
+    },
+    "url": {
+      "invalid": "Недійсна URL-адреса"
+    },
+    "firstName": {
+      "required": "Ім'я обов'язкове"
+    },
+    "lastName": {
+      "required": "Прізвище обов'язкове"
+    },
+    "company": {
+      "nameRequired": "Назва компанії обов'язкова"
+    },
+    "userId": {
+      "number": "Ідентифікатор користувача повинен містити лише цифри"
+    },
+
+    "question": {
+      "textRequired": "Текст питання обов'язковий",
+      "answerRequired": "Поле відповіді не може бути порожнім",
+      "answersAtLeast": "Потрібно ввести щонайменше 2 варіанти відповіді",
+      "answersUnique": "Всі варіанти відповіді повинні бути різними",
+      "correctAnswerInvalidType": "Правильна відповідь повинна бути числом",
+      "correctAnswerInteger": "Правильна відповідь повинна бути цілим числом",
+      "correctAnswerMin": "Індекс правильної відповіді не може бути меншим за 0",
+      "correctAnswerInvalid": "Індекс правильної відповіді повинен бути в межах від 0 до кількості варіантів відповіді"
+    },
+
+    "quiz": {
+      "nameRequired": "Назва тесту обов'язкова",
+      "frequencyMin": "Частота тесту повинна бути щонайменше один раз на день",
+      "companyIdRequired": "ID компанії обов'язковий",
+      "questionsAtLeast": "Потрібно ввести щонайменше 2 питання"
+    }
+  },
+
+  "Error": {
+    "default": "Сталася помилка. Будь ласка, спробуйте пізніше.",
+    "emailAlreadyExists": "Email вже існує",
+    "invalidCredentials": "Невірна адреса електронної пошти або пароль"
+  },
+
+  "Common": {
+    "defaultErrorMessage": "Сталася помилка. Будь ласка, спробуйте пізніше.",
+    "retryButton": "Спробувати ще раз",
+    "defaultNoData": "Нічого не знайдено",
+    "previousPage": "Назад",
+    "nextPage": "Вперед",
+    "addField": "Додати поле"
+  },
+
+  "LocaleLayout": {
+    "title": "Стажування Meduzzen",
+    "description": "Проект стажування Meduzzen"
+  },
+
+  "NotFoundPage": {
+    "description": "Сторінка, яку ви шукаєте, не існує."
+  },
+
+  "HomePage": {
+    "title": "Стажування Meduzzen",
+    "welcomeMessage": "Ласкаво просимо до нашого проекту!",
+    "learnMoreButton": "Дізнатися більше",
+    "learnMoreTitle": "Дізнатися більше",
+    "learnMoreDescription": "Ваш контент буде тут",
+    "closeButton": "Закрити"
+  },
+
+  "AboutPage": {
+    "title": "Про цей проект",
+    "description": "Цей проект є частиною програми стажування Meduzzen."
+  },
+
+  "UsersPage": {
+    "title": "Наша спільнота",
+    "description": "Познайомтеся з талановитими людьми в нашій мережі."
+  },
+
+  "CompaniesPage": {
+    "title": "Компанії-партнери",
+    "description": "Відкрийте для себе інноваційні компанії, з якими ми співпрацюємо."
+  },
+
+  "CompanyPage": {
+    "title": "Профіль компанії",
+
+    "request": {
+      "send": {
+        "label": "Приєднатися",
+        "success": "Заявку успішно надіслано!",
+        "error": "Не вдалося надіслати заявку. Будь ласка, спробуйте ще раз."
+      },
+      "cancel": {
+        "label": "Скасувати заявку",
+        "success": "Заявку успішно скасовано!",
+        "error": "Не вдалося скасувати заявку. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "nav": {
+      "info": "Інформація",
+      "members": "Члени",
+      "quizzes": "Тести",
+      "invites": "Запрошення",
+      "requests": "Заявки",
+      "showAdminsOnly": "Показати адмінів тільки"
+    },
+
+    "info": {
+      "aboutUs": "Про нас",
+      "companyLinks": "Посилання компанії",
+      "companyOwner": "Власник компанії"
+    },
+
+    "members": {
+      "noMembers": "Немає членів в цій компанії",
+      "noAdmins": "Немає адміністраторів в цій компанії",
+
+      "exclude": "Вилучити з компанії",
+      "modalExcludeTitle": "Вилучити члена з компанії",
+      "confirmExclude": "Ви впевнені, що хочете вилучити цього члена?",
+      "submitExclude": "Вилучити",
+      "cancelExclude": "Закрити",
+      "successExclude": "Користувача вилучено з компанії успішно!",
+      "errorExclude": "Не вдалося вилучити користувача. Будь ласка, спробуйте ще раз.",
+
+      "addToAdmin": "Додати в адміністратори",
+      "modalAddToAdminTitle": "Додати в адміністратори",
+      "confirmAddToAdmin": "Ви впевнені, що хочете додати цього користувача в адміністратори?",
+      "submitAddToAdmin": "Додати в адміністратори",
+      "cancelAddToAdmin": "Закрити",
+      "successAddToAdmin": "Користувача додано в адміністратори успішно!",
+      "errorAddToAdmin": "Не вдалося додати користувача в адміністратори. Будь ласка, спробуйте ще раз.",
+
+      "removeFromAdmin": "Вилучити з адміністраторів",
+      "modalRemoveFromAdminTitle": "Вилучити з адміністраторів",
+      "confirmRemoveFromAdmin": "Ви впевнені, що хочете вилучити цього користувача з адміністраторів?",
+      "submitRemoveFromAdmin": "Вилучити з адміністраторів",
+      "cancelRemoveFromAdmin": "Закрити",
+      "successRemoveFromAdmin": "Користувача видалено з адміністраторів успішно!",
+      "errorRemoveFromAdmin": "Не вдалося видалити користувача з адміністраторів. Будь ласка, спробуйте ще раз."
+    },
+
+    "quizzes": {
+      "create": "Додати новий тест",
+      "noQuizzes": "Немає тестів в цій компанії",
+      "edit": "Редагувати",
+      "delete": "Видалити",
+      "modalDeleteQuizTitle": "Видалити тест",
+      "confirmDeleteQuiz": "Ви впевнені, що хочете видалити цей тест?",
+      "submitDeleteQuiz": "Видалити тест",
+      "cancelDeleteQuiz": "Закрити",
+      "successDeleteQuiz": "Тест видалено успішно!",
+      "errorDeleteQuiz": "Не вдалося видалити тест. Будь ласка, спробуйте ще раз."
+    },
+
+    "invites": {
+      "noInvites": "Немає запрошень",
+      "cancelInvite": "Скасувати запрошення",
+      "modalCancelInviteTitle": "Скасувати запрошення",
+      "confirmCancelInvite": "Ви впевнені, що хочете скасувати це запрошення?",
+      "submitCancelInvite": "Скасувати запрошення",
+      "cancelCancelInvite": "Закрити",
+      "successCancelInvite": "Запрошення скасовано успішно!",
+      "errorCancelInvite": "Не вдалося скасувати запрошення. Будь ласка, спробуйте ще раз.",
+
+      "inviteUser": "Запросити",
+      "enterUserId": "Введіть ID користувача",
+      "successInvite": "Запрошення успішно надіслано!",
+      "errorInvite": "Не вдалося надіслати запрошення. Будь ласка, спробуйте ще раз."
+    },
+
+    "requests": {
+      "noRequests": "Немає заявок",
+      "acceptRequest": "Прийняти",
+      "modalAcceptRequestTitle": "Прийняти заявку",
+      "confirmAcceptRequest": "Ви впевнені, що хочете прийняти цю заявку?",
+      "submitAcceptRequest": "Прийняти заявку",
+      "cancelAcceptRequest": "Закрити",
+      "successAcceptRequest": "Заявку прийнято успішно!",
+      "errorAcceptRequest": "Не вдалося прийняти заявку. Будь ласка, спробуйте ще раз.",
+
+      "rejectRequest": "Відхилити",
+      "modalRejectRequestTitle": "Відхилити заявку",
+      "confirmRejectRequest": "Ви впевнені, що хочете відхилити цю заявку?",
+      "submitRejectRequest": "Відхилити заявку",
+      "cancelRejectRequest": "Закрити",
+      "successRejectRequest": "Заявку відхилено успішно!",
+      "errorRejectRequest": "Не вдалося відхилити заявку. Будь ласка, спробуйте ще раз."
+    }
+  },
+
+  "UserPage": {
+    "title": "Профіль",
+
+    "nav": {
+      "info": "Інформація",
+      "companies": "Мої компанії",
+      "invites": "Запрошення",
+      "requests": "Заявки"
+    },
+
+    "info": {
+      "email": "Електронна пошта",
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "status": "Статус",
+      "city": "Місто",
+      "phone": "Телефон",
+      "links": "Посилання"
+    },
+
+    "companies": {
+      "noCompanies": "Ви не є членом жодної компанії",
+      "leave": "Вийти",
+      "modalLeaveTitle": "Вийти з компанії",
+      "confirmLeave": "Ви впевнені, що хочете вийти з цієї компанії?",
+      "submitLeave": "Вийти з компанії",
+      "cancelLeave": "Закрити",
+      "successLeave": "Ви успішно вийшли з компанії!",
+      "errorLeave": "Не вдалося вийти з компанії. Будь ласка, спробуйте ще раз."
+    },
+
+    "invites": {
+      "noInvites": "Ви не маєте запрошень",
+      "acceptInvite": "Прийняти",
+      "modalAcceptInviteTitle": "Прийняти запрошення",
+      "confirmAcceptInvite": "Ви впевнені, що хочете прийняти це запрошення?",
+      "submitAcceptInvite": "Прийняти запрошення",
+      "cancelAcceptInvite": "Закрити",
+      "successAcceptInvite": "Запрошення прийнято успішно!",
+      "errorAcceptInvite": "Не вдалося прийняти запрошення. Будь ласка, спробуйте ще раз.",
+
+      "rejectInvite": "Відхилити",
+      "modalRejectInviteTitle": "Відхилити запрошення",
+      "confirmRejectInvite": "Ви впевнені, що хочете відхилити це запрошення?",
+      "submitRejectInvite": "Відхилити запрошення",
+      "cancelRejectInvite": "Закрити",
+      "successRejectInvite": "Запрошення відхилено успішно!",
+      "errorRejectInvite": "Не вдалося відхилити запрошення. Будь ласка, спробуйте ще раз."
+    },
+
+    "requests": {
+      "noRequests": "Немає активних заявок",
+      "cancelRequest": "Скасувати",
+      "modalCancelRequestTitle": "Скасувати заявку",
+      "confirmCancelRequest": "Ви впевнені, що хочете скасувати цю заявку?",
+      "submitCancelRequest": "Скасувати заявку",
+      "cancelCancelRequest": "Закрити",
+      "successCancelRequest": "Заявку скасовано успішно!",
+      "errorCancelRequest": "Не вдалося скасувати заявку. Будь ласка, спробуйте ще раз."
+    }
+  },
+
+  "DashboardPage": {
+    "title": "Панель",
+    "description": "Ласкаво просимо до панелі!"
+  },
+
+  "Navigation": {
+    "home": "Головна",
+    "dashboard": "Панель",
+    "about": "Про нас",
+    "users": "Користувачі",
+    "companies": "Компанії",
+    "signUp": "Реєстрація",
+    "login": "Вхід",
+    "logout": "Вихід",
+    "myProfile": "Мій профіль"
+  },
+
+  "Header": {
+    "title": "Стажування Meduzzen"
+  },
+
+  "Footer": {
+    "copyright": "Проект стажування Meduzzen",
+    "privacyPolicyLinkLabel": "Політика конфіденційності",
+    "termsOfServiceLinkLabel": "Умови використання"
+  },
+
+  "LocaleSwitcher": {
+    "label": "Змінити мову",
+    "locale": "{locale, select, ua {Українська} en {Англійська} other {Unknown}}"
+  },
+
+  "TestStore": {
+    "title": "Компонент",
+    "inputLabel": "Нове значення",
+    "updateButton": "Оновити",
+    "resetButton": "Скинути",
+    "resetAllButton": "Скинути всі"
+  },
+
+  "Login": {
+    "title": "Вхід",
+
+    "labels": {
+      "email": "Електронна пошта",
+      "password": "Пароль"
+    },
+
+    "submitText": "Увійти"
+  },
+
+  "CreateUser": {
+    "title": "Створити новий обліковий запис",
+
+    "labels": {
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "email": "Електронна пошта",
+      "password": "Пароль",
+      "confirmPassword": "Підтвердження паролю"
+    },
+
+    "submitText": "Зареєструватися"
+  },
+
+  "UpdateUser": {
+    "info": {
+      "title": "Оновити вашу інформацію",
+
+      "labels": {
+        "firstName": "Ім'я",
+        "lastName": "Прізвище",
+        "status": "Статус",
+        "city": "Місто",
+        "phone": "Телефон",
+        "links": "Посилання"
+      },
+
+      "submitText": "Оновити інформацію",
+
+      "result": {
+        "success": "Інформацію успішно оновлено",
+        "error": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "password": {
+      "title": "Оновити ваш пароль",
+
+      "labels": {
+        "password": "Пароль",
+        "confirmPassword": "Підтвердження паролю"
+      },
+
+      "submitText": "Оновити пароль",
+
+      "result": {
+        "success": "Пароль успішно оновлено",
+        "error": "Не вдалося оновити пароль. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "avatar": {
+      "title": "Оновити аватар",
+
+      "chooseFile": "Виберіть новий аватар",
+
+      "result": {
+        "success": "Аватар успішно оновлено!",
+        "error": "Не вдалося оновити аватар."
+      },
+
+      "submitText": "Оновити аватар"
+    }
+  },
+
+  "DeleteUser": {
+    "title": "Видалити акаунт",
+
+    "submitText": "Видалити",
+    "confirmDelete": "Ви впевнені, що хочете видалити свій акаунт?",
+    "rejectText": "Закрити",
+
+    "result": {
+      "success": "Акаунт успішно видалено",
+      "error": "Не вдалося видалити акаунт. Будь ласка, спробуйте ще раз."
+    }
+  },
+
+  "CreateCompany": {
+    "title": "Створити нову компанію",
+    "modal": {
+      "title": "Створити нову компанію",
+      "openButton": "Створити компанію"
+    },
+    "labels": {
+      "companyName": "Назва компанії",
+      "isVisible": "Відображати"
+    },
+
+    "result": {
+      "success": "Компанія створена успішно!",
+      "error": "Не вдалося створити компанію. Будь ласка, спробуйте ще раз."
+    },
+
+    "submitText": "Створити компанію"
+  },
+
+  "UpdateCompany": {
+    "info": {
+      "title": "Оновити інформацію про компанію",
+
+      "labels": {
+        "name": "Назва компанії",
+        "title": "Назва компанії",
+        "description": "Опис компанії",
+        "city": "Місто",
+        "phone": "Телефон",
+        "links": "Посилання"
+      },
+
+      "submitText": "Оновити інформацію",
+
+      "result": {
+        "success": "Інформацію успішно оновлено!",
+        "error": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "visible": {
+      "title": "Змінити видимість",
+      "labels": {
+        "visible": "Відображати"
+      },
+      "result": {
+        "success": "Видимість успішно змінено!",
+        "error": "Не вдалося змінити видимість. Будь ласка, спробуйте ще раз."
+      },
+      "submitText": "Змінити видимість"
+    },
+
+    "avatar": {
+      "title": "Оновити аватар",
+
+      "chooseFile": "Виберіть новий аватар",
+
+      "result": {
+        "success": "Аватар успішно оновлено!",
+        "error": "Не вдалося оновити аватар."
+      },
+
+      "submitText": "Оновити аватар"
+    }
+  },
+
+  "DeleteCompany": {
+    "title": "Видалити компанію",
+
+    "submitText": "Видалити",
+    "confirmDelete": "Ви впевнені, що хочете видалити цю компанію?",
+    "rejectText": "Закрити",
+
+    "result": {
+      "success": "Компанію успішно видалено",
+      "error": "Не вдалося видалити компанію. Будь ласка, спробуйте ще раз."
+    }
+  },
+
+  "Settings": {
+    "changePassword": "Змінити пароль",
+    "updateInfo": "Оновити інформацію",
+    "updateAvatar": "Оновити аватар",
+    "updateVisible": "Змінити видимість",
+    "deleteAccount": "Видалити акаунт",
+    "deleteCompany": "Видалити компанію"
+  },
+
+  "Quiz": {
+    "labels": {
+      "name": "Назва тесту",
+      "title": "Заголовок тесту",
+      "description": "Опис тесту",
+      "frequency": "Частота проходження",
+      "question": "Питання",
+      "answer": "Відповідь",
+      "correctAnswer": "Правильна відповідь"
+    },
+
+    "create": {
+      "title": "Створити новий тест",
+      "addQuestion": "Додати питання",
+
+      "submitText": "Створити тест",
+
+      "result": {
+        "success": "Тест успішно створено!",
+        "error": "Не вдалося створити тест. Будь ласка, спробуйте ще раз."
+      }
+    },
+
+    "updateInfo": {
+      "title": "Оновити інформацію про тест",
+
+      "submitText": "Оновити інформацію",
+
+      "result": {
+        "success": "Інформацію успішно оновлено!",
+        "error": "Не вдалося оновити інформацію. Будь ласка, спробуйте ще раз."
+      }
+    }
+  },
+
+  "ApiHealthCheck": {
+    "checkButton": "Перевірити роботу API",
+    "successMessage": "API працює!",
+    "errorMessage": "Сталася помилка."
+  },
+
+  "ConfirmActionModal": {
+    "title": "Підтвердіть дію",
+    "message": "Ви впевнені, що хочете продовжити?",
+    "confirm": "Підтвердити",
+    "cancel": "Скасувати",
+    "close": "Закрити",
+    "successMessage": "Дія успішно виконана.",
+    "cancelSuccessMessage": "Дія успішно скасована.",
+    "errorMessage": "Сталася помилка."
+  }
+}

@@ -1,0 +1,17 @@
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.root {
+  @include flex-column;
+  position: relative;
+  min-height: 100vh;
+  background: var(--mui-palette-background-default) !important;
+  color: var(--mui-palette-text-primary) !important;
+}
+
+.main {
+  flex-grow: 1;
+  @include flex-column;
+}

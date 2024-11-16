@@ -1,0 +1,538 @@
+{
+  "Validation": {
+    "password": {
+      "required": "Password is required",
+      "minLength": "Password must be at least 12 characters",
+      "lowercase": "Password must contain at least one lowercase letter",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "number": "Password must contain at least one number",
+      "specialChar": "Password must contain at least one special character",
+      "doNotMatch": "Passwords do not match"
+    },
+    "email": {
+      "required": "Email is required",
+      "invalid": "Invalid email address"
+    },
+    "url": {
+      "invalid": "Invalid URL"
+    },
+    "firstName": {
+      "required": "First name is required"
+    },
+    "lastName": {
+      "required": "Last name is required"
+    },
+    "company": {
+      "nameRequired": "Company name is required"
+    },
+    "userId": {
+      "number": "User ID must contain only numbers"
+    }
+  },
+
+  "question": {
+    "textRequired": "Question text is required",
+    "answerRequired": "Answer field cannot be empty",
+    "answersAtLeast": "You need to enter at least 2 answer options",
+    "answersUnique": "All answer options must be different",
+    "correctAnswerInvalidType": "Correct answer must be a number",
+    "correctAnswerInteger": "Correct answer must be an integer",
+    "correctAnswerMin": "The index of the correct answer cannot be less than 0",
+    "correctAnswerInvalid": "The index of the correct answer must be within the range of the number of answer options"
+  },
+
+  "quiz": {
+    "nameRequired": "Quiz name is required",
+    "frequencyMin": "Quiz frequency must be at least once a day",
+    "companyIdRequired": "Company ID is required",
+    "questionsAtLeast": "You need to enter at least 2 questions"
+  },
+
+  "Error": {
+    "default": "An error occurred. Please try again.",
+    "emailAlreadyExists": "Email already exists",
+    "invalidCredentials": "Invalid email or password"
+  },
+
+  "Common": {
+    "defaultErrorMessage": "An error occurred. Please try again.",
+    "retryButton": "Try Again",
+    "defaultNoData": "No data found",
+    "previousPage": "Previous",
+    "nextPage": "Next",
+    "addField": "Add Field"
+  },
+
+  "LocaleLayout": {
+    "title": "Meduzzen Intership",
+    "description": "Meduzzen Internship Project"
+  },
+
+  "NotFoundPage": {
+    "description": "The page you are looking for does not exist."
+  },
+
+  "HomePage": {
+    "title": "Meduzzen Intership",
+    "welcomeMessage": "Welcome to our project!",
+    "learnMoreButton": "Learn More",
+    "learnMoreTitle": "Learn More",
+    "learnMoreDescription": "Your content goes here",
+    "closeButton": "Close"
+  },
+
+  "AboutPage": {
+    "title": "About This Project",
+    "description": "This project is part of the Meduzzen internship program."
+  },
+
+  "UsersPage": {
+    "title": "Our Community",
+    "description": "Meet the talented individuals in our network."
+  },
+
+  "CompaniesPage": {
+    "title": "Partner Companies",
+    "description": "Discover the innovative companies we work with."
+  },
+
+  "CompanyPage": {
+    "title": "Company Profile",
+
+    "request": {
+      "send": {
+        "label": "Join",
+        "success": "Request sent successfully!",
+        "error": "Failed to send request. Please try again."
+      },
+      "cancel": {
+        "label": "Cancel Request",
+        "success": "Request cancelled successfully!",
+        "error": "Failed to cancel request. Please try again."
+      }
+    },
+
+    "nav": {
+      "info": "Info",
+      "members": "Members",
+      "quizzes": "Quizzes",
+      "invites": "Invites",
+      "requests": "Requests",
+      "showAdminsOnly": "Show Admins Only"
+    },
+
+    "info": {
+      "aboutUs": "About Us",
+      "companyLinks": "Company Links",
+      "companyOwner": "Company Owner"
+    },
+
+    "members": {
+      "noMembers": "There are no members in this company",
+      "noAdmins": "There are no admins in this company",
+
+      "exclude": "Exclude from Company",
+      "modalExcludeTitle": "Exclude Member from Company",
+      "confirmExclude": "Are you sure you want to exclude this member?",
+      "submitExclude": "Exclude",
+      "cancelExclude": "Close",
+      "successExclude": "Member excluded successfully!",
+      "errorExclude": "Failed to exclude member. Please try again.",
+
+      "addToAdmin": "Make Admin",
+      "modalAddToAdminTitle": "Promote User to Admin",
+      "confirmAddToAdmin": "Are you sure you want to promote this user to admin?",
+      "submitAddToAdmin": "Promote to Admin",
+      "cancelAddToAdmin": "Close",
+      "successAddToAdmin": "Member promoted to admin successfully!",
+      "errorAddToAdmin": "Failed to promote member to admin. Please try again.",
+
+      "removeFromAdmin": "Remove Admin",
+      "modalRemoveFromAdminTitle": "Remove Admin",
+      "confirmRemoveFromAdmin": "Are you sure you want to remove this user from admin?",
+      "submitRemoveFromAdmin": "Remove from Admin",
+      "cancelRemoveFromAdmin": "Close",
+      "successRemoveFromAdmin": "Member removed from admin successfully!",
+      "errorRemoveFromAdmin": "Failed to remove member from admin. Please try again."
+    },
+
+    "quizzes": {
+      "create": "Add New Quiz",
+      "noQuizzes": "There are no quizzes in this company",
+      "edit": "Edit",
+      "delete": "Delete",
+      "modalDeleteQuizTitle": "Delete Quiz",
+      "confirmDeleteQuiz": "Are you sure you want to delete this quiz?",
+      "submitDeleteQuiz": "Delete Quiz",
+      "cancelDeleteQuiz": "Close",
+      "successDeleteQuiz": "Quiz deleted successfully!",
+      "errorDeleteQuiz": "Failed to delete quiz. Please try again."
+    },
+
+    "invites": {
+      "noInvites": "There are no pending invites in this company",
+      "cancelInvite": "Cancel Invite",
+      "modalCancelInviteTitle": "Cancel Invite",
+      "confirmCancelInvite": "Are you sure you want to cancel this invite?",
+      "submitCancelInvite": "Cancel Invite",
+      "cancelCancelInvite": "Close",
+      "successCancelInvite": "Invite cancelled successfully!",
+      "errorCancelInvite": "Failed to cancel invite. Please try again.",
+
+      "inviteUser": "Invite",
+      "enterUserId": "Enter User ID",
+      "successInvite": "Invite sent successfully!",
+      "errorInvite": "Failed to send invite. Please try again."
+    },
+
+    "requests": {
+      "noRequests": "There are no pending requests for joining this company",
+      "acceptRequest": "Accept Request",
+      "modalAcceptRequestTitle": "Accept Request",
+      "confirmAcceptRequest": "Are you sure you want to accept this request?",
+      "submitAcceptRequest": "Accept Request",
+      "cancelAcceptRequest": "Close",
+      "successAcceptRequest": "Request accepted successfully!",
+      "errorAcceptRequest": "Failed to accept request. Please try again.",
+
+      "rejectRequest": "Reject Request",
+      "modalRejectRequestTitle": "Reject Request",
+      "confirmRejectRequest": "Are you sure you want to reject this request?",
+      "submitRejectRequest": "Reject Request",
+      "cancelRejectRequest": "Close",
+      "successRejectRequest": "Request rejected successfully!",
+      "errorRejectRequest": "Failed to reject request. Please try again."
+    }
+  },
+
+  "UserPage": {
+    "title": "Profile",
+
+    "nav": {
+      "info": "Info",
+      "companies": "My Companies",
+      "invites": "Invites",
+      "requests": "Requests"
+    },
+
+    "info": {
+      "email": "Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "status": "Status",
+      "city": "City",
+      "phone": "Phone",
+      "links": "Links"
+    },
+
+    "companies": {
+      "noCompanies": "You are not a member of any companies",
+      "leave": "Leave",
+      "modalLeaveTitle": "Leave Company",
+      "confirmLeave": "Are you sure you want to leave this company?",
+      "submitLeave": "Leave Company",
+      "cancelLeave": "Close",
+      "successLeave": "You have successfully left the company!",
+      "errorLeave": "Failed to leave company. Please try again."
+    },
+
+    "invites": {
+      "noInvites": "You have no invites",
+      "acceptInvite": "Accept",
+      "modalAcceptInviteTitle": "Accept Invite",
+      "confirmAcceptInvite": "Are you sure you want to accept this invite?",
+      "submitAcceptInvite": "Accept Invite",
+      "cancelAcceptInvite": "Close",
+      "successAcceptInvite": "Invite accepted successfully!",
+      "errorAcceptInvite": "Failed to accept invite. Please try again.",
+
+      "rejectInvite": "Reject",
+      "modalRejectInviteTitle": "Reject Invite",
+      "confirmRejectInvite": "Are you sure you want to reject this invite?",
+      "submitRejectInvite": "Reject Invite",
+      "cancelRejectInvite": "Close",
+      "successRejectInvite": "Invite rejected successfully!",
+      "errorRejectInvite": "Failed to reject invite. Please try again."
+    },
+
+    "requests": {
+      "noRequests": "There are no active requests",
+      "cancelRequest": "Cancel",
+      "modalCancelRequestTitle": "Cancel Request",
+      "confirmCancelRequest": "Are you sure you want to cancel this request?",
+      "submitCancelRequest": "Cancel Request",
+      "cancelCancelRequest": "Close",
+      "successCancelRequest": "Request cancelled successfully!",
+      "errorCancelRequest": "Failed to cancel request. Please try again."
+    }
+  },
+
+  "DashboardPage": {
+    "title": "Dashboard",
+    "description": "Welcome to the dashboard!"
+  },
+
+  "Navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "about": "About",
+    "users": "Users",
+    "companies": "Companies",
+    "signUp": "Sign Up",
+    "login": "Login",
+    "logout": "Logout",
+    "myProfile": "My Profile"
+  },
+
+  "Header": {
+    "title": "Meduzzen Internship"
+  },
+
+  "Footer": {
+    "copyright": "Meduzzen Internship Project",
+    "privacyPolicyLinkLabel": "Privacy Policy",
+    "termsOfServiceLinkLabel": "Terms of Service"
+  },
+
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ua {Ukrainian} en {English} other {Unknown}}"
+  },
+
+  "TestStore": {
+    "title": "Test Component",
+    "inputLabel": "New Test Value",
+    "updateButton": "Update test value",
+    "resetButton": "Reset value",
+    "resetAllButton": "Reset all values"
+  },
+
+  "Login": {
+    "title": "Login",
+
+    "labels": {
+      "email": "Email Address",
+      "password": "Password"
+    },
+
+    "submitText": "Login"
+  },
+
+  "CreateUser": {
+    "title": "Create a New Account",
+
+    "labels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    },
+
+    "submitText": "Sign Up"
+  },
+
+  "UpdateUser": {
+    "info": {
+      "title": "Update your information",
+
+      "labels": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "status": "Status",
+        "city": "City",
+        "phone": "Phone",
+        "links": "Links"
+      },
+
+      "submitText": "Update Information",
+
+      "result": {
+        "success": "Information updated successfully!",
+        "error": "Failed to update information. Please try again."
+      }
+    },
+
+    "password": {
+      "title": "Update your password",
+
+      "labels": {
+        "password": "Password",
+        "confirmPassword": "Confirm Password"
+      },
+
+      "submitText": "Update Password",
+
+      "result": {
+        "success": "Password updated successfully!",
+        "error": "Failed to update password. Please try again."
+      }
+    },
+
+    "avatar": {
+      "title": "Update Avatar",
+
+      "chooseFile": "Choose a new avatar image",
+
+      "result": {
+        "success": "Avatar updated successfully!",
+        "error": "Failed to update avatar."
+      },
+
+      "submitText": "Update Avatar"
+    }
+  },
+
+  "DeleteUser": {
+    "title": "Delete Account",
+
+    "submitText": "Delete",
+    "confirmDelete": "Are you sure you want to delete your account?",
+    "rejectText": "Close",
+
+    "result": {
+      "success": "Account deleted successfully",
+      "error": "Failed to delete account. Please try again."
+    }
+  },
+
+  "CreateCompany": {
+    "title": "Create a New Company",
+    "modal": {
+      "title": "Create a New Company",
+      "openButton": "Create Company"
+    },
+    "labels": {
+      "companyName": "Company Name",
+      "isVisible": "Is Visible"
+    },
+
+    "result": {
+      "success": "Company created successfully!",
+      "error": "Failed to create company. Please try again."
+    },
+
+    "submitText": "Create Company"
+  },
+
+  "UpdateCompany": {
+    "info": {
+      "title": "Update company information",
+
+      "labels": {
+        "name": "Company Name",
+        "title": "Company Title",
+        "description": "Company Description",
+        "city": "Company City",
+        "phone": "Company Phone",
+        "links": "Company Links"
+      },
+
+      "submitText": "Update Information",
+
+      "result": {
+        "success": "Information updated successfully!",
+        "error": "Failed to update information. Please try again."
+      }
+    },
+
+    "visible": {
+      "title": "Change Visibility",
+      "labels": {
+        "visible": "Is Visible"
+      },
+      "result": {
+        "success": "Visibility changed successfully!",
+        "error": "Failed to change visibility. Please try again."
+      },
+      "submitText": "Change Visibility"
+    },
+
+    "avatar": {
+      "title": "Update Avatar",
+
+      "chooseFile": "Choose a new avatar image",
+
+      "result": {
+        "success": "Avatar updated successfully!",
+        "error": "Failed to update avatar."
+      },
+
+      "submitText": "Update Avatar"
+    }
+  },
+
+  "DeleteCompany": {
+    "title": "Delete Company",
+
+    "submitText": "Delete",
+    "confirmDelete": "Are you sure you want to delete this company?",
+    "rejectText": "Close",
+
+    "result": {
+      "success": "Company deleted successfully",
+      "error": "Failed to delete company. Please try again."
+    }
+  },
+
+  "Settings": {
+    "changePassword": "Change Password",
+    "updateInfo": "Update Information",
+    "updateAvatar": "Update Avatar",
+    "updateVisible": "Change Visibility",
+    "deleteAccount": "Delete Account",
+    "deleteCompany": "Delete Company"
+  },
+
+  "Quiz": {
+    "labels": {
+      "name": "Quiz Name",
+      "title": "Quiz Title",
+      "description": "Quiz Description",
+      "frequency": "Frequency",
+      "question": "Question",
+      "answer": "Answer",
+      "correctAnswer": "Correct Answer"
+    },
+
+    "create": {
+      "title": "Create a New Quiz",
+      "addQuestion": "Add Question",
+
+      "submitText": "Create Quiz",
+
+      "result": {
+        "success": "Quiz created successfully!",
+        "error": "Failed to create quiz. Please try again."
+      }
+    },
+
+    "updateInfo": {
+      "title": "Update Quiz Information",
+
+      "submitText": "Update Information",
+
+      "result": {
+        "success": "Information updated successfully!",
+        "error": "Failed to update information. Please try again."
+      }
+    }
+  },
+
+  "ApiHealthCheck": {
+    "checkButton": "Check API Health",
+    "successMessage": "API is healthy!",
+    "errorMessage": "An error occurred."
+  },
+
+  "ConfirmActionModal": {
+    "title": "Confirm Action",
+    "message": "Are you sure you want to proceed?",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "successMessage": "Action completed successfully.",
+    "cancelSuccessMessage": "Action cancelled successfully.",
+    "errorMessage": "An error occurred."
+  }
+}

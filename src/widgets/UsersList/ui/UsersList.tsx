@@ -1,19 +1,61 @@
-import { type UserEntity } from "@/src/entities/user"
-import { Routes } from "@/src/shared/constants/routes"
-import Grid from "@mui/material/Grid2"
-import Link from "next/link"
+"use client"
+
+import { useGetAllUsersQuery } from "@entities/user"
+import { useRouter } from "@navigation"
+import { Pagination } from "@shared/components/Pagination"
+import { ErrorMessage, GridContainer, ListCardSkeleton, NoData } from "@shared/components/ui"
+import { getCurrentPage } from "@shared/utils"
+import { useSearchParams } from "next/navigation"
 import { UserCard } from "./UserCard"
 
-export function UsersList({ users }: { users: UserEntity[] }) {
-	return (
-		<Grid container spacing={2} justifyContent="center">
-			{users.map(user => (
-				<Grid key={user.id} display="flex" justifyContent="center">
-					<Link href={`${Routes.USERS}/${user.id}`} passHref>
-						<UserCard user={user} />
-					</Link>
-				</Grid>
-			))}
-		</Grid>
-	)
+const PAGE_SIZE = 15
+
+export function UsersList() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
+  const currentPage = getCurrentPage(searchParams)
+
+  const { data, isLoading, isError } = useGetAllUsersQuery({
+    page: currentPage,
+    page_size: PAGE_SIZE,
+  })
+
+  const handlePageChange = (page: number) => {
+    const params = new URLSearchParams(Array.from(searchParams.entries()))
+    params.set("page", page.toString())
+    router.push(`?${params.toString()}`)
+  }
+
+  if (isLoading)
+    return (
+      <GridContainer>
+        {Array.from({ length: PAGE_SIZE > 24 ? 24 : PAGE_SIZE }).map((_, index) => (
+          <ListCardSkeleton key={index} />
+        ))}
+      </GridContainer>
+    )
+
+  if (isError || !data) return <ErrorMessage />
+
+  const { users, pagination } = data
+
+  return (
+    <div>
+      {users?.length ? (
+        <GridContainer>
+          {users.map((user) => (
+            <UserCard key={user.user_id} user={user} />
+          ))}
+        </GridContainer>
+      ) : (
+        <NoData />
+      )}
+      <Pagination
+        totalPages={pagination.total_page}
+        currentPage={currentPage}
+        setPage={handlePageChange}
+      />
+    </div>
+  )
 }

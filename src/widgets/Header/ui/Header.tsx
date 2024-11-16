@@ -1,20 +1,26 @@
-import { HEADER_TEXT } from "@/src/shared/constants/texts"
-import { AppBar, Box, Toolbar } from "@mui/material"
-import { links } from "../lib/links"
+import { Container } from "@shared/components/ui"
+import { useTranslations } from "next-intl"
+import { useLinks } from "../lib/links"
+import { Auth } from "./Auth"
 import styles from "./Header.module.scss"
+import { LocaleSwitcher } from "./LocaleSwitcher"
 import { NavItem } from "./NavItem"
 
 export function Header() {
-	return (
-		<AppBar position="static" component="header">
-			<Toolbar>
-				<div className={styles.title}>{HEADER_TEXT.TITLE}</div>
-				<Box>
-					{links.map(({ href, label }) => (
-						<NavItem key={href} href={href} label={label} />
-					))}
-				</Box>
-			</Toolbar>
-		</AppBar>
-	)
+  const t = useTranslations("Header")
+  const links = useLinks()
+  return (
+    <header>
+      <Container className={styles.container}>
+        <div className={styles.title}>{t("title")}</div>
+        <div className={styles.nav}>
+          {links.map(({ href, label }) => (
+            <NavItem key={href} href={href} label={label} />
+          ))}
+          <Auth />
+          <LocaleSwitcher />
+        </div>
+      </Container>
+    </header>
+  )
 }

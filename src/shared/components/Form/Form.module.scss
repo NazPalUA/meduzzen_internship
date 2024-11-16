@@ -1,0 +1,72 @@
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  @include flex-column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.75rem;
+  margin: 0 0 1rem;
+  color: var(--mui-palette-text-primary);
+}
+
+.textField {
+  input {
+    &:-webkit-autofill {
+      -webkit-box-shadow: none;
+      -webkit-text-fill-color: inherit;
+    }
+  }
+
+  p {
+    margin-top: 0.25rem;
+  }
+}
+
+.message {
+  @include flex-align-center;
+  font-size: 1.25rem;
+  color: var(--mui-palette-error-main);
+  gap: 0.5rem;
+}
+
+.array-field {
+  &__label-container {
+    @include flex-align-center;
+    gap: 0.5rem;
+  }
+
+  &__delete-button {
+    position: absolute !important;
+    right: 0;
+    top: 0;
+  }
+
+  &__items {
+    @include flex-column;
+    gap: 0.75rem;
+    width: 100%;
+
+    &--left-padding {
+      padding-left: 1rem;
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__add-button {
+    margin-top: 0.5rem !important;
+  }
+}
