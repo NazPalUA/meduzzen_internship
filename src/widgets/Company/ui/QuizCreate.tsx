@@ -22,7 +22,7 @@ export function QuizCreate({ companyId }: { companyId: number }) {
     <Button
       size="small"
       variant="outlined"
-      onClick={() => openDialog(createQuizDialog, { fullScreen: true })}
+      onClick={() => openDialog(createQuizDialog, { maxWidth: "lg" })}
       startIcon={<QuizIcon />}
     >
       {t("create")}

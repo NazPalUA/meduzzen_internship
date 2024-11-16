@@ -4,7 +4,7 @@ import { type CreateQuizCredentials } from "@entities/quiz"
 import CheckBoxIcon from "@mui/icons-material/CheckBox"
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank"
 import ClearIcon from "@mui/icons-material/Clear"
-import { Autocomplete, Box, Checkbox, IconButton, TextField as MuiTextField } from "@mui/material"
+import { Autocomplete, Checkbox, IconButton, TextField as MuiTextField } from "@mui/material"
 import { ArrayField } from "@shared/components/Form"
 import { useTranslations } from "next-intl"
 import { Control, Controller, UseFieldArrayReturn, useFormContext } from "react-hook-form"
@@ -91,14 +91,14 @@ export function QuestionsField({
                     />
                   )}
                   renderOption={(props, option, { selected }) => (
-                    <Box component="li" {...props}>
+                    <li {...props}>
                       <Checkbox
                         icon={<CheckBoxOutlineBlankIcon />}
                         checkedIcon={<CheckBoxIcon />}
                         checked={selected}
                       />
                       {option.label}
-                    </Box>
+                    </li>
                   )}
                 />
               )
