@@ -48,6 +48,14 @@ const sessionApiSlice = baseApi.injectEndpoints({
           }
         }
       },
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled
+          dispatch(baseApi.util.resetApiState())
+        } catch {
+          return
+        }
+      },
       invalidatesTags: ["Session"],
     }),
   }),
