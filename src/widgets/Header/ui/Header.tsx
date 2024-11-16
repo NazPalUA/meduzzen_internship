@@ -2,6 +2,7 @@ import { Container } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import { useLinks } from "../lib/links"
 import { Auth } from "./Auth"
+import { CreateCompany } from "./CreateCompany"
 import styles from "./Header.module.scss"
 import { LocaleSwitcher } from "./LocaleSwitcher"
 import { NavItem } from "./NavItem"
@@ -17,6 +18,7 @@ export function Header() {
           {links.map(({ href, label }) => (
             <NavItem key={href} href={href} label={label} />
           ))}
+          <CreateCompany />
           <Auth />
           <LocaleSwitcher />
         </div>

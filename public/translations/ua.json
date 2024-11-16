@@ -267,14 +267,8 @@
     }
   },
 
-  "DashboardPage": {
-    "title": "Панель",
-    "description": "Ласкаво просимо до панелі!"
-  },
-
   "Navigation": {
     "home": "Головна",
-    "dashboard": "Панель",
     "about": "Про нас",
     "users": "Користувачі",
     "companies": "Компанії",

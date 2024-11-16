@@ -18,7 +18,7 @@ export function LoginForm() {
 
   const onSubmit = async (data: LoginCredentials) => {
     await login(data).unwrap()
-    router.push(Routes.DASHBOARD)
+    router.push(Routes.HOME)
   }
 
   const errorMessage = isError

@@ -52,36 +52,46 @@ export function Auth() {
           horizontal: "right",
         }}
       >
-        {isLoggedIn && user ? (
-          <>
-            <MenuItem component={Link} href={Routes.LOGOUT} onClick={handleMenuClose}>
-              {t("logout")}
-            </MenuItem>
-            <MenuItem
-              component={Link}
-              href={`${Routes.USERS}/${user.user_id}`}
-              onClick={handleMenuClose}
-            >
-              {t("myProfile")}
-            </MenuItem>
-            <MenuItem
-              component={Link}
-              href={`${Routes.USERS}/${user.user_id}?tab=companies`}
-              onClick={handleMenuClose}
-            >
-              {t("myCompanies")}
-            </MenuItem>
-          </>
-        ) : (
-          <>
-            <MenuItem component={Link} href={Routes.LOGIN} onClick={handleMenuClose}>
-              {t("login")}
-            </MenuItem>
-            <MenuItem component={Link} href={Routes.SIGN_UP} onClick={handleMenuClose}>
-              {t("signUp")}
-            </MenuItem>
-          </>
-        )}
+        {isLoggedIn && user
+          ? [
+              <MenuItem
+                component={Link}
+                href={Routes.LOGOUT}
+                onClick={handleMenuClose}
+                key="logout"
+              >
+                {t("logout")}
+              </MenuItem>,
+              <MenuItem
+                component={Link}
+                href={`${Routes.USERS}/${user.user_id}`}
+                onClick={handleMenuClose}
+                key="myProfile"
+              >
+                {t("myProfile")}
+              </MenuItem>,
+              <MenuItem
+                component={Link}
+                href={`${Routes.USERS}/${user.user_id}?tab=companies`}
+                onClick={handleMenuClose}
+                key="myCompanies"
+              >
+                {t("myCompanies")}
+              </MenuItem>,
+            ]
+          : [
+              <MenuItem component={Link} href={Routes.LOGIN} onClick={handleMenuClose} key="login">
+                {t("login")}
+              </MenuItem>,
+              <MenuItem
+                component={Link}
+                href={Routes.SIGN_UP}
+                onClick={handleMenuClose}
+                key="signUp"
+              >
+                {t("signUp")}
+              </MenuItem>,
+            ]}
       </Menu>
     </div>
   )

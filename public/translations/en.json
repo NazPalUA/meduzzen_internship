@@ -267,14 +267,8 @@
     }
   },
 
-  "DashboardPage": {
-    "title": "Dashboard",
-    "description": "Welcome to the dashboard!"
-  },
-
   "Navigation": {
     "home": "Home",
-    "dashboard": "Dashboard",
     "about": "About",
     "users": "Users",
     "companies": "Companies",
