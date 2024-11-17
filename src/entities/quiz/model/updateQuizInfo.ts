@@ -12,7 +12,7 @@ export const updateQuizInfoCredentialsSchema = (t?: (key: string) => string) => 
       .trim(),
     quiz_title: z.string(),
     quiz_description: z.string(),
-    quiz_frequency: z.number().min(1, {
+    quiz_frequency: z.coerce.number().min(1, {
       message: translate("quiz.frequencyMin", "Quiz frequency must be at least once a day."),
     }),
   })
