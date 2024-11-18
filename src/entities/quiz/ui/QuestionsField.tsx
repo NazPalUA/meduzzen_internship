@@ -1,13 +1,11 @@
 "use client "
 
 import { type CreateQuizCredentials } from "@entities/quiz"
-import CheckBoxIcon from "@mui/icons-material/CheckBox"
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank"
 import ClearIcon from "@mui/icons-material/Clear"
-import { Autocomplete, Box, Checkbox, IconButton, TextField as MuiTextField } from "@mui/material"
-import { ArrayField } from "@shared/components/Form"
+import { IconButton, TextField as MuiTextField } from "@mui/material"
 import { useTranslations } from "next-intl"
-import { Control, Controller, UseFieldArrayReturn, useFormContext } from "react-hook-form"
+import { Control, Controller, UseFieldArrayReturn } from "react-hook-form"
+import { Answers } from "./Answers"
 import styles from "./QuestionsField.module.scss"
 
 export function QuestionsField({
@@ -18,8 +16,6 @@ export function QuestionsField({
   fieldArray: UseFieldArrayReturn<CreateQuizCredentials>
 }) {
   const t = useTranslations("Quiz")
-
-  const form = useFormContext<CreateQuizCredentials>()
 
   const { fields, remove } = fieldArray
 
@@ -47,59 +43,17 @@ export function QuestionsField({
             }}
           />
 
-          <ArrayField
-            className={styles.answersField}
-            name={`questions_list.${index}.question_answers`}
-            addButton
-            leftPadding={false}
-            minItems={2}
-            itemLabel={t("labels.answer")}
-          />
-
           <Controller
             control={control}
             name={`questions_list.${index}.question_correct_answer`}
-            render={({ field: { value, onChange, ref }, fieldState: { error } }) => {
-              const options = form
-                .watch(`questions_list.${index}.question_answers`)
-                .map((item, index) => ({
-                  id: index,
-                  label: item.trim(),
-                }))
-                .filter((item) => item.label)
-
+            render={({ field: { value, onChange } }) => {
               return (
-                <Autocomplete
-                  size="small"
-                  className={styles.correctAnswerField}
-                  options={options}
-                  value={options.find((option) => Number(option.id) === value) || null}
-                  getOptionLabel={(option) => option.label}
-                  isOptionEqualToValue={(option, newValue) => option.id === newValue.id}
-                  onChange={(_, newValue) => {
-                    onChange(newValue ? Number(newValue.id) : 0)
-                  }}
-                  disableCloseOnSelect
-                  renderInput={(params) => (
-                    <MuiTextField
-                      {...params}
-                      fullWidth
-                      inputRef={ref}
-                      error={!!error}
-                      helperText={error?.message}
-                      label={t("labels.correctAnswer")}
-                    />
-                  )}
-                  renderOption={(props, option, { selected }) => (
-                    <Box component="li" {...props}>
-                      <Checkbox
-                        icon={<CheckBoxOutlineBlankIcon />}
-                        checkedIcon={<CheckBoxIcon />}
-                        checked={selected}
-                      />
-                      {option.label}
-                    </Box>
-                  )}
+                <Answers
+                  name={`questions_list.${index}.question_answers`}
+                  minItems={2}
+                  itemLabel={t("labels.answer")}
+                  correctAnswer={value}
+                  setCorrectAnswer={onChange}
                 />
               )
             }}

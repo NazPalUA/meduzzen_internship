@@ -96,7 +96,6 @@ const actionApiSlice = baseApi.injectEndpoints({
         method: HttpMethod.GET,
       }),
       transformResponse: (response: unknown) => {
-        console.log(response)
         return parseData(ActionWithoutIdResponseSchema, response).result
       },
       invalidatesTags: ["CompanyData", "UserData"],

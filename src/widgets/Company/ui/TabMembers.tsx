@@ -17,7 +17,7 @@ export function TabMembers({
   company: CompanyDetails
   permission: Permission
 }) {
-  const [adminOnly, setAdminOnly] = useState(false)
+  const [adminOnly, setAdminOnly] = useState<boolean>(false)
 
   const t = useTranslations("CompanyPage.nav")
 

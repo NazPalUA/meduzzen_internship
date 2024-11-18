@@ -166,7 +166,8 @@
       "submitDeleteQuiz": "Видалити тест",
       "cancelDeleteQuiz": "Закрити",
       "successDeleteQuiz": "Тест видалено успішно!",
-      "errorDeleteQuiz": "Не вдалося видалити тест. Будь ласка, спробуйте ще раз."
+      "errorDeleteQuiz": "Не вдалося видалити тест. Будь ласка, спробуйте ще раз.",
+      "takeQuiz": "Пройти тест"
     },
 
     "invites": {
@@ -267,21 +268,16 @@
     }
   },
 
-  "DashboardPage": {
-    "title": "Панель",
-    "description": "Ласкаво просимо до панелі!"
-  },
-
   "Navigation": {
     "home": "Головна",
-    "dashboard": "Панель",
     "about": "Про нас",
     "users": "Користувачі",
     "companies": "Компанії",
     "signUp": "Реєстрація",
     "login": "Вхід",
     "logout": "Вихід",
-    "myProfile": "Мій профіль"
+    "myProfile": "Мій профіль",
+    "myCompanies": "Мої компанії"
   },
 
   "Header": {
@@ -400,7 +396,8 @@
     "title": "Створити нову компанію",
     "modal": {
       "title": "Створити нову компанію",
-      "openButton": "Створити компанію"
+      "openButton": "Створити компанію",
+      "disabledButton": "Ви повинні бути зареєстрованим для створення компанії"
     },
     "labels": {
       "companyName": "Назва компанії",
@@ -519,6 +516,23 @@
     }
   },
 
+  "TakeQuiz": {
+    "questionNumber": "Питання {number} з {total}",
+    "nav": {
+      "previous": "Попереднє",
+      "submit": "Підтвердити",
+      "next": "Наступне"
+    },
+    "results": {
+      "title": "Результати тесту",
+      "excellent": "Відмінно! Ви освоїли цю тему!",
+      "good": "Добре! Продовжуйте вчитися, щоб ще краще!",
+      "needsPractice": "Продовжуйте вчитися! Ви станете кращим з часом.",
+      "backToQuizzes": "Назад до тестів",
+      "retakeQuiz": "Спробувати ще раз"
+    }
+  },
+
   "ApiHealthCheck": {
     "checkButton": "Перевірити роботу API",
     "successMessage": "API працює!",
@@ -534,5 +548,12 @@
     "successMessage": "Дія успішно виконана.",
     "cancelSuccessMessage": "Дія успішно скасована.",
     "errorMessage": "Сталася помилка."
+  },
+
+  "Auth": {
+    "haveAccount": "Маєте акаунт?",
+    "noAccount": "Не маєте акаунту?",
+    "login": "Увійти",
+    "signUp": "Зареєструватися"
   }
 }

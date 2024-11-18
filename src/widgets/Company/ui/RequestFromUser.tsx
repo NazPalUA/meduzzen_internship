@@ -21,7 +21,7 @@ export function RequestFromUser({ companyId, userId }: { companyId: number; user
   const { toastError, toastSuccess } = useToaster()
   const t = useTranslations("CompanyPage.request")
 
-  const currentRequest = getCurrentUserRequest(companyId, userRequests)
+  const currentRequest = userRequests ? getCurrentUserRequest(companyId, userRequests) : null
 
   const icon = currentRequest ? <CloseIcon /> : <TelegramIcon />
 
@@ -29,22 +29,18 @@ export function RequestFromUser({ companyId, userId }: { companyId: number; user
     try {
       await sendRequest(companyId).unwrap()
       toastSuccess(t("send.success"))
-    } catch (error) {
-      console.error(error)
+    } catch {
       toastError(t("send.error"))
     }
   }
 
   async function handleCancelRequest() {
-    if (currentRequest) {
-      try {
-        await cancelRequest(currentRequest.action_id).unwrap()
-        toastSuccess(t("cancel.success"))
-      } catch (error) {
-        console.error(error)
-        toastError(t("cancel.error"))
-      }
-    } else return
+    try {
+      await cancelRequest(currentRequest!.action_id).unwrap()
+      toastSuccess(t("cancel.success"))
+    } catch {
+      toastError(t("cancel.error"))
+    }
   }
 
   if (isDataLoading) return <CircularProgress />

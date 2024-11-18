@@ -16,7 +16,6 @@ export function SubmitButton({ text, className, ...buttonProps }: SubmitButtonPr
   } = useFormContext()
   return (
     <Button
-      startIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}
       endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}
       disabled={isSubmitting}
       type="submit"

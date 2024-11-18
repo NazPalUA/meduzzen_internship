@@ -166,7 +166,8 @@
       "submitDeleteQuiz": "Delete Quiz",
       "cancelDeleteQuiz": "Close",
       "successDeleteQuiz": "Quiz deleted successfully!",
-      "errorDeleteQuiz": "Failed to delete quiz. Please try again."
+      "errorDeleteQuiz": "Failed to delete quiz. Please try again.",
+      "takeQuiz": "Take Quiz"
     },
 
     "invites": {
@@ -267,21 +268,16 @@
     }
   },
 
-  "DashboardPage": {
-    "title": "Dashboard",
-    "description": "Welcome to the dashboard!"
-  },
-
   "Navigation": {
     "home": "Home",
-    "dashboard": "Dashboard",
     "about": "About",
     "users": "Users",
     "companies": "Companies",
     "signUp": "Sign Up",
     "login": "Login",
     "logout": "Logout",
-    "myProfile": "My Profile"
+    "myProfile": "My Profile",
+    "myCompanies": "My Companies"
   },
 
   "Header": {
@@ -400,7 +396,8 @@
     "title": "Create a New Company",
     "modal": {
       "title": "Create a New Company",
-      "openButton": "Create Company"
+      "openButton": "Create Company",
+      "disabledButton": "You must be logged in to create a company"
     },
     "labels": {
       "companyName": "Company Name",
@@ -519,6 +516,23 @@
     }
   },
 
+  "TakeQuiz": {
+    "questionNumber": "Question {number} of {total}",
+    "nav": {
+      "previous": "Previous",
+      "submit": "Submit",
+      "next": "Next"
+    },
+    "results": {
+      "title": "Quiz Results",
+      "excellent": "Excellent work! You've mastered this topic!",
+      "good": "Good job! Keep practicing to improve further.",
+      "needsPractice": "Keep practicing! You'll get better with time.",
+      "backToQuizzes": "Back to Quizzes",
+      "retakeQuiz": "Try Again"
+    }
+  },
+
   "ApiHealthCheck": {
     "checkButton": "Check API Health",
     "successMessage": "API is healthy!",
@@ -534,5 +548,12 @@
     "successMessage": "Action completed successfully.",
     "cancelSuccessMessage": "Action cancelled successfully.",
     "errorMessage": "An error occurred."
+  },
+
+  "Auth": {
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "login": "Log in",
+    "signUp": "Sign up"
   }
 }

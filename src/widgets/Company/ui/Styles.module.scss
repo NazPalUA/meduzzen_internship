@@ -118,3 +118,11 @@
     color: var(--mui-palette-error-main);
   }
 }
+
+.quizzes {
+  &__secondaryAction {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}

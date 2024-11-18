@@ -64,7 +64,6 @@ export function ConfirmActionModal({
       if (confirmAction.onSuccess) confirmAction.onSuccess()
       closeDialog()
     } catch (error: unknown) {
-      console.error(error)
       toastError(confirmAction.errorMessage || t("errorMessage"))
       if (confirmAction.onError) confirmAction.onError(error)
     } finally {
@@ -85,7 +84,6 @@ export function ConfirmActionModal({
       if (cancelAction.onSuccess) cancelAction.onSuccess()
       closeDialog()
     } catch (error: unknown) {
-      console.error(error)
       toastError(cancelAction.errorMessage || t("errorMessage"))
       if (cancelAction.onError) cancelAction.onError(error)
     } finally {

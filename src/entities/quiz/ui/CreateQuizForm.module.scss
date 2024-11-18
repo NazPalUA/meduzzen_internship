@@ -4,11 +4,11 @@
 }
 
 .upperFields {
-  @include flex-row-gap(1rem);
+  @include flex-row-gap(1.5rem);
 }
 
 .buttonsContainer {
-  @include flex-row-gap(1rem);
+  @include flex-row-gap(1.5rem);
 
   button {
     flex: 1;
