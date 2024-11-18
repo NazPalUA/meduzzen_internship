@@ -1,12 +1,11 @@
-import { ServerResponseSchema } from "@shared/api"
+import { RatingSchema, ServerResponseSchema } from "@shared/api"
 import { z } from "zod"
-import { CompanyDataRatingSchema } from "./shared/rating"
 
 export const CompanyDataSummaryRatingAnalyticForUsersResponseSchema = ServerResponseSchema(
   z.object({
     rating: z.array(
       z.object({
-        rating: z.array(CompanyDataRatingSchema),
+        rating: z.array(RatingSchema),
         user_id: z.number(),
       }),
     ),
