@@ -16,7 +16,7 @@ export function QuizzesList({
 }) {
   const { data: quizzes, isLoading, isError } = useGetCompanyQuizzesListQuery(companyId)
 
-  const t = useTranslations("CompanyPage.members")
+  const t = useTranslations("CompanyPage.quizzes")
 
   if (isLoading) return <LoadingSpinner />
   if (isError) return <ErrorMessage />
