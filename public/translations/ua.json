@@ -271,7 +271,15 @@
 
     "quizzes": {
       "noQuizzes": "Ви не проходили жодного тесту",
-      "lastAttempt": "Остання спроба"
+      "lastAttempt": "Остання спроба",
+      "showAnalytics": "Показати аналітику",
+      "noAnalyticsData": "Немає даних для аналітики",
+
+      "analytics": {
+        "chartTitle": "Аналітика тесту",
+        "dateAxisLabel": "Дата",
+        "scoreAxisLabel": "Результат"
+      }
     }
   },
 

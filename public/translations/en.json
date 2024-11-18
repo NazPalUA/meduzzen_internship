@@ -271,7 +271,15 @@
 
     "quizzes": {
       "noQuizzes": "You have not passed any quizzes",
-      "lastAttempt": "Last Attempt"
+      "lastAttempt": "Last Attempt",
+      "showAnalytics": "Show Analytics",
+      "noAnalyticsData": "No analytics data",
+
+      "analytics": {
+        "chartTitle": "Quiz Analytics",
+        "dateAxisLabel": "Date",
+        "scoreAxisLabel": "Score"
+      }
     }
   },
 

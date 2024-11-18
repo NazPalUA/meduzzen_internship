@@ -17,7 +17,7 @@ export function QuizzesList({ user_id }: { user_id: number }) {
   return (
     <List>
       {quizzes.map((quiz) => (
-        <QuizItem key={quiz.quiz_id} quiz={quiz} />
+        <QuizItem key={quiz.quiz_id} userId={user_id} quiz={quiz} />
       ))}
     </List>
   )

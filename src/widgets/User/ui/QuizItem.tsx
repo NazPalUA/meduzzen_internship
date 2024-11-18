@@ -9,8 +9,9 @@ import ListItemText from "@mui/material/ListItemText"
 import { Avatar, ErrorMessage } from "@shared/components/ui"
 import { formatDate } from "@shared/utils"
 import { useTranslations } from "next-intl"
+import { QuizShowAnalyticsButton } from "./QuizShowAnalyticsButton"
 
-export function QuizItem({ quiz }: { quiz: UserDataQuizzesLastPass }) {
+export function QuizItem({ userId, quiz }: { userId: number; quiz: UserDataQuizzesLastPass }) {
   const { data: quizData, isLoading, isError } = useGetQuizByIdQuery(quiz.quiz_id)
   const t = useTranslations("UserPage.quizzes")
 
@@ -25,12 +26,15 @@ export function QuizItem({ quiz }: { quiz: UserDataQuizzesLastPass }) {
   return (
     <MuiListItem
       secondaryAction={
-        <Chip
-          size="small"
-          variant="outlined"
-          label={<span>{lastAttemptLabel}</span>}
-          color="default"
-        />
+        <>
+          <Chip
+            size="small"
+            variant="outlined"
+            label={<span>{lastAttemptLabel}</span>}
+            color="default"
+          />
+          <QuizShowAnalyticsButton userId={userId} quizDetails={quizData} />
+        </>
       }
     >
       <ListItemAvatar>
