@@ -9,7 +9,7 @@ export const CompanyDataQuizzesLastPassInResponseSchema = ServerResponseSchema(
         quizzes: z.array(
           z.object({
             quiz_id: z.number(),
-            last_quiz_pass_at: z.string().datetime(),
+            last_quiz_pass_at: z.string(),
           }),
         ),
       }),
