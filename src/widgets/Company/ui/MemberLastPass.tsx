@@ -2,42 +2,42 @@
 
 import { useGetQuizzesLastPassInCompanyQuery } from "@features/company-data"
 import { Chip } from "@mui/material"
+import { formatDate } from "@shared/utils"
 import { useTranslations } from "next-intl"
 import { useMemo } from "react"
-import { formatDate } from "../lib/utils/formatDate"
 
 export function MemberLastPass({ companyId, user_id }: { companyId: number; user_id: number }) {
   const t = useTranslations("CompanyPage.members")
+  const {
+    data: quizzesLastPassData,
+    isLoading,
+    isError,
+  } = useGetQuizzesLastPassInCompanyQuery(companyId)
 
-  const { data: lastPass, isLoading, isError } = useGetQuizzesLastPassInCompanyQuery(companyId)
+  const userQuizzesLastPass = useMemo(() => {
+    return quizzesLastPassData?.find((pass) => pass.user_id === user_id)
+  }, [quizzesLastPassData, user_id])
 
-  const userLastPass = useMemo(() => {
-    return lastPass?.find((pass) => pass.user_id === user_id)
-  }, [lastPass, user_id])
+  const latestUserQuizPass = useMemo(() => {
+    if (!userQuizzesLastPass || !userQuizzesLastPass.quizzes.length) return null
 
-  const userLastPassQuiz = useMemo(() => {
-    if (!userLastPass || !userLastPass.quizzes.length) return null
-
-    return userLastPass.quizzes.reduce((latestQuiz, currentQuiz) => {
+    return userQuizzesLastPass.quizzes.reduce((latestQuiz, currentQuiz) => {
       return new Date(currentQuiz.last_quiz_pass_at) > new Date(latestQuiz.last_quiz_pass_at)
         ? currentQuiz
         : latestQuiz
     })
-  }, [userLastPass])
+  }, [userQuizzesLastPass])
 
-  function getLastPassLabel(text: string) {
-    return (
-      <Chip
-        size="small"
-        variant="outlined"
-        label={<span>{`${t("lastPass")}: ${text}`}</span>}
-        color={"default"}
-      />
-    )
-  }
+  let lastPassLabel = "__ . __ . __ , __ : __"
+  if (!isError && !isLoading && latestUserQuizPass)
+    lastPassLabel = formatDate(latestUserQuizPass.last_quiz_pass_at)
 
-  if (isLoading) return getLastPassLabel("...")
-  if (isError || !userLastPassQuiz) return null
-
-  return getLastPassLabel(formatDate(userLastPassQuiz.last_quiz_pass_at))
+  return (
+    <Chip
+      size="small"
+      variant="outlined"
+      label={<span>{`${t("lastPass")}: ${lastPassLabel}`}</span>}
+      color="default"
+    />
+  )
 }
