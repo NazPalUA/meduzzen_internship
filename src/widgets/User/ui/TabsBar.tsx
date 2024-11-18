@@ -4,6 +4,7 @@ import {
   Business as CompaniesIcon,
   Badge as InfoIcon,
   Mail as InvitesIcon,
+  Quiz as QuizzesIcon,
   ContactPage as RequestsIcon,
 } from "@mui/icons-material"
 import Tab from "@mui/material/Tab"
@@ -33,6 +34,12 @@ export function TabsBar({ isOwner }: { isOwner: boolean }) {
         value={TabEnum.COMPANIES}
         iconPosition="start"
         label={t("companies")}
+      />
+      <Tab
+        icon={<QuizzesIcon />}
+        value={TabEnum.QUIZZES}
+        iconPosition="start"
+        label={t("quizzes")}
       />
       <Tab
         icon={<InvitesIcon />}

@@ -10,6 +10,7 @@ import { Tab as TabEnum } from "../constants/Tabs"
 import { CompaniesList } from "./CompaniesList"
 import { GlobalRating } from "./GlobalRating"
 import { InvitesList } from "./InvitesList"
+import { QuizzesList } from "./QuizzesList"
 import { RequestsList } from "./RequestsList"
 import { TabInfo } from "./TabInfo"
 import { TabPrivate } from "./TabPrivate"
@@ -41,6 +42,9 @@ export function Dashboard({ user, isOwner }: { user: UserDetails; isOwner: boole
         {currentTab === TabEnum.INFO && <TabInfo user={user} />}
         {currentTab === TabEnum.COMPANIES && (
           <TabPrivate user_id={user_id} isOwner={isOwner} Component={CompaniesList} />
+        )}
+        {currentTab === TabEnum.QUIZZES && (
+          <TabPrivate user_id={user_id} isOwner={isOwner} Component={QuizzesList} />
         )}
         {currentTab === TabEnum.INVITES && (
           <TabPrivate user_id={user_id} isOwner={isOwner} Component={InvitesList} />

@@ -214,7 +214,8 @@
       "info": "Інформація",
       "companies": "Мої компанії",
       "invites": "Запрошення",
-      "requests": "Заявки"
+      "requests": "Заявки",
+      "quizzes": "Тести"
     },
 
     "info": {
@@ -266,6 +267,11 @@
       "cancelCancelRequest": "Закрити",
       "successCancelRequest": "Заявку скасовано успішно!",
       "errorCancelRequest": "Не вдалося скасувати заявку. Будь ласка, спробуйте ще раз."
+    },
+
+    "quizzes": {
+      "noQuizzes": "Ви не проходили жодного тесту",
+      "lastAttempt": "Остання спроба"
     }
   },
 

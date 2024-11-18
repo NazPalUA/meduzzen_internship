@@ -214,7 +214,8 @@
       "info": "Info",
       "companies": "My Companies",
       "invites": "Invites",
-      "requests": "Requests"
+      "requests": "Requests",
+      "quizzes": "Quizzes"
     },
 
     "info": {
@@ -266,6 +267,11 @@
       "cancelCancelRequest": "Close",
       "successCancelRequest": "Request cancelled successfully!",
       "errorCancelRequest": "Failed to cancel request. Please try again."
+    },
+
+    "quizzes": {
+      "noQuizzes": "You have not passed any quizzes",
+      "lastAttempt": "Last Attempt"
     }
   },
 
