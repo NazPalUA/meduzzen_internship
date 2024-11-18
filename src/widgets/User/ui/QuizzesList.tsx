@@ -2,7 +2,7 @@
 
 import { useGetUserQuizzesLastPassQuery } from "@features/user-data"
 import List from "@mui/material/List"
-import { ErrorMessage, LoadingSpinner } from "@shared/components/ui"
+import { LoadingSpinner } from "@shared/components/ui"
 import { useTranslations } from "next-intl"
 import { QuizItem } from "./QuizItem"
 
@@ -11,8 +11,8 @@ export function QuizzesList({ user_id }: { user_id: number }) {
   const t = useTranslations("UserPage.quizzes")
 
   if (isLoading) return <LoadingSpinner />
-  if (isError) return <ErrorMessage />
-  if (!quizzes?.length) return <p>{t("noQuizzes")}</p>
+  // Server returns 400 if user has no quizzes
+  if (isError || !quizzes?.length) return <p>{t("noQuizzes")}</p>
 
   return (
     <List>
