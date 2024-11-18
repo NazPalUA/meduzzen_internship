@@ -8,6 +8,7 @@ import { Avatar } from "@shared/components/ui"
 import { useSearchParams } from "next/navigation"
 import { Tab as TabEnum } from "../constants/Tabs"
 import { CompaniesList } from "./CompaniesList"
+import { GlobalRating } from "./GlobalRating"
 import { InvitesList } from "./InvitesList"
 import { RequestsList } from "./RequestsList"
 import { TabInfo } from "./TabInfo"
@@ -26,7 +27,12 @@ export function Dashboard({ user, isOwner }: { user: UserDetails; isOwner: boole
       <CardHeader
         avatar={<Avatar src={user_avatar} alt={user_firstname} />}
         title={<h3>{`${user_firstname} ${user_lastname}`}</h3>}
-        subheader={is_superuser ? <SuperuserIcon color="primary" /> : null}
+        subheader={
+          <>
+            <GlobalRating userId={user_id} />
+            {is_superuser ? <SuperuserIcon color="primary" /> : null}
+          </>
+        }
         action={isOwner && <Settings />}
       />
 
