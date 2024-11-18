@@ -17,9 +17,11 @@ import { ListItem } from "./ListItem"
 export function MemberItem({
   member,
   permission,
+  companyId,
 }: {
   member: CompanyDataUser
   permission: Permission
+  companyId: number
 }) {
   const [excludeMember] = useLeaveCompanyMutation()
   const [addToAdmin] = useAddToAdminMutation()
@@ -89,5 +91,13 @@ export function MemberItem({
     },
   ]
 
-  return <ListItem user={member} menuItems={menuItems} showSettingsMenu={showSettingsMenu} />
+  return (
+    <ListItem
+      user={member}
+      menuItems={menuItems}
+      showSettingsMenu={showSettingsMenu}
+      companyId={companyId}
+      showLastPass={true}
+    />
+  )
 }
