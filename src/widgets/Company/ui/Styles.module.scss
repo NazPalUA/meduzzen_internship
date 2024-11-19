@@ -125,4 +125,9 @@
     align-items: center;
     gap: 1rem;
   }
+
+  &__actionsBtns {
+    margin-top: 0.5rem;
+    @include flex-align-center-gap(1rem);
+  }
 }

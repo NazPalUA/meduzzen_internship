@@ -168,7 +168,8 @@
       "cancelDeleteQuiz": "Close",
       "successDeleteQuiz": "Quiz deleted successfully!",
       "errorDeleteQuiz": "Failed to delete quiz. Please try again.",
-      "takeQuiz": "Take Quiz"
+      "takeQuiz": "Take Quiz",
+      "showAnalytics": "Show Analytics"
     },
 
     "invites": {
@@ -204,6 +205,26 @@
       "cancelRejectRequest": "Close",
       "successRejectRequest": "Request rejected successfully!",
       "errorRejectRequest": "Failed to reject request. Please try again."
+    },
+
+    "analytics": {
+      "allUsers": {
+        "noAnalytics": "No analytics data available",
+        "chartTitle": "All Users Analytics",
+        "dateAxisLabel": "Date of passing",
+        "scoreAxisLabel": "Average Score",
+
+        "timeRange": {
+          "label": "Time Range",
+          "lastHour": "Last Hour",
+          "last12Hours": "Last 12 Hours",
+          "lastDay": "Last Day",
+          "last3Days": "Last 3 Days",
+          "lastWeek": "Last Week",
+          "lastMonth": "Last Month",
+          "lastYear": "Last Year"
+        }
+      }
     }
   },
 
