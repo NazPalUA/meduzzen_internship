@@ -1,11 +1,12 @@
-import { useTheme } from "@mui/material"
+import { useChartTypography } from "@/src/widgets/User/hooks/useChartTypography"
 import { useTranslations } from "next-intl"
 import { useMemo } from "react"
 import { TimeRange } from "../types"
 
 export function useChartConfig(selectedRange: TimeRange) {
   const t = useTranslations("CompanyPage.analytics.allUsers")
-  const theme = useTheme()
+
+  const { legendLabels, axisTitle, chartTitle } = useChartTypography()
 
   return useMemo(
     () => ({
@@ -13,18 +14,9 @@ export function useChartConfig(selectedRange: TimeRange) {
       plugins: {
         legend: {
           position: "top" as const,
-          labels: {
-            color: theme.palette.text.primary,
-          },
+          labels: { ...legendLabels },
         },
-        title: {
-          display: true,
-          text: t("chartTitle"),
-          color: theme.palette.text.primary,
-          font: {
-            size: 24,
-          },
-        },
+        title: { ...chartTitle(t("chartTitle")) },
       },
       scales: {
         x: {
@@ -39,14 +31,7 @@ export function useChartConfig(selectedRange: TimeRange) {
               month: "MMM",
             },
           },
-          title: {
-            display: true,
-            text: t("dateAxisLabel"),
-            color: theme.palette.text.primary,
-            font: {
-              size: 16,
-            },
-          },
+          title: { ...axisTitle(t("dateAxisLabel")) },
 
           min: selectedRange.getDateRange().start.toISOString(),
           max: selectedRange.getDateRange().end.toISOString(),
@@ -57,17 +42,10 @@ export function useChartConfig(selectedRange: TimeRange) {
           ticks: {
             stepSize: 10,
           },
-          title: {
-            display: true,
-            text: t("scoreAxisLabel"),
-            color: theme.palette.text.primary,
-            font: {
-              size: 16,
-            },
-          },
+          title: { ...axisTitle(t("scoreAxisLabel")) },
         },
       },
     }),
-    [selectedRange, theme, t],
+    [selectedRange, legendLabels, axisTitle, chartTitle, t],
   )
 }

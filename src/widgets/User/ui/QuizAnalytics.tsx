@@ -16,6 +16,7 @@ import {
 import { useTranslations } from "next-intl"
 import { useMemo } from "react"
 import { Line } from "react-chartjs-2"
+import { useChartTypography } from "../hooks/useChartTypography"
 import styles from "./Styles.module.scss"
 
 const MAX_SHOWN_ATTEMPTS = 10
@@ -30,6 +31,7 @@ export function QuizAnalytics({
   label: string
 }) {
   const t = useTranslations("UserPage.quizzes.analytics")
+  const { axisTitle, chartTitle, legendLabels } = useChartTypography()
   const theme = useTheme()
 
   const sortedAnalytics = useMemo(
@@ -47,9 +49,9 @@ export function QuizAnalytics({
         {
           label,
           data: sortedAnalytics.map((entry) => entry.average_rating),
-          borderColor: theme.palette.primary.main,
+          borderColor: theme.palette.primary.light,
           backgroundColor: theme.palette.primary.light,
-          tension: 0.3,
+          tension: 0.1,
         },
       ],
     }),
@@ -62,64 +64,27 @@ export function QuizAnalytics({
       plugins: {
         legend: {
           position: "top" as const,
-          labels: {
-            color: theme.palette.text.primary,
-          },
+          labels: { ...legendLabels },
         },
-        title: {
-          display: true,
-          text: t("chartTitle"),
-          color: theme.palette.text.primary,
-          font: {
-            size: 24,
-          },
-        },
+        title: { ...chartTitle(t("chartTitle")) },
       },
       scales: {
         y: {
-          beginAtZero: true,
           max: 100,
           min: 0,
-          ticks: {
-            stepSize: 5,
-            color: theme.palette.text.secondary,
-          },
-          title: {
-            display: true,
-            text: t("scoreAxisLabel"),
-            color: theme.palette.text.primary,
-            font: {
-              size: 16,
-            },
-          },
-          grid: {
-            color: theme.palette.divider,
-          },
+          title: { ...axisTitle(t("scoreAxisLabel")) },
         },
         x: {
-          title: {
-            display: true,
-            text: t("dateAxisLabel"),
-            color: theme.palette.text.primary,
-            font: {
-              size: 16,
-            },
-          },
-          ticks: {
-            color: theme.palette.text.secondary,
-          },
-          grid: {
-            color: theme.palette.divider,
-          },
+          title: { ...axisTitle(t("dateAxisLabel")) },
         },
       },
     }),
-    [t, theme.palette],
+    [t, legendLabels, axisTitle, chartTitle],
   )
 
   return (
-    <div className={styles.analyticsContainer}>
-      <Line options={options} data={data} />
+    <div>
+      <Line className={styles.chart} options={options} data={data} />
     </div>
   )
 }
