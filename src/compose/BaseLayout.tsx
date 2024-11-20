@@ -1,3 +1,4 @@
+import { ShowNotifications } from "@features/notifications"
 import { CssBaseline } from "@mui/material"
 import { Roboto } from "next/font/google"
 import { ReactNode } from "react"
@@ -25,6 +26,7 @@ export async function BaseLayout({ children, locale }: Props) {
           <CssBaseline />
           {children}
           <Toaster />
+          <ShowNotifications />
         </Providers>
       </body>
     </html>

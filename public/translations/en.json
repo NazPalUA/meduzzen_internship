@@ -595,5 +595,15 @@
     "noAccount": "Don't have an account?",
     "login": "Log in",
     "signUp": "Sign up"
+  },
+
+  "Notifications": {
+    "showNotifications": "Show Notifications",
+    "title": "Notifications",
+    "loading": "Loading...",
+    "errorFetching": "Failed to fetch notifications. Please try again.",
+    "markReadSuccess": "Notification marked as read successfully!",
+    "markReadError": "Failed to mark notification as read. Please try again.",
+    "noNotifications": "You have no notifications"
   }
 }
