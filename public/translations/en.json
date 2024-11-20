@@ -602,6 +602,7 @@
     "title": "Notifications",
     "loading": "Loading...",
     "errorFetching": "Failed to fetch notifications. Please try again.",
+    "markAsRead": "Mark as Read",
     "markReadSuccess": "Notification marked as read successfully!",
     "markReadError": "Failed to mark notification as read. Please try again.",
     "noNotifications": "You have no notifications"

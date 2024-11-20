@@ -102,14 +102,14 @@ export function Notifications() {
               </span>
             }
             secondary={
-              <div className={styles.secondaryContent}>
-                <p>{notification.notification_message}</p>
-                <span>
+              <>
+                <span>{notification.notification_message}</span>
+                <span className={styles.timeAgo}>
                   {formatDistanceToNow(new Date(notification.created_at), {
                     addSuffix: true,
                   })}
                 </span>
-              </div>
+              </>
             }
           />
         </ListItem>
