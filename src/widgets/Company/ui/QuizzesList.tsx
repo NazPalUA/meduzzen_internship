@@ -25,7 +25,7 @@ export function QuizzesList({
   return (
     <List>
       {quizzes.map((quiz) => (
-        <QuizItem key={quiz.quiz_id} quiz={quiz} permission={permission} />
+        <QuizItem key={quiz.quiz_id} quiz={quiz} permission={permission} companyId={companyId} />
       ))}
     </List>
   )

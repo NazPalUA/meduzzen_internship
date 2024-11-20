@@ -169,7 +169,9 @@
       "successDeleteQuiz": "Quiz deleted successfully!",
       "errorDeleteQuiz": "Failed to delete quiz. Please try again.",
       "takeQuiz": "Take Quiz",
-      "showAnalytics": "Show Analytics"
+      "showAnalytics": "Show Analytics",
+      "downloadLastAnswers": "Download Last Answers",
+      "downloadError": "Failed to download last answers. Please try again."
     },
 
     "invites": {
@@ -295,6 +297,8 @@
       "lastAttempt": "Last Attempt",
       "showAnalytics": "Show Analytics",
       "noAnalyticsData": "No analytics data",
+      "downloadLastAnswers": "Download Last Answers",
+      "downloadError": "Failed to download last answers. Please try again.",
 
       "analytics": {
         "chartTitle": "Quiz Analytics",
