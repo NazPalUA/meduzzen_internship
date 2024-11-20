@@ -1,0 +1,15 @@
+.chart {
+  width: 100%;
+  min-width: 800px;
+  max-width: 1200px;
+  min-height: 400px;
+  max-height: 700px;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeRangeSelector {
+  min-width: 200px !important;
+}

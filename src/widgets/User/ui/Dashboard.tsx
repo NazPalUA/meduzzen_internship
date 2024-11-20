@@ -8,7 +8,9 @@ import { Avatar } from "@shared/components/ui"
 import { useSearchParams } from "next/navigation"
 import { Tab as TabEnum } from "../constants/Tabs"
 import { CompaniesList } from "./CompaniesList"
+import { GlobalRating } from "./GlobalRating"
 import { InvitesList } from "./InvitesList"
+import { QuizzesList } from "./QuizzesList"
 import { RequestsList } from "./RequestsList"
 import { TabInfo } from "./TabInfo"
 import { TabPrivate } from "./TabPrivate"
@@ -26,7 +28,12 @@ export function Dashboard({ user, isOwner }: { user: UserDetails; isOwner: boole
       <CardHeader
         avatar={<Avatar src={user_avatar} alt={user_firstname} />}
         title={<h3>{`${user_firstname} ${user_lastname}`}</h3>}
-        subheader={is_superuser ? <SuperuserIcon color="primary" /> : null}
+        subheader={
+          <>
+            <GlobalRating userId={user_id} />
+            {is_superuser ? <SuperuserIcon color="primary" /> : null}
+          </>
+        }
         action={isOwner && <Settings />}
       />
 
@@ -35,6 +42,9 @@ export function Dashboard({ user, isOwner }: { user: UserDetails; isOwner: boole
         {currentTab === TabEnum.INFO && <TabInfo user={user} />}
         {currentTab === TabEnum.COMPANIES && (
           <TabPrivate user_id={user_id} isOwner={isOwner} Component={CompaniesList} />
+        )}
+        {currentTab === TabEnum.QUIZZES && (
+          <TabPrivate user_id={user_id} isOwner={isOwner} Component={QuizzesList} />
         )}
         {currentTab === TabEnum.INVITES && (
           <TabPrivate user_id={user_id} isOwner={isOwner} Component={InvitesList} />

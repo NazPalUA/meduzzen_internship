@@ -4,25 +4,22 @@ import MuiListItem from "@mui/material/ListItem"
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import ListItemText from "@mui/material/ListItemText"
 import { Link } from "@navigation"
-import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { Avatar } from "@shared/components/ui"
 import { Action, Routes } from "@shared/constants"
 import styles from "./Styles.module.scss"
 
 export function ListItem({
   user: { action, user_avatar, user_firstname, user_lastname, user_email, user_id },
-  menuItems,
-  showSettingsMenu = true,
+  secondaryAction,
 }: {
   user: CompanyDataUser
-  menuItems: MenuItem[]
-  showSettingsMenu?: boolean
+  secondaryAction?: React.ReactNode
 }) {
   const isOwner = action === Action.OWNER
   const isAdmin = action === Action.ADMIN
 
   return (
-    <MuiListItem secondaryAction={showSettingsMenu ? <SettingsMenu menuItems={menuItems} /> : null}>
+    <MuiListItem secondaryAction={secondaryAction}>
       <ListItemAvatar>
         <Avatar src={user_avatar} alt={user_firstname} size="sm" />
       </ListItemAvatar>

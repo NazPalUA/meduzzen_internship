@@ -128,6 +128,7 @@
     },
 
     "members": {
+      "lastPass": "Last quiz",
       "noMembers": "There are no members in this company",
       "noAdmins": "There are no admins in this company",
 
@@ -167,7 +168,8 @@
       "cancelDeleteQuiz": "Close",
       "successDeleteQuiz": "Quiz deleted successfully!",
       "errorDeleteQuiz": "Failed to delete quiz. Please try again.",
-      "takeQuiz": "Take Quiz"
+      "takeQuiz": "Take Quiz",
+      "showAnalytics": "Show Analytics"
     },
 
     "invites": {
@@ -203,6 +205,26 @@
       "cancelRejectRequest": "Close",
       "successRejectRequest": "Request rejected successfully!",
       "errorRejectRequest": "Failed to reject request. Please try again."
+    },
+
+    "analytics": {
+      "allUsers": {
+        "noAnalytics": "No analytics data available",
+        "chartTitle": "All Users Analytics",
+        "dateAxisLabel": "Date of passing",
+        "scoreAxisLabel": "Average Score",
+
+        "timeRange": {
+          "label": "Time Range",
+          "lastHour": "Last Hour",
+          "last12Hours": "Last 12 Hours",
+          "lastDay": "Last Day",
+          "last3Days": "Last 3 Days",
+          "lastWeek": "Last Week",
+          "lastMonth": "Last Month",
+          "lastYear": "Last Year"
+        }
+      }
     }
   },
 
@@ -213,7 +235,8 @@
       "info": "Info",
       "companies": "My Companies",
       "invites": "Invites",
-      "requests": "Requests"
+      "requests": "Requests",
+      "quizzes": "Quizzes"
     },
 
     "info": {
@@ -265,6 +288,19 @@
       "cancelCancelRequest": "Close",
       "successCancelRequest": "Request cancelled successfully!",
       "errorCancelRequest": "Failed to cancel request. Please try again."
+    },
+
+    "quizzes": {
+      "noQuizzes": "You have not passed any quizzes",
+      "lastAttempt": "Last Attempt",
+      "showAnalytics": "Show Analytics",
+      "noAnalyticsData": "No analytics data",
+
+      "analytics": {
+        "chartTitle": "Quiz Analytics",
+        "dateAxisLabel": "Date",
+        "scoreAxisLabel": "Score"
+      }
     }
   },
 

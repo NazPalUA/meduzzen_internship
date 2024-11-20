@@ -1,4 +1,6 @@
 export * from "./authToken"
+export { formatDate } from "./formatDate"
+export { generateDistinctColors } from "./generateDistinctColors"
 export { getCurrentPage } from "./getCurrentPage"
 export { getDisplayLinks } from "./getDisplayLinks"
 export { parseData } from "./parseData"

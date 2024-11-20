@@ -128,6 +128,7 @@
     },
 
     "members": {
+      "lastPass": "Останній тест",
       "noMembers": "Немає членів в цій компанії",
       "noAdmins": "Немає адміністраторів в цій компанії",
 
@@ -167,7 +168,8 @@
       "cancelDeleteQuiz": "Закрити",
       "successDeleteQuiz": "Тест видалено успішно!",
       "errorDeleteQuiz": "Не вдалося видалити тест. Будь ласка, спробуйте ще раз.",
-      "takeQuiz": "Пройти тест"
+      "takeQuiz": "Пройти тест",
+      "showAnalytics": "Показати аналітику"
     },
 
     "invites": {
@@ -203,6 +205,26 @@
       "cancelRejectRequest": "Закрити",
       "successRejectRequest": "Заявку відхилено успішно!",
       "errorRejectRequest": "Не вдалося відхилити заявку. Будь ласка, спробуйте ще раз."
+    },
+
+    "analytics": {
+      "allUsers": {
+        "noAnalytics": "Немає даних для аналітики",
+        "chartTitle": "Аналітика всіх користувачів",
+        "dateAxisLabel": "Дата проходження",
+        "scoreAxisLabel": "Середній бал",
+
+        "timeRange": {
+          "label": "Інтервал часу",
+          "lastHour": "За останню годину",
+          "last12Hours": "За останні 12 годин",
+          "lastDay": "За останній день",
+          "last3Days": "За останні 3 дні",
+          "lastWeek": "За останню тиждень",
+          "lastMonth": "За останній місяць",
+          "lastYear": "За останній рік"
+        }
+      }
     }
   },
 
@@ -213,7 +235,8 @@
       "info": "Інформація",
       "companies": "Мої компанії",
       "invites": "Запрошення",
-      "requests": "Заявки"
+      "requests": "Заявки",
+      "quizzes": "Тести"
     },
 
     "info": {
@@ -265,6 +288,19 @@
       "cancelCancelRequest": "Закрити",
       "successCancelRequest": "Заявку скасовано успішно!",
       "errorCancelRequest": "Не вдалося скасувати заявку. Будь ласка, спробуйте ще раз."
+    },
+
+    "quizzes": {
+      "noQuizzes": "Ви не проходили жодного тесту",
+      "lastAttempt": "Остання спроба",
+      "showAnalytics": "Показати аналітику",
+      "noAnalyticsData": "Немає даних для аналітики",
+
+      "analytics": {
+        "chartTitle": "Аналітика тесту",
+        "dateAxisLabel": "Дата",
+        "scoreAxisLabel": "Результат"
+      }
     }
   },
 

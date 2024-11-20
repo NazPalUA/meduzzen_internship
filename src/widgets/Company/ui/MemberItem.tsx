@@ -8,18 +8,21 @@ import {
 import { type CompanyDataUser } from "@features/company-data"
 import { AdminPanelSettings as AdminIcon, PersonRemove as ExcludeIcon } from "@mui/icons-material"
 import { ConfirmActionModal } from "@shared/components/ConfirmActionModal"
-import { MenuItem } from "@shared/components/SettingsMenu"
+import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { Action } from "@shared/constants"
 import { useTranslations } from "next-intl"
 import { Permission } from "../lib/model/Permission"
 import { ListItem } from "./ListItem"
+import { MemberLastPass } from "./MemberLastPass"
 
 export function MemberItem({
   member,
   permission,
+  companyId,
 }: {
   member: CompanyDataUser
   permission: Permission
+  companyId: number
 }) {
   const [excludeMember] = useLeaveCompanyMutation()
   const [addToAdmin] = useAddToAdminMutation()
@@ -27,10 +30,9 @@ export function MemberItem({
 
   const t = useTranslations("CompanyPage.members")
 
-  const { isOwner } = permission
+  const { isOwner, isAdmin } = permission
   const isMemberOwner = member.action === Action.OWNER
   const isMemberAdmin = member.action === Action.ADMIN
-  const showSettingsMenu = isOwner && !isMemberOwner
 
   const menuItems: MenuItem[] = [
     {
@@ -89,5 +91,12 @@ export function MemberItem({
     },
   ]
 
-  return <ListItem user={member} menuItems={menuItems} showSettingsMenu={showSettingsMenu} />
+  const secondaryAction = (
+    <>
+      {(isAdmin || isOwner) && <MemberLastPass companyId={companyId} user_id={member.user_id} />}
+      {isOwner && <SettingsMenu menuItems={menuItems} disabled={isMemberOwner} />}
+    </>
+  )
+
+  return <ListItem user={member} secondaryAction={secondaryAction} />
 }
