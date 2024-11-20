@@ -3,7 +3,7 @@
 import { Avatar as MuiAvatar } from "@mui/material"
 import Image from "next/image"
 
-type AvatarSize = "sm" | "md" | "lg"
+type AvatarSize = "xs" | "sm" | "md" | "lg"
 
 type Props = {
   src?: string | null
@@ -13,6 +13,7 @@ type Props = {
 }
 
 const SIZE_DIMENSIONS: Record<AvatarSize, number> = {
+  xs: 30,
   sm: 40,
   md: 60,
   lg: 100,

@@ -21,9 +21,14 @@ export type MenuItem = {
 type SettingsMenuProps = {
   menuItems: MenuItem[]
   icon?: ReactNode
+  disabled?: boolean
 }
 
-export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMenuProps) {
+export function SettingsMenu({
+  menuItems,
+  icon = <SettingsIcon />,
+  disabled = false,
+}: SettingsMenuProps) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const menuOpen = Boolean(anchorEl)
 
@@ -48,6 +53,7 @@ export function SettingsMenu({ menuItems, icon = <SettingsIcon /> }: SettingsMen
   return (
     <>
       <IconButton
+        disabled={disabled}
         onClick={openMenu}
         size="small"
         aria-controls={menuOpen ? "settings-menu" : undefined}

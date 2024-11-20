@@ -29,7 +29,12 @@ export function MembersList({
   return (
     <List>
       {members.map((member) => (
-        <MemberItem key={member.user_id} member={member} permission={permission} />
+        <MemberItem
+          key={member.user_id}
+          member={member}
+          permission={permission}
+          companyId={companyId}
+        />
       ))}
     </List>
   )

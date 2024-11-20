@@ -4,7 +4,7 @@ import { useDeclineActionMutation } from "@features/action"
 import { type CompanyDataUser } from "@features/company-data"
 import { PersonAddDisabled as CancelInviteIcon } from "@mui/icons-material"
 import { ConfirmActionModal } from "@shared/components/ConfirmActionModal"
-import { MenuItem } from "@shared/components/SettingsMenu"
+import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
 import { useTranslations } from "next-intl"
 import { ListItem } from "./ListItem"
 
@@ -41,5 +41,5 @@ export function InviteItem({ user }: { user: CompanyDataUser }) {
     },
   ]
 
-  return <ListItem user={user} menuItems={menuItems} />
+  return <ListItem user={user} secondaryAction={<SettingsMenu menuItems={menuItems} />} />
 }

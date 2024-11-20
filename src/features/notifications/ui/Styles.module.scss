@@ -1,0 +1,66 @@
+.showNotifications {
+  position: fixed !important;
+  bottom: 16px;
+  right: 16px;
+}
+
+.notificationItem {
+  transition: background-color 0.3s;
+  border-radius: 10px;
+  background-color: var(--mui-palette-grey-200);
+  user-select: none;
+
+  &.read {
+    background-color: var(--mui-palette-grey-50);
+  }
+}
+
+.title {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  display: block;
+  font-weight: 700;
+
+  &.read {
+    font-weight: 500;
+  }
+}
+
+.secondaryContent {
+  color: var(--mui-palette-text-secondary);
+}
+
+// Start of Selection
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animatedIcon {
+  animation: pulse 1s infinite;
+}
+
+.emptyState {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.emptyTitle {
+  color: var(--mui-palette-text-secondary);
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.timeAgo {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+}

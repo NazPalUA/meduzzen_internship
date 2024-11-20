@@ -1,0 +1,35 @@
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  margin-top: 1rem;
+}
+
+.fieldsList {
+  @include flex-column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.fieldItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.deleteButton {
+  position: absolute !important;
+  right: 0;
+  top: 0;
+}
+
+.addButton {
+  margin-top: 0.5rem !important;
+}

@@ -1,7 +1,7 @@
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .listItem {
@@ -9,6 +9,7 @@
   border-radius: 8px;
   padding: 2.2rem 1.2rem 2rem 1.2rem;
   position: relative;
+  box-shadow: 0 0 0 1px var(--mui-palette-divider);
 }
 
 .answersField {

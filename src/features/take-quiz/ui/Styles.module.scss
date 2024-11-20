@@ -1,0 +1,121 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--mui-palette-background-paper);
+  border-radius: 8px;
+  box-shadow: var(--mui-shadows-17);
+}
+
+.form {
+  .header {
+    margin-bottom: 2rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: var(--mui-palette-text-primary);
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0.5rem 0 0;
+      color: var(--mui-palette-text-secondary);
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  .progressBar {
+    height: 20px;
+    background: var(--mui-palette-divider);
+    border-radius: 10px;
+
+    .progress {
+      height: 100%;
+      background: var(--mui-palette-primary-dark);
+      border-radius: 10px;
+      transition: width 0.3s ease;
+    }
+  }
+
+  .questionContainer {
+    margin-top: 1rem;
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--mui-palette-text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .questionText {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--mui-palette-text-primary);
+    }
+
+    .answers {
+      width: 100%;
+    }
+
+    .answer {
+      margin: 0;
+      padding: 0;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: var(--mui-palette-action-hover);
+      }
+    }
+  }
+
+  .navigation {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    button {
+      min-width: 120px;
+    }
+  }
+}
+
+.results {
+  text-align: center;
+  padding: 3rem 0;
+
+  .trophyIcon {
+    font-size: 4rem;
+  }
+
+  h2 {
+    margin: 1rem 0;
+    font-size: 2rem;
+    color: var(--mui-palette-text-primary);
+  }
+
+  .score {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+  }
+
+  .message {
+    font-size: 1.2rem;
+    color: var(--mui-palette-text-secondary);
+    margin-bottom: 2rem;
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+}

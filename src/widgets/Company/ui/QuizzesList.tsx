@@ -16,7 +16,7 @@ export function QuizzesList({
 }) {
   const { data: quizzes, isLoading, isError } = useGetCompanyQuizzesListQuery(companyId)
 
-  const t = useTranslations("CompanyPage.members")
+  const t = useTranslations("CompanyPage.quizzes")
 
   if (isLoading) return <LoadingSpinner />
   if (isError) return <ErrorMessage />
@@ -25,7 +25,7 @@ export function QuizzesList({
   return (
     <List>
       {quizzes.map((quiz) => (
-        <QuizItem key={quiz.quiz_id} quiz={quiz} permission={permission} />
+        <QuizItem key={quiz.quiz_id} quiz={quiz} permission={permission} companyId={companyId} />
       ))}
     </List>
   )

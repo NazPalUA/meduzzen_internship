@@ -101,6 +101,12 @@
   &_role {
     margin-left: 0.5rem;
   }
+
+  &__secondaryAction {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 }
 
 .invites {
@@ -116,5 +122,18 @@
 
   &__formError {
     color: var(--mui-palette-error-main);
+  }
+}
+
+.quizzes {
+  &__secondaryAction {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__actionsBtns {
+    margin-top: 0.5rem;
+    @include flex-align-center-gap(1rem);
   }
 }

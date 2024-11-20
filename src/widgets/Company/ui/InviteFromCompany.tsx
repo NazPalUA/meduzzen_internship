@@ -37,8 +37,7 @@ export function InviteFromCompany({ companyId }: { companyId: number }) {
       await inviteUser({ companyId, userId: Number(userId.trim()) }).unwrap()
       toastSuccess(t("CompanyPage.invites.successInvite"))
       setUserId("")
-    } catch (error) {
-      console.error(error)
+    } catch {
       toastError(t("CompanyPage.invites.errorInvite"))
     }
   }

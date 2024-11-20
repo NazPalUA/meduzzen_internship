@@ -2,8 +2,13 @@
 
 import { UpdateQuizInfo, useDeleteQuizMutation } from "@entities/quiz"
 import { CompanyDataQuiz } from "@features/company-data"
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
-import EditNoteIcon from "@mui/icons-material/EditNote"
+import { DownloadQuizAnswers } from "@features/download-quiz-answer"
+import {
+  DeleteForever as DeleteIcon,
+  EditNote as EditIcon,
+  FactCheckOutlined as TakeQuizIcon,
+} from "@mui/icons-material"
+import { Button } from "@mui/material"
 import MuiListItem from "@mui/material/ListItem"
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import ListItemText from "@mui/material/ListItemText"
@@ -16,7 +21,15 @@ import { useTranslations } from "next-intl"
 import { Permission } from "../lib/model/Permission"
 import styles from "./Styles.module.scss"
 
-export function QuizItem({ permission, quiz }: { permission: Permission; quiz: CompanyDataQuiz }) {
+export function QuizItem({
+  permission,
+  quiz,
+  companyId,
+}: {
+  permission: Permission
+  quiz: CompanyDataQuiz
+  companyId: number
+}) {
   const showSettingsMenu = permission.isAdmin || permission.isOwner
   const [deleteQuiz] = useDeleteQuizMutation()
 
@@ -24,12 +37,12 @@ export function QuizItem({ permission, quiz }: { permission: Permission; quiz: C
 
   const menuItems: MenuItem[] = [
     {
-      icon: <EditNoteIcon />,
+      icon: <EditIcon />,
       text: t("edit"),
       content: <UpdateQuizInfo quizId={quiz.quiz_id} />,
     },
     {
-      icon: <DeleteForeverIcon />,
+      icon: <DeleteIcon />,
       text: t("delete"),
       content: (
         <ConfirmActionModal
@@ -56,19 +69,29 @@ export function QuizItem({ permission, quiz }: { permission: Permission; quiz: C
   ]
 
   return (
-    <MuiListItem secondaryAction={showSettingsMenu ? <SettingsMenu menuItems={menuItems} /> : null}>
+    <MuiListItem
+      secondaryAction={
+        <div className={styles.quizzes__secondaryAction}>
+          <DownloadQuizAnswers companyId={companyId} quizId={quiz.quiz_id} />
+          <Link href={`${Routes.QUIZZES}/${quiz.quiz_id}`} className={styles.link}>
+            <Button
+              variant="outlined"
+              color="inherit"
+              size="small"
+              startIcon={<TakeQuizIcon sx={{ transform: "translateY(-1px) scale(1.2)" }} />}
+            >
+              {t("takeQuiz")}
+            </Button>
+          </Link>
+          {showSettingsMenu && <SettingsMenu menuItems={menuItems} />}
+        </div>
+      }
+    >
       <ListItemAvatar>
         <Avatar src={undefined} alt={quiz.quiz_name} size="sm" />
       </ListItemAvatar>
 
-      <ListItemText
-        primary={
-          <Link href={`${Routes.QUIZZES}/${quiz.quiz_id}`} className={styles.link}>
-            <span>{quiz.quiz_name}</span>
-          </Link>
-        }
-        secondary={quiz.quiz_title}
-      />
+      <ListItemText primary={quiz.quiz_name} secondary={quiz.quiz_title} />
     </MuiListItem>
   )
 }

@@ -4,7 +4,6 @@ const Routes = {
   USERS: "/users",
   QUIZZES: "/quizzes",
   COMPANIES: "/companies",
-  DASHBOARD: "/dashboard",
   LOGIN: "/login",
   LOGOUT: "/logout",
   SIGN_UP: "/sign-up",

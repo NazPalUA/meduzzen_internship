@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.text {
+  color: var(--mui-palette-text-secondary);
+  font-size: 1rem;
+}
+
+.link {
+  font-size: 1rem;
+  color: var(--mui-palette-primary-main);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
