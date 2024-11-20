@@ -6,6 +6,7 @@ import {
   useRemoveFromAdminMutation,
 } from "@features/action"
 import { type CompanyDataUser } from "@features/company-data"
+import { DownloadCompanyMemberAnswers } from "@features/download-company-members-answers"
 import { AdminPanelSettings as AdminIcon, PersonRemove as ExcludeIcon } from "@mui/icons-material"
 import { ConfirmActionModal } from "@shared/components/ConfirmActionModal"
 import { MenuItem, SettingsMenu } from "@shared/components/SettingsMenu"
@@ -14,6 +15,7 @@ import { useTranslations } from "next-intl"
 import { Permission } from "../lib/model/Permission"
 import { ListItem } from "./ListItem"
 import { MemberLastPass } from "./MemberLastPass"
+import styles from "./Styles.module.scss"
 
 export function MemberItem({
   member,
@@ -92,10 +94,15 @@ export function MemberItem({
   ]
 
   const secondaryAction = (
-    <>
-      {(isAdmin || isOwner) && <MemberLastPass companyId={companyId} user_id={member.user_id} />}
+    <div className={styles.members__secondaryAction}>
+      {(isAdmin || isOwner) && (
+        <>
+          <MemberLastPass companyId={companyId} user_id={member.user_id} />
+          <DownloadCompanyMemberAnswers companyId={companyId} userId={member.user_id} />
+        </>
+      )}
       {isOwner && <SettingsMenu menuItems={menuItems} disabled={isMemberOwner} />}
-    </>
+    </div>
   )
 
   return <ListItem user={member} secondaryAction={secondaryAction} />

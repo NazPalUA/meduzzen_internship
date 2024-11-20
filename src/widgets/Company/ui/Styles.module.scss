@@ -101,6 +101,12 @@
   &_role {
     margin-left: 0.5rem;
   }
+
+  &__secondaryAction {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 }
 
 .invites {
@@ -123,7 +129,7 @@
   &__secondaryAction {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   &__actionsBtns {

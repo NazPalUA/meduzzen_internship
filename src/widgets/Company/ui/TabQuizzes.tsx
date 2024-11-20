@@ -1,6 +1,7 @@
 "use client"
 
 import { CompanyDetails } from "@entities/company"
+import { DownloadCompanyAnswers } from "@features/download-company-members-answers"
 import { useRedirectIfNoPermission } from "../lib/hooks/useRedirectIfNoPermission"
 import { Permission } from "../lib/model/Permission"
 import { QuizCreate } from "./QuizCreate"
@@ -25,6 +26,7 @@ export function TabQuizzes({
       {showActions && (
         <div className={styles.quizzes__actionsBtns}>
           <QuizCreate companyId={company_id} />
+          <DownloadCompanyAnswers companyId={company_id} />
           <QuizzesShowAnalytics companyId={company_id} />
         </div>
       )}

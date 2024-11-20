@@ -1,5 +1,6 @@
 "use client"
 
+import { DownloadMyAnswers } from "@features/download-my-answers"
 import { useGetUserQuizzesLastPassQuery } from "@features/user-data"
 import List from "@mui/material/List"
 import { LoadingSpinner } from "@shared/components/ui"
@@ -15,10 +16,13 @@ export function QuizzesList({ user_id }: { user_id: number }) {
   if (isError || !quizzes?.length) return <p>{t("noQuizzes")}</p>
 
   return (
-    <List>
-      {quizzes.map((quiz) => (
-        <QuizItem key={quiz.quiz_id} userId={user_id} quiz={quiz} />
-      ))}
-    </List>
+    <>
+      <DownloadMyAnswers userId={user_id} />
+      <List>
+        {quizzes.map((quiz) => (
+          <QuizItem key={quiz.quiz_id} userId={user_id} quiz={quiz} />
+        ))}
+      </List>
+    </>
   )
 }

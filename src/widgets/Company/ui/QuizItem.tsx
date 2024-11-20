@@ -2,6 +2,7 @@
 
 import { UpdateQuizInfo, useDeleteQuizMutation } from "@entities/quiz"
 import { CompanyDataQuiz } from "@features/company-data"
+import { DownloadQuizAnswers } from "@features/download-quiz-answer"
 import {
   DeleteForever as DeleteIcon,
   EditNote as EditIcon,
@@ -20,7 +21,15 @@ import { useTranslations } from "next-intl"
 import { Permission } from "../lib/model/Permission"
 import styles from "./Styles.module.scss"
 
-export function QuizItem({ permission, quiz }: { permission: Permission; quiz: CompanyDataQuiz }) {
+export function QuizItem({
+  permission,
+  quiz,
+  companyId,
+}: {
+  permission: Permission
+  quiz: CompanyDataQuiz
+  companyId: number
+}) {
   const showSettingsMenu = permission.isAdmin || permission.isOwner
   const [deleteQuiz] = useDeleteQuizMutation()
 
@@ -63,6 +72,7 @@ export function QuizItem({ permission, quiz }: { permission: Permission; quiz: C
     <MuiListItem
       secondaryAction={
         <div className={styles.quizzes__secondaryAction}>
+          <DownloadQuizAnswers companyId={companyId} quizId={quiz.quiz_id} />
           <Link href={`${Routes.QUIZZES}/${quiz.quiz_id}`} className={styles.link}>
             <Button
               variant="outlined"
