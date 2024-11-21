@@ -2,7 +2,7 @@
 
 import { CompanyDetails } from "@entities/company"
 import { CurrentUser } from "@entities/session"
-import { Card, CardContent, CardHeader } from "@mui/material"
+import { CardHeader } from "@mui/material"
 import { Avatar } from "@shared/components/ui"
 import { useSearchParams } from "next/navigation"
 import { Tab } from "../lib/constants/Tabs"
@@ -32,7 +32,7 @@ export function Dashboard({
   const currentTab = searchParams.get("tab") || Tab.INFO
 
   return (
-    <Card>
+    <>
       <CardHeader
         avatar={<Avatar src={company_avatar} alt={company_name} size="lg" />}
         title={<h3>{company_name}</h3>}
@@ -42,14 +42,12 @@ export function Dashboard({
         }
       />
 
-      <CardContent>
-        <TabsBar permission={permission} />
-        {currentTab === Tab.INFO && <TabInfo company={company} />}
-        {currentTab === Tab.MEMBERS && <TabMembers company={company} permission={permission} />}
-        {currentTab === Tab.QUIZZES && <TabQuizzes company={company} permission={permission} />}
-        {currentTab === Tab.INVITES && <TabInvites company={company} permission={permission} />}
-        {currentTab === Tab.REQUESTS && <TabRequests company={company} permission={permission} />}
-      </CardContent>
-    </Card>
+      <TabsBar permission={permission} />
+      {currentTab === Tab.INFO && <TabInfo company={company} />}
+      {currentTab === Tab.MEMBERS && <TabMembers company={company} permission={permission} />}
+      {currentTab === Tab.QUIZZES && <TabQuizzes company={company} permission={permission} />}
+      {currentTab === Tab.INVITES && <TabInvites company={company} permission={permission} />}
+      {currentTab === Tab.REQUESTS && <TabRequests company={company} permission={permission} />}
+    </>
   )
 }
