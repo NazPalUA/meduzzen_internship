@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--mui-palette-divider);
+  margin-bottom: 1rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--mui-palette-text-secondary);
+  border-radius: 0.25rem;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.navLink:hover {
+  background-color: var(--mui-palette-action-hover);
+  color: var(--mui-palette-text-primary);
+}
+
+.active {
+  color: var(--mui-palette-text-primary);
+  background-color: var(--mui-palette-action-hover);
+}
