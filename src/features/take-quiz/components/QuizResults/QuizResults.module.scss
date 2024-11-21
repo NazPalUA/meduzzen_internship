@@ -1,4 +1,4 @@
-.results {
+.container {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
@@ -7,32 +7,33 @@
   box-shadow: var(--mui-shadows-17);
   text-align: center;
   padding: 3rem 0;
+}
 
-  .trophyIcon {
-    font-size: 4rem;
-  }
+.trophyIcon {
+  font-size: 4rem;
+}
 
-  h2 {
-    margin: 1rem 0;
-    font-size: 2rem;
-    color: var(--mui-palette-text-primary);
-  }
+.title {
+  margin: 1rem 0;
+  font-size: 2rem;
+  color: var(--mui-palette-text-primary);
+}
 
-  .score {
-    font-size: 4rem;
-    font-weight: bold;
-    margin: 1.5rem 0;
-  }
+.score {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+}
 
-  .message {
-    font-size: 1.2rem;
-    color: var(--mui-palette-text-secondary);
-    margin-bottom: 2rem;
-  }
-  .actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
+.message {
+  font-size: 1.2rem;
+  color: var(--mui-palette-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }

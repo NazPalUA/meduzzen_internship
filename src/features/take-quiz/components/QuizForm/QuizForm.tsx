@@ -1,39 +1,46 @@
 "use client"
 
 import { QuizDetails, useTakeQuizMutation } from "@entities/quiz"
-import { PersonPinCircleOutlined as AuthorIcon } from "@mui/icons-material"
-import {
-  Button,
-  CircularProgress,
-  FormControl,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-} from "@mui/material"
-import { useTranslations } from "next-intl"
+import { useToaster } from "@shared/hooks"
 import { useState } from "react"
 import { QuizResults } from "../QuizResults/QuizResults"
+import { AboutQuiz } from "./AboutQuiz/AboutQuiz"
+import { AnswerOptions } from "./AnswerOptions/AnswerOptions"
+import { NavigationButtons } from "./NavigationButtons/NavigationButtons"
+import { ProgressBar } from "./ProgressBar/ProgressBar"
+import { Question } from "./Question/Question"
 import styles from "./QuizForm.module.scss"
 
 export function QuizForm({ quiz }: { quiz: QuizDetails }) {
   const [submitQuiz, { isLoading: isSubmittingQuiz }] = useTakeQuizMutation()
-  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [quizResult, setQuizResult] = useState<number | null>(null)
 
-  const t = useTranslations("TakeQuiz")
+  const { toastError } = useToaster()
+
+  const currentQuestionData = quiz.questions_list[currentQuestionIndex]
+  const isFirstQuestion = currentQuestionIndex === 0
+  const isLastQuestion = currentQuestionIndex === quiz.questions_list.length - 1
+  const canProceed = Boolean(answers[currentQuestionData.question_id.toString()])
 
   const handleAnswerChange = (value: string) => {
     setAnswers((prev) => ({
       ...prev,
-      [quiz.questions_list[currentQuestion].question_id.toString()]: value,
+      [currentQuestionData.question_id.toString()]: value,
     }))
   }
 
-  function resetQuiz() {
-    setCurrentQuestion(0)
-    setAnswers({})
-    setQuizResult(null)
+  const handlePrevious = () => {
+    if (!isFirstQuestion) {
+      setCurrentQuestionIndex((prev) => prev - 1)
+    }
+  }
+
+  const handleNext = () => {
+    if (!isLastQuestion && canProceed) {
+      setCurrentQuestionIndex((prev) => prev + 1)
+    }
   }
 
   const handleSubmit = async () => {
@@ -43,88 +50,51 @@ export function QuizForm({ quiz }: { quiz: QuizDetails }) {
         answers,
       }).unwrap()
       setQuizResult(result.result_score)
-    } catch (error) {
-      console.error(error)
+    } catch {
+      toastError()
     }
+  }
+
+  function resetQuiz() {
+    setCurrentQuestionIndex(0)
+    setAnswers({})
+    setQuizResult(null)
   }
 
   if (quizResult !== null) {
     return <QuizResults result_score={quizResult} resetQuiz={resetQuiz} />
   }
 
-  const currentQuestionData = quiz.questions_list[currentQuestion]
-  const isLastQuestion = currentQuestion === quiz.questions_list.length - 1
-
   return (
     <div className={styles.form}>
-      <div className={styles.header}>
-        <h2>{quiz.quiz_title || quiz.quiz_name}</h2>
-        <p>{quiz.quiz_description}</p>
-        <p className={styles.author}>
-          <AuthorIcon />
-          Created by {quiz.created_by.user_firstname} {quiz.created_by.user_lastname}
-        </p>
-      </div>
+      <AboutQuiz quiz={quiz} />
 
-      <div className={styles.progressBar}>
-        <div
-          className={styles.progress}
-          style={{ width: `${((currentQuestion + 1) / quiz.questions_list.length) * 100}%` }}
-        />
-      </div>
+      <ProgressBar
+        currentQuestion={currentQuestionIndex}
+        totalQuestions={quiz.questions_list.length}
+      />
 
-      <div className={styles.questionContainer}>
-        <h3>
-          {t("questionNumber", { number: currentQuestion + 1, total: quiz.questions_list.length })}
-        </h3>
-        <p className={styles.questionText}>{currentQuestionData.question_text}</p>
+      <Question
+        questionNumber={currentQuestionIndex + 1}
+        totalQuestions={quiz.questions_list.length}
+        questionText={currentQuestionData.question_text}
+      />
 
-        <FormControl component="fieldset" className={styles.answers}>
-          <RadioGroup
-            value={answers[currentQuestionData.question_id.toString()] || ""}
-            onChange={(e) => handleAnswerChange(e.target.value)}
-          >
-            {currentQuestionData.question_answers.map((answer, index) => (
-              <FormControlLabel
-                key={index}
-                value={answer}
-                control={<Radio />}
-                label={answer}
-                className={styles.answer}
-              />
-            ))}
-          </RadioGroup>
-        </FormControl>
-      </div>
+      <AnswerOptions
+        currentQuestion={currentQuestionData}
+        selectedAnswer={answers[currentQuestionData.question_id.toString()] || ""}
+        handleAnswerChange={handleAnswerChange}
+      />
 
-      <div className={styles.navigation}>
-        <Button
-          variant="outlined"
-          onClick={() => setCurrentQuestion((prev) => prev - 1)}
-          disabled={currentQuestion === 0 || isSubmittingQuiz}
-        >
-          {t("nav.previous")}
-        </Button>
-
-        {isLastQuestion ? (
-          <Button
-            variant="contained"
-            onClick={handleSubmit}
-            disabled={isSubmittingQuiz || !answers[currentQuestionData.question_id.toString()]}
-            startIcon={isSubmittingQuiz ? <CircularProgress size={16} /> : undefined}
-          >
-            {t("nav.submit")}
-          </Button>
-        ) : (
-          <Button
-            variant="contained"
-            onClick={() => setCurrentQuestion((prev) => prev + 1)}
-            disabled={!answers[currentQuestionData.question_id.toString()]}
-          >
-            {t("nav.next")}
-          </Button>
-        )}
-      </div>
+      <NavigationButtons
+        isFirstQuestion={isFirstQuestion}
+        isLastQuestion={isLastQuestion}
+        isSubmitting={isSubmittingQuiz}
+        canProceed={canProceed}
+        onPrevious={handlePrevious}
+        onNext={handleNext}
+        onSubmit={handleSubmit}
+      />
     </div>
   )
 }
