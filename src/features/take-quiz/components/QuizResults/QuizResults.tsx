@@ -3,9 +3,8 @@
 import { EmojiEvents as TrophyIcon } from "@mui/icons-material"
 import { Button } from "@mui/material"
 import { useRouter } from "@navigation"
-import clsx from "clsx"
 import { useTranslations } from "next-intl"
-import styles from "./Styles.module.scss"
+import styles from "./QuizResults.module.scss"
 
 const SCORE_COLORS = {
   excellent: "var(--mui-palette-success-main)",
@@ -41,7 +40,7 @@ export function QuizResults({
   const scoreColor = SCORE_COLORS[scoreCategory]
 
   return (
-    <div className={clsx(styles.container, styles.results)}>
+    <div className={styles.results}>
       <TrophyIcon className={styles.trophyIcon} style={{ color: scoreColor }} />
       <h2>{t("results.title")}</h2>
       <div className={styles.score} style={{ color: scoreColor }}>

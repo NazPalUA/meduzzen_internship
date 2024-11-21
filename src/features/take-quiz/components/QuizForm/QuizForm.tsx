@@ -10,11 +10,10 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material"
-import clsx from "clsx"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
-import { QuizResults } from "./QuizResults"
-import styles from "./Styles.module.scss"
+import { QuizResults } from "../QuizResults/QuizResults"
+import styles from "./QuizForm.module.scss"
 
 export function QuizForm({ quiz }: { quiz: QuizDetails }) {
   const [submitQuiz, { isLoading: isSubmittingQuiz }] = useTakeQuizMutation()
@@ -57,7 +56,7 @@ export function QuizForm({ quiz }: { quiz: QuizDetails }) {
   const isLastQuestion = currentQuestion === quiz.questions_list.length - 1
 
   return (
-    <div className={clsx(styles.container, styles.form)}>
+    <div className={styles.form}>
       <div className={styles.header}>
         <h2>{quiz.quiz_title || quiz.quiz_name}</h2>
         <p>{quiz.quiz_description}</p>

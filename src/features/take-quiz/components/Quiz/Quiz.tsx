@@ -2,7 +2,7 @@
 
 import { useGetQuizByIdQuery } from "@entities/quiz"
 import { ErrorMessage, LoadingSpinner } from "@shared/components/ui"
-import { QuizForm } from "./QuizForm"
+import { QuizForm } from "../QuizForm/QuizForm"
 
 export function Quiz({ quizId }: { quizId: string }) {
   const { data, isLoading, isError } = useGetQuizByIdQuery(Number(quizId))
