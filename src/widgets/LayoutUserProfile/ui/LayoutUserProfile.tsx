@@ -19,10 +19,12 @@ export function LayoutUserProfile({
 }) {
   const { user_id, user_firstname, user_lastname, user_avatar, is_superuser } = user
 
+  const currentTime = new Date().getTime()
+
   return (
     <>
       <CardHeader
-        avatar={<Avatar src={user_avatar} alt={user_firstname} />}
+        avatar={<Avatar cacheKey={currentTime} src={user_avatar} alt={user_firstname} />}
         title={<h3>{`${user_firstname} ${user_lastname}`}</h3>}
         subheader={
           <>

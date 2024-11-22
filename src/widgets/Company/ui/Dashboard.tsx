@@ -31,10 +31,12 @@ export function Dashboard({
 
   const currentTab = searchParams.get("tab") || Tab.INFO
 
+  const currentTime = new Date().getTime()
+
   return (
     <>
       <CardHeader
-        avatar={<Avatar src={company_avatar} alt={company_name} size="lg" />}
+        avatar={<Avatar cacheKey={currentTime} src={company_avatar} alt={company_name} size="lg" />}
         title={<h3>{company_name}</h3>}
         subheader={<SubHeader title={company_title} isVisible={is_visible} />}
         action={
