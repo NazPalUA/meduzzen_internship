@@ -1,1 +1,1 @@
-export { Quiz } from "./components/Quiz"
+export { Quiz } from "./components/Quiz/Quiz"

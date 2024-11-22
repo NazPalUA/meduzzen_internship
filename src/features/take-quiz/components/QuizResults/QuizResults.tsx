@@ -8,17 +8,11 @@ import { SCORE_COLORS } from "../../constants"
 import { getScoreCategory } from "../../utils/getScoreCategory"
 import styles from "./QuizResults.module.scss"
 
-export function QuizResults({
-  result_score,
-  resetQuiz,
-}: {
-  result_score: number
-  resetQuiz: () => void
-}) {
+export function QuizResults({ score, resetQuiz }: { score: number; resetQuiz: () => void }) {
   const t = useTranslations("TakeQuiz")
   const router = useRouter()
 
-  const scoreCategory = getScoreCategory(result_score)
+  const scoreCategory = getScoreCategory(score)
   const scoreColor = SCORE_COLORS[scoreCategory]
 
   return (
@@ -26,7 +20,7 @@ export function QuizResults({
       <TrophyIcon className={styles.trophyIcon} style={{ color: scoreColor }} />
       <h2 className={styles.title}>{t("results.title")}</h2>
       <div className={styles.score} style={{ color: scoreColor }}>
-        {result_score}%
+        {score}%
       </div>
       <p className={styles.message}>{t(`results.${scoreCategory}`)}</p>
       <div className={styles.actions}>

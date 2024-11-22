@@ -62,7 +62,7 @@ export function QuizForm({ quiz }: { quiz: QuizDetails }) {
   }
 
   if (quizResult !== null) {
-    return <QuizResults result_score={quizResult} resetQuiz={resetQuiz} />
+    return <QuizResults score={quizResult} resetQuiz={resetQuiz} />
   }
 
   return (
@@ -70,7 +70,7 @@ export function QuizForm({ quiz }: { quiz: QuizDetails }) {
       <AboutQuiz quiz={quiz} />
 
       <ProgressBar
-        currentQuestion={currentQuestionIndex}
+        currentQuestionIndex={currentQuestionIndex}
         totalQuestions={quiz.questions_list.length}
       />
 
@@ -81,7 +81,7 @@ export function QuizForm({ quiz }: { quiz: QuizDetails }) {
       />
 
       <AnswerOptions
-        currentQuestion={currentQuestionData}
+        answers={currentQuestionData.question_answers}
         selectedAnswer={answers[currentQuestionData.question_id.toString()] || ""}
         handleAnswerChange={handleAnswerChange}
       />

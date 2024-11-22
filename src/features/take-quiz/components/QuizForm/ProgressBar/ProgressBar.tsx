@@ -1,17 +1,17 @@
 import styles from "./ProgressBar.module.scss"
 
 export function ProgressBar({
-  currentQuestion,
+  currentQuestionIndex,
   totalQuestions,
 }: {
-  currentQuestion: number
+  currentQuestionIndex: number
   totalQuestions: number
 }) {
   return (
     <div className={styles.container}>
       <div
         className={styles.progress}
-        style={{ width: `${((currentQuestion + 1) / totalQuestions) * 100}%` }}
+        style={{ width: `${((currentQuestionIndex + 1) / totalQuestions) * 100}%` }}
       />
     </div>
   )
