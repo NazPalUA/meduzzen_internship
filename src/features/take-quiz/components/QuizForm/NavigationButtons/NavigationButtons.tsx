@@ -6,7 +6,7 @@ type Props = {
   isFirstQuestion: boolean
   isLastQuestion: boolean
   isSubmitting: boolean
-  canProceed: boolean
+  isAnswerSelected: boolean
   onPrevious: () => void
   onNext: () => void
   onSubmit: () => Promise<void>
@@ -16,12 +16,14 @@ export function NavigationButtons({
   isFirstQuestion,
   isLastQuestion,
   isSubmitting,
-  canProceed,
+  isAnswerSelected,
   onPrevious,
   onNext,
   onSubmit,
 }: Props) {
   const t = useTranslations("TakeQuiz")
+
+  const disableProceed = !isAnswerSelected || isSubmitting
 
   return (
     <div className={styles.container}>
@@ -39,7 +41,7 @@ export function NavigationButtons({
           className={styles.button}
           variant="contained"
           onClick={onSubmit}
-          disabled={isSubmitting || !canProceed}
+          disabled={disableProceed}
           startIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}
         >
           {t("nav.submit")}
@@ -49,7 +51,7 @@ export function NavigationButtons({
           className={styles.button}
           variant="contained"
           onClick={onNext}
-          disabled={!canProceed}
+          disabled={disableProceed}
         >
           {t("nav.next")}
         </Button>

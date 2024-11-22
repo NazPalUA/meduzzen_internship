@@ -1,6 +1,7 @@
 "use client"
 
-import { QuizDetails, useTakeQuizMutation } from "@entities/quiz"
+import { useTakeQuizMutation } from "@entities/quiz/"
+import type { QuizDetails } from "@entities/quiz/model"
 import { useToaster } from "@shared/hooks"
 import { useState } from "react"
 import { QuizResults } from "../QuizResults/QuizResults"
@@ -22,7 +23,7 @@ export function QuizForm({ quiz }: { quiz: QuizDetails }) {
   const currentQuestionData = quiz.questions_list[currentQuestionIndex]
   const isFirstQuestion = currentQuestionIndex === 0
   const isLastQuestion = currentQuestionIndex === quiz.questions_list.length - 1
-  const canProceed = Boolean(answers[currentQuestionData.question_id.toString()])
+  const isAnswerSelected = Boolean(answers[currentQuestionData.question_id.toString()])
 
   const handleAnswerChange = (value: string) => {
     setAnswers((prev) => ({
@@ -38,7 +39,7 @@ export function QuizForm({ quiz }: { quiz: QuizDetails }) {
   }
 
   const handleNext = () => {
-    if (!isLastQuestion && canProceed) {
+    if (!isLastQuestion && isAnswerSelected) {
       setCurrentQuestionIndex((prev) => prev + 1)
     }
   }
@@ -90,7 +91,7 @@ export function QuizForm({ quiz }: { quiz: QuizDetails }) {
         isFirstQuestion={isFirstQuestion}
         isLastQuestion={isLastQuestion}
         isSubmitting={isSubmittingQuiz}
-        canProceed={canProceed}
+        isAnswerSelected={isAnswerSelected}
         onPrevious={handlePrevious}
         onNext={handleNext}
         onSubmit={handleSubmit}
