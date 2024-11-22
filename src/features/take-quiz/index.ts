@@ -1,1 +1,1 @@
-export { Quiz } from "./ui/Quiz"
+export { Quiz } from "./components/Quiz/Quiz"
