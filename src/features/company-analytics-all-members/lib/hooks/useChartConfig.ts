@@ -1,4 +1,4 @@
-import { useChartTypography } from "@/src/widgets/User/hooks/useChartTypography"
+import { useChartTypography } from "@shared/hooks"
 import { useTranslations } from "next-intl"
 import { useMemo } from "react"
 import { TimeRange } from "../types"

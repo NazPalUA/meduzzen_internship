@@ -1,4 +1,5 @@
 export * from "./model"
+export * from "./model/shared/question"
 export * from "./store/quizApiSlice"
 export { CreateQuizForm } from "./ui/CreateQuizForm"
 export { UpdateQuizInfo } from "./ui/UpdateQuizInfo"
